@@ -2,6 +2,7 @@
 from typing import Any
 import warnings
 from Config import Config
+import os
 
 class Debug:
     r"""
@@ -10,8 +11,8 @@ class Debug:
     Methods of this class are write a log file.
 
     Example:
-        >>>debug = Debug('log_title',debug_mode=False):
-        >>>debug.log('test') # <- Instead of print()
+        >>> debug = Debug('log_title',debug_mode=False):
+        >>> debug.log('test') # <- Instead of print()
     
     """
 
@@ -23,15 +24,18 @@ class Debug:
 
         self.log_title = f'{log_title} :'
         self.debug = debug_mode
-        self.log_file = f'{Config.log_dir}/{log_title}.txt'
+        _dir = f'{Config.current_directory}/{Config.log_dir}'
+        if os.path.isdir(_dir) is False:
+            os.makedirs(Config.log_dir)
+        self.log_file = f'{_dir}/{log_title}.txt'
 
 
     def log(self,*args:Any,debug_only:bool=False) -> None:
         """
         this method is used instead of print() and write to log file.
         Example:
-            >>>debug = Debug('log_title',debug_mode=False)
-            >>>debug.log('test') # <- Instead of print()
+            >>> debug = Debug('log_title',debug_mode=False)
+            >>> debug.log('test') # <- Instead of print()
         """
         if debug_only and self.debug is False:
             return None
