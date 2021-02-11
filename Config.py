@@ -6,6 +6,7 @@ import torch
 @dataclass
 class Config:
     version:float= 3.0
+    log_dir:str = 'log'
 
 
     memory_folder:str = 'memory'
