@@ -72,7 +72,7 @@ class Debug:
             warning_category = Warning
         
         self.log_write(text)
-        warnings.warn(text,warning_category)
+        warnings.warn(f'{self.log_title}{text}',warning_category)
 
 
 

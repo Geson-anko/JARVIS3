@@ -26,8 +26,6 @@ class Config:
     wake:int = 0
     ###
 
-
-
     current_directory:str = os.path.dirname(os.path.abspath(__file__))
     
 
@@ -38,3 +36,4 @@ class Config:
     float_types = set([float,np.float16,np.float32,np.float64,torch.float16,torch.float32,torch.float64,torch.bfloat16])
     bool_types = set([bool,np.bool,torch.bool])
     str_types = set([str,np.str,np.str_])
+

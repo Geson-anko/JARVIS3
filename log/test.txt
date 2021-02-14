@@ -1,6 +1,1 @@
 これはテストです
-これはテストです
-これはexceptionです
-これはexceptionです1
-これはwanrningです
-これはwanrningです
