@@ -19,13 +19,14 @@ class DeltaT(Module):
         ## Model layers
         self.dense1 = Linear(self.elem,512)
         self.norm1= LayerNorm(512)
-        self.dense2 = Linear(1024,256)
+        self.dense2 = Linear(512,256)
         self.norm2 = LayerNorm(256)
         self.dense3 = Linear(256,1)
     
     def forward(self,x1,x2):
-        x1,x2 = x1.unsqueeze(1),x2.unsqueeze(1)
-        x = torch.cat([x1,x2],dim=1)
+        #x1,x2 = x1.unsqueeze(1),x2.unsqueeze(1)
+        #x = torch.cat([x1,x2],dim=1)
+        x = x1 - x2
         x = torch.relu(self.norm1(self.dense1(x)))
         x = x.view(x.size(0),-1)
         x = torch.relu(self.norm2(self.dense2(x)))
