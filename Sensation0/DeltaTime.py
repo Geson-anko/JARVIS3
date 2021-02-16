@@ -26,7 +26,6 @@ class DeltaT(Module):
     def forward(self,x1,x2):
         x1,x2 = x1.unsqueeze(1),x2.unsqueeze(1)
         x = torch.cat([x1,x2],dim=1)
-        print(x.shape)
         x = torch.relu(self.norm1(self.dense1(x)))
         x = x.view(x.size(0),-1)
         x = torch.relu(self.norm2(self.dense2(x)))

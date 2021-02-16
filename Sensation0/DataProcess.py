@@ -68,8 +68,7 @@ class DataEncoding:
         encoded:shape (element,)
         ReadoutMemory:shape (length,element)
         """
-        encdata = encoded.unsqueeze(0).to(self.device).repeat(ReadOutMemory.size(0))
+        encdata = encoded.unsqueeze(0).to(self.device).repeat(ReadOutMemory.size(0),1)
         delta = self.deltaT(encdata,ReadOutMemory).view(-1)
         return delta
 
-        
