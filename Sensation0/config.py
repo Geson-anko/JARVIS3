@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+import os
 
 @dataclass
 class config:
@@ -7,4 +8,5 @@ class config:
     height:int = 360
     channels:int = 3
     frame_size:tuple = (width,height)
-    
+
+    current_directory:str = os.path.dirname(os.path.abspath(__file__))
