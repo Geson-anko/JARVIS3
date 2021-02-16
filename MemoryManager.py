@@ -6,7 +6,7 @@ import os
 import random
 import h5py
 import warnings
-from Config import Config
+from MasterConfig import Config
 from dataclasses import dataclass
 from concurrent.futures import ThreadPoolExecutor
 from multiprocessing.shared_memory import SharedMemory

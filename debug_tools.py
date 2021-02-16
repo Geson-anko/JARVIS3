@@ -1,7 +1,7 @@
 """writing utf-8"""
 from typing import Any
 import warnings
-from Config import Config
+from MasterConfig import Config
 import os
 
 class Debug:
