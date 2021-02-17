@@ -4,30 +4,34 @@ import sys
 from multiprocessing.shared_memory import SharedMemory
 import multiprocessing as mp
 import numpy as np
+from torch._C import dtype
 sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
 from debug_tools import Debug
 from MemoryManager import MemoryManager
 from MasterConfig import Config as mconf
-from .config import config
+from .configure import config
 from .DataProcess import DataEncoding
 import torch
 import cv2
 from typing import Union,Tuple,Any
 from os.path import isfile
 import h5py
+import math
+from .AutoEncoder import Encoder
 
 class Sensation(MemoryManager):
     memory_format:str = '0'
     log_title:str = f'sensation{memory_format}'
     ReadOutLength:int = config.ReadoutLength
     MemoryListLength:int = config.MemListLength
-    MemorySize:int = config.a_memory_size
+    MemorySize:int = int(math.prod(Encoder().output_size))
+    dtype:str = config.dtype
 
     def __init__(self,device:Union[str,torch.device],debug_mode:bool=False) -> None:
         super().__init__(self.log_title,debug_mode)
-        self.device = device
+        self.device = torch.device(device)
         self.debug = Debug(self.log_title,debug_mode)
-        
+            
     def activation(
         self,cmd:mp.Value,switch:mp.Value,clock:mp.Value,sleep:mp.Value,
         ReadOutId:Tuple[np.ndarray,SharedMemory],
@@ -47,11 +51,11 @@ class Sensation(MemoryManager):
         """
 
         ## call functions
-        encoding = DataEncoding(self.log_title,self.device)
+        encoding = DataEncoding(self.log_title,self.device,dtype=config.torchdtype)
         self.debug.log('called DataEncoding')
 
         ## capture settings
-        capture = cv2.VideoCapture(config.default_video_capture)
+        capture = cv2.VideoCapture(config.default_video_capture,cv2.CAP_DSHOW)
         if not capture.isOpened():
             self.debug.exception('cannot open video capture! Please check default_video_capture.')
         
@@ -60,7 +64,7 @@ class Sensation(MemoryManager):
         capture.set(cv2.CAP_PROP_FPS,config.frame_rate)
 
         width = int(capture.get(cv2.CAP_PROP_FRAME_WIDTH))
-        height = int(capture.get(cv2.CAP_PROP_FRAME_HEIGHT,config.height))
+        height = int(capture.get(cv2.CAP_PROP_FRAME_HEIGHT))
 
         self.debug.log('setted video capture')
 
@@ -72,10 +76,11 @@ class Sensation(MemoryManager):
         ## load previous values
         if isfile(config.newestId_file):
             newest_id.value = self.load_python_obj(config.newestId_file)
+            self.debug.log('loaded newest ID')
         else:
-            newest_id.value = self.get_firstId(self.memory_format,return_integer=True) -1
-        self.debug.log('loaded newest ID')
-
+            newest_id.value = self.get_firstId(self.memory_format,return_integer=True)#-1
+            ReadOutId[0] = newest_id.value
+        
         if isfile(config.memlist_file):
             ml = self.load_python_obj(config.memlist_file)
             ml = ml[:self.MemoryListLength]
@@ -100,7 +105,7 @@ class Sensation(MemoryManager):
                 ReadOutId[:current_length] = ml
             self.debug.log(f'loaded ReadOutMemory and ReadOutId. current length is {current_length}')
         else:
-            current_length = 0
+            current_length = 1#0
         saved_length = current_length
 
         ReadOutTime = np.full((self.ReadOutLength,),-1,dtype='float64')
@@ -127,8 +132,10 @@ class Sensation(MemoryManager):
             ret,img = capture.read()
             if not ret:
                 self.debug.exception('can not read image from capture!')
-            
+            cv2.imshow(self.log_title,img)
+
             data = encoding.encode(img)
+            #self.debug.log(data.shape,ReadOutMemory_torch.shape)
             distances = encoding.calc_distance(data,ReadOutMemory_torch[:current_length])
             mins = torch.min(distances)
             if mins > 0.00001:
@@ -144,17 +151,18 @@ class Sensation(MemoryManager):
 
             if cmd.value == mconf.force_sleep or (not current_length < self.ReadOutLength):
                 self.save_memory(
-                    ReadOutId[saved_length:current_length],
-                    ReadOutMemory[saved_length:current_length],
-                    ReadOutTime[saved_length:current_length],
+                    ReadOutId[saved_length:current_length].copy(),
+                    ReadOutMemory[saved_length:current_length].copy(),
+                    ReadOutTime[saved_length:current_length].copy(),
                 )
                 get_idx = np.random.permutation(current_length)[:config.KeepLength]
+                get_idx = np.sort(get_idx)
+                current_length = get_idx.shape[0]
                 for mems in [ReadOutId,ReadOutMemory,ReadOutTime,ReadOutMemory_torch]:
-                    mems[:config.KeepLength] = mems[get_idx]
-                    mems[config.KeepLength:] = -1
+                    mems[:current_length] = mems[get_idx]
+                    mems[current_length:] = -1
                 self.debug.log('saved memories')
-                saved_length = config.KeepLength
-                current_length = saved_length
+                saved_length = current_length
             
             time.sleep(config.wait_time * sleep.value)
             cv2.waitKey(1)
@@ -162,10 +170,12 @@ class Sensation(MemoryManager):
 
         ### shutdown process
         self.debug.log('started shutdown process')
+        capture.release()
+        cv2.destroyAllWindows()
         self.save_memory(
-                ReadOutId[saved_length:current_length],
-                ReadOutMemory[saved_length:current_length],
-                ReadOutTime[saved_length:current_length],
+                ReadOutId[saved_length:current_length].copy(),
+                ReadOutMemory[saved_length:current_length].copy(),
+                ReadOutTime[saved_length:current_length].copy(),
         )            
 
         self.save_python_obj(config.memlist_file,memory_list)

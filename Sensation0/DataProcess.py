@@ -4,7 +4,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
 from debug_tools import Debug
 from .AutoEncoder import Encoder
 from .DeltaTime import DeltaT
-from .config import config
+from .configure import config
 import torch
 import numpy as np
 from os.path import isfile

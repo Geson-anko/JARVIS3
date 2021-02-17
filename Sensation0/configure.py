@@ -2,7 +2,8 @@ from dataclasses import dataclass
 import os
 from os.path import join as pathjoin
 import math
-from .AutoEncoder import Encoder
+import torch
+import numpy as np
 
 @dataclass
 class config:
@@ -11,7 +12,9 @@ class config:
     height:int = 360
     channels:int = 3
     frame_size:tuple = (width,height)
-    a_memory_size:int = int(math.prod(Encoder().output_size))
+
+    dtype:np.dtype = np.float32
+    torchdtype:torch.dtype = torch.float32
 
     current_directory:str = os.path.dirname(os.path.abspath(__file__))
 

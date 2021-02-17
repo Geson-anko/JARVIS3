@@ -1,4 +1,4 @@
-from .config import config
+from .configure import config
 import torch
 from torch.nn import (
     Conv2d,BatchNorm2d,MaxPool2d,#AvgPool2d,
