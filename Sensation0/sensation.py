@@ -125,6 +125,8 @@ class Sensation(MemoryManager):
 
             clock_start = time.time()
             while not switch.value:
+                if cmd.value == mconf.shutdown:
+                    break
                 clock.value = 0.0
                 time.sleep(mconf.wait_time)
             
@@ -148,23 +150,34 @@ class Sensation(MemoryManager):
             il = id_args.shape[0]
             memory_list[:il] = ReadOutId[id_args]
 
-            if cmd.value == mconf.force_sleep or (not current_length < self.ReadOutLength):
-                if cmd.value == mconf.force_sleep:
-                    time.sleep(mconf.sleep_wait)
+            if cmd.value == mconf.force_sleep or (not current_length < self.ReadOutLength) or (not switch.value):
 
                 self.save_memory(
                     ReadOutId[saved_length:current_length].copy(),
                     ReadOutMemory[saved_length:current_length].copy(),
                     ReadOutTime[saved_length:current_length].copy(),
                 )
+                self.debug.log('saved memories')
+
                 get_idx = np.random.permutation(current_length)[:config.KeepLength]
                 get_idx = np.sort(get_idx)
                 current_length = get_idx.shape[0]
                 for mems in [ReadOutId,ReadOutMemory,ReadOutTime,ReadOutMemory_torch]:
                     mems[:current_length] = mems[get_idx]
                     mems[current_length:] = -1
-                self.debug.log('saved memories')
                 saved_length = current_length
+
+                ## This place is python objects which you want to save to file.
+                self.save_python_obj(config.memlist_file,memory_list)
+                self.save_python_obj(config.ReadoutTime_file,ReadOutTime[:current_length])
+                self.save_python_obj(config.ReadoutId_file,ReadOutId[:current_length])
+                self.save_python_obj(config.ReadoutMem_file,ReadOutMemory[:current_length])
+                self.save_python_obj(config.newestId_file,newest_id.value)
+                self.debug.log('saved Read Out Id,Memory,Time,memlist,newest_id')
+                
+                ## ------------------------------------------------------------
+                if cmd.value == mconf.force_sleep:
+                    time.sleep(mconf.sleep_wait)
             
             time.sleep(config.wait_time * sleep.value)
             cv2.waitKey(1)
