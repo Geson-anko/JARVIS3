@@ -1,16 +1,14 @@
 import numpy as np
 from numpy import ndarray
-import torch
 from torch import Tensor
-import os
-import random
 import h5py
-import warnings
+import pickle
 from MasterConfig import Config
+from debug_tools import Debug
 from dataclasses import dataclass
 from concurrent.futures import ThreadPoolExecutor
 from multiprocessing.shared_memory import SharedMemory
-from typing import Optional,List,Tuple,Any
+from typing import Optional,List,Tuple,Any, Union
 import gc
 
 @dataclass
@@ -44,7 +42,7 @@ class MemoryManager:
         Please be carefull Not to use torch.Tensor.
 
     get_firstId:
-        You can use for sensation processes.
+        You can use for sensation processes when first run.
 
     create_shared_memory:
         create multiprocessing shared memory object. 
@@ -64,7 +62,13 @@ class MemoryManager:
         ** Warning !! **
         ReadOutId must be sorted because this method uses Binary Search Algorhythm. Otherwise ...
         
-        
+    save_python_obj:
+        saving python objects to pickle file.
+    
+    load_python_obj:
+        loading python objects from pickle file.
+
+
     """
     char:str = Config.IDchars
     base:int = Config.decimal_base
@@ -76,11 +80,11 @@ class MemoryManager:
 
     
 
-    def __init__(self,log_title:str=''):
+    def __init__(self,log_title:str='',debug_mode:bool=False) -> None:
         """
         log_title is used Exceptions and UserWarnings.
         """
-        self.log_title = log_title
+        self.debug = Debug(log_title,debug_mode)
         self.public_shared_memory = []
 
     def Num2Id(self,num:int) -> str:
@@ -92,10 +96,10 @@ class MemoryManager:
         
         _t = type(num)
         if _t is not ndarray and _t is not int:
-            raise Exception(f'{self.log_title} your input is {_t}! Please int {ndarray} or {int}')
+            self.debug.exception(f'your input is {_t}! Please int {ndarray} or {int}')
 
         if num < 0:
-            raise Exception(f'{self.log_title} your input is {num} < 0 ! Please unsigned integer !')
+            self.debug.exception(f'your input is {num} < 0 ! Please unsigned integer !')
         string = ''
         while True:
 
@@ -117,7 +121,7 @@ class MemoryManager:
 
         _t = type(string)
         if _t is not str:
-            raise Exception('your input is {_t} !. Please str')
+            self.debug.exception('your input is {_t} !. Please str')
         
         if len(string) == 1:
             return self.char.index(string)
@@ -130,7 +134,7 @@ class MemoryManager:
     def save_memory(
         self,ID:List[str] or str or int or List[int] or ndarray,
         memory_data:ndarray or Tensor,
-        memory_time:List[float] or float or ndarray) -> Any:
+        memory_time:List[float] or float or ndarray) -> None:
         """
         ID_list [required]: list. Ex -> [id,...] or id 
         memory_data [required]: numpy ndarray or torch tensor
@@ -155,13 +159,13 @@ class MemoryManager:
         # saving a memory
         if _idt is int or _idt is str:
             if _mtt is list:
-                raise Exception(f'{self.log_title} You try to save a memory with list of time. Please give a memory and a time.')
+                self.debug.exception(f'You try to save a memory with list of time. Please give a memory and a time.')
             if _idt is int:
                 ID = self.Num2Id(ID)
             name = Config.memory_file_form.format(ID[0])
             with h5py.File(name,'a',swmr=True) as f:
                 if ID in f:
-                    warnings.warn(f'{self.log_title}{ID} is existing!')
+                    self.debug.warn(f'{ID} is existing!')
                 else:
                     ddir = self.data_dir.format(ID)
                     tdir = self.time_dir.format(ID)
@@ -172,7 +176,7 @@ class MemoryManager:
         # saving memories process.
         il,dl,tl = len(ID),len(memory_data),len(memory_time)
         if il != dl or tl != il:
-            raise Exception(f'{self.log_title} save file error! Not match length. ID:{il},data:{dl},time:{tl}')
+            self.debug.exception(f'save file error! Not match length. ID:{il},data:{dl},time:{tl}')
 
         if il == 0:
             return None
@@ -186,7 +190,7 @@ class MemoryManager:
             allid = f.keys() 
             for (i,d,t) in zip(ID,memory_data,memory_time):
                 if i in allid:
-                    warnings.warn(f'{self.log_title}{i} is existing!')
+                    self.debug.warn(f'{i} is existing!')
                 else:
                     ddir = self.data_dir.format(i)
                     tdir = self.time_dir.format(i)
@@ -243,7 +247,7 @@ class MemoryManager:
         
     def load_memory(
         self,ID:List[str] or str or int or List[int] or ndarray,
-        return_time:bool = False) -> Tuple[List[str],ndarray,ndarray]:
+        return_time:bool = False,return_id_int:bool=False) -> Tuple[List[str or int],ndarray,ndarray]:
         """
         this program is load memories.
         ID : [str,...], [int,...], str, int or the ndarray of these are included in elements.
@@ -265,7 +269,7 @@ class MemoryManager:
             return self._load_a_memory(ID)
         
         if _idt is not list:
-            raise Exception(f'{self.log_title} you entered {_idt}, Please enter list,ndarray,int,str')
+            self.debug.exception(f'you entered {_idt}, Please enter list,ndarray,int,str')
         
         if len(ID) == 0:
             return [],np.array([]),np.array([])
@@ -296,6 +300,8 @@ class MemoryManager:
             if return_time:
                 time = np.array(time) 
 
+        if return_id_int:
+            exist_id = [self.Id2Num(i) for i in exist_id]
         if return_time:
             return exist_id,data,time
         else:
@@ -312,7 +318,7 @@ class MemoryManager:
         
         _idt = type(ID)
         if _idt is not list and _idt is not ndarray:
-            raise Exception(f'{self.log_title}your input type is {_idt}, please list or ndarray')
+            self.debug.exception(f'your input type is {_idt}, please list or ndarray')
         if _idt is ndarray:
             ID = ID.tolist()
 
@@ -324,31 +330,31 @@ class MemoryManager:
         
         _ift  = type(id_format)
         if _ift is not str and _ift is not int:
-            raise Exception(f'{self.log_title}please int or str for id_format. your input is {_ift}.')
+            self.debug.exception(f'please int or str for id_format. your input is {_ift}.')
 
         if _ift is int:
             if id_format > self.base:
-                raise Exception(f'{self.log_title} over format number. your format id number is {id_format}')
+                self.debug.exception(f' over format number. your format id number is {id_format}')
             else:
                 id_format = self.char[id_format]
         
         extracted = [i for i in ID if i[0] == id_format]
         return extracted
 
-    def get_firstId(self,id_format:str or int,return_integer=False) -> str:
+    def get_firstId(self,id_format:str or int,return_integer=True) -> Union[int,str]:
         """
         return int when return_integer is True.
         Please use sesation process.
         """
         _ift  = type(id_format)
         if _ift is not str and _ift is not int:
-            raise Exception(f'{self.log_title}please int or str for id_format. your input is {_ift}.')
+            self.debug.exception(f'please int or str for id_format. your input is {_ift}.')
         
 
 
         if _ift is int:
             if id_format > self.base:
-                raise Exception(f'{self.log_title} over format number. your format id number is {id_format}')
+                self.debug.exception(f' over format number. your format id number is {id_format}')
             else:
                 id_format = self.char[id_format]
         
@@ -360,7 +366,7 @@ class MemoryManager:
     def create_shared_memory(
         self,shape:Tuple[int,...],
         dtype:str or np.dtype,
-        initialize:Optional=None) -> Tuple[ndarray,SharedMemory]:
+        initialize:Any=None) -> Tuple[ndarray,SharedMemory]:
         """
         shape [required]: tuple of int. Ex.) (10,5)
         dtype [required]: str or numpy.dtype
@@ -406,17 +412,35 @@ class MemoryManager:
         """
         _it = type(Id_num)
         if _it is not list and _it is not ndarray:
-            raise Exception(f'{self.log_title}your input type is {_it}, please list or ndarray')
+            self.debug.exception(f'your input type is {_it}, please list or ndarray')
 
         if _it is list:
             Id_num = np.array(Id_num)
         
         if type(ReadOutId) is not ndarray:
-            raise Exception(f'{self.log_title}your input ReadOutId is {type(ReadOutId)},please ndarray')
+            self.debug.exception(f'your input ReadOutId is {type(ReadOutId)},please ndarray')
         
         outidx = np.searchsorted(ReadOutId,Id_num)
         outbools = ReadOutId[outidx] == Id_num
         return outidx,outbools
+
+    def save_python_obj(self,file_name:str,obj:Any) -> None:
+        """
+        saving python object to pickle file
+        """
+        with open(file_name,'wb') as f:
+            pickle.dump(obj,f)
+
+    
+    def load_python_obj(self,file_name:str) -> Any:
+        """
+        loading python object from pickle file
+        """
+        with open(file_name,'rb') as f:
+            obj = pickle.load(f)
+        return obj
+        
+
 
     def __call__(self,*args,**kwargs):
         return self.activation(*args,**kwargs)

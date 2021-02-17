@@ -24,7 +24,9 @@ class Config:
     shutdown:int = 999
     force_sleep:int = 123
     wake:int = 0
-    ###
+    ### switch
+    wait_time = 0.1
+    
 
     current_directory:str = os.path.dirname(os.path.abspath(__file__))
     

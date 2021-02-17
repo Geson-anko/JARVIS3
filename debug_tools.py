@@ -3,6 +3,7 @@ from typing import Any
 import warnings
 from MasterConfig import Config
 import os
+from datetime import datetime
 
 class Debug:
     r"""
@@ -40,7 +41,7 @@ class Debug:
         if debug_only and self.debug is False:
             return None
         print(self.log_title,*args)
-        self.log_write(*args)
+        self.log_write(self.now(),*args)
 
     def exception(self,*args:Any,debug_only:bool=False) -> None:
         """
@@ -53,7 +54,7 @@ class Debug:
         if debug_only and self.debug is False:
             return None
 
-        self.log_write(*args)
+        self.log_write(self.now(),*args)
         raise Exception(self.log_title,*args)
 
     def warn(self,text:str,warning_category:Warning=None,debug_only:bool=False) -> None:
@@ -71,16 +72,17 @@ class Debug:
         if warning_category is None:
             warning_category = Warning
         
-        self.log_write(text)
+        self.log_write(self.now(),text)
         warnings.warn(f'{self.log_title}{text}',warning_category)
 
-
-
-
+    @staticmethod
+    def now() -> str:
+        return datetime.now().strftime('[%Y-%m-%d %H:%M:%S]')
+    
     def log_write(self,*args):
         with open(self.log_file,'a',encoding='utf-8') as f:
-            for i in args:
-                f.write(f'{str(i)}\n')
+            message = ' '.join([str(i) for i in args])
+            f.write(f'{message}\n')
         
 
 
