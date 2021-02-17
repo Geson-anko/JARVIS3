@@ -4,7 +4,6 @@ import sys
 from multiprocessing.shared_memory import SharedMemory
 import multiprocessing as mp
 import numpy as np
-from torch._C import dtype
 sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
 from debug_tools import Debug
 from MemoryManager import MemoryManager
@@ -150,6 +149,9 @@ class Sensation(MemoryManager):
             memory_list[:il] = ReadOutId[id_args]
 
             if cmd.value == mconf.force_sleep or (not current_length < self.ReadOutLength):
+                if cmd.value == mconf.force_sleep:
+                    time.sleep(mconf.sleep_wait)
+
                 self.save_memory(
                     ReadOutId[saved_length:current_length].copy(),
                     ReadOutMemory[saved_length:current_length].copy(),

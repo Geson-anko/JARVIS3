@@ -26,6 +26,7 @@ class Config:
     wake:int = 0
     ### switch
     wait_time = 0.1
+    sleep_wait = 60
     
 
     current_directory:str = os.path.dirname(os.path.abspath(__file__))
