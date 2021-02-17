@@ -73,7 +73,7 @@ class Sensation(MemoryManager):
         if isfile(config.newestId_file):
             newest_id.value = self.load_python_obj(config.newestId_file)
         else:
-            newest_id.value = -1 #self.get_firstId(self.memory_format,return_integer=True)
+            newest_id.value = self.get_firstId(self.memory_format,return_integer=True) -1
         self.debug.log('loaded newest ID')
 
         if isfile(config.memlist_file):
@@ -176,4 +176,4 @@ class Sensation(MemoryManager):
         self.debug.log('saved Read Out Id,Memory,Time,memlist,newest_id')
 
         self.debug.log('process shutdowned')
-        
+
