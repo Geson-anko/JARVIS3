@@ -28,8 +28,8 @@ if __name__ == '__main__':
     p.start()
     print('process submit')
     time.sleep(10)
-    cmd.value = mconf.force_sleep
-    time.sleep(5)
+    #cmd.value = mconf.force_sleep
+    time.sleep(30)
     cmd.value = mconf.shutdown
     p.join()
     #executer.shutdown(True)

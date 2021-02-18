@@ -36,3 +36,4 @@ class config:
     KeepLength:int = int(math.floor(ReadoutLength * 0.7))
     MemListLength:int = 100
     wait_time:float = 0.3
+    saving_rate:int = 128

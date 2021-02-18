@@ -3,6 +3,7 @@ from numpy import ndarray
 from torch import Tensor
 import h5py
 import pickle
+from os.path import join as pathjoin
 from MasterConfig import Config
 from debug_tools import Debug
 from dataclasses import dataclass
@@ -162,7 +163,8 @@ class MemoryManager:
                 self.debug.exception(f'You try to save a memory with list of time. Please give a memory and a time.')
             if _idt is int:
                 ID = self.Num2Id(ID)
-            name = Config.memory_file_form.format(ID[0])
+            #name = Config.memory_file_form.format(ID[0])
+            name = pathjoin(Config.current_directory,Config.memory_file_form.format(ID[0]))
             with h5py.File(name,'a',swmr=True) as f:
                 if ID in f:
                     self.debug.warn(f'{ID} is existing!')
@@ -185,7 +187,9 @@ class MemoryManager:
         
         if elem_type is int:
             ID = [self.Num2Id(i) for i in ID]
-        name =   Config.memory_file_form.format(ID[0][0])
+        #name =   Config.memory_file_form.format(ID[0][0])
+        name = pathjoin(Config.current_directory,Config.memory_file_form.format(ID[0][0]))
+
         with h5py.File(name,'a',swmr=True) as f:
             allid = f.keys() 
             for (i,d,t) in zip(ID,memory_data,memory_time):
@@ -230,7 +234,9 @@ class MemoryManager:
             self.return_time is False -> Tuple[str,ndarray]
             self.return_time is True  -> Tuple[str,ndarray,time]
         """
-        name = Config.memory_file_form.format(ID[0])
+        #name = Config.memory_file_form.format(ID[0])
+        name = pathjoin(Config.current_directory,Config.memory_file_form.format(ID[0]))
+
         try:
             with h5py.File(name,'r',swmr=True) as f:
                 ddir = self.data_dir.format(ID)
@@ -439,7 +445,6 @@ class MemoryManager:
         with open(file_name,'rb') as f:
             obj = pickle.load(f)
         return obj
-        
 
 
     def __call__(self,*args,**kwargs):

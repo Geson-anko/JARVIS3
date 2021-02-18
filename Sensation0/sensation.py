@@ -1,3 +1,4 @@
+from datetime import datetime
 import time
 import os
 import sys
@@ -117,7 +118,9 @@ class Sensation(MemoryManager):
         ReadOutMemory_torch = torch.from_numpy(ReadOutMemory.copy()).to(self.device)
         
         ## Training data saver
-        #video_writer = h5py.File()
+        video_array = np.zeros((config.saving_rate,config.height,config.width,config.channels),dtype='uint8')
+        saved_video_len = 0
+
 
 
         self.debug.log('process start!')
@@ -145,11 +148,21 @@ class Sensation(MemoryManager):
                 newest_id.value += 1
                 ReadOutId[current_length] = newest_id.value
                 current_length += 1
+                ### your process ------
+                video_array[saved_video_len] = img
+                saved_video_len += 1
+                ### -------------------
 
             id_args = torch.argsort(distances)[:self.MemoryListLength].to('cpu').numpy()
             il = id_args.shape[0]
             memory_list[:il] = ReadOutId[id_args]
 
+            if (not config.saving_rate > saved_video_len):
+                with h5py.File(config.video_data,'a') as f:
+                    now_time = datetime.now(mconf.TimeZone).strftime('%d-%m-%y_%H-%M-%S')
+                    f.create_dataset(name=now_time,data=video_array)
+                    saved_video_len = 0
+            
             if cmd.value == mconf.force_sleep or (not current_length < self.ReadOutLength) or (not switch.value):
 
                 self.save_memory(
@@ -182,6 +195,7 @@ class Sensation(MemoryManager):
             time.sleep(config.wait_time * sleep.value)
             cv2.waitKey(1)
             clock.value = time.time() - clock_start
+        # -------- end while ---------------
 
         ### shutdown process
         self.debug.log('started shutdown process')

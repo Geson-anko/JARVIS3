@@ -2,6 +2,7 @@ from dataclasses import dataclass
 import os
 import numpy as np
 import torch
+from datetime import timezone,timedelta
 
 @dataclass
 class Config:
@@ -25,8 +26,11 @@ class Config:
     force_sleep:int = 123
     wake:int = 0
     ### switch
-    wait_time = 0.1
-    sleep_wait = 60
+    wait_time:float = 0.1
+    ### wait when sleep
+    sleep_wait:float = 5
+    ### timezone
+    TimeZone:timezone = timezone(timedelta(hours=+9),name='JST')
     
 
     current_directory:str = os.path.dirname(os.path.abspath(__file__))
