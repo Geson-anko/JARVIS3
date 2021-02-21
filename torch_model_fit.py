@@ -516,8 +516,8 @@ if __name__ == '__main__':
             x1 = self.layer(x1)
             x2 = self.layer(x2)
             return x1,x2
-    train_x = torch.randn(64,100)
-    train_y = torch.randn(64,10)
+    train_x = torch.randn(0,100)
+    train_y = torch.randn(0,10)
     
     model = test()
     epochs = 5

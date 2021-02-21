@@ -24,3 +24,9 @@
 [2021-02-21 17:06:25] finished
 [2021-02-21 17:06:25] Trained DeltaTime
 [2021-02-21 17:06:25] Train process was finished
+[2021-02-21 17:25:41] <class 'Warning'> To train AutoEncoder data does not exist
+[2021-02-21 17:26:18] torch.Size([64, 3, 640, 360])
+[2021-02-21 17:26:18] Training process was stoped
+[2021-02-21 17:26:18] finished
+[2021-02-21 17:26:18] trained AutoEncoder
+[2021-02-21 17:26:18] <class 'Warning'> To train DeltaTime data does not exist!

@@ -1,0 +1,7 @@
+[2021-02-21 17:17:35] <class 'Warning'> Ignore validation_split because you entered validation data
+[2021-02-21 17:17:35] end of epoch 1: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00100 
+[2021-02-21 17:17:35] end of epoch 2: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00080 
+[2021-02-21 17:17:35] end of epoch 3: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00064 
+[2021-02-21 17:17:35] end of epoch 4: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00051 
+[2021-02-21 17:17:35] end of epoch 5: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00041 
+[2021-02-21 17:17:35] finished

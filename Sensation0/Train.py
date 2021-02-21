@@ -1,3 +1,4 @@
+from os.path import isfile
 from debug_tools import Debug
 import os
 import sys
@@ -32,6 +33,10 @@ class Train(MemoryManager):
 
         # load and preprocess data for Training AutoEncoder
         names = os.listdir(config.data_folder)
+        if len(names) ==0:
+            self.debug.warn('To train AutoEncoder data does not exist')
+            return
+        
         times = np.sort([float(i) for i in names])
         names = [str(i) for i in times]
         uses = names[:config.train_video_use]
@@ -75,6 +80,10 @@ class Train(MemoryManager):
 
         ## training delta time model
         # loading and preproessing dataset
+        if not isfile(config.newestId_file):
+            self.debug.warn('To train DeltaTime data does not exist!')
+            return None
+    
         newest_id = self.load_python_obj(config.newestId_file)
         first_id = self.get_firstId(self.memory_format)
         ids = np.arange(first_id,newest_id)[:config.time_use]
