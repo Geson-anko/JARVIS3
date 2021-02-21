@@ -1,3 +1,4 @@
+import os
 import numpy as np
 from numpy import ndarray
 from torch import Tensor
@@ -445,6 +446,13 @@ class MemoryManager:
         with open(file_name,'rb') as f:
             obj = pickle.load(f)
         return obj
+    
+    def remove_file(self,file_name:str) -> None:
+        """
+        delete file
+        """
+        if os.path.exists(file_name):
+            os.remove(file_name)
 
 
     def __call__(self,*args,**kwargs):
