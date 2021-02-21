@@ -14,7 +14,7 @@ from .DataProcess import DataEncoding
 import torch
 import cv2
 from typing import Union,Tuple,Any
-from os.path import isfile
+from os.path import isfile,isdir
 import h5py
 import math
 from .AutoEncoder import Encoder
@@ -31,6 +31,8 @@ class Sensation(MemoryManager):
         super().__init__(self.log_title,debug_mode)
         self.device = torch.device(device)
         self.debug = Debug(self.log_title,debug_mode)
+        if not isdir(config.temp_folder):
+            self.debug.log('made',config.temp_folder)
             
     def activation(
         self,cmd:mp.Value,switch:mp.Value,clock:mp.Value,sleep:mp.Value,

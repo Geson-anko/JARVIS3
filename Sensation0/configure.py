@@ -18,17 +18,20 @@ class config:
 
     current_directory:str = os.path.dirname(os.path.abspath(__file__))
 
-    encoder_params:str = pathjoin(current_directory,'params/encoder.params')
-    deltatime_params:str = pathjoin(current_directory,'params/deltatime.params')
-    decoder_params:str = pathjoin(current_directory,'params/decoder.params')
+    param_folder:str = pathjoin(current_directory,'params')
+    encoder_params:str = pathjoin(param_folder,'encoder.params')
+    deltatime_params:str = pathjoin(param_folder,'deltatime.params')
+    decoder_params:str = pathjoin(param_folder,'decoder.params')
     
-    newestId_file:str = pathjoin(current_directory,'temp/newestId.pkl')
-    memlist_file:str = pathjoin(current_directory,'temp/memory_list.pkl')
-    ReadoutMem_file:str = pathjoin(current_directory,'temp/ReadoutMem.pkl')
-    ReadoutId_file:str = pathjoin(current_directory,'temp/ReadoutId.pkl')
-    ReadoutTime_file:str = pathjoin(current_directory,'temp/ReadoutTime.pkl')
+    temp_folder:str = pathjoin(current_directory,'temp')
+    newestId_file:str = pathjoin(temp_folder,'newestId.pkl')
+    memlist_file:str = pathjoin(temp_folder,'memory_list.pkl')
+    ReadoutMem_file:str = pathjoin(temp_folder,'ReadoutMem.pkl')
+    ReadoutId_file:str = pathjoin(temp_folder,'ReadoutId.pkl')
+    ReadoutTime_file:str = pathjoin(temp_folder,'ReadoutTime.pkl')
 
-    video_data:str = pathjoin(current_directory,'data/video.h5')
+    data_folder:str = pathjoin(current_directory,'data')
+    video_data:str = pathjoin(data_folder,'video.h5')
 
     default_video_capture:int = 0
 
