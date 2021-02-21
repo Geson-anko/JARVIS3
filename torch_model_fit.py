@@ -333,7 +333,7 @@ class Fit:
             tani = elapsed * (epochs - epoch -1)
             print(f'\ntime remaining {int(tani//3600)} : {int((tani%3600)//60)} : {str(tani%60)[:5]}\n')  
             print('='*printlen)
-        print('finished')
+        self.debug.log('finished')
         
         returns = (losses,)
         if _eva:
