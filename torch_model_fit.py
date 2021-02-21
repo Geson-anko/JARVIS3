@@ -35,7 +35,7 @@ class Fit:
         metrics:Union[function,Tuple[Any,...]] = None,
         x_preprocesser:Union[function,Tuple[function,...]] = None,
         y_preprocesser:Union[function,Tuple[function,...]] = None,
-        ) -> Tuple[Any]:
+        ) -> Tuple[Tensor,...]:
         """
         Args:
             cmd [required]: multiprocessing Value object
@@ -190,6 +190,7 @@ class Fit:
         for epoch in range(epochs):
             # command checking
             if cmd.value != Config.force_sleep:
+                self.debug.log('Training process was stoped')
                 break
             # sets
             message = f'end of epoch {epoch + 1}: '
