@@ -1,5 +1,6 @@
 import os
 import numpy as np
+import torch
 from numpy import ndarray
 from torch import Tensor
 import h5py
@@ -454,6 +455,10 @@ class MemoryManager:
         if os.path.exists(file_name):
             os.remove(file_name)
 
+    def system_memory_clear(self):
+        gc.collect()
+        torch.cuda.empty_cache()
+        
 
     def __call__(self,*args,**kwargs):
         return self.activation(*args,**kwargs)
