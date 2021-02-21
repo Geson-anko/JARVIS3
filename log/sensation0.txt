@@ -1,0 +1,6 @@
+[2021-02-21 09:41:15] called DataEncoding
+[2021-02-21 09:41:19] setted video capture
+[2021-02-21 09:41:19] process start!
+[2021-02-21 09:41:25] started shutdown process
+[2021-02-21 09:41:25] saved Read Out Id,Memory,Time,memlist,newest_id
+[2021-02-21 09:41:25] process shutdowned
