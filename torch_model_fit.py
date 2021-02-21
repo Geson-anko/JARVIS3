@@ -385,6 +385,17 @@ class Fit:
         outputs = torch.cat(outputs)
         return outputs
 
+    @classmethod
+    def CE_Accuracy(cls,output:torch.Tensor,answer:torch.Tensor) -> torch.Tensor:
+        """
+        Cross Entropy Accuracy. You can use when you selected 'CrossEntrpyLoss'.
+        output: (batch,elem)
+        answer: (batch,)
+        """
+        length = torch.prod(answer.shape)
+        out = torch.argmax(output,dim=-1)
+        error = torch.div(torch.sum(out==answer),length)
+        return error
 
     @classmethod 
     def Accuracy(cls,output:Tensor,answer:Tensor) -> Tensor:
