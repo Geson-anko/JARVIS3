@@ -79,7 +79,7 @@ class InverseBlock2d(Module):
         x = self.norm2(self.Dcon2(x))
         return x 
 
-class Encoder(torch.nn.Module):
+class Encoder(Module):
     def __init__(self):
         super().__init__()
         self.reset_seed()

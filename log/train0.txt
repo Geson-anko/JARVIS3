@@ -1,0 +1,26 @@
+[2021-02-21 16:59:04] Training process was stoped
+[2021-02-21 16:59:04] trained AutoEncoder
+[2021-02-21 16:59:04] <Exception> please int or str for id_format. your input is <class 'type'>.
+[2021-02-21 17:03:33] Training process was stoped
+[2021-02-21 17:03:33] finished
+[2021-02-21 17:03:33] trained AutoEncoder
+[2021-02-21 17:03:33] Training process was stoped
+[2021-02-21 17:03:33] finished
+[2021-02-21 17:03:33] Trained DeltaTime
+[2021-02-21 17:03:33] Train process was finished
+[2021-02-21 17:06:03] torch.Size([64, 3, 640, 360])
+[2021-02-21 17:06:03] Training process was stoped
+[2021-02-21 17:06:03] finished
+[2021-02-21 17:06:03] trained AutoEncoder
+[2021-02-21 17:06:03] data1: torch.Size([83, 5376]) data2: torch.Size([83, 5376]) ans: torch.Size([83])
+[2021-02-21 17:06:03] Training process was stoped
+[2021-02-21 17:06:03] finished
+[2021-02-21 17:06:03] Trained DeltaTime
+[2021-02-21 17:06:03] Train process was finished
+[2021-02-21 17:06:25] Training process was stoped
+[2021-02-21 17:06:25] finished
+[2021-02-21 17:06:25] trained AutoEncoder
+[2021-02-21 17:06:25] Training process was stoped
+[2021-02-21 17:06:25] finished
+[2021-02-21 17:06:25] Trained DeltaTime
+[2021-02-21 17:06:25] Train process was finished

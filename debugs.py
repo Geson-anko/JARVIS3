@@ -7,8 +7,13 @@ from MasterConfig import Config as mconf
 from concurrent.futures import ProcessPoolExecutor
 import time
 if __name__ == '__main__':
+    from Sensation0.train import Train  
+    train = Train('cpu',True)
+    cmd = Value('i',mconf.wake)
+    train(cmd)
+
+    """
     sens = Sensation('cpu')
-    
     cmd = Value('i',mconf.wake)
     switch = Value('i',True)
     clock = Value('d',0)
@@ -34,3 +39,4 @@ if __name__ == '__main__':
     #executer.shutdown(True)
     #proc.result()
     print('process result')
+    """

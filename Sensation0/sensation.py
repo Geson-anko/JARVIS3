@@ -15,6 +15,7 @@ import torch
 import cv2
 from typing import Union,Tuple,Any
 from os.path import isfile,isdir
+from os.path import join as pathjoin
 import h5py
 import math
 from .AutoEncoder import Encoder
@@ -159,12 +160,18 @@ class Sensation(MemoryManager):
             il = id_args.shape[0]
             memory_list[:il] = ReadOutId[id_args]
 
-            if (not config.saving_rate > saved_video_len):
+            if not (config.saving_rate > saved_video_len):
+                """
                 with h5py.File(config.video_data,'a') as f:
                     now_time = str(time.time())#datetime.now(mconf.TimeZone).strftime('%d-%m-%y_%H-%M-%S')
                     f.create_dataset(name=now_time,data=video_array)
                     saved_video_len = 0
+                """
+                name = pathjoin(config.data_folder,str(time.time()))
+                self.save_python_obj(name,video_array)
+                saved_video_len = 0
             
+
             if cmd.value == mconf.force_sleep or (not current_length < self.ReadOutLength) or (not switch.value):
 
                 self.save_memory(

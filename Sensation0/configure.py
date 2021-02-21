@@ -40,3 +40,17 @@ class config:
     MemListLength:int = 100
     wait_time:float = 0.3
     saving_rate:int = 128
+
+    # train.py
+    training_dtype:torch.dtype = torch.float16
+        # AutoEncoder setting
+    train_video_use:int = int(np.floor(8192/saving_rate))
+    AE_lr:float = 0.0001
+    AE_batch_size:int = 64
+    AE_epochs:int = 5
+        # DeltaTime settings
+    time_use:int = 8192
+    DT_lr:float = 0.001
+    DT_batch_size:int = 4096
+    DT_epochs:int = 100
+    zero_per:float = 0.1
