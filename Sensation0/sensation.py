@@ -159,7 +159,7 @@ class Sensation(MemoryManager):
 
             if (not config.saving_rate > saved_video_len):
                 with h5py.File(config.video_data,'a') as f:
-                    now_time = datetime.now(mconf.TimeZone).strftime('%d-%m-%y_%H-%M-%S')
+                    now_time = str(time.time())#datetime.now(mconf.TimeZone).strftime('%d-%m-%y_%H-%M-%S')
                     f.create_dataset(name=now_time,data=video_array)
                     saved_video_len = 0
             
@@ -180,7 +180,7 @@ class Sensation(MemoryManager):
                     mems[current_length:] = -1
                 saved_length = current_length
 
-                ## This place is python objects which you want to save to file.
+                ## This place is saving place which you want to save python objects to file.
                 self.save_python_obj(config.memlist_file,memory_list)
                 self.save_python_obj(config.ReadoutTime_file,ReadOutTime[:current_length])
                 self.save_python_obj(config.ReadoutId_file,ReadOutId[:current_length])
