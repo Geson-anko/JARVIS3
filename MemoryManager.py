@@ -455,7 +455,7 @@ class MemoryManager:
         if os.path.exists(file_name):
             os.remove(file_name)
 
-    def system_memory_clear(self):
+    def release_system_memory(self) -> None:
         gc.collect()
         torch.cuda.empty_cache()
         
