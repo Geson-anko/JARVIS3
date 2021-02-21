@@ -1,8 +1,7 @@
-from sys import winver
-from config import config
+from .configure import config
 import torch
 from torch.nn import (
-    Conv2d,BatchNorm2d,MaxPool2d,AvgPool2d,
+    Conv2d,BatchNorm2d,MaxPool2d,#AvgPool2d,
     ConvTranspose2d,Upsample,
     Module
 )
@@ -95,6 +94,7 @@ class Encoder(torch.nn.Module):
         self.Conv4 = ResBlock2d(32,64,3,3)
         self.Conv5 = ResBlock2d(64,128,3,3)
         self.Conv6 = ResBlock2d(128,256,3,3)
+        self.outconv = Conv2d(256,256,1,1)
 
     def forward(self,x):
         x = x.view(-1,config.channels,config.width,config.height)
@@ -105,6 +105,7 @@ class Encoder(torch.nn.Module):
         x = self.Conv4(x)
         x = self.Conv5(x)
         x = self.Conv6(x)
+        x = torch.tanh(self.outconv(x))
 
         return x
 
@@ -172,7 +173,7 @@ if __name__ == '__main__':
     dummy = torch.randn(model.input_size)
     print(summary(model,dummy))
 
-    writer = SummaryWriter()
-    writer.add_graph(model,dummy)
-    writer.close()
+    #writer = SummaryWriter()
+    #writer.add_graph(model,dummy)
+    #writer.close()
     

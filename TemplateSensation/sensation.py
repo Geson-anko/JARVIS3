@@ -1,6 +1,10 @@
-from ..MemoryManager import MemoryManager
-from ..Config import Config
-from ..AutoEncoders.AutoEncoder_ import DataEncoding, DeltaTime
+import os
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
+from debug_tools import Debug
+from MemoryManager import MemoryManager
+from MasterConfig import Config as mconf
+
 
 import torch
 import *** # using libs
