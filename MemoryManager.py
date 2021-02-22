@@ -71,6 +71,12 @@ class MemoryManager:
     load_python_obj:
         loading python objects from pickle file.
 
+    remove_file:
+        remove the file.
+    
+    release_ststem_memory:
+        This method releases system memory caches. To release cache is heavy process so please don't use quite often. 
+
 
     """
     char:str = Config.IDchars
