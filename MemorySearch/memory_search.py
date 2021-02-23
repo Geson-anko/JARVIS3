@@ -4,7 +4,6 @@ sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
 
 from MasterConfig import Config as mconf
 from MemoryManager import MemoryManager
-from debug_tools import Debug
 from .config import config
 
 import numpy as np
@@ -24,7 +23,6 @@ class MemorySearch(MemoryManager):
 
     def __init__(self,debug_mode:bool = False):
         super().__init__(self.log_title,debug_mode)
-        self.debug = Debug(self.log_title,debug_mode)
 
         self.searched_id = []
 
@@ -52,24 +50,24 @@ class MemorySearch(MemoryManager):
         # load file
         if isfile(config.dict_file):
             MemoryDict = self.load_python_obj(config.dict_file)
-            self.debug.log('loaded memory dictionary')
+            self.log('loaded memory dictionary')
         else:
             MemoryDict = dict()
-            self.debug.log('create new memory dictionary')
+            self.log('create new memory dictionary')
 
         templen = TempMemory.shape[0]
         if isfile(config.tempmem_file):
             _m = self.load_python_obj(config.tempmem_file)[:templen]
             _l = _m.shape[0]
             TempMemory[_l] = _m
-            self.debug.log('loaded Temporary Memory')
+            self.log('loaded Temporary Memory')
 
         # set default value
         old_memlist = [copy.deepcopy(i) for i in mem_lists]
         old_ids = [i.value for i in newest_ids]
 
         # process --------------------------------------
-        self.debug.log('process start')
+        self.log('process start')
         while cmd.value != mconf.shutdown:
             clock_start = time.time()
             time.sleep(sleep.value * config.wait_time)
@@ -110,12 +108,12 @@ class MemorySearch(MemoryManager):
             clock.value = time.time() - clock_start
 
         # shutdown process --------------------------------------------------
-        self.debug.log('shutdown process started')
+        self.log('shutdown process started')
         self.save_python_obj(config.tempmem_file,TempMemory.copy())
         self.save_python_obj(config.dict_file,MemoryDict)
-        self.debug.log('saved Memory Dictionary and Temporary Memory')
+        self.log('saved Memory Dictionary and Temporary Memory')
         
-        self.debug.log('process shutdowned')
+        self.log('process shutdowned')
 
     
     def mem_list_modified(self,new:np.ndarray,old:np.ndarray) -> bool:

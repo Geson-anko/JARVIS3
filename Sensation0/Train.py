@@ -26,7 +26,6 @@ class Train(MemoryManager):
         super().__init__(log_title=self.log_title, debug_mode=debug_mode)
         self.device = torch.device(device)
         self.dtype = config.training_dtype
-        self.debug = Debug(self.log_title,debug_mode)
         self.fit = Fit(self.log_title)
 
     def activation(self,cmd) -> None:
@@ -34,7 +33,7 @@ class Train(MemoryManager):
         # load and preprocess data for Training AutoEncoder
         names = os.listdir(config.data_folder)
         if len(names) ==0:
-            self.debug.warn('To train AutoEncoder data does not exist')
+            self.warn('To train AutoEncoder data does not exist')
             return
         
         times = np.sort([float(i) for i in names])
@@ -46,7 +45,7 @@ class Train(MemoryManager):
 
         data = np.concatenate([self.load_python_obj(os.path.join(config.data_folder,i)) for i in uses])
         data = self.preprocess(data)
-        self.debug.log(data.shape,debug_only=True)
+        self.log(data.shape,debug_only=True)
 
         # load AutoEncoder 
         model = AutoEncoder()
@@ -74,14 +73,14 @@ class Train(MemoryManager):
         model = model
         torch.save(model.encoder.state_dict(),config.encoder_params)
         torch.save(model.decoder.state_dict(),config.decoder_params)
-        self.debug.log('trained AutoEncoder')
+        self.log('trained AutoEncoder')
         del data,model
         self.release_system_memory()
 
         ## training delta time model
         # loading and preproessing dataset
         if not isfile(config.newestId_file):
-            self.debug.warn('To train DeltaTime data does not exist!')
+            self.warn('To train DeltaTime data does not exist!')
             return None
     
         newest_id = self.load_python_obj(config.newestId_file)
@@ -104,7 +103,7 @@ class Train(MemoryManager):
         data1 = torch.from_numpy(data1).type(self.dtype)
         data2 = torch.from_numpy(data2).type(self.dtype)
         ans = torch.from_numpy(ans).type(self.dtype)
-        self.debug.log(
+        self.log(
             'data1:',data1.shape,
             'data2:',data2.shape,
             'ans:',ans.shape,
@@ -134,12 +133,12 @@ class Train(MemoryManager):
             train_y=ans,
         )
         torch.save(model.state_dict(),config.deltatime_params)
-        self.debug.log('Trained DeltaTime')
+        self.log('Trained DeltaTime')
         del data1,data2,ans,model
 
         self.release_system_memory()
 
-        self.debug.log('Train process was finished')
+        self.log('Train process was finished')
 
         
 
