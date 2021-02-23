@@ -26,7 +26,7 @@ class Train(MemoryManager):
         super().__init__(log_title=self.log_title, debug_mode=debug_mode)
         self.device = torch.device(device)
         self.dtype = config.training_dtype
-        self.fit = Fit(self.log_title)
+        self.fit = Fit(self.log_title,debug_mode)
 
     def activation(self,cmd) -> None:
 
@@ -102,7 +102,7 @@ class Train(MemoryManager):
 
         data1 = torch.from_numpy(data1).type(self.dtype)
         data2 = torch.from_numpy(data2).type(self.dtype)
-        ans = torch.from_numpy(ans).type(self.dtype)
+        ans = torch.from_numpy(ans).type(self.dtype).unsqueeze(1)
         self.log(
             'data1:',data1.shape,
             'data2:',data2.shape,

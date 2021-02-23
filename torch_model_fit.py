@@ -16,9 +16,9 @@ function = TypeVar('function')
 class Fit:
     metrics_threshold:float = 0.0
     
-    def __init__(self,log_title) -> None:
+    def __init__(self,log_title:str,debug_mode:bool=False) -> None:
         self.log_title = log_title
-        self.debug = Debug(log_title)
+        self.debug = Debug(log_title,debug_mode)
 
     def Train(self,cmd:mp.Value,
         model:torch.nn.Module,epochs:int,batch_size:int,
