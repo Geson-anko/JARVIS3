@@ -23,8 +23,8 @@ class Debug:
         debug_mode [Optional] : When True, methods of class, which 'debug_only' argument been True, turn on.
         """
 
-        self.log_title = f'{log_title} :'
-        self.debug = debug_mode
+        self._title = f'{log_title} :'
+        self._debug = debug_mode
         _dir = f'{Config.current_directory}/{Config.log_dir}'
         if os.path.isdir(_dir) is False:
             os.makedirs(Config.log_dir)
@@ -38,9 +38,9 @@ class Debug:
             >>> debug = Debug('log_title',debug_mode=False)
             >>> debug.log('test') # <- Instead of print()
         """
-        if debug_only and self.debug is False:
+        if debug_only and self._debug is False:
             return None
-        print(self.log_title,*args)
+        print(self._title,*args)
         self.log_write(self.now(),*args)
 
     def exception(self,*args:Any,debug_only:bool=False) -> None:
@@ -51,11 +51,11 @@ class Debug:
             >>> if before_the_error:
             >>>     debug.excepion('error!')
         """
-        if debug_only and self.debug is False:
+        if debug_only and self._debug is False:
             return None
 
         self.log_write(self.now(),'<Exception>',*args)
-        raise Exception(self.log_title,*args)
+        raise Exception(self._title,*args)
 
     def warn(self,text:str,warning_category:Warning=None,debug_only:bool=False) -> None:
         """
@@ -67,13 +67,13 @@ class Debug:
             >>>     debug.warn(text)
 
         """
-        if debug_only and self.debug is False:
+        if debug_only and self._debug is False:
             return None
         if warning_category is None:
             warning_category = Warning
         
         self.log_write(self.now(),str(warning_category),text)
-        warnings.warn(f'{self.log_title}{text}',warning_category)
+        warnings.warn(f'{self._title}{text}',warning_category)
 
     @staticmethod
     def now() -> str:
