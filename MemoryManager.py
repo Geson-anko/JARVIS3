@@ -443,7 +443,7 @@ class MemoryManager:
         saving python object to pickle file
         """
         with open(file_name,'wb') as f:
-            pickle.dump(obj,f)
+            pickle.dump(obj,f,protocol=4)
 
     
     def load_python_obj(self,file_name:str) -> Any:
