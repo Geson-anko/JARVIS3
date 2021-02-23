@@ -9,13 +9,10 @@ class Config:
     version:float= 3.0
     log_dir:str = 'log'
 
-
+    init_id:int = -1
     memory_folder:str = 'memory'
     active_time:float = 16.0
     ID_length:int = 10
-    memory_search_max_roop:int = 2**20
-    a_memlist_lim:int = 500
-    brunch :int = 7
 
     IDchars:str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
     decimal_base:int = len(IDchars)
