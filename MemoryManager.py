@@ -15,7 +15,7 @@ from typing import Optional,List,Tuple,Any, Union
 import gc
 
 @dataclass
-class MemoryManager: 
+class MemoryManager(Debug): 
     r"""
     This is a parent class for all processes.
 
@@ -77,7 +77,27 @@ class MemoryManager:
     release_ststem_memory:
         This method releases system memory caches. To release cache is heavy process so please don't use quite often. 
 
+    *** Parent methods ***
+    log:
+        this method is used instead of print() and write to log file.
+        Example:
+            >>> debug = Debug('log_title',debug_mode=False)
+            >>> debug.log('test') # <- Instead of print()
+    
+    exception:
+        This method is used instead of 'raise Exception()' and write to log file.
+        Example:
+            >>> debug = Debug('log_title',debug_mode=False)
+            >>> if before_the_error:
+            >>>     debug.excepion('error!')
 
+    warn:
+        This method is used instead of 'wanings.warn' and write to log file.
+        Please Be carefull that 'text' argument is not variable length.
+        Example:
+            >>> debug = Debug('log_title',debug_mode=False)
+            >>> if danger:
+            >>>     debug.warn(text)
     """
     char:str = Config.IDchars
     base:int = Config.decimal_base
@@ -93,7 +113,8 @@ class MemoryManager:
         """
         log_title is used Exceptions and UserWarnings.
         """
-        self.debug = Debug(log_title,debug_mode)
+        super().__init__(log_title,debug_mode)
+        #self.debug = Debug(log_title,debug_mode)
         self.public_shared_memory = []
 
     def Num2Id(self,num:int) -> str:
@@ -105,10 +126,10 @@ class MemoryManager:
         
         _t = type(num)
         if _t is not ndarray and _t is not int:
-            self.debug.exception(f'your input is {_t}! Please int {ndarray} or {int}')
+            self.exception(f'your input is {_t}! Please int {ndarray} or {int}')
 
         if num < 0:
-            self.debug.exception(f'your input is {num} < 0 ! Please unsigned integer !')
+            self.exception(f'your input is {num} < 0 ! Please unsigned integer !')
         string = ''
         while True:
 
@@ -130,7 +151,7 @@ class MemoryManager:
 
         _t = type(string)
         if _t is not str:
-            self.debug.exception('your input is {_t} !. Please str')
+            self.exception('your input is {_t} !. Please str')
         
         if len(string) == 1:
             return self.char.index(string)
@@ -168,14 +189,14 @@ class MemoryManager:
         # saving a memory
         if _idt is int or _idt is str:
             if _mtt is list:
-                self.debug.exception(f'You try to save a memory with list of time. Please give a memory and a time.')
+                self.exception(f'You try to save a memory with list of time. Please give a memory and a time.')
             if _idt is int:
                 ID = self.Num2Id(ID)
             #name = Config.memory_file_form.format(ID[0])
             name = pathjoin(Config.current_directory,Config.memory_file_form.format(ID[0]))
             with h5py.File(name,'a',swmr=True) as f:
                 if ID in f:
-                    self.debug.warn(f'{ID} is existing!')
+                    self.warn(f'{ID} is existing!')
                 else:
                     ddir = self.data_dir.format(ID)
                     tdir = self.time_dir.format(ID)
@@ -186,7 +207,7 @@ class MemoryManager:
         # saving memories process.
         il,dl,tl = len(ID),len(memory_data),len(memory_time)
         if il != dl or tl != il:
-            self.debug.exception(f'save file error! Not match length. ID:{il},data:{dl},time:{tl}')
+            self.exception(f'save file error! Not match length. ID:{il},data:{dl},time:{tl}')
 
         if il == 0:
             return None
@@ -202,7 +223,7 @@ class MemoryManager:
             allid = f.keys() 
             for (i,d,t) in zip(ID,memory_data,memory_time):
                 if i in allid:
-                    self.debug.warn(f'{i} is existing!')
+                    self.warn(f'{i} is existing!')
                 else:
                     ddir = self.data_dir.format(i)
                     tdir = self.time_dir.format(i)
@@ -283,7 +304,7 @@ class MemoryManager:
             return self._load_a_memory(ID)
         
         if _idt is not list:
-            self.debug.exception(f'you entered {_idt}, Please enter list,ndarray,int,str')
+            self.exception(f'you entered {_idt}, Please enter list,ndarray,int,str')
         
         if len(ID) == 0:
             return [],np.array([]),np.array([])
@@ -332,7 +353,7 @@ class MemoryManager:
         
         _idt = type(ID)
         if _idt is not list and _idt is not ndarray:
-            self.debug.exception(f'your input type is {_idt}, please list or ndarray')
+            self.exception(f'your input type is {_idt}, please list or ndarray')
         if _idt is ndarray:
             ID = ID.tolist()
 
@@ -344,11 +365,11 @@ class MemoryManager:
         
         _ift  = type(id_format)
         if _ift is not str and _ift is not int:
-            self.debug.exception(f'please int or str for id_format. your input is {_ift}.')
+            self.exception(f'please int or str for id_format. your input is {_ift}.')
 
         if _ift is int:
             if id_format > self.base:
-                self.debug.exception(f' over format number. your format id number is {id_format}')
+                self.exception(f' over format number. your format id number is {id_format}')
             else:
                 id_format = self.char[id_format]
         
@@ -362,13 +383,13 @@ class MemoryManager:
         """
         _ift  = type(id_format)
         if _ift is not str and _ift is not int:
-            self.debug.exception(f'please int or str for id_format. your input is {_ift}.')
+            self.exception(f'please int or str for id_format. your input is {_ift}.')
         
 
 
         if _ift is int:
             if id_format > self.base:
-                self.debug.exception(f' over format number. your format id number is {id_format}')
+                self.exception(f' over format number. your format id number is {id_format}')
             else:
                 id_format = self.char[id_format]
         
@@ -426,13 +447,13 @@ class MemoryManager:
         """
         _it = type(Id_num)
         if _it is not list and _it is not ndarray:
-            self.debug.exception(f'your input type is {_it}, please list or ndarray')
+            self.exception(f'your input type is {_it}, please list or ndarray')
 
         if _it is list:
             Id_num = np.array(Id_num)
         
         if type(ReadOutId) is not ndarray:
-            self.debug.exception(f'your input ReadOutId is {type(ReadOutId)},please ndarray')
+            self.exception(f'your input ReadOutId is {type(ReadOutId)},please ndarray')
         
         outidx = np.searchsorted(ReadOutId,Id_num)
         outbools = ReadOutId[outidx] == Id_num
