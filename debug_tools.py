@@ -25,6 +25,8 @@ class Debug:
 
         self._title = f'{log_title} :'
         self._debug = debug_mode
+        if debug_mode:
+            self._title += '<debug mode>'
         _dir = f'{Config.current_directory}/{Config.log_dir}'
         if os.path.isdir(_dir) is False:
             os.makedirs(Config.log_dir)

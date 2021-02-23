@@ -8,7 +8,7 @@ from MasterConfig import Config as mconf
 from concurrent.futures import ProcessPoolExecutor
 import time
 if __name__ == '__main__':
-    from MemorySearch import MemorySearch
+    """from MemorySearch import MemorySearch
     import copy
     sp = MemorySearch(True)
     cmd = Value('i',mconf.wake)
@@ -29,12 +29,12 @@ if __name__ == '__main__':
     p.join()
     print('clock',clock.value)
     print('process end')
-
-    """from Sensation0.train import Train  
+    """
+    from Sensation0.train import Train  
     train = Train('cpu',True)
     cmd = Value('i',mconf.wake)
     train(cmd)
-    """
+    
     """
     sens = Sensation('cpu')
     cmd = Value('i',mconf.wake)
