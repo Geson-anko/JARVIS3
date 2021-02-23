@@ -1,0 +1,25 @@
+[2021-02-23 12:42:14] create new memory dictionary
+[2021-02-23 12:42:14] process start
+[2021-02-23 12:47:19] create new memory dictionary
+[2021-02-23 12:47:19] process start
+[2021-02-23 12:48:44] create new memory dictionary
+[2021-02-23 12:48:44] process start
+[2021-02-23 12:49:35] create new memory dictionary
+[2021-02-23 12:49:35] process start
+[2021-02-23 12:51:21] create new memory dictionary
+[2021-02-23 12:51:21] process start
+[2021-02-23 12:57:31] create new memory dictionary
+[2021-02-23 12:57:31] process start
+[2021-02-23 12:57:31] [<built-in method copy of numpy.ndarray object at 0x000001A8CC39CF30>, <built-in method copy of numpy.ndarray object at 0x000001A8CC39CF80>, <built-in method copy of numpy.ndarray object at 0x000001A8D24FEA30>, <built-in method copy of numpy.ndarray object at 0x000001A8D24E8710>]
+[2021-02-23 12:57:55] create new memory dictionary
+[2021-02-23 12:57:55] process start
+[2021-02-23 12:58:04] shutdown process started
+[2021-02-23 12:58:04] saved Memory Dictionary and Temporary Memory
+[2021-02-23 12:58:04] process shutdowned
+[2021-02-23 12:58:47] loaded memory dictionary
+[2021-02-23 12:59:06] loaded memory dictionary
+[2021-02-23 12:59:06] loaded Temporary Memory
+[2021-02-23 12:59:06] process start
+[2021-02-23 12:59:15] shutdown process started
+[2021-02-23 12:59:15] saved Memory Dictionary and Temporary Memory
+[2021-02-23 12:59:15] process shutdowned

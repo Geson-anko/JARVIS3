@@ -14,8 +14,8 @@ from os.path import isfile
 import copy
 import time
 
-ID_list_type = TypeVar('ID_list_type',np.ndarray)
-MemDict_type = TypeVar('MemDict_type',dict)
+ID_list_type = TypeVar('ID_list_type')
+MemDict_type = TypeVar('MemDict_type')
 
 class MemorySearch(MemoryManager):
     log_title:str = 'MemorySearch'
@@ -23,8 +23,6 @@ class MemorySearch(MemoryManager):
 
     def __init__(self,debug_mode:bool = False):
         super().__init__(self.log_title,debug_mode)
-
-        self.searched_id = []
 
     def activation(
         self,
@@ -59,7 +57,7 @@ class MemorySearch(MemoryManager):
         if isfile(config.tempmem_file):
             _m = self.load_python_obj(config.tempmem_file)[:templen]
             _l = _m.shape[0]
-            TempMemory[_l] = _m
+            TempMemory[:_l] = _m
             self.log('loaded Temporary Memory')
 
         # set default value
@@ -77,10 +75,9 @@ class MemorySearch(MemoryManager):
             
             # modified check
             modified_memlist = np.concatenate(
-                [i.copy() for i,q in zip(mem_lists,old_memlist) if self.mem_list_modified(i,q)]
+                [i.copy() if self.mem_list_modified(i,q) else [] for i,q in zip(mem_lists,old_memlist)]
             )
-            old_memlist = [i.copy for i in mem_lists]
-
+            old_memlist = [i.copy() for i in mem_lists]
             # Update Temporary Memory
             c_tmp = TempMemory.copy()
             c_tmp = np.concatenate([modified_memlist,c_tmp])
@@ -125,12 +122,12 @@ class MemorySearch(MemoryManager):
         return modified
 
     def Search(self,ID_list:ID_list_type,mem_dict:MemDict_type) -> ID_list_type:
-        self.searched_id.clear()
+        self.searched_id = [[]]
         for i in ID_list:
             try:
                 self.searched_id.append(mem_dict[i])
             except KeyError:
-                self.searched_id.append([])
+                pass
         return np.concatenate(self.searched_id)
         
 

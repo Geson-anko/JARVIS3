@@ -1,5 +1,6 @@
 import sys
 import os
+
 from Sensation0.sensation import Sensation
 from multiprocessing import Value,Process
 #sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
@@ -7,11 +8,33 @@ from MasterConfig import Config as mconf
 from concurrent.futures import ProcessPoolExecutor
 import time
 if __name__ == '__main__':
-    from Sensation0.train import Train  
+    from MemorySearch import MemorySearch
+    import copy
+    sp = MemorySearch(True)
+    cmd = Value('i',mconf.wake)
+    clock = Value('d',0)
+    sleep = Value('d',0)
+    newids = [Value('i',i) for i in range(4)]
+    memlists = [
+        sp.create_shared_memory(
+            (100,),dtype='int64',initialize=mconf.init_id) for _ in range(4)
+        ]
+    TM = sp.create_shared_memory((500,),'int64',mconf.init_id)
+    args = (cmd,clock,sleep,TM,memlists,newids)
+    p = Process(target=sp,args=args)
+    print('process start')
+    p.start()
+    time.sleep(10)
+    cmd.value = mconf.shutdown
+    p.join()
+    print('clock',clock.value)
+    print('process end')
+
+    """from Sensation0.train import Train  
     train = Train('cpu',True)
     cmd = Value('i',mconf.wake)
     train(cmd)
-
+    """
     """
     sens = Sensation('cpu')
     cmd = Value('i',mconf.wake)
@@ -40,3 +63,5 @@ if __name__ == '__main__':
     #proc.result()
     print('process result')
     """
+
+    pass
