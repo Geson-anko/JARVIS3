@@ -199,6 +199,8 @@ class Sensation(MemoryManager):
                 ## ------------------------------------------------------------
                 if cmd.value == mconf.force_sleep:
                     time.sleep(mconf.sleep_wait)
+                    encoding = DataEncoding(self.log_title,self.device,dtype=config.torchdtype)
+                    self.log('called DataEncoding')
             
             time.sleep(config.wait_time * sleep.value)
             cv2.waitKey(1)
