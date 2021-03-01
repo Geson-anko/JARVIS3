@@ -1,0 +1,14 @@
+pytorch
+numpy 
+scipy
+torchsummaryX
+h5py
+pydub
+pyaudio
+cv2
+matplotlib
+jupyter lab
+jupyter notebook
+sentencepiece
+fasttext --https://github.com/facebookresearch/fastText.git
+tensorboard

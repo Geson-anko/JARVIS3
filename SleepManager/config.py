@@ -6,7 +6,7 @@ class config:
     one_day:float = 24#*60*60
 
     sleep_time:float = 0#*60*60
-    wake_time:float = 6#*60*60
+    wake_time:float = 5#*60*60
     before_sleep:float = 3#*60*60
     after_wake:float = 2#*60*60
 
