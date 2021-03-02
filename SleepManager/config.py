@@ -18,7 +18,7 @@ class config:
 
     clock_warp:timedelta = timedelta(seconds=7*60)
 
-
+    wait_time:float = 0.1
     # files
     current_directory:str = os.path.dirname(os.path.abspath(__file__))
     temp_folder:str = os.path.join(current_directory,'temp')
@@ -28,7 +28,7 @@ class config:
     pyaudio_format:int = pyaudio.paInt16
     audio_channels:int = 1
     audio_fps:int = 8000
-    CHUNK:int = 800
+    CHUNK:int = int(round(wait_time*audio_fps))
     audio_dtype:str = 'int16'
     warning_threshold:float = 2**(16 - 1) * 0.9
     warning_delay:float = 10*60 # second
