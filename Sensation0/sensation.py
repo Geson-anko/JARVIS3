@@ -32,6 +32,7 @@ class Sensation(MemoryManager):
         super().__init__(self.log_title,debug_mode)
         self.device = torch.device(device)
         if not isdir(config.temp_folder):
+            os.mkdir(config.temp_folder)
             self.log('made',config.temp_folder)
             
     def activation(
