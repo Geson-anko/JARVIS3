@@ -101,8 +101,10 @@ class SleepManager(MemoryManager):
                 self.log('turn on warning mode')
                 warntime = time.time()
             
-            # sleepiness
-            modified = self.check_id_modified(newest_ids,old_ids)
+            ## sleepiness
+            news = [i.value for i in newest_ids]
+            modified = self.check_id_modified(news,old_ids)
+            old_ids = news
             now = datetime.now(mconf.TimeZone) + delta_bio_clock
             now_clock = now.hour * 60*60 + now.minute*60 + now.second
             if not Warn:
@@ -128,10 +130,10 @@ class SleepManager(MemoryManager):
         self.save_python_obj(config.DeltaBioClock_file,delta_bio_clock)
 
 
-    def check_id_modified(self,newids:Tuple[mp.Value],oldids:Tuple[int]) -> bool:
+    def check_id_modified(self,newids:Tuple[int],oldids:Tuple[int]) -> bool:
         modified = False
         for (p,q) in zip(newids,oldids):
-            if p.value != q:
+            if p != q:
                 modified = True
                 break
         return modified
