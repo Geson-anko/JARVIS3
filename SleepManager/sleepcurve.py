@@ -16,7 +16,7 @@ class SleepCurve:
         if _s <= self.sleep_switch:
             _s += config.one_day
         _hb = _s - config.before_sleep/2
-        T,M = np.log(1/config.threshold - 1),np.log(1/config.My - 1)
+        T,M = np.log(1/config.threshold - 1),np.log(1/config.Meany - 1)
         self.sleep_k = (T - M) / (_s - _hb)
         self.sleep_b = T - self.sleep_k * _s
 

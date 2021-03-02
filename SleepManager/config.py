@@ -1,17 +1,37 @@
 from dataclasses import dataclass
 import math
+import os
+from datetime import timedelta
+import pyaudio
 
 @dataclass
 class config:
-    one_day:float = 24#*60*60
+    one_day:float = 24*60*60 # second
 
-    sleep_time:float = 0#*60*60
-    wake_time:float = 5#*60*60
-    before_sleep:float = 3#*60*60
-    after_wake:float = 2#*60*60
+    sleep_time:float = 0*60*60 # second
+    wake_time:float = 5*60*60 # second
+    before_sleep:float = 3*60*60 # second
+    after_wake:float = 2*60*60 # second
 
     threshold:float = 0.999
-    My:float= 0.5
+    Meany:float= 0.5
+
+    clock_warp:timedelta = timedelta(seconds=7*60)
+
+
+    # files
+    current_directory:str = os.path.dirname(os.path.abspath(__file__))
+    temp_folder:str = os.path.join(current_directory,'temp')
+    DeltaBioClock_file:str = os.path.join(temp_folder,'delta_bio_clock.pkl')
+
+    # audio streaming
+    pyaudio_format:int = pyaudio.paInt16
+    audio_channels:int = 1
+    audio_fps:int = 8000
+    CHUNK:int = 800
+    audio_dtype:str = 'int16'
+    warning_threshold:float = 2**(16 - 1) * 0.9
+    warning_delay:float = 10*60 # second
 
 if __name__ == '__main__':
     _w = config.wake_time
