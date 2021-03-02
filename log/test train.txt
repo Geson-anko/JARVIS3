@@ -5,3 +5,37 @@
 [2021-02-21 17:17:35] end of epoch 4: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00051 
 [2021-02-21 17:17:35] end of epoch 5: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00041 
 [2021-02-21 17:17:35] finished
+[2021-03-02 17:09:33] <class 'Warning'> Ignore validation_split because you entered validation data
+[2021-03-02 17:09:33] end of epoch 1: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00100 
+[2021-03-02 17:09:33] end of epoch 2: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00080 
+[2021-03-02 17:09:33] end of epoch 3: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00064 
+[2021-03-02 17:09:33] end of epoch 4: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00051 
+[2021-03-02 17:09:33] end of epoch 5: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00041 
+[2021-03-02 17:09:33] finished
+[2021-03-02 17:10:17] <class 'Warning'> Ignore validation_split because you entered validation data
+[2021-03-02 17:10:17] end of epoch 1: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00100 
+[2021-03-02 17:10:17] end of epoch 2: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00080 
+[2021-03-02 17:10:17] end of epoch 3: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00064 
+[2021-03-02 17:10:17] end of epoch 4: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00051 
+[2021-03-02 17:10:17] end of epoch 5: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00041 
+[2021-03-02 17:10:17] finished
+[2021-03-02 17:11:58] <class 'Warning'> Ignore validation_split because you entered validation data
+[2021-03-02 17:11:58] Training process was stoped
+[2021-03-02 17:11:58] finished
+[2021-03-02 17:12:14] <class 'Warning'> Ignore validation_split because you entered validation data
+[2021-03-02 17:12:14] Training process was stoped
+[2021-03-02 17:12:14] finished
+[2021-03-02 17:12:43] <class 'Warning'> Ignore validation_split because you entered validation data
+[2021-03-02 17:12:43] end of epoch 1: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00100 
+[2021-03-02 17:12:43] end of epoch 2: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00080 
+[2021-03-02 17:12:43] end of epoch 3: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00064 
+[2021-03-02 17:12:43] end of epoch 4: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00051 
+[2021-03-02 17:12:43] end of epoch 5: loss0 :   nan loss1 :   nan metrics0 :   nan metrics1 :   nan avg_val_loss0 :   nan avg_val_loss1 :   nan avg_val_metrics0 :   nan avg_val_metrics1 :   nan lr :0.00041 
+[2021-03-02 17:12:43] finished
+[2021-03-02 17:16:44] <class 'Warning'> Ignore validation_split because you entered validation data
+[2021-03-02 17:16:44] end of epoch 1: loss0 : 1.75044 loss1 : 1.75044 metrics0 : 1.00000 metrics1 : 1.00000 avg_val_loss0 : 1.63525 avg_val_loss1 : 1.63525 avg_val_metrics0 : 1.00000 avg_val_metrics1 : 1.00000 lr :0.00100 
+[2021-03-02 17:16:44] end of epoch 2: loss0 : 1.60239 loss1 : 1.60239 metrics0 : 1.00000 metrics1 : 1.00000 avg_val_loss0 : 1.53303 avg_val_loss1 : 1.53303 avg_val_metrics0 : 1.00000 avg_val_metrics1 : 1.00000 lr :0.00080 
+[2021-03-02 17:16:44] end of epoch 3: loss0 : 1.50486 loss1 : 1.50486 metrics0 : 1.00000 metrics1 : 1.00000 avg_val_loss0 : 1.45335 avg_val_loss1 : 1.45335 avg_val_metrics0 : 1.00000 avg_val_metrics1 : 1.00000 lr :0.00064 
+[2021-03-02 17:16:44] end of epoch 4: loss0 : 1.43078 loss1 : 1.43078 metrics0 : 1.00000 metrics1 : 1.00000 avg_val_loss0 : 1.39147 avg_val_loss1 : 1.39147 avg_val_metrics0 : 1.00000 avg_val_metrics1 : 1.00000 lr :0.00051 
+[2021-03-02 17:16:44] end of epoch 5: loss0 : 1.37366 loss1 : 1.37366 metrics0 : 1.00000 metrics1 : 1.00000 avg_val_loss0 : 1.34329 avg_val_loss1 : 1.34329 avg_val_metrics0 : 1.00000 avg_val_metrics1 : 1.00000 lr :0.00041 
+[2021-03-02 17:16:44] finished

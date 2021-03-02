@@ -20,7 +20,7 @@ class Fit:
         self.log_title = log_title
         self.debug = Debug(log_title,debug_mode)
 
-    def Train(self,cmd:mp.Value,
+    def Train(self,shutdown:mp.Value,sleep:mp.Value,
         model:torch.nn.Module,epochs:int,batch_size:int,
         criterion:Union[loss_func,Tuple[loss_func,...]],
         optimizer:optim,
@@ -38,7 +38,8 @@ class Fit:
         ) -> Tuple[Tensor,...]:
         """
         Args:
-            cmd [required]: multiprocessing Value object
+            shutdown [required]: multiprocessing Value object
+            sleep [required]: multiprocessing Value object
             model [required]:your pytorch model.
             criterion [required]: loss functions. You can set multiple it with tuple for your model.
             optimizer [required]: optimizer class. 
@@ -68,15 +69,15 @@ class Fit:
         Examples:
             <Using for trainings>
             >>> fit = Fit('test')
-            >>> fit.Train(cmd,model,epochs,batch_size,criterion,optimizer,train_x,train_y)
+            >>> fit.Train(shutdown,sleep,model,epochs,batch_size,criterion,optimizer,train_x,train_y)
 
             <Using metrics>
             >>> fit = Fit('test')
-            >>> fit.Train(cmd,model,epochs,batch_size,criterion,optimizer,train_x,train_y,metrics=Fit.Accuracy)
+            >>> fit.Train(shutdown,sleep,model,epochs,batch_size,criterion,optimizer,train_x,train_y,metrics=Fit.Accuracy)
             
             <Multiple inputs and outputs>
             >>> fit = Fit('test')
-            >>> fit.Train(cmd,model,epochs,batch_size,criterion=[loss1,loss2,loss3],optimizer,
+            >>> fit.Train(shutdown,sleep,model,epochs,batch_size,criterion=[loss1,loss2,loss3],optimizer,
             ...     train_x=[train_x1,train_x2],train_y=[train_y1,train_y2,train_y3],metrics=Fit.Accuracy
             ... )
 
@@ -85,7 +86,7 @@ class Fit:
             ...     return x**2
             ... 
             >>> fit = Fit('test')
-            >>> fit.Train(cmd,model,epochs,batch_size,criterion,optimizer,train_x,train_y,
+            >>> fit.Train(shutdown,sleep,model,epochs,batch_size,criterion,optimizer,train_x,train_y,
             ...     x_preprocesser=x_preprocesser
             ... )
             
@@ -189,7 +190,7 @@ class Fit:
         scaler = GradScaler()
         for epoch in range(epochs):
             # command checking
-            if cmd.value != Config.force_sleep:
+            if not sleep.value or shutdown.value:
                 self.debug.log('Training process was stoped')
                 break
             # sets
@@ -206,7 +207,7 @@ class Fit:
 
             for counter,data_idx in enumerate(range(0,train_len,batch_size),1):
                 # command checking
-                if cmd.value != Config.force_sleep:
+                if not sleep.value or shutdown.value:
                     break
                 # set trainings
                 _mes = '\r'
@@ -374,14 +375,14 @@ class Fit:
         datalen = len(data[0])
 
         outputs = []
-        model = model.type(data.dtype)
+        model = model.type(data[0].dtype)
 
         with torch.no_grad():
             for counter,data_idx in enumerate(range(0,datalen,batch_size),1):
-                data = [i[data_idx:data_idx+batch_size].to(device) for i in data]
+                _data = [i[data_idx:data_idx+batch_size].to(device) for i in data]
                 if _prepro:
-                    data = [f(i) for f,i in zip(preprocesser,data)]
-                output = model(*data).to('cpu')
+                    _data = [f(i) for f,i in zip(preprocesser,_data)]
+                output = model(*_data).to('cpu')
                 outputs.append(output)
         outputs = torch.cat(outputs)
         return outputs
@@ -516,8 +517,8 @@ if __name__ == '__main__':
             x1 = self.layer(x1)
             x2 = self.layer(x2)
             return x1,x2
-    train_x = torch.randn(0,100)
-    train_y = torch.randn(0,10)
+    train_x = torch.randn(10,100)
+    train_y = torch.randn(10,10)
     
     model = test()
     epochs = 5
@@ -533,9 +534,10 @@ if __name__ == '__main__':
     sch = lambda epoch: 0.80 ** epoch
     scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer,sch)
     fit = Fit('test train')
-    cmd = mp.Value('i',Config.force_sleep)
+    shutdown = mp.Value('i',False)
+    sleep = mp.Value('i',True)
 
-    x = fit.Train(cmd=cmd,
+    x = fit.Train(shutdown=shutdown,sleep=sleep,
         model=model,
         epochs=epochs,
         batch_size=batch_size,

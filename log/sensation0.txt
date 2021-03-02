@@ -27,3 +27,43 @@
 [2021-02-21 12:42:23] started shutdown process
 [2021-02-21 12:42:24] saved Read Out Id,Memory,Time,memlist,newest_id
 [2021-02-21 12:42:24] process shutdowned
+[2021-03-02 16:53:01] called DataEncoding
+[2021-03-02 16:53:06] setted video capture
+[2021-03-02 16:53:06] loaded newest ID
+[2021-03-02 16:53:06] loaded memory list
+[2021-03-02 16:53:06] loaded ReadOutMemory and ReadOutId. current length is 78
+[2021-03-02 16:53:06] loaded ReadOutTime
+[2021-03-02 16:53:06] process start!
+[2021-03-02 16:53:06] started shutdown process
+[2021-03-02 16:53:07] saved Read Out Id,Memory,Time,memlist,newest_id
+[2021-03-02 16:53:07] process shutdowned
+[2021-03-02 16:56:20] called DataEncoding
+[2021-03-02 16:56:24] setted video capture
+[2021-03-02 16:56:24] loaded newest ID
+[2021-03-02 16:56:24] loaded memory list
+[2021-03-02 16:56:24] loaded ReadOutMemory and ReadOutId. current length is 78
+[2021-03-02 16:56:24] loaded ReadOutTime
+[2021-03-02 16:56:24] process start!
+[2021-03-02 16:56:24] started shutdown process
+[2021-03-02 16:56:25] saved Read Out Id,Memory,Time,memlist,newest_id
+[2021-03-02 16:56:25] process shutdowned
+[2021-03-02 16:57:01] called DataEncoding
+[2021-03-02 16:57:05] setted video capture
+[2021-03-02 16:57:05] loaded newest ID
+[2021-03-02 16:57:05] loaded memory list
+[2021-03-02 16:57:05] loaded ReadOutMemory and ReadOutId. current length is 78
+[2021-03-02 16:57:05] loaded ReadOutTime
+[2021-03-02 16:57:05] process start!
+[2021-03-02 16:57:05] started shutdown process
+[2021-03-02 16:57:06] saved Read Out Id,Memory,Time,memlist,newest_id
+[2021-03-02 16:57:06] process shutdowned
+[2021-03-02 17:01:35] called DataEncoding
+[2021-03-02 17:01:39] setted video capture
+[2021-03-02 17:01:40] loaded newest ID
+[2021-03-02 17:01:40] loaded memory list
+[2021-03-02 17:01:40] loaded ReadOutMemory and ReadOutId. current length is 78
+[2021-03-02 17:01:40] loaded ReadOutTime
+[2021-03-02 17:01:40] process start!
+[2021-03-02 17:01:50] started shutdown process
+[2021-03-02 17:01:51] saved Read Out Id,Memory,Time,memlist,newest_id
+[2021-03-02 17:01:51] process shutdowned

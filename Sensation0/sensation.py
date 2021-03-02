@@ -36,17 +36,18 @@ class Sensation(MemoryManager):
             self.log('made',config.temp_folder)
             
     def activation(
-        self,cmd:mp.Value,switch:mp.Value,clock:mp.Value,sleep:mp.Value,
+        self,shutdown:mp.Value,sleep:mp.Value,switch:mp.Value,clock:mp.Value,sleepiness:mp.Value,
         ReadOutId:Tuple[np.ndarray,SharedMemory],
         ReadOutMemory:Tuple[np.ndarray,SharedMemory],
         memory_list:Tuple[np.ndarray,SharedMemory],
         newest_id:mp.Value,
         ) -> None:
         """
-        cmd:    multiprocessing shared memory int value.
+        shutdown:   multiprocessing shared memory bool value.
+        sleep:  multiprocessing shared memory bool value.
         switch: multiprocessing shared memory bool value.
         clock:  multiprocessing shared memory dubble value.
-        sleep:  multiprocessing shared memory dubble value.
+        sleepiness:  multiprocessing shared memory dubble value.
         ReadOutId:  shared memory objects
         ReadOutmemory:  shared memory objects
         memory_list:    shared memory objects
@@ -127,11 +128,12 @@ class Sensation(MemoryManager):
 
 
         self.log('process start!')
-        while cmd.value != mconf.shutdown:
+        print(shutdown.value)
+        while not shutdown.value:
 
             clock_start = time.time()
             while not switch.value:
-                if cmd.value == mconf.shutdown:
+                if shutdown.value:
                     break
                 clock.value = 0.0
                 time.sleep(mconf.wait_time)
@@ -172,7 +174,7 @@ class Sensation(MemoryManager):
                 saved_video_len = 0
             
 
-            if cmd.value == mconf.force_sleep or (not current_length < self.ReadOutLength) or (not switch.value):
+            if sleep.value or (not current_length < self.ReadOutLength) or (not switch.value):
 
                 self.save_memory(
                     ReadOutId[saved_length:current_length].copy(),
@@ -198,12 +200,12 @@ class Sensation(MemoryManager):
                 self.log('saved Read Out Id,Memory,Time,memlist,newest_id')
                 
                 ## ------------------------------------------------------------
-                if cmd.value == mconf.force_sleep:
+                if sleep.value:
                     time.sleep(mconf.sleep_wait)
                     encoding = DataEncoding(self.log_title,self.device,dtype=config.torchdtype)
                     self.log('called DataEncoding')
             
-            time.sleep(config.wait_time * sleep.value)
+            time.sleep(config.wait_time * sleepiness.value)
             cv2.waitKey(1)
             clock.value = time.time() - clock_start
         # -------- end while ---------------

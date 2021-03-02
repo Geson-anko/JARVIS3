@@ -47,14 +47,15 @@ class SleepManager(MemoryManager):
         # -----------------------------------------------------
     
     def activation(
-        self,cmd:mp.Value,switch:mp.Value,clock:mp.Value,sleep:mp.Value,
+        self,shutdown:mp.Value,sleep:mp.Value,switch:mp.Value,clock:mp.Value,sleepiness:mp.Value,
         newest_ids:Tuple[mp.Value]
         ) -> None:
         """
-        cmd:    multiprocessing shared memory int value.
+        shutdown:    multiprocessing shared memory bool value.
+        sleep:    multiprocessing shared memory bool value.
         switch: multiprocessing shared memory bool value.
         clock:  multiprocessing shared memory dubble value.
-        sleep:  multiprocessing shared memory dubble value.
+        sleepiness:  multiprocessing shared memory dubble value.
         newest_ids: Tuple of mutiprocessing shared memory int value.
         """    
         # load from file
@@ -83,11 +84,11 @@ class SleepManager(MemoryManager):
 
         ## process ------------------------------------------
         self.log('process start')
-        while cmd.value != mconf.shutdown:
+        while not shutdown.value:
             # clock log
             clock_start = time.time()
             while not switch.value:
-                if cmd.value == mconf.shutdown:
+                if shutdown.value:
                     break
                 clock.value = 0.0
                 time.sleep(mconf.wait_time)
@@ -105,18 +106,17 @@ class SleepManager(MemoryManager):
             now = datetime.now(mconf.TimeZone) + delta_bio_clock
             now_clock = now.hour * 60*60 + now.minute*60 + now.second
             if not Warn:
-                sleep.value = self.sleepiness(now_clock)
-                if sleep.value > config.threshold:
+                sleepiness.value = self.SleepinessCurve(now_clock)
+                if sleepiness.value > config.threshold:
                     if not modified:
-                        if not (cmd.value == mconf.shutdown):
-                            cmd.value = mconf.force_sleep
+                        sleep.value = True
                     else:
                         delta_bio_clock -= config.clock_warp
-                elif sleep.value > config.Meany and sleep.value <= config.threshold and not modified:
+                elif sleepiness.value > config.Meany and sleepiness.value <= config.threshold and not modified:
                     delta_bio_clock += config.clock_warp
             else:
-                sleep.value = 0
-                cmd.value = mconf.wake
+                sleepiness.value = 0
+                sleep.value = False
             
             if time.time() - warntime > config.warning_delay:
                 Warn = False
@@ -150,7 +150,7 @@ class SleepManager(MemoryManager):
         v = 1 / (1+np.exp(self.wake_k*x+ self.wake_b))
         return v
     
-    def sleepiness(self,x:float) -> float:
+    def SleepinessCurve(self,x:float) -> float:
         x = x % config.one_day
         if x < self.wake_switch or x >= self.sleep_switch:
             v = self.sleep_sigmoid(x)

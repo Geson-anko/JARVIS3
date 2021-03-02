@@ -5,7 +5,6 @@ import sys
 sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
 
 import numpy as np
-import cv2
 from torchvision import transforms
 import torch
 
@@ -17,6 +16,7 @@ from .DeltaTime import DeltaT
 from torch_model_fit import Fit 
 from MasterConfig import Config as mconf
 from MemoryManager import MemoryManager
+import multiprocessing as mp
 
 class Train(MemoryManager):
     memory_format:str =Sensation.memory_format
@@ -28,7 +28,7 @@ class Train(MemoryManager):
         self.dtype = config.training_dtype
         self.fit = Fit(self.log_title,debug_mode)
 
-    def activation(self,cmd) -> None:
+    def activation(self,shutdown:mp.Value,sleep:mp.Value) -> None:
 
         # load and preprocess data for Training AutoEncoder
         names = os.listdir(config.data_folder)
@@ -60,7 +60,7 @@ class Train(MemoryManager):
 
         # Train
         self.fit.Train(
-            cmd,
+            shutdown,sleep,
             model=model,
             epochs=epochs,
             batch_size=batch_size,
@@ -122,7 +122,7 @@ class Train(MemoryManager):
 
         # Train
         self.fit.Train(
-            cmd,
+            shutdown,sleep,
             model=model,
             epochs=epochs,
             batch_size=batch_size,

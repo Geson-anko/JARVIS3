@@ -26,17 +26,19 @@ class MemorySearch(MemoryManager):
 
     def activation(
         self,
-        cmd:mp.Value,
-        clock:mp.Value,
+        shutdown:mp.Value,
         sleep:mp.Value,
+        clock:mp.Value,
+        sleepiness:mp.Value,
         TempMemory:Tuple[np.ndarray,SharedMemory],
         mem_lists:Tuple[Tuple[np.ndarray,SharedMemory],...],
         newest_ids:Tuple[mp.Value,...],
     ) -> None:
         """
-        cmd:    multiprocessing shared memory int value.
+        shutdown:    multiprocessing shared memory bool value.
+        sleep:    multiprocessing shared memory bool value.
         clock:  multiprocessing shared memory dubble value.
-        sleep:  multiprocessing shared memory dubble value.
+        sleepiness:  multiprocessing shared memory dubble value.
         TempMemory: shared memory objects
         memory_lists: Tuple of shared memory objects
         newest_ids: Tuple of mutiprocessing shared memory int values
@@ -66,10 +68,10 @@ class MemorySearch(MemoryManager):
 
         # process --------------------------------------
         self.log('process start')
-        while cmd.value != mconf.shutdown:
+        while not shutdown.value:
             clock_start = time.time()
-            time.sleep(sleep.value * config.wait_time)
-            if cmd.value == mconf.force_sleep:
+            time.sleep(sleepiness.value * config.wait_time)
+            if sleep.value:
                 time.sleep(mconf.sleep_wait)
 
             

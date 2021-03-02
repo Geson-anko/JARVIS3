@@ -18,10 +18,6 @@ class Config:
     decimal_base:int = len(IDchars)
     memory_file_form:str = memory_folder+'/{0}.h5'
 
-    ### command values
-    shutdown:int = 999
-    force_sleep:int = 123
-    wake:int = 0
     ### switch
     wait_time:float = 0.1
     ### wait when sleep

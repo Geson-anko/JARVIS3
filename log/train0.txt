@@ -67,3 +67,12 @@
 [2021-02-23 16:29:00] finished
 [2021-02-23 16:29:00] Trained DeltaTime
 [2021-02-23 16:29:00] Train process was finished
+[2021-03-02 17:21:24] torch.Size([64, 3, 640, 360])
+[2021-03-02 17:21:24] Training process was stoped
+[2021-03-02 17:21:24] finished
+[2021-03-02 17:21:24] trained AutoEncoder
+[2021-03-02 17:21:24] data1: torch.Size([158, 5376]) data2: torch.Size([158, 5376]) ans: torch.Size([158, 1])
+[2021-03-02 17:21:24] Training process was stoped
+[2021-03-02 17:21:24] finished
+[2021-03-02 17:21:24] Trained DeltaTime
+[2021-03-02 17:21:24] Train process was finished

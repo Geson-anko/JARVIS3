@@ -10,52 +10,56 @@ from Sensation0.sensation import Sensation
 from SleepManager import SleepManager
 
 if __name__ == '__main__':
+    
     import matplotlib.pyplot as plt
     import numpy as np
     newids = [Value('i',i) for i in range(4)]
     SM = SleepManager(True)
-    cmd = Value('i',mconf.wake)
+    shutdown = Value('i',False)
+    sleep = Value('i',False)
     clock = Value('d',0)
     switch = Value('i',True)
-    sleep = Value('d',0)
+    sleepiness = Value('d',0)
     #x = np.linspace(0,48*60*60,1000)
     #y = [SM.sleepiness(i) for i in x]
     #plt.plot(x,y)
     #plt.show() 
-    print(SM.sleepiness(15*60*60+44*60+10))
+    print(SM.SleepinessCurve(15*60*60+44*60+10))
     #raise Exception
-    args = (cmd,switch,clock,sleep,newids
+    args = (shutdown,sleep,switch,clock,sleepiness,newids
     )
     p = Process(target=SM,args=args)
     p.start()
     print('pro start')
     time.sleep(4)
     print('clock',clock.value)
-    print('sleep',sleep.value)
-    cmd.value = mconf.shutdown
+    print('sleep',sleepiness.value)
+    shutdown.value = True
     p.join()
     print('clock',clock.value)
-    print('sleep',sleep.value)
+    print('sleep',sleepiness.value)
     print('process end')
-
-    """from MemorySearch import MemorySearch
+    
+    """
+    from MemorySearch import MemorySearch
     import copy
     sp = MemorySearch(True)
-    cmd = Value('i',mconf.wake)
+    shutdown = Value('i',False)
+    sleep = Value('i',True)
     clock = Value('d',0)
-    sleep = Value('d',0)
+    sleepiness = Value('d',0)
     newids = [Value('i',i) for i in range(4)]
     memlists = [
         sp.create_shared_memory(
             (100,),dtype='int64',initialize=mconf.init_id) for _ in range(4)
         ]
     TM = sp.create_shared_memory((500,),'int64',mconf.init_id)
-    args = (cmd,clock,sleep,TM,memlists,newids)
+    args = (shutdown,sleep,clock,sleepiness,TM,memlists,newids)
     p = Process(target=sp,args=args)
     print('process start')
     p.start()
     time.sleep(10)
-    cmd.value = mconf.shutdown
+    shutdown.value = True
     p.join()
     print('clock',clock.value)
     print('process end')
@@ -63,15 +67,17 @@ if __name__ == '__main__':
     """
     from Sensation0.train import Train  
     train = Train('cpu',True)
-    cmd = Value('i',mconf.wake)
-    train(cmd)
+    shutdown = Value('i',True)
+    sleep = Value('i',True)
+    train(shutdown,sleep)
     """
     """
     sens = Sensation('cpu')
-    cmd = Value('i',mconf.wake)
+    shutdown = Value('i',False)
+    sleep = Value('i',False)
     switch = Value('i',True)
     clock = Value('d',0)
-    sleep = Value('d',0)
+    sleepiness = Value('d',0)
     roi = sens.create_shared_memory((sens.ReadOutLength),dtype='int64',initialize=-1)
     rom = sens.create_shared_memory(
         (sens.ReadOutLength,sens.MemorySize),
@@ -79,16 +85,16 @@ if __name__ == '__main__':
     memlist = sens.create_shared_memory((sens.MemoryListLength,),dtype='int64',initialize=-1)
     newid = Value('i')
 
-    args = (cmd,switch,clock,sleep,roi,rom,memlist,newid)
+    args = (shutdown,sleep,switch,clock,sleepiness,roi,rom,memlist,newid)
 
     #executer =ProcessPoolExecutor()
     #proc = executer.submit(sens,*args)
     p = Process(target=sens,args=args)
     p.start()
     print('process submit')
-    time.sleep(10)
+    time.sleep(15)
     #cmd.value = mconf.force_sleep
-    cmd.value = mconf.shutdown
+    shutdown.value = True
     p.join()
     #executer.shutdown(True)
     #proc.result()

@@ -28,3 +28,8 @@
 [2021-03-02 15:54:49] setted default values
 [2021-03-02 15:54:49] process start
 [2021-03-02 15:54:52] shutdown process started
+[2021-03-02 17:36:14] loaded c:\Users\s1902\OneDrive - 独立行政法人 国立高等専門学校機構\JARVIS\JARVIS_ver3\SleepManager\temp\delta_bio_clock.pkl
+[2021-03-02 17:36:14] setted audio streaming
+[2021-03-02 17:36:14] setted default values
+[2021-03-02 17:36:14] process start
+[2021-03-02 17:36:17] shutdown process started
