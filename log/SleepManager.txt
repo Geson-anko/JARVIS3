@@ -1,0 +1,30 @@
+[2021-03-02 15:30:21] made c:\Users\s1902\OneDrive - 独立行政法人 国立高等専門学校機構\JARVIS\JARVIS_ver3\SleepManager\temp
+[2021-03-02 15:34:39] setted audio streaming
+[2021-03-02 15:34:39] setted default values
+[2021-03-02 15:34:39] process start
+[2021-03-02 15:34:46] turn on warning mode
+[2021-03-02 15:34:46] turn on warning mode
+[2021-03-02 15:37:10] setted audio streaming
+[2021-03-02 15:37:10] setted default values
+[2021-03-02 15:37:10] process start
+[2021-03-02 15:41:27] setted audio streaming
+[2021-03-02 15:41:27] setted default values
+[2021-03-02 15:41:27] process start
+[2021-03-02 15:41:48] setted audio streaming
+[2021-03-02 15:41:48] setted default values
+[2021-03-02 15:41:48] process start
+[2021-03-02 15:41:51] shutdown process started
+[2021-03-02 15:44:10] loaded c:\Users\s1902\OneDrive - 独立行政法人 国立高等専門学校機構\JARVIS\JARVIS_ver3\SleepManager\temp\delta_bio_clock.pkl
+[2021-03-02 15:44:10] setted audio streaming
+[2021-03-02 15:44:10] setted default values
+[2021-03-02 15:44:10] process start
+[2021-03-02 15:54:23] loaded c:\Users\s1902\OneDrive - 独立行政法人 国立高等専門学校機構\JARVIS\JARVIS_ver3\SleepManager\temp\delta_bio_clock.pkl
+[2021-03-02 15:54:24] setted audio streaming
+[2021-03-02 15:54:24] setted default values
+[2021-03-02 15:54:24] process start
+[2021-03-02 15:54:27] shutdown process started
+[2021-03-02 15:54:49] loaded c:\Users\s1902\OneDrive - 独立行政法人 国立高等専門学校機構\JARVIS\JARVIS_ver3\SleepManager\temp\delta_bio_clock.pkl
+[2021-03-02 15:54:49] setted audio streaming
+[2021-03-02 15:54:49] setted default values
+[2021-03-02 15:54:49] process start
+[2021-03-02 15:54:52] shutdown process started

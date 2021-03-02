@@ -48,7 +48,7 @@ class SleepManager(MemoryManager):
     
     def activation(
         self,cmd:mp.Value,switch:mp.Value,clock:mp.Value,sleep:mp.Value,
-        *newest_ids:Tuple[mp.Value]
+        newest_ids:Tuple[mp.Value]
         ) -> None:
         """
         cmd:    multiprocessing shared memory int value.
@@ -103,12 +103,13 @@ class SleepManager(MemoryManager):
             # sleepiness
             modified = self.check_id_modified(newest_ids,old_ids)
             now = datetime.now(mconf.TimeZone) + delta_bio_clock
-            now_clock = now.hour * 60 + now.minute*60 + now.second
+            now_clock = now.hour * 60*60 + now.minute*60 + now.second
             if not Warn:
                 sleep.value = self.sleepiness(now_clock)
                 if sleep.value > config.threshold:
                     if not modified:
-                        cmd.value = mconf.force_sleep
+                        if not (cmd.value == mconf.shutdown):
+                            cmd.value = mconf.force_sleep
                     else:
                         delta_bio_clock -= config.clock_warp
                 elif sleep.value > config.Meany and sleep.value <= config.threshold and not modified:
@@ -118,7 +119,7 @@ class SleepManager(MemoryManager):
                 cmd.value = mconf.wake
             
             if time.time() - warntime > config.warning_delay:
-                warn = False
+                Warn = False
 
             clock.value = time.time() - clock_start
         # ----------------------------------------------------

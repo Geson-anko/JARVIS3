@@ -1,13 +1,43 @@
-import sys
 import os
-
-from Sensation0.sensation import Sensation
-from multiprocessing import Value,Process
+import sys
+import time
+from concurrent.futures import ProcessPoolExecutor
+from multiprocessing import Process, Value
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 #sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
 from MasterConfig import Config as mconf
-from concurrent.futures import ProcessPoolExecutor
-import time
+from Sensation0.sensation import Sensation
+from SleepManager import SleepManager
+
 if __name__ == '__main__':
+    import matplotlib.pyplot as plt
+    import numpy as np
+    newids = [Value('i',i) for i in range(4)]
+    SM = SleepManager(True)
+    cmd = Value('i',mconf.wake)
+    clock = Value('d',0)
+    switch = Value('i',True)
+    sleep = Value('d',0)
+    #x = np.linspace(0,48*60*60,1000)
+    #y = [SM.sleepiness(i) for i in x]
+    #plt.plot(x,y)
+    #plt.show() 
+    print(SM.sleepiness(15*60*60+44*60+10))
+    #raise Exception
+    args = (cmd,switch,clock,sleep,newids
+    )
+    p = Process(target=SM,args=args)
+    p.start()
+    print('pro start')
+    time.sleep(4)
+    print('clock',clock.value)
+    print('sleep',sleep.value)
+    cmd.value = mconf.shutdown
+    p.join()
+    print('clock',clock.value)
+    print('sleep',sleep.value)
+    print('process end')
+
     """from MemorySearch import MemorySearch
     import copy
     sp = MemorySearch(True)
@@ -30,11 +60,12 @@ if __name__ == '__main__':
     print('clock',clock.value)
     print('process end')
     """
+    """
     from Sensation0.train import Train  
     train = Train('cpu',True)
     cmd = Value('i',mconf.wake)
     train(cmd)
-    
+    """
     """
     sens = Sensation('cpu')
     cmd = Value('i',mconf.wake)
