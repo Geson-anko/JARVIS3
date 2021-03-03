@@ -14,3 +14,4 @@ fasttext --https://github.com/facebookresearch/fastText.git
 tensorboard
 wxpython
 gensim
+conda install -c main ffmpeg
