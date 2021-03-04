@@ -1,4 +1,35 @@
-import wx
+import tkinter as tk
+
+def main():
+    root= tk.Tk()
+    root.geometry("400x300")
+    
+    canvas = tk.Canvas(root,bg="white")
+    canvas.place(x=0,y=0,width=200,height=300)
+
+    bar_y = tk.Scrollbar(canvas,orient=tk.VERTICAL)
+    bar_x = tk.Scrollbar(canvas,orient=tk.HORIZONTAL)
+    bar_y.pack(side=tk.RIGHT,fill=tk.Y)
+    bar_x.pack(side=tk.BOTTOM,fill=tk.X)
+    bar_y.config(command=canvas.yview)
+    bar_x.config(command=canvas.xview)
+    canvas.config(yscrollcommand=bar_y.set,xscrollcommand=bar_x.set)
+
+    canvas.config(scrollregion=(0,0,330,500))
+
+    canvas.create_rectangle(10,10,100,100,fill='green')
+
+    root.mainloop()
+if __name__ == '__main__':
+    main()
+
+
+
+
+
+
+
+"""import wx
 
 class MyFrame(wx.Frame):
     def __init__(self):
@@ -54,3 +85,4 @@ class MyApp(wx.App):
 
 app = MyApp()
 app.MainLoop()
+"""

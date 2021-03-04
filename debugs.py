@@ -3,14 +3,32 @@ import sys
 import time
 from concurrent.futures import ProcessPoolExecutor
 from multiprocessing import Process, Value
+from tkinter.constants import S
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 #sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
 from MasterConfig import Config as mconf
 from Sensation0.sensation import Sensation
 from SleepManager import SleepManager
-
+from GUI_controller import Controller
 if __name__ == '__main__':
     
+    """
+    shutdown = Value('i',False)
+    num = 10
+    switches = [Value('i',True) for _ in range(num)]
+    titles = [f'switch {i}' for i in range(num)]
+    switch_objs = list(zip(titles,switches))
+    con = Controler(True)
+    args = (shutdown,switch_objs)
+    p = Process(target=con,args=args)
+    p.start() 
+    time.sleep(20)
+    p.join()
+    print(shutdown.value)
+    for i in switches:
+        print(i.value)
+    """
+    """
     import matplotlib.pyplot as plt
     import numpy as np
     newids = [Value('i',i) for i in range(4)]
@@ -39,7 +57,7 @@ if __name__ == '__main__':
     print('clock',clock.value)
     print('sleep',sleepiness.value)
     print('process end')
-    
+    """
     """
     from MemorySearch import MemorySearch
     import copy
