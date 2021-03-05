@@ -7,12 +7,15 @@ from datetime import timezone,timedelta
 @dataclass
 class Config:
     version:float= 3.0
+    current_directory:str = os.path.dirname(os.path.abspath(__file__))
     log_dir:str = 'log'
+    logo_file:str = os.path.join(current_directory,'logo.txt')
 
     init_id:int = -1
     memory_folder:str = 'memory'
     active_time:float = 16.0
     ID_length:int = 10
+    ID_dtype:str = 'int64'
 
     IDchars:str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
     decimal_base:int = len(IDchars)
@@ -26,7 +29,6 @@ class Config:
     TimeZone:timezone = timezone(timedelta(hours=+9),name='JST')
     
 
-    current_directory:str = os.path.dirname(os.path.abspath(__file__))
 
     ### Trainer
     """
@@ -37,7 +39,7 @@ class Config:
     train_modules:tuple = (
         "Sensation0",
     )
-    train_wait:float = 1 #second
+    train_wait:float = 30 #second
     
 
 
