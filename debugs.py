@@ -3,15 +3,25 @@ import sys
 import time
 from concurrent.futures import ProcessPoolExecutor
 from multiprocessing import Process, Value
-from tkinter.constants import S
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 #sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
 from MasterConfig import Config as mconf
 from Sensation0.sensation import Sensation
 from SleepManager import SleepManager
 from GUI_controller import Controller
+from Trainer import Train
 if __name__ == '__main__':
-    
+    shutdown = Value('i',False)
+    sleep = Value('i',True)
+    train = Train('cuda',True)
+    args = (shutdown,sleep)
+    print('process start')
+    p = Process(target=train,args=args)
+    p.start()
+    time.sleep(10)
+    shutdown.value = True
+    p.join()
+    print('process end')
     """
     shutdown = Value('i',False)
     num = 10

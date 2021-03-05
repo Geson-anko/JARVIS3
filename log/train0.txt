@@ -76,3 +76,5 @@
 [2021-03-02 17:21:24] finished
 [2021-03-02 17:21:24] Trained DeltaTime
 [2021-03-02 17:21:24] Train process was finished
+[2021-03-05 12:46:43] <class 'Warning'> To train AutoEncoder data does not exist
+[2021-03-05 12:48:00] <class 'Warning'> To train AutoEncoder data does not exist

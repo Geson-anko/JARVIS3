@@ -27,6 +27,17 @@ class Config:
     
 
     current_directory:str = os.path.dirname(os.path.abspath(__file__))
+
+    ### Trainer
+    """
+        Train process calls 'modulename.Train()'. so you msut write like this below.
+        module_folder/__init__.py
+        >>> from .train import Train    
+    """
+    train_modules:tuple = (
+        "Sensation0",
+    )
+    train_wait:float = 1 #second
     
 
 
