@@ -16,3 +16,14 @@
 [2021-03-05 12:48:00] training Train(char='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ', base=62, data_dir='{}/data', time_dir='{}/time', return_time=False)
 [2021-03-05 12:48:01] training process ended
 [2021-03-05 12:48:10] process shutdowned
+[2021-03-05 18:11:42] Instanced Train Modules
+[2021-03-05 18:19:50] Instanced Train Modules
+[2021-03-05 18:22:50] process shutdowned
+[2021-03-05 18:30:49] Instanced Train Modules
+[2021-03-05 18:31:19] process shutdowned
+[2021-03-05 18:31:31] Instanced Train Modules
+[2021-03-05 18:32:01] process shutdowned
+[2021-03-05 18:33:04] Instanced Train Modules
+[2021-03-05 18:33:34] process shutdowned
+[2021-03-05 18:33:39] Instanced Train Modules
+[2021-03-05 18:34:09] process shutdowned

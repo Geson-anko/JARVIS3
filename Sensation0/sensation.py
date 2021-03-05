@@ -128,7 +128,6 @@ class Sensation(MemoryManager):
 
 
         self.log('process start!')
-        print(shutdown.value)
         while not shutdown.value:
 
             clock_start = time.time()

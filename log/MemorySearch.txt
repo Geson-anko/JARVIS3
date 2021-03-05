@@ -35,3 +35,79 @@
 [2021-03-02 17:29:36] shutdown process started
 [2021-03-02 17:29:36] saved Memory Dictionary and Temporary Memory
 [2021-03-02 17:29:36] process shutdowned
+[2021-03-05 18:11:41] create new memory dictionary
+[2021-03-05 18:11:41] process start
+[2021-03-05 18:16:01] create new memory dictionary
+[2021-03-05 18:16:01] process start
+[2021-03-05 18:16:11] shutdown process started
+[2021-03-05 18:16:11] saved Memory Dictionary and Temporary Memory
+[2021-03-05 18:16:11] process shutdowned
+[2021-03-05 18:17:59] loaded memory dictionary
+[2021-03-05 18:17:59] loaded Temporary Memory
+[2021-03-05 18:17:59] process start
+[2021-03-05 18:18:09] shutdown process started
+[2021-03-05 18:18:09] saved Memory Dictionary and Temporary Memory
+[2021-03-05 18:18:09] process shutdowned
+[2021-03-05 18:18:47] loaded memory dictionary
+[2021-03-05 18:18:47] loaded Temporary Memory
+[2021-03-05 18:18:47] process start
+[2021-03-05 18:18:53] shutdown process started
+[2021-03-05 18:18:53] saved Memory Dictionary and Temporary Memory
+[2021-03-05 18:18:53] process shutdowned
+[2021-03-05 18:19:32] loaded memory dictionary
+[2021-03-05 18:19:32] loaded Temporary Memory
+[2021-03-05 18:19:32] process start
+[2021-03-05 18:19:37] shutdown process started
+[2021-03-05 18:19:37] saved Memory Dictionary and Temporary Memory
+[2021-03-05 18:19:37] process shutdowned
+[2021-03-05 18:19:50] loaded memory dictionary
+[2021-03-05 18:19:50] loaded Temporary Memory
+[2021-03-05 18:19:50] process start
+[2021-03-05 18:26:31] loaded memory dictionary
+[2021-03-05 18:26:31] loaded Temporary Memory
+[2021-03-05 18:26:31] process start
+[2021-03-05 18:27:03] loaded memory dictionary
+[2021-03-05 18:27:03] loaded Temporary Memory
+[2021-03-05 18:27:03] process start
+[2021-03-05 18:27:08] shutdown process started
+[2021-03-05 18:27:08] saved Memory Dictionary and Temporary Memory
+[2021-03-05 18:27:08] process shutdowned
+[2021-03-05 18:27:55] loaded memory dictionary
+[2021-03-05 18:27:55] loaded Temporary Memory
+[2021-03-05 18:27:55] process start
+[2021-03-05 18:28:01] shutdown process started
+[2021-03-05 18:28:01] saved Memory Dictionary and Temporary Memory
+[2021-03-05 18:28:01] process shutdowned
+[2021-03-05 18:28:17] loaded memory dictionary
+[2021-03-05 18:28:17] loaded Temporary Memory
+[2021-03-05 18:28:17] process start
+[2021-03-05 18:28:22] shutdown process started
+[2021-03-05 18:28:22] saved Memory Dictionary and Temporary Memory
+[2021-03-05 18:28:22] process shutdowned
+[2021-03-05 18:28:44] loaded memory dictionary
+[2021-03-05 18:28:44] loaded Temporary Memory
+[2021-03-05 18:28:44] process start
+[2021-03-05 18:28:50] shutdown process started
+[2021-03-05 18:28:50] saved Memory Dictionary and Temporary Memory
+[2021-03-05 18:28:50] process shutdowned
+[2021-03-05 18:29:49] loaded memory dictionary
+[2021-03-05 18:29:49] loaded Temporary Memory
+[2021-03-05 18:29:49] process start
+[2021-03-05 18:29:54] shutdown process started
+[2021-03-05 18:29:54] saved Memory Dictionary and Temporary Memory
+[2021-03-05 18:29:54] process shutdowned
+[2021-03-05 18:30:49] loaded memory dictionary
+[2021-03-05 18:30:49] loaded Temporary Memory
+[2021-03-05 18:30:49] process start
+[2021-03-05 18:31:30] loaded memory dictionary
+[2021-03-05 18:31:30] loaded Temporary Memory
+[2021-03-05 18:31:30] process start
+[2021-03-05 18:33:03] loaded memory dictionary
+[2021-03-05 18:33:03] loaded Temporary Memory
+[2021-03-05 18:33:03] process start
+[2021-03-05 18:33:39] loaded memory dictionary
+[2021-03-05 18:33:39] loaded Temporary Memory
+[2021-03-05 18:33:39] process start
+[2021-03-05 18:33:57] shutdown process started
+[2021-03-05 18:33:57] saved Memory Dictionary and Temporary Memory
+[2021-03-05 18:33:57] process shutdowned

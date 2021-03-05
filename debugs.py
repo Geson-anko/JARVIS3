@@ -1,7 +1,7 @@
 import os
 import sys
 import time
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ProcessPoolExecutor,ThreadPoolExecutor
 from multiprocessing import Process, Value
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 #sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
@@ -23,19 +23,22 @@ if __name__ == '__main__':
     shutdown.value = True
     p.join()
     print('process end')
-    """
+    """ 
     """
     shutdown = Value('i',False)
     num = 10
     switches = [Value('i',True) for _ in range(num)]
     titles = [f'switch {i}' for i in range(num)]
     switch_objs = list(zip(titles,switches))
-    con = Controler(True)
+    con = Controller(True)
     args = (shutdown,switch_objs)
-    p = Process(target=con,args=args)
-    p.start() 
-    time.sleep(20)
-    p.join()
+    #p = Process(target=con,args=args)
+    executer = ThreadPoolExecutor(1)
+    executer.submit(con,*args)
+    #p.start() 
+    time.sleep(10)
+    #p.join()
+    executer.shutdown(True)
     print(shutdown.value)
     for i in switches:
         print(i.value)
@@ -70,12 +73,12 @@ if __name__ == '__main__':
     print('sleep',sleepiness.value)
     print('process end')
     """
-    """
+    
     from MemorySearch import MemorySearch
     import copy
-    sp = MemorySearch(True)
+    sp = MemorySearch(False)
     shutdown = Value('i',False)
-    sleep = Value('i',True)
+    sleep = Value('i',False)
     clock = Value('d',0)
     sleepiness = Value('d',0)
     newids = [Value('i',i) for i in range(4)]
@@ -83,17 +86,22 @@ if __name__ == '__main__':
         sp.create_shared_memory(
             (100,),dtype='int64',initialize=mconf.init_id) for _ in range(4)
         ]
+    _mem = [sp.inherit_shared_memory(i) for i in memlists]
     TM = sp.create_shared_memory((500,),'int64',mconf.init_id)
     args = (shutdown,sleep,clock,sleepiness,TM,memlists,newids)
     p = Process(target=sp,args=args)
     print('process start')
     p.start()
-    time.sleep(10)
+    time.sleep(1)
+    _mem[0][0] = 0
+    _mem[0][1] = 1
+    newids[0].value = 1
+    time.sleep(5)
     shutdown.value = True
     p.join()
     print('clock',clock.value)
     print('process end')
-    """
+    
     """
     from Sensation0.train import Train  
     train = Train('cuda',True)

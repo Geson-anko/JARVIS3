@@ -74,7 +74,6 @@ class MemorySearch(MemoryManager):
             if sleep.value:
                 time.sleep(mconf.sleep_wait)
 
-            
             # modified check
             modified_memlist = np.concatenate(
                 [i.copy() if self.mem_list_modified(i,q) else [] for i,q in zip(mem_lists,old_memlist)]
