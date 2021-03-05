@@ -11,6 +11,7 @@ from SleepManager import SleepManager
 from GUI_controller import Controller
 from Trainer import Train
 if __name__ == '__main__':
+    """
     shutdown = Value('i',False)
     sleep = Value('i',True)
     train = Train('cuda',True)
@@ -22,6 +23,7 @@ if __name__ == '__main__':
     shutdown.value = True
     p.join()
     print('process end')
+    """
     """
     shutdown = Value('i',False)
     num = 10
@@ -94,13 +96,13 @@ if __name__ == '__main__':
     """
     """
     from Sensation0.train import Train  
-    train = Train('cpu',True)
-    shutdown = Value('i',True)
+    train = Train('cuda',True)
+    shutdown = Value('i',False)
     sleep = Value('i',True)
     train(shutdown,sleep)
     """
     """
-    sens = Sensation('cpu')
+    sens = Sensation('cuda')
     shutdown = Value('i',False)
     sleep = Value('i',False)
     switch = Value('i',True)
@@ -109,7 +111,7 @@ if __name__ == '__main__':
     roi = sens.create_shared_memory((sens.ReadOutLength),dtype='int64',initialize=-1)
     rom = sens.create_shared_memory(
         (sens.ReadOutLength,sens.MemorySize),
-        dtype='float32',initialize=0.0)
+        dtype='float16',initialize=0.0)
     memlist = sens.create_shared_memory((sens.MemoryListLength,),dtype='int64',initialize=-1)
     newid = Value('i')
 
@@ -120,6 +122,9 @@ if __name__ == '__main__':
     p = Process(target=sens,args=args)
     p.start()
     print('process submit')
+    _roi =sens.inherit_shared_memory(roi)
+    _rom = sens.inherit_shared_memory(rom)
+    _mem = sens.inherit_shared_memory(memlist)
     time.sleep(15)
     #cmd.value = mconf.force_sleep
     shutdown.value = True
@@ -127,6 +132,9 @@ if __name__ == '__main__':
     #executer.shutdown(True)
     #proc.result()
     print('process result')
+    print(_roi[:10])
+    print(_rom[:10])
+    print(_mem)
     """
 
     pass

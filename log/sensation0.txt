@@ -67,3 +67,19 @@
 [2021-03-02 17:01:50] started shutdown process
 [2021-03-02 17:01:51] saved Read Out Id,Memory,Time,memlist,newest_id
 [2021-03-02 17:01:51] process shutdowned
+[2021-03-05 15:25:26] called DataEncoding
+[2021-03-05 15:25:28] setted video capture
+[2021-03-05 15:25:28] process start!
+[2021-03-05 15:25:39] started shutdown process
+[2021-03-05 15:25:39] saved Read Out Id,Memory,Time,memlist,newest_id
+[2021-03-05 15:25:39] process shutdowned
+[2021-03-05 15:26:22] called DataEncoding
+[2021-03-05 15:26:23] setted video capture
+[2021-03-05 15:26:23] loaded newest ID
+[2021-03-05 15:26:23] loaded memory list
+[2021-03-05 15:26:23] loaded ReadOutMemory and ReadOutId. current length is 137
+[2021-03-05 15:26:23] loaded ReadOutTime
+[2021-03-05 15:26:23] process start!
+[2021-03-05 15:26:35] started shutdown process
+[2021-03-05 15:26:36] saved Read Out Id,Memory,Time,memlist,newest_id
+[2021-03-05 15:26:36] process shutdowned

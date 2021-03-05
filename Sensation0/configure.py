@@ -46,7 +46,7 @@ class config:
         # AutoEncoder setting
     train_video_use:int = int(np.floor(8192/saving_rate))
     AE_lr:float = 0.0001
-    AE_batch_size:int = 64
+    AE_batch_size:int = 32
     AE_epochs:int = 5
         # DeltaTime settings
     time_use:int = 8192
