@@ -5,7 +5,7 @@ from numpy import ndarray
 from torch import Tensor
 import h5py
 import pickle
-from os.path import join as pathjoin
+from os.path import isdir, join as pathjoin
 from MasterConfig import Config
 from debug_tools import Debug
 from dataclasses import dataclass
@@ -116,6 +116,10 @@ class MemoryManager(Debug):
         super().__init__(log_title,debug_mode)
         #self.debug = Debug(log_title,debug_mode)
         self.public_shared_memory = []
+
+        memory_folder = pathjoin(Config.current_directory,Config.memory_folder)
+        if not isdir(memory_folder):
+            os.makedirs(memory_folder)
 
     def Num2Id(self,num:int) -> str:
         """
