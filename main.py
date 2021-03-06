@@ -1,15 +1,17 @@
 from MasterConfig import Config
 from MemoryManager import MemoryManager
-from concurrent.futures import ThreadPoolExecutor, thread
+from concurrent.futures import ThreadPoolExecutor
 from multiprocessing import Value,Process
-import os
+import time
 
 
 def main():
     log_title = 'main'
-    debug_mode = True
+    debug_mode = False
     """
     This is main function.
+    When you add a sensation, please write code like this below.
+    You have to set switch, clocks, and other shared memories along your function input arguments.
     """
     shutdown = Value('i',False)
     sleep = Value('i',False)
@@ -20,6 +22,7 @@ def main():
     MemoryLists = []
     TempMemoryLength = 0
     Switches = []
+    Clocks = []
     mm = MemoryManager(log_title,debug_mode)
     
     ## Process Import Zone
@@ -45,6 +48,7 @@ def main():
     switch0 = Value('i',True)
     Switches.append((func.log_title,switch0))
     clock0 = Value('d',0.0)
+    Clocks.append((func.log_title,clock0))
     
     ReadOutId0 = mm.create_shared_memory((func.ReadOutLength,),dtype=Config.ID_dtype,initialize=Config.init_id)
     ReadOutMemory0 = mm.create_shared_memory(
@@ -66,6 +70,7 @@ def main():
     func = MemorySearch(debug_mode_search)
     process_funcs.append(func)
     clock_search = Value('d',0.0)
+    Clocks.append((func.log_title,clock_search))
     TempMemory = mm.create_shared_memory((TempMemoryLength,),dtype=Config.ID_dtype,initialize=Config.init_id)
     args = (shutdown,sleep,clock_search,sleepiness,TempMemory,MemoryLists,NewestIds)
     process_args.append(args)
@@ -88,6 +93,7 @@ def main():
     switch_sleep = Value('i',True)
     Switches.append((func.log_title,switch_sleep))
     clock_sleep = Value('d',0.0)
+    Clocks.append((func.log_title,clock_sleep))
     args = (shutdown,sleep,switch_sleep,clock_sleep,sleepiness,NewestIds)
     thread_args.append(args)
     mm.log('SleepManager is ready')
@@ -113,6 +119,8 @@ def main():
     for (func,args) in zip(thread_funcs,thread_args):
         executer.submit(func,*args)
     mm.log('J.A.R.V.I.S. started')
+    
+    time.sleep(10)
     with open(Config.logo_file,encoding='utf-8') as f:
         print(f.read())
 

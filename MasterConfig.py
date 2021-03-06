@@ -8,18 +8,18 @@ from datetime import timezone,timedelta
 class Config:
     version:float= 3.0
     current_directory:str = os.path.dirname(os.path.abspath(__file__))
-    log_dir:str = 'log'
+    log_dir:str = os.path.join(current_directory,'log') 
     logo_file:str = os.path.join(current_directory,'logo.txt')
 
     init_id:int = -1
-    memory_folder:str = 'memory'
+    memory_folder:str = os.path.join(current_directory,'memory')
     active_time:float = 16.0
     ID_length:int = 10
     ID_dtype:str = 'int64'
 
     IDchars:str = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
     decimal_base:int = len(IDchars)
-    memory_file_form:str = memory_folder+'/{0}.h5'
+    memory_file_form:str = os.path.join(memory_folder,'{0}.h5')
 
     ### switch
     wait_time:float = 0.1

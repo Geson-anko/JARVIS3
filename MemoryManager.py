@@ -196,8 +196,8 @@ class MemoryManager(Debug):
                 self.exception(f'You try to save a memory with list of time. Please give a memory and a time.')
             if _idt is int:
                 ID = self.Num2Id(ID)
-            #name = Config.memory_file_form.format(ID[0])
-            name = pathjoin(Config.current_directory,Config.memory_file_form.format(ID[0]))
+            name = Config.memory_file_form.format(ID[0])
+            #name = pathjoin(Config.current_directory,Config.memory_file_form.format(ID[0]))
             with h5py.File(name,'a',swmr=True) as f:
                 if ID in f:
                     self.warn(f'{ID} is existing!')
@@ -220,8 +220,8 @@ class MemoryManager(Debug):
         
         if elem_type is int:
             ID = [self.Num2Id(i) for i in ID]
-        #name =   Config.memory_file_form.format(ID[0][0])
-        name = pathjoin(Config.current_directory,Config.memory_file_form.format(ID[0][0]))
+        name =   Config.memory_file_form.format(ID[0][0])
+        #name = pathjoin(Config.current_directory,Config.memory_file_form.format(ID[0][0]))
 
         with h5py.File(name,'a',swmr=True) as f:
             allid = f.keys() 
@@ -267,8 +267,8 @@ class MemoryManager(Debug):
             self.return_time is False -> Tuple[str,ndarray]
             self.return_time is True  -> Tuple[str,ndarray,time]
         """
-        #name = Config.memory_file_form.format(ID[0])
-        name = pathjoin(Config.current_directory,Config.memory_file_form.format(ID[0]))
+        name = Config.memory_file_form.format(ID[0])
+        #name = pathjoin(Config.current_directory,Config.memory_file_form.format(ID[0]))
 
         try:
             with h5py.File(name,'r',swmr=True) as f:
@@ -503,7 +503,6 @@ if __name__ == '__main__':
     dummydata = np.random.randn(3,10)
     dummytime = [0.0,1.0,2.0]
 
-    #mm.save_memory(dummyid,dummydata,dummytime)
     #print(mm.load_memory(dummyid,return_time=True))
     #print(mm.extract_sameId(dummyid,''))
     #print(mm.get_firstId(60,True))

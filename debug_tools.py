@@ -28,9 +28,9 @@ class Debug:
         if debug_mode:
             self._title += '<debug mode>'
         _dir = f'{Config.current_directory}/{Config.log_dir}'
-        if os.path.isdir(_dir) is False:
+        if os.path.isdir(Config.log_dir) is False:
             os.makedirs(Config.log_dir)
-        self.log_file = f'{_dir}/{log_title}.txt'
+        self.log_file = os.path.join(Config.log_dir,f'{log_title}.txt')
 
 
     def log(self,*args:Any,debug_only:bool=False) -> None:
