@@ -13,8 +13,8 @@ class config:
     channels:int = 3
     frame_size:tuple = (width,height)
 
-    dtype:np.dtype = np.float32
-    torchdtype:torch.dtype = torch.float32
+    dtype:np.dtype = np.float16
+    torchdtype:torch.dtype = torch.float16
 
     current_directory:str = os.path.dirname(os.path.abspath(__file__))
 
@@ -52,5 +52,5 @@ class config:
     time_use:int = 8192
     DT_lr:float = 0.001
     DT_batch_size:int = 4096
-    DT_epochs:int = 100
+    DT_epochs:int = 10
     zero_per:float = 0.1

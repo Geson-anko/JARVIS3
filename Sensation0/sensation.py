@@ -39,8 +39,8 @@ class Sensation(MemoryManager):
         self,shutdown:mp.Value,sleep:mp.Value,switch:mp.Value,clock:mp.Value,sleepiness:mp.Value,
         ReadOutId:Tuple[np.ndarray,SharedMemory],
         ReadOutMemory:Tuple[np.ndarray,SharedMemory],
-        memory_list:Tuple[np.ndarray,SharedMemory],
-        newest_id:mp.Value,
+        MemoryList:Tuple[np.ndarray,SharedMemory],
+        NewestId:mp.Value,
         ) -> None:
         """
         shutdown:   multiprocessing shared memory bool value.
@@ -50,8 +50,8 @@ class Sensation(MemoryManager):
         sleepiness:  multiprocessing shared memory dubble value.
         ReadOutId:  shared memory objects
         ReadOutmemory:  shared memory objects
-        memory_list:    shared memory objects
-        newest_id:  mutiprocessing shared memory int value.
+        MemoryList:    shared memory objects
+        NewestId:  mutiprocessing shared memory int value.
         """
 
         ## call functions
@@ -75,21 +75,21 @@ class Sensation(MemoryManager):
         ## inherit shared memories
         ReadOutId = self.inherit_shared_memory(ReadOutId)
         ReadOutMemory = self.inherit_shared_memory(ReadOutMemory)
-        memory_list = self.inherit_shared_memory(memory_list)
+        MemoryList = self.inherit_shared_memory(MemoryList)
 
         ## load previous values
         if isfile(config.newestId_file):
-            newest_id.value = self.load_python_obj(config.newestId_file)
+            NewestId.value = self.load_python_obj(config.newestId_file)
             self.log('loaded newest ID')
         else:
-            newest_id.value = self.get_firstId(self.memory_format,return_integer=True)#-1
-            ReadOutId[0] = newest_id.value
+            NewestId.value = self.get_firstId(self.memory_format,return_integer=True)#-1
+            ReadOutId[0] = NewestId.value
         
         if isfile(config.memlist_file):
             ml = self.load_python_obj(config.memlist_file)
             ml = ml[:self.MemoryListLength]
             mlen = ml.shape[0]
-            memory_list[:mlen] = ml
+            MemoryList[:mlen] = ml
             self.log('loaded memory list')
 
 
@@ -149,8 +149,8 @@ class Sensation(MemoryManager):
             if mins > 0.00001:
                 ReadOutMemory[current_length] = data.to('cpu').numpy()
                 ReadOutMemory_torch[current_length] = data
-                newest_id.value += 1
-                ReadOutId[current_length] = newest_id.value
+                NewestId.value += 1
+                ReadOutId[current_length] = NewestId.value
                 current_length += 1
                 ### your process ------
                 video_array[saved_video_len] = img
@@ -159,7 +159,7 @@ class Sensation(MemoryManager):
 
             id_args = torch.argsort(distances)[:self.MemoryListLength].to('cpu').numpy()
             il = id_args.shape[0]
-            memory_list[:il] = ReadOutId[id_args]
+            MemoryList[:il] = ReadOutId[id_args]
 
             if not (config.saving_rate > saved_video_len):
                 """
@@ -191,12 +191,12 @@ class Sensation(MemoryManager):
                 saved_length = current_length
 
                 ## This place is saving place which you want to save python objects to file.
-                self.save_python_obj(config.memlist_file,memory_list)
+                self.save_python_obj(config.memlist_file,MemoryList)
                 self.save_python_obj(config.ReadoutTime_file,ReadOutTime[:current_length])
                 self.save_python_obj(config.ReadoutId_file,ReadOutId[:current_length])
                 self.save_python_obj(config.ReadoutMem_file,ReadOutMemory[:current_length])
-                self.save_python_obj(config.newestId_file,newest_id.value)
-                self.log('saved Read Out Id,Memory,Time,memlist,newest_id')
+                self.save_python_obj(config.newestId_file,NewestId.value)
+                self.log('saved Read Out Id,Memory,Time,memlist,NewestId')
                 
                 ## ------------------------------------------------------------
                 if sleep.value:
@@ -219,12 +219,12 @@ class Sensation(MemoryManager):
                 ReadOutTime[saved_length:current_length].copy(),
         )            
 
-        self.save_python_obj(config.memlist_file,memory_list)
+        self.save_python_obj(config.memlist_file,MemoryList)
         self.save_python_obj(config.ReadoutTime_file,ReadOutTime[:current_length])
         self.save_python_obj(config.ReadoutId_file,ReadOutId[:current_length])
         self.save_python_obj(config.ReadoutMem_file,ReadOutMemory[:current_length])
-        self.save_python_obj(config.newestId_file,newest_id.value)
-        self.log('saved Read Out Id,Memory,Time,memlist,newest_id')
+        self.save_python_obj(config.newestId_file,NewestId.value)
+        self.log('saved Read Out Id,Memory,Time,memlist,NewestId')
 
         self.log('process shutdowned')
 
