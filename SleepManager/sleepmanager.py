@@ -14,9 +14,9 @@ from datetime import datetime,timedelta
 import time
 
 class SleepManager(MemoryManager):
-    log_title:str = 'SleepManager'
+    LogTitle:str = 'SleepManager'
     def __init__(self,debug_mode: bool=False) -> None:
-        super().__init__(log_title=self.log_title, debug_mode=debug_mode)
+        super().__init__(self.LogTitle, debug_mode=debug_mode)
         if not os.path.isdir(config.temp_folder):
             os.mkdir(config.temp_folder)
             self.log(f'made {config.temp_folder}')

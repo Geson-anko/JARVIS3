@@ -7,7 +7,7 @@ from MasterConfig import Config
 from MemoryManager import MemoryManager
 
 class Train(MemoryManager):
-    log_title:str = 'ModelTrainer'
+    LogTitle:str = 'ModelTrainer'
     """
     This class is to train models for other Input/Output processes.
     If you want to train your model, please write your module into train_modules in MasterConfig.
@@ -22,7 +22,7 @@ class Train(MemoryManager):
         device [required] : torch.device
         debug_mode [Optional] : bool
         """
-        super().__init__(self.log_title,debug_mode)
+        super().__init__(self.LogTitle,debug_mode)
         self.module_length = len(Config.train_modules)
         self.debug_mode =debug_mode
         self.optional_debug_mode = [debug_mode] * self.module_length

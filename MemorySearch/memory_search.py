@@ -18,11 +18,11 @@ ID_list_type = TypeVar('ID_list_type')
 MemDict_type = TypeVar('MemDict_type')
 
 class MemorySearch(MemoryManager):
-    log_title:str = 'MemorySearch'
+    LogTitle:str = 'MemorySearch'
     InitValue:int = -1
 
     def __init__(self,debug_mode:bool = False):
-        super().__init__(self.log_title,debug_mode)
+        super().__init__(self.LogTitle,debug_mode)
 
     def activation(
         self,
