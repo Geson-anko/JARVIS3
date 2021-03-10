@@ -1,64 +1,65 @@
-from os.path import isfile
-from debug_tools import Debug
 import os
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
 
+from os.path import isfile
 import numpy as np
-from torchvision import transforms
 import torch
 
 from .sensation import Sensation
-from .configure import config
-from .AutoEncoder import AutoEncoder
-from .DeltaTime import DeltaT
+from .sensation_models import AutoEncoder,DeltaTime
 
 from torch_model_fit import Fit 
-from MasterConfig import Config as mconf
+from MasterConfig import Config
 from MemoryManager import MemoryManager
 import multiprocessing as mp
 
-class Train(MemoryManager):
-    memory_format:str =Sensation.memory_format
-    log_title:str = f'train{memory_format}'
-    
+class train(MemoryManager):
+    MemoryFormat = Sensation.MemoryFormat
+    LogTitle:str = f'train{MemoryFormat}'
+
     def __init__(self,device:torch.device,debug_mode:bool=False) -> None:
         super().__init__(log_title=self.log_title, debug_mode=debug_mode)
         self.device = torch.device(device)
-        self.dtype = config.training_dtype
+        self.dtype = Sensation.Training_dtype
         self.fit = Fit(self.log_title,debug_mode)
 
     def activation(self,shutdown:mp.Value,sleep:mp.Value) -> None:
 
-        # load and preprocess data for Training AutoEncoder
-        names = os.listdir(config.data_folder)
+        # ------ Additional Trainings ------
+        #
+        self.release_system_memory()
+        # --- end of Additional Training ---
+
+
+
+        # ------ AutoEncoder training ------
+        # load data for Training AutoEncoder
+        names = os.listdir(Sensation.Data_folder)
         if len(names) ==0:
             self.warn('To train AutoEncoder data does not exist')
             return
         
         times = np.sort([float(i) for i in names])[::-1]
         names = [str(i) for i in times]
-        uses = names[:config.train_video_use]
-        deletes = names[config.train_video_use:]
+        uselen = round(Sensation.AutoEncoderDataSize/Sensation.DataSavingRate)
+        uses = names[:uselen]
+        deletes = names[uselen:]
         for i in deletes:
             self.remove_file(i)
-
-        data = np.concatenate([self.load_python_obj(os.path.join(config.data_folder,i)) for i in uses])
-        data = self.preprocess(data)
+        
+        data = np.concatenate([self.load_python_obj(os.path.join(Sensation.Data_folder,i) for i in uses)])
         self.log(data.shape,debug_only=True)
-
-        # load AutoEncoder 
         model = AutoEncoder()
-        model.encoder.load_state_dict(torch.load(config.encoder_params,map_location=self.device))
-        model.decoder.load_state_dict(torch.load(config.decoder_params,map_location=self.device))
+        model.encoder.load_state_dict(torch.load(Sensation.Encoder_params,map_location=self.device))
+        model.decoder.load_state_dict(torch.load(Sensation.Decoder_params,map_location=self.device))
 
         # AutoEncoder settings
         criterion = torch.nn.MSELoss()
-        optimizer = torch.optim.Adam(model.parameters(),lr=config.AE_lr)
-        epochs = config.AE_epochs
-        batch_size = config.AE_batch_size
-
-        # Train
+        optimizer = torch.optim.Adam(model.parameters(),lr=Sensation.AutoEncoderLearningRate)
+        epochs = Sensation.AutoEncoderEpochs
+        batch_size = Sensation.AutoEncoderBatchSize
+            # Train
         self.fit.Train(
             shutdown,sleep,
             model=model,
@@ -69,25 +70,27 @@ class Train(MemoryManager):
             device=self.device,
             train_x=data,
             train_y=data
-            )        
-        torch.save(model.encoder.state_dict(),config.encoder_params)
-        torch.save(model.decoder.state_dict(),config.decoder_params)
+            )   
+        torch.save(model.encoder.state_dict(),Sensation.Encoder_params)
+        torch.save(model.decoder.state_dict(),Sensation.Decoder_params)
         self.log('trained AutoEncoder')
         del data,model
         self.release_system_memory()
-
-        ## training delta time model
-        # loading and preproessing dataset
-        if not isfile(config.newestId_file):
+        # --- end of AutoEncoder training ---
+        
+        # ------ DeltaTime training ------
+        if not isfile(Sensation.NewestId_file):
             self.warn('To train DeltaTime data does not exist!')
             return None
-    
-        newest_id = self.load_python_obj(config.newestId_file)
-        first_id = self.get_firstId(self.memory_format)
-        ids = np.arange(first_id,newest_id)[:config.time_use]
+        newest_id = self.load_python_obj(Sensation.NewestId_file)
+        first_id = self.get_firstId(self.MemoryFormat,return_integer=True)
+        ids = np.arange(first_id+1,newest_id+1)[:-Sensation.DeltaTimeDataSize]
+        if ids.shape[0] == 0:
+            self.warn('Not exist memories.')
+            return
         ids,data,times = self.load_memory(ids,return_time=True)
         datalen = data.shape[0]
-        zerolen = int(np.floor(datalen*config.zero_per))
+        zerolen = int(np.floor(datalen*Config.deltaT_zero_per))
         zero_idx = np.random.permutation(datalen)[:zerolen]
         zero_data = data[zero_idx]
         zero_ans = np.zeros(zerolen,dtype=times.dtype)
@@ -99,25 +102,21 @@ class Train(MemoryManager):
         data2 = np.concatenate([data_sh,zero_data])[data_idx]
         ans = np.concatenate([deltatimes,zero_ans])[data_idx]
 
-        data1 = torch.from_numpy(data1).type(self.dtype)
-        data2 = torch.from_numpy(data2).type(self.dtype)
-        ans = torch.from_numpy(ans).type(self.dtype).unsqueeze(1)
         self.log(
             'data1:',data1.shape,
             'data2:',data2.shape,
             'ans:',ans.shape,
             debug_only=True
         )
+        # Load DeltaTime
+        model = DeltaTime()
+        model.load_state_dict(torch.load(Sensation.DeltaTime_params,map_location=self.device))
 
-        # load deltaT
-        model = DeltaT()
-        model.load_state_dict(torch.load(config.deltatime_params,map_location=self.device))
-
-        # deltaT settings
+        # DeltaTime settings
         criterion = torch.nn.MSELoss()
-        optimizer = torch.optim.Adam(model.parameters(),lr=config.DT_lr)
-        epochs = config.DT_epochs
-        batch_size = config.DT_batch_size
+        optimizer = torch.optim.Adam(model.parameters(),lr=Sensation.DeltaTimeLearningRate)
+        epochs = Sensation.DeltaTimeEpochs
+        batch_size = Sensation.DeltaTimeBatchSize
 
         # Train
         self.fit.Train(
@@ -131,23 +130,10 @@ class Train(MemoryManager):
             train_x=[data1,data2],
             train_y=ans,
         )
-        torch.save(model.state_dict(),config.deltatime_params)
+        torch.save(model.state_dict(),Sensation.DeltaTime_params)
         self.log('Trained DeltaTime')
         del data1,data2,ans,model
 
         self.release_system_memory()
 
         self.log('Train process was finished')
-
-        
-
-
-
-            
-            
-    def preprocess(self,data:np.ndarray) -> torch.Tensor:
-        data = torch.from_numpy(data).permute(0,3,2,1)
-        resizer = transforms.Resize(config.frame_size)
-        data = resizer(data).type(self.dtype) / 255
-        return data
-

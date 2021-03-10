@@ -39,7 +39,7 @@ def main():
     from SleepManager import SleepManager
 
     ## Process Calling 
-
+    # Sensations
     # sensation0 ------------------------
     device0 = 'cuda'
     debug_mode0 = False
@@ -75,6 +75,9 @@ def main():
     args = (shutdown,sleep,clock_search,sleepiness,TempMemory,MemoryLists,NewestIds)
     process_args.append(args)
     mm.log('MemorySearch is ready')
+
+    # Outputs
+
 
 
     # Trainer -------------------------

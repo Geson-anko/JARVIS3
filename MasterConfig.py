@@ -27,7 +27,9 @@ class Config:
     sleep_wait:float = 5
     ### timezone
     TimeZone:timezone = timezone(timedelta(hours=+9),name='JST')
-    
+    ### delta T threshold
+    deltaT_threshold:float = 0.000000001
+    deltaT_zero_per:float = 0.1
 
 
     ### Trainer

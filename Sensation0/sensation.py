@@ -146,7 +146,7 @@ class Sensation(MemoryManager):
             #self.log(data.shape,ReadOutMemory_torch.shape)
             distances = encoding.calc_distance(data,ReadOutMemory_torch[:current_length])
             mins = torch.min(distances)
-            if mins > 0.00001:
+            if mins > mconf.deltaT_threshold:
                 ReadOutMemory[current_length] = data.to('cpu').numpy()
                 ReadOutMemory_torch[current_length] = data
                 NewestId.value += 1
