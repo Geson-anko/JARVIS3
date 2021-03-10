@@ -1,3 +1,6 @@
+import importlib
+
+import torch
 from MasterConfig import Config
 from MemoryManager import MemoryManager
 from concurrent.futures import ThreadPoolExecutor
@@ -20,6 +23,8 @@ def main():
     thread_funcs,thread_args = [],[]
     NewestIds = []
     MemoryLists = []
+    ReadOutMemories = []
+    ReadOutIds = []
     TempMemoryLength = 0
     Switches = []
     Clocks = []
@@ -40,7 +45,32 @@ def main():
 
     ## Process Calling 
     # Sensations
-    # sensation0 ------------------------
+    for i in Config.sensation_modules:
+        func = importlib.import_module(i[0])
+        device = torch.device(i[1])
+        func = func.Sensation(device,debug_mode)
+        process_funcs.append(func)
+        switch = Value('i',True)
+        Switches.append((func.LogTitle,switch))
+        clock = Value('d',0.0)
+        Clocks.append((func.LogTitle,clock))
+        ReadOutId = mm.create_shared_memory((func.ReadOutLength,),dtype=Config.ID_dtype,initialize=Config.init_id)
+        ReadOutIds.append(ReadOutId)
+        ReadOutMemory = mm.create_shared_memory(
+            (func.ReadOutLength,func.MemorySize),dtype=func.dtype,initialize=0.0
+        )
+        ReadOutMemories.append(ReadOutMemory)
+        MemoryList = mm.create_shared_memory((func.MemoryListLength,),dtype=Config.ID_dtype,initialize=Config.init_id)
+        MemoryLists.append(MemoryList)
+        TempMemoryLength += func.MemoryListLength
+        NewestId = Value('Q',Config.init_id)
+        NewestIds.append(NewestId)
+        
+        isActive = Value('i',False)
+        args = (shutdown,sleep,switch,clock,sleepiness,ReadOutId,ReadOutMemory,MemoryList,NewestId,isActive)
+        process_args.append(args)
+        mm.log(func.LogTitle,'is ready.')
+    """# sensation0 ------------------------
     device0 = 'cuda'
     debug_mode0 = False
     func = sense0(device0,debug_mode0)
@@ -63,14 +93,14 @@ def main():
     args = (shutdown,sleep,switch0,clock0,sleepiness,ReadOutId0,ReadOutMemory0,MemoryList0,NewestId0)
     process_args.append(args)
     mm.log('Sensation0 is ready.')
-
+    """
 
     # MemorySearch --------------------
     debug_mode_search = False
     func = MemorySearch(debug_mode_search)
     process_funcs.append(func)
     clock_search = Value('d',0.0)
-    Clocks.append((func.log_title,clock_search))
+    Clocks.append((func.LogTitle,clock_search))
     TempMemory = mm.create_shared_memory((TempMemoryLength,),dtype=Config.ID_dtype,initialize=Config.init_id)
     args = (shutdown,sleep,clock_search,sleepiness,TempMemory,MemoryLists,NewestIds)
     process_args.append(args)
@@ -94,9 +124,9 @@ def main():
     func = SleepManager(debug_mode_sleep)
     thread_funcs.append(func)
     switch_sleep = Value('i',True)
-    Switches.append((func.log_title,switch_sleep))
+    Switches.append((func.LogTitle,switch_sleep))
     clock_sleep = Value('d',0.0)
-    Clocks.append((func.log_title,clock_sleep))
+    Clocks.append((func.LogTitle,clock_sleep))
     args = (shutdown,sleep,switch_sleep,clock_sleep,sleepiness,NewestIds)
     thread_args.append(args)
     mm.log('SleepManager is ready')
@@ -109,6 +139,14 @@ def main():
     thread_args.append(args)
     mm.log('Controller is ready')
 
+    # checking LogTitle duplication
+    funcs = process_funcs + thread_funcs
+    logtitles = set()
+    for i in funcs:
+        if i.LogTitle in logtitles:
+            mm.exception(f'duplicated {i.LogTitle}')
+        else:
+            logtitles.add(i.LogTitle)
 
 
     ### Process start

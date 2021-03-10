@@ -80,11 +80,11 @@ class Sensation(SensationBase):
     AutoEncoderDataSize:int = 8192
     AutoEncoderLearningRate:float = 0.0001
     AutoEncoderBatchSize:int = 32
-    AutoEncoderEpochs:int = 1
+    AutoEncoderEpochs:int = 5
     
     DeltaTimeDataSize:int = 8192
     DeltaTimeLearningRate:float = 0.0001
     DeltaTimeBatchSize:int = 4096
-    DeltaTimeEpochs:int = 10
+    DeltaTimeEpochs:int = 50
     
 

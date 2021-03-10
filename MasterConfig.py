@@ -31,11 +31,20 @@ class Config:
     deltaT_threshold:float = 0.000000001
     deltaT_zero_per:float = 0.1
 
+    ### sensations
+    """
+    main process calls 'modulename.Sensation()'. so you must write like this below.
+    modulename/__init__.py
+    >>> from .sensation import Sensation
+    """
+    sensation_modules:tuple = (
+        ('Sensation1','cuda'),
+    )
 
     ### Trainer
     """
-        Train process calls 'modulename.Train()'. so you msut write like this below.
-        module_folder/__init__.py
+        Train process calls 'modulename.Train()'. so you must write like this below.
+        modulename/__init__.py
         >>> from .train import Train    
     """
     train_modules:tuple = (

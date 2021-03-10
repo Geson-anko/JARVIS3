@@ -72,3 +72,44 @@
 [2021-03-10 18:18:39] Reduced memories
 [2021-03-10 18:18:39] saved Read Out Id,Memory,Time,memlist,NewestId
 [2021-03-10 18:18:40] process shutdowned
+[2021-03-10 18:32:57] loaded Encoder
+[2021-03-10 18:32:57] loaded DeltaT
+[2021-03-10 18:32:57] Inherit Shared Memories
+[2021-03-10 18:32:57] got firstId
+[2021-03-10 18:32:58] process start
+[2021-03-10 18:33:24] started shutdown process
+[2021-03-10 18:33:24] Saved memories
+[2021-03-10 18:33:25] Reduced memories
+[2021-03-10 18:33:25] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-10 18:33:25] process shutdowned
+[2021-03-10 21:07:30] loaded Encoder
+[2021-03-10 21:07:30] loaded DeltaT
+[2021-03-10 21:07:30] Inherit Shared Memories
+[2021-03-10 21:07:30] got firstId
+[2021-03-10 21:07:31] process start
+[2021-03-10 21:07:46] <Exception> your input is -1830666751 < 0 ! Please unsigned integer !
+[2021-03-10 21:08:02] loaded Encoder
+[2021-03-10 21:08:03] loaded DeltaT
+[2021-03-10 21:08:03] Inherit Shared Memories
+[2021-03-10 21:08:03] got firstId
+[2021-03-10 21:08:04] process start
+[2021-03-10 21:08:04] started shutdown process
+[2021-03-10 21:08:04] Saved memories
+[2021-03-10 21:08:04] Reduced memories
+[2021-03-10 21:08:04] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-10 21:08:04] process shutdowned
+[2021-03-10 21:08:54] loaded Encoder
+[2021-03-10 21:08:54] loaded DeltaT
+[2021-03-10 21:08:54] Inherit Shared Memories
+[2021-03-10 21:08:54] got firstId
+[2021-03-10 21:08:55] process start
+[2021-03-10 21:09:04] Saved memories
+[2021-03-10 21:09:04] Reduced memories
+[2021-03-10 21:09:04] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-10 21:09:04] switch off.
+[2021-03-10 21:09:12] switch on
+[2021-03-10 21:09:19] started shutdown process
+[2021-03-10 21:09:19] Saved memories
+[2021-03-10 21:09:19] Reduced memories
+[2021-03-10 21:09:19] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-10 21:09:19] process shutdowned

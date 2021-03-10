@@ -11,10 +11,10 @@ from .config import config
 from .GUI import GUIController
 
 class Controller(MemoryManager):
-    log_title:str = 'Controler'
+    LogTitle:str = 'Controler'
 
     def __init__(self,debug_mode: bool=False) -> None:
-        super().__init__(log_title=self.log_title, debug_mode=debug_mode)
+        super().__init__(log_title=self.LogTitle, debug_mode=debug_mode)
     
     def activation(
         self,shutdown:mp.Value,switches:Tuple[Tuple[str,mp.Value],...],
