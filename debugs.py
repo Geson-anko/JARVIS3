@@ -11,6 +11,14 @@ from SleepManager import SleepManager
 from GUI_controller import Controller
 from Trainer import Train
 if __name__ == '__main__':
+    """
+    from Sensation1.train import Train  
+    train = Train('cuda',True)
+    shutdown = Value('i',False)
+    sleep = Value('i',True)
+    train(shutdown,sleep)
+    """
+    """
     sens = Sensation('cuda',True)
     shutdown = Value('i',False)
     sleep = Value('i',False)
@@ -35,7 +43,7 @@ if __name__ == '__main__':
     _roi =sens.inherit_shared_memory(roi)
     _rom = sens.inherit_shared_memory(rom)
     _mem = sens.inherit_shared_memory(memlist)
-    time.sleep(15)
+    time.sleep(30)
     #cmd.value = mconf.force_sleep
     shutdown.value = True
     p.join()
@@ -46,7 +54,7 @@ if __name__ == '__main__':
     print(_rom[:10])
     print(_mem)
     print(1/clock.value)
-
+    """
     """
     shutdown = Value('i',False)
     sleep = Value('i',True)
@@ -139,7 +147,7 @@ if __name__ == '__main__':
     print('process end')
     """
     """
-    from Sensation0.train import Train  
+    from Sensation1.train import Train  
     train = Train('cuda',True)
     shutdown = Value('i',False)
     sleep = Value('i',True)

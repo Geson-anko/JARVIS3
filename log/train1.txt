@@ -1,0 +1,28 @@
+[2021-03-10 18:17:27] <class 'Warning'> To train AutoEncoder data does not exist
+[2021-03-10 18:21:34] torch.Size([448, 3, 640, 360])
+[2021-03-10 18:21:54] end of epoch 1: loss0 : 0.02522 lr :0.00010 
+[2021-03-10 18:22:11] end of epoch 2: loss0 : 0.01848 lr :0.00010 
+[2021-03-10 18:22:29] end of epoch 3: loss0 : 0.01528 lr :0.00010 
+[2021-03-10 18:22:46] end of epoch 4: loss0 : 0.01364 lr :0.00010 
+[2021-03-10 18:23:03] end of epoch 5: loss0 : 0.01259 lr :0.00010 
+[2021-03-10 18:23:03] finished
+[2021-03-10 18:23:03] trained AutoEncoder
+[2021-03-10 18:23:04] <class 'Warning'> Not exist memories.
+[2021-03-10 18:25:06] torch.Size([448, 3, 640, 360])
+[2021-03-10 18:25:26] end of epoch 1: loss0 : 0.01223 lr :0.00010 
+[2021-03-10 18:25:26] finished
+[2021-03-10 18:25:26] trained AutoEncoder
+[2021-03-10 18:25:27] data1: torch.Size([508, 5376]) data2: torch.Size([508, 5376]) ans: torch.Size([508, 1])
+[2021-03-10 18:25:27] end of epoch 1: loss0 : 2044.70117 lr :0.00010 
+[2021-03-10 18:25:27] end of epoch 2: loss0 : 2044.70117 lr :0.00010 
+[2021-03-10 18:25:27] end of epoch 3: loss0 : 2044.70117 lr :0.00010 
+[2021-03-10 18:25:27] end of epoch 4: loss0 : 2044.70117 lr :0.00010 
+[2021-03-10 18:25:27] end of epoch 5: loss0 : 2044.70117 lr :0.00010 
+[2021-03-10 18:25:27] end of epoch 6: loss0 : 2044.70117 lr :0.00010 
+[2021-03-10 18:25:27] end of epoch 7: loss0 : 2044.70117 lr :0.00010 
+[2021-03-10 18:25:27] end of epoch 8: loss0 : 2044.70117 lr :0.00010 
+[2021-03-10 18:25:27] end of epoch 9: loss0 : 2044.70117 lr :0.00010 
+[2021-03-10 18:25:27] end of epoch 10: loss0 : 1748.82153 lr :0.00010 
+[2021-03-10 18:25:27] finished
+[2021-03-10 18:25:27] Trained DeltaTime
+[2021-03-10 18:25:27] Train process was finished

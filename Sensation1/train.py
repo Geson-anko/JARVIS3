@@ -48,7 +48,7 @@ class Train(MemoryManager):
         for i in deletes:
             self.remove_file(i)
         
-        data = np.concatenate([self.load_python_obj(os.path.join(Sensation.Data_folder,i) for i in uses)])
+        data = np.concatenate([self.load_python_obj(os.path.join(Sensation.Data_folder,i)) for i in uses])
         data = torch.from_numpy(data)
         self.log(data.shape,debug_only=True)
         model = AutoEncoder()
@@ -85,7 +85,7 @@ class Train(MemoryManager):
             return None
         newest_id = self.load_python_obj(Sensation.NewestId_file)
         first_id = self.get_firstId(self.MemoryFormat,return_integer=True)
-        ids = np.arange(first_id+1,newest_id+1)[:-Sensation.DeltaTimeDataSize]
+        ids = np.arange(first_id+1,newest_id+1)[-Sensation.DeltaTimeDataSize:]
         if ids.shape[0] == 0:
             self.warn('Not exist memories.')
             return
