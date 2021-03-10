@@ -8,21 +8,22 @@ import torch
 
 from .sensation import Sensation
 from .sensation_models import AutoEncoder,DeltaTime
+from .config import config
 
 from torch_model_fit import Fit 
 from MasterConfig import Config
 from MemoryManager import MemoryManager
 import multiprocessing as mp
 
-class train(MemoryManager):
+class Train(MemoryManager):
     MemoryFormat = Sensation.MemoryFormat
     LogTitle:str = f'train{MemoryFormat}'
 
     def __init__(self,device:torch.device,debug_mode:bool=False) -> None:
-        super().__init__(log_title=self.log_title, debug_mode=debug_mode)
+        super().__init__(log_title=self.LogTitle, debug_mode=debug_mode)
         self.device = torch.device(device)
         self.dtype = Sensation.Training_dtype
-        self.fit = Fit(self.log_title,debug_mode)
+        self.fit = Fit(self.LogTitle,debug_mode)
 
     def activation(self,shutdown:mp.Value,sleep:mp.Value) -> None:
 
@@ -49,6 +50,7 @@ class train(MemoryManager):
             self.remove_file(i)
         
         data = np.concatenate([self.load_python_obj(os.path.join(Sensation.Data_folder,i) for i in uses)])
+        data = torch.from_numpy(data)
         self.log(data.shape,debug_only=True)
         model = AutoEncoder()
         model.encoder.load_state_dict(torch.load(Sensation.Encoder_params,map_location=self.device))
@@ -101,7 +103,9 @@ class train(MemoryManager):
         data1 = np.concatenate([data,zero_data])[data_idx]
         data2 = np.concatenate([data_sh,zero_data])[data_idx]
         ans = np.concatenate([deltatimes,zero_ans])[data_idx]
-
+        data1 = torch.from_numpy(data1).type(self.dtype)
+        data2 = torch.from_numpy(data2).type(self.dtype)
+        ans = torch.from_numpy(ans).type(self.dtype).unsqueeze(1)
         self.log(
             'data1:',data1.shape,
             'data2:',data2.shape,

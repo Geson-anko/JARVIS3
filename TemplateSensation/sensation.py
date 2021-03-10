@@ -6,6 +6,7 @@ import torch
 from torch.nn import Module
 from os.path import join as pathjoin
 
+from .config import config
 from SensationBase import SensationBase
 from .sensation_models import Encoder,DeltaTime
 
@@ -16,7 +17,7 @@ class Sensation(SensationBase):
     KeepLength:int = -1 # ReadOutLength * 0.7
     MemoryListLength:int = -1
     MemorySize:int = int(np.prod(Encoder.output_size))
-    DataSize:int = int(np.prod(Encoder.input_size))
+    DataSize:tuple = Encoder.input_size[1:]
     DataSavingRate:int = 32
 
     Encoder:Module = Encoder
@@ -25,7 +26,7 @@ class Sensation(SensationBase):
 
     Current_directory:str = os.path.dirname(os.path.abspath(__file__)) # /Current_directory/...  from root
     Param_folder:str = pathjoin(Current_directory,'params') # /Current_directory/params/
-    data_folder:str = pathjoin(Current_directory,'data') # /current_dicrectory/data/
+    Data_folder:str = pathjoin(Current_directory,'data') # /current_dicrectory/data/
     Temp_folder:str = pathjoin(Current_directory,'temp') # /Current_directory/temp/
 
     ## defining parameter file
@@ -43,6 +44,8 @@ class Sensation(SensationBase):
     dtype:np.dtype = np.float16  # data type
     torchdtype:torch.dtype = torch.float16 # torch tensor data type
 
+    # ------ your settings ------
+    
 
     def Start(self) -> None:
         pass

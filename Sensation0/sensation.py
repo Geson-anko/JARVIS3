@@ -151,6 +151,7 @@ class Sensation(MemoryManager):
                 ReadOutMemory_torch[current_length] = data
                 NewestId.value += 1
                 ReadOutId[current_length] = NewestId.value
+                ReadOutTime[current_length] = time.time()
                 current_length += 1
                 ### your process ------
                 video_array[saved_video_len] = img

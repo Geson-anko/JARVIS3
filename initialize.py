@@ -9,6 +9,7 @@ from MasterConfig import Config as mconf
 from Sensation0.configure import config as sens0conf
 from MemorySearch.config import config as searchconf
 from SleepManager.config import config as sleepconf
+import Sensation1
 
 
 removesdirs = [
@@ -16,6 +17,8 @@ removesdirs = [
     sens0conf.temp_folder,
     sens0conf.data_folder,
     sleepconf.temp_folder,
+    Sensation1.Sensation.Temp_folder,
+    Sensation1.Sensation.Data_folder,
 ]
 removefiles = [
     searchconf.dict_file,

@@ -19,7 +19,7 @@ class SensationBase(MemoryManager):
     KeepLength:int
     MemoryListLength:int
     MemorySize:int
-    DataSize:int
+    DataSize:tuple
     DataSavingRate:int
     
     Encoder:Module
@@ -89,7 +89,7 @@ class SensationBase(MemoryManager):
         self.MemoryList = MemoryList
         self.NewestId = NewestId
 
-        self.DataArray = np.zeros((self.DataSavingRate,self.DataSize),dtype=self.dtype)
+        self.DataArray = np.zeros((self.DataSavingRate,*self.DataSize),dtype=self.dtype)
         self.SavedDataLen = 0
 
         self.LoadEncoder()
@@ -155,7 +155,7 @@ class SensationBase(MemoryManager):
             self.NewestId.value = self.load_python_obj(self.NewestId_file)
             self.log('loaded NewestId')
         else:
-            self.NewestId.value = self.get_firstId(self.memory_format,return_integer=True)
+            self.NewestId.value = self.get_firstId(self.MemoryFormat,return_integer=True)
             self.ReadOutId[0] = self.NewestId.value
             self.log('got firstId')
 
@@ -211,11 +211,11 @@ class SensationBase(MemoryManager):
     @torch.no_grad()
     def MemoryProcess(self) -> None:
         """
-        
+        Encoding data ,Calculating distances with ReadOutMemory and Sync.
         """
         if type(self.Data) is not torch.Tensor:
             self.exception(f'TypeError from MemoryProcess. Input data type is {type(self.Data)}')
-        encoded = self.encoder(self.Data.type(self.torchdtype)).view(-1)
+        encoded = self.encoder(self.Data.to(self.device).type(self.torchdtype)).view(-1)
         data = encoded.unsqueeze(0).repeat(self.current_length,1)
         distances = self.deltaT(data,self.ReadOutMemory_torch[:self.current_length])
         mins = torch.min(distances)
@@ -224,12 +224,13 @@ class SensationBase(MemoryManager):
             self.ReadOutMemory_torch[self.current_length] = encoded
             self.NewestId.value += 1
             self.ReadOutId[self.current_length] = self.NewestId.value
+            self.ReadOutTime[self.current_length] = time.time()
             self.current_length += 1
             # data saving -----
-            self.DataArray[self.SavedDataLen] = self.Data.detach().numpy()
+            self.DataArray[self.SavedDataLen] = self.Data.to('cpu').detach().numpy()
             self.SavedDataLen +=1
             #------------------
-        id_args = torch.argsort(distances)[:self.MemoryListLength].to('cpu').numpy()
+        id_args = torch.argsort(distances.view(-1))[:self.MemoryListLength].to('cpu').numpy()
         il = id_args.shape[0]
         self.MemoryList[:il] = self.ReadOutId[id_args]
 
@@ -268,7 +269,7 @@ class SensationBase(MemoryManager):
         self.save_python_obj(self.MemoryList_file,self.MemoryList)
         self.save_python_obj(self.ReadOutMemory_file,self.ReadOutMemory[:self.current_length])
         self.save_python_obj(self.ReadOutId_file,self.ReadOutId[:self.current_length])
-        self.save_python_obj(self.ReadOutTime_file,self.ReadOutTime[self.current_length])
+        self.save_python_obj(self.ReadOutTime_file,self.ReadOutTime[:self.current_length])
         self.save_python_obj(self.NewestId_file,self.NewestId.value)
         self.log('saved Read Out Id,Memory,Time,memlist,NewestId')
         

@@ -1,0 +1,64 @@
+[2021-03-10 16:02:52] loaded Encoder
+[2021-03-10 16:02:52] loaded DeltaT
+[2021-03-10 16:02:52] Inherit Shared Memories
+[2021-03-10 16:04:03] loaded Encoder
+[2021-03-10 16:04:03] loaded DeltaT
+[2021-03-10 16:04:03] Inherit Shared Memories
+[2021-03-10 16:04:03] got firstId
+[2021-03-10 16:04:27] loaded Encoder
+[2021-03-10 16:04:27] loaded DeltaT
+[2021-03-10 16:04:27] Inherit Shared Memories
+[2021-03-10 16:04:27] got firstId
+[2021-03-10 16:04:28] process start
+[2021-03-10 16:05:00] loaded Encoder
+[2021-03-10 16:05:00] loaded DeltaT
+[2021-03-10 16:05:00] Inherit Shared Memories
+[2021-03-10 16:05:00] got firstId
+[2021-03-10 16:05:01] process start
+[2021-03-10 16:05:55] loaded Encoder
+[2021-03-10 16:05:55] loaded DeltaT
+[2021-03-10 16:05:55] Inherit Shared Memories
+[2021-03-10 16:05:55] got firstId
+[2021-03-10 16:05:57] process start
+[2021-03-10 16:08:49] loaded Encoder
+[2021-03-10 16:08:49] loaded DeltaT
+[2021-03-10 16:08:49] Inherit Shared Memories
+[2021-03-10 16:08:49] got firstId
+[2021-03-10 16:08:50] process start
+[2021-03-10 16:19:32] loaded Encoder
+[2021-03-10 16:19:32] loaded DeltaT
+[2021-03-10 16:19:32] Inherit Shared Memories
+[2021-03-10 16:19:32] got firstId
+[2021-03-10 16:19:33] process start
+[2021-03-10 16:19:44] started shutdown process
+[2021-03-10 16:19:44] Saved memories
+[2021-03-10 16:19:44] Reduced memories
+[2021-03-10 16:19:44] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-10 16:54:40] loaded Encoder
+[2021-03-10 16:54:40] loaded DeltaT
+[2021-03-10 16:54:40] Inherit Shared Memories
+[2021-03-10 16:54:40] loaded NewestId
+[2021-03-10 16:54:40] loaded MemoryList
+[2021-03-10 16:57:13] loaded Encoder
+[2021-03-10 16:57:13] loaded DeltaT
+[2021-03-10 16:57:13] Inherit Shared Memories
+[2021-03-10 16:57:13] got firstId
+[2021-03-10 16:57:15] process start
+[2021-03-10 16:57:26] started shutdown process
+[2021-03-10 16:57:26] Saved memories
+[2021-03-10 16:57:26] Reduced memories
+[2021-03-10 16:57:26] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-10 16:57:26] process shutdowned
+[2021-03-10 16:58:31] loaded Encoder
+[2021-03-10 16:58:32] loaded DeltaT
+[2021-03-10 16:58:32] Inherit Shared Memories
+[2021-03-10 16:58:32] loaded NewestId
+[2021-03-10 16:58:32] loaded MemoryList
+[2021-03-10 16:58:32] loaded ReadOutMemory, Id and Time.
+[2021-03-10 16:58:32] current memory length is 155
+[2021-03-10 16:58:33] process start
+[2021-03-10 16:58:44] started shutdown process
+[2021-03-10 16:58:44] Saved memories
+[2021-03-10 16:58:44] Reduced memories
+[2021-03-10 16:58:44] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-10 16:58:45] process shutdowned

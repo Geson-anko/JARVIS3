@@ -6,11 +6,47 @@ from multiprocessing import Process, Value
 os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 #sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
 from MasterConfig import Config as mconf
-from Sensation0.sensation import Sensation
+from Sensation1.sensation import Sensation
 from SleepManager import SleepManager
 from GUI_controller import Controller
 from Trainer import Train
 if __name__ == '__main__':
+    sens = Sensation('cuda',True)
+    shutdown = Value('i',False)
+    sleep = Value('i',False)
+    switch = Value('i',True)
+    clock = Value('d',0)
+    sleepiness = Value('d',0)
+    isActive = Value('i',False)
+    roi = sens.create_shared_memory((sens.ReadOutLength),dtype='int64',initialize=-1)
+    rom = sens.create_shared_memory(
+        (sens.ReadOutLength,sens.MemorySize),
+        dtype='float16',initialize=0.0)
+    memlist = sens.create_shared_memory((sens.MemoryListLength,),dtype='int64',initialize=-1)
+    newid = Value('Q')
+
+    args = (shutdown,sleep,switch,clock,sleepiness,roi,rom,memlist,newid,isActive)
+
+    #executer =ProcessPoolExecutor()
+    #proc = executer.submit(sens,*args)
+    p = Process(target=sens,args=args)
+    p.start()
+    print('process submit')
+    _roi =sens.inherit_shared_memory(roi)
+    _rom = sens.inherit_shared_memory(rom)
+    _mem = sens.inherit_shared_memory(memlist)
+    time.sleep(15)
+    #cmd.value = mconf.force_sleep
+    shutdown.value = True
+    p.join()
+    #executer.shutdown(True)
+    #proc.result()
+    print('process result')
+    print(_roi[:10])
+    print(_rom[:10])
+    print(_mem)
+    print(1/clock.value)
+
     """
     shutdown = Value('i',False)
     sleep = Value('i',True)
@@ -73,7 +109,7 @@ if __name__ == '__main__':
     print('sleep',sleepiness.value)
     print('process end')
     """
-    
+    """
     from MemorySearch import MemorySearch
     import copy
     sp = MemorySearch(False)
@@ -101,7 +137,7 @@ if __name__ == '__main__':
     p.join()
     print('clock',clock.value)
     print('process end')
-    
+    """
     """
     from Sensation0.train import Train  
     train = Train('cuda',True)
