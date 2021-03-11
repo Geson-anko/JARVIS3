@@ -37,14 +37,24 @@ class Train(MemoryManager):
         trains = []
         for (m,dev,deb) in zip(modules,self.devices,self.optional_debug_mode):
             trains.append(m.Train(dev,deb))
+        trainlen = len(trains)
+        logtitles = [i.LogTitle for i in trains]
+        self.log('Trainer process has',*logtitles)
+        trained = 0
         self.log(trains,debug_only=True)
         self.log('Instanced Train Modules')
 
         while not shutdown.value:
             if sleep.value:
-                for i in trains:
-                    self.log('training',i)
-                    i(shutdown,sleep)
+                #for i in trains:
+                #    self.log('training',i)
+                #    i(shutdown,sleep)
+                for _ in range(trainlen):
+                    if not trained < trainlen:
+                        trained = 0
+                    self.log('Training',trains[trained].LogTitle)
+                    trains[trained](shutdown,sleep)
+                    trained += 1
                     if shutdown.value or not sleep.value:
                         break
                     time.sleep(Config.train_wait)
