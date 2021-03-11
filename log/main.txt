@@ -107,3 +107,10 @@
 [2021-03-10 21:08:51] Controller is ready
 [2021-03-10 21:08:52] J.A.R.V.I.S. started
 [2021-03-10 21:09:23] J.A.R.V.I.S. shutdowned
+[2021-03-10 21:32:08] sensation1 is ready.
+[2021-03-10 21:32:08] MemorySearch is ready
+[2021-03-10 21:32:08] Trainer is ready.
+[2021-03-10 21:32:08] SleepManager is ready
+[2021-03-10 21:32:08] Controller is ready
+[2021-03-10 21:32:09] J.A.R.V.I.S. started
+[2021-03-10 21:32:41] J.A.R.V.I.S. shutdowned

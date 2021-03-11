@@ -122,7 +122,7 @@ class SleepManager(MemoryManager):
             
             if time.time() - warntime > config.warning_delay:
                 Warn = False
-
+            time.sleep(config.system_sleep)
             clock.value = time.time() - clock_start
         # ----------------------------------------------------
         ## shutdown process

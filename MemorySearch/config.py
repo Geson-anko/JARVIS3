@@ -11,6 +11,6 @@ class config:
     
     max_connection:int =7
     wait_time:float = 0.1
-
+    system_wait:float = 0.01 # To avert too much load.
 
 

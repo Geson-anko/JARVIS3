@@ -113,3 +113,13 @@
 [2021-03-10 21:09:19] Reduced memories
 [2021-03-10 21:09:19] saved Read Out Id,Memory,Time,memlist,NewestId
 [2021-03-10 21:09:19] process shutdowned
+[2021-03-10 21:32:12] loaded Encoder
+[2021-03-10 21:32:12] loaded DeltaT
+[2021-03-10 21:32:12] Inherit Shared Memories
+[2021-03-10 21:32:12] got firstId
+[2021-03-10 21:32:13] process start
+[2021-03-10 21:32:24] started shutdown process
+[2021-03-10 21:32:24] Saved memories
+[2021-03-10 21:32:24] Reduced memories
+[2021-03-10 21:32:24] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-10 21:32:24] process shutdowned

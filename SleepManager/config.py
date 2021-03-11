@@ -19,6 +19,7 @@ class config:
     clock_warp:timedelta = timedelta(seconds=7*60)
 
     wait_time:float = 0.1
+    system_sleep:float = 0.01
     # files
     current_directory:str = os.path.dirname(os.path.abspath(__file__))
     temp_folder:str = os.path.join(current_directory,'temp')

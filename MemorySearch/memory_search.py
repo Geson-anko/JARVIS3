@@ -102,7 +102,7 @@ class MemorySearch(MemoryManager):
             for nid in c_tmp:
                 idx = np.random.permutation(c_len)[:config.max_connection]
                 MemoryDict[nid] = c_tmp[idx]
-
+            time.sleep(config.system_wait)
             clock.value = time.time() - clock_start
 
         # shutdown process --------------------------------------------------
