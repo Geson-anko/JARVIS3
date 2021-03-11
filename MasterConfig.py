@@ -50,7 +50,7 @@ class Config:
     train_modules:tuple = (
         "Sensation0",
     )
-    train_wait:float = 30 #second
+    train_wait:float = 5 #second
     
 
 

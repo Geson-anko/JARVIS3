@@ -19,7 +19,6 @@ MemDict_type = TypeVar('MemDict_type')
 
 class MemorySearch(MemoryManager):
     LogTitle:str = 'MemorySearch'
-    InitValue:int = -1
 
     def __init__(self,debug_mode:bool = False):
         super().__init__(self.LogTitle,debug_mode)
@@ -41,7 +40,7 @@ class MemorySearch(MemoryManager):
         sleepiness:  multiprocessing shared memory dubble value.
         TempMemory: shared memory objects
         memory_lists: Tuple of shared memory objects
-        newest_ids: Tuple of mutiprocessing shared memory int values
+        newest_ids: Tuple of mutiprocessing shared memory long values
         """
         # inherit shared memory
         mem_lists = [self.inherit_shared_memory(i) for i in mem_lists]
@@ -73,6 +72,8 @@ class MemorySearch(MemoryManager):
             time.sleep(sleepiness.value * config.wait_time)
             if sleep.value:
                 time.sleep(mconf.sleep_wait)
+                self.save_python_obj(config.tempmem_file,TempMemory.copy())
+                self.save_python_obj(config.dict_file,MemoryDict)
 
             # modified check
             modified_memlist = np.concatenate(
