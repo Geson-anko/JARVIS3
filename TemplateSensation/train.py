@@ -7,7 +7,7 @@ import numpy as np
 import torch
 
 from .sensation import Sensation
-from .sensation_models import AutoEncoder,DeltaTime
+from .sensation_models import AutoEncoder
 from .config import config
 
 from torch_model_fit import Fit 
@@ -79,65 +79,5 @@ class Train(MemoryManager):
         del data,model
         self.release_system_memory()
         # --- end of AutoEncoder training ---
-        
-        # ------ DeltaTime training ------
-        if not isfile(Sensation.NewestId_file):
-            self.warn('To train DeltaTime data does not exist!')
-            return None
-        newest_id = self.load_python_obj(Sensation.NewestId_file)
-        first_id = self.get_firstId(self.MemoryFormat,return_integer=True)
-        ids = np.arange(first_id+1,newest_id+1)[-Sensation.DeltaTimeDataSize:]
-        if ids.shape[0] == 0:
-            self.warn('Not exist memories.')
-            return
-        ids,data,times = self.load_memory(ids,return_time=True)
-        datalen = data.shape[0]
-        zerolen = int(np.floor(datalen*Config.deltaT_zero_per))
-        zero_idx = np.random.permutation(datalen)[:zerolen]
-        zero_data = data[zero_idx]
-        zero_ans = np.zeros(zerolen,dtype=times.dtype)
-        data_idx = np.random.permutation(datalen)
-        data_sh = data[data_idx]
-        deltatimes = np.abs(times - times[data_idx])
-        data_idx = np.random.permutation((datalen+zerolen))
-        data1 = np.concatenate([data,zero_data])[data_idx]
-        data2 = np.concatenate([data_sh,zero_data])[data_idx]
-        ans = np.concatenate([deltatimes,zero_ans])[data_idx]
-        data1 = torch.from_numpy(data1).type(self.dtype)
-        data2 = torch.from_numpy(data2).type(self.dtype)
-        ans = torch.from_numpy(ans).type(self.dtype).unsqueeze(1)
-        self.log(
-            'data1:',data1.shape,
-            'data2:',data2.shape,
-            'ans:',ans.shape,
-            debug_only=True
-        )
-        # Load DeltaTime
-        model = DeltaTime()
-        model.load_state_dict(torch.load(Sensation.DeltaTime_params,map_location=self.device))
-
-        # DeltaTime settings
-        criterion = torch.nn.MSELoss()
-        optimizer = torch.optim.Adam(model.parameters(),lr=Sensation.DeltaTimeLearningRate)
-        epochs = Sensation.DeltaTimeEpochs
-        batch_size = Sensation.DeltaTimeBatchSize
-
-        # Train
-        self.fit.Train(
-            shutdown,sleep,
-            model=model,
-            epochs=epochs,
-            batch_size=batch_size,
-            optimizer=optimizer,
-            criterion = criterion,
-            device=self.device,
-            train_x=[data1,data2],
-            train_y=ans,
-        )
-        torch.save(model.state_dict(),Sensation.DeltaTime_params)
-        self.log('Trained DeltaTime')
-        del data1,data2,ans,model
-
-        self.release_system_memory()
 
         self.log('Train process was finished')

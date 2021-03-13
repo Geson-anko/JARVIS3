@@ -10,7 +10,8 @@ from torchvision import transforms
 import cv2
 
 from SensationBase import SensationBase
-from .sensation_models import Encoder,DeltaTime
+from .sensation_models import Encoder
+import time
 
 class Sensation(SensationBase):
     MemoryFormat:str = '1'# your process memory format (id[0])
@@ -19,11 +20,11 @@ class Sensation(SensationBase):
     KeepLength:int = int(ReadOutLength*0.7) # 70% of ReadOutLength
     MemoryListLength:int = int(ReadOutLength*0.01) # 1% of ReadOutLength
     MemorySize:int = int(np.prod(Encoder.output_size))
+    SameThreshold:float = 0.001
     DataSize:tuple = Encoder.input_size[1:]
-    DataSavingRate:int = 64
+    DataSavingRate:int = 128
 
     Encoder:Module = Encoder
-    DeltaTime:Module = DeltaTime
     SleepWaitTime:float = 0.3
 
     Current_directory:str = os.path.dirname(os.path.abspath(__file__)) # /Current_directory/...  from root
@@ -34,7 +35,6 @@ class Sensation(SensationBase):
     ## defining parameter file
     Encoder_params:str= pathjoin(Param_folder,'encoder.params') # your encoder parameter file name
     Decoder_params:str = pathjoin(Param_folder,'decoder.params') # yout decoder parameter file name
-    DeltaTime_params:str = pathjoin(Param_folder,'deltatime.params') # your deltatime parameter file name
 
     ## defining temporary file
     NewestId_file:str = pathjoin(Temp_folder,'NewestId.pkl')
@@ -74,6 +74,13 @@ class Sensation(SensationBase):
         self.capture.release()
         cv2.destroyAllWindows()
 
+        #DataSavingCheck
+        if not(self.DataSavingRate > self.SavedDataLen):
+            name = os.path.join(self.Data_folder,str(time.time()))
+            self.save_python_obj(name,self.DataArray)
+            self.SavedDataLen = 0
+
+
 
     # ------ train settings ------
     Training_dtype:torch.dtype = torch.float16
@@ -81,10 +88,5 @@ class Sensation(SensationBase):
     AutoEncoderLearningRate:float = 0.0001
     AutoEncoderBatchSize:int = 32
     AutoEncoderEpochs:int = 5
-    
-    DeltaTimeDataSize:int = 8192
-    DeltaTimeLearningRate:float = 0.0001
-    DeltaTimeBatchSize:int = 4096
-    DeltaTimeEpochs:int = 50
     
 

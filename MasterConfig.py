@@ -28,10 +28,13 @@ class Config:
     ### timezone
     TimeZone:timezone = timezone(timedelta(hours=+9),name='JST')
     ### delta T threshold
-    deltaT_threshold:float = 0.000000001
+    deltaT_threshold:float = 0.00001
     deltaT_zero_per:float = 0.1
 
+    release_system_cache_time:float = 16 # second
+
     ### sensations
+    
     """
     main process calls 'modulename.Sensation()'. so you must write like this below.
     modulename/__init__.py

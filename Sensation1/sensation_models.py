@@ -169,41 +169,9 @@ class AutoEncoder(Module):
         x = self.encoder(x)
         x = self.decoder(x)
         return x
-
-import math
-
-class DeltaTime(Module):
-    elem = math.prod(Encoder.output_size)
-    input_size = (1,elem)
-    output_size = (1,1)
-    def __init__(self):
-        super().__init__()
-        self.reset_seed()
-        # Model layers
-        self.dense1 = Linear(self.elem,512)
-        self.norm1= LayerNorm(512)
-        self.dense2 = Linear(512,256)
-        self.norm2 = LayerNorm(256)
-        self.dense3 = Linear(256,1)
-    
-    def forward(self,x1,x2):
-        x = x1 - x2
-        x = torch.relu(self.norm1(self.dense1(x)))
-        x = x.view(x.size(0),-1)
-        x = torch.relu(self.norm2(self.dense2(x)))
-        x = torch.relu(self.dense3(x))
-        return x
-
-    def reset_seed(self,seed=0):
-        os.environ['PYTHONHASHSEED'] = '0'
-        random.seed(seed)
-        torch.manual_seed(seed)
-        torch.cuda.manual_seed(seed)
+        
 if __name__ == '__main__':
     from torchsummaryX import summary
-    model = DeltaTime()
-    dummy = torch.randn(model.input_size)
-    print(summary(model,dummy,dummy))
     model = AutoEncoder()
     dummy = torch.randn(model.encoder.input_size)
     print(summary(model.encoder,dummy))

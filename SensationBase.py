@@ -19,11 +19,12 @@ class SensationBase(MemoryManager):
     KeepLength:int
     MemoryListLength:int
     MemorySize:int
+    SameThreshold:float
     DataSize:tuple
     DataSavingRate:int
     
     Encoder:Module
-    DeltaTime:Module
+    #DeltaTime:Module # 3/12/2021 DeltaTime was abolished.
     SleepWaitTime:float
 
     Current_directory:str
@@ -34,7 +35,7 @@ class SensationBase(MemoryManager):
     ## defining parameter file
     Encoder_params:str
     Decoder_params:str
-    DeltaTime_params:str
+    #DeltaTime_params:str # 3/12/2021 DeltaTime was abolished.
 
     ## defining temporary file
     NewestId_file:str
@@ -47,7 +48,7 @@ class SensationBase(MemoryManager):
     torchdtype:torch.dtype
 
 
-    def __init__(self, device:Union[str,torch.device], debug_mode: bool) -> None:
+    def __init__(self, device:Union[str,torch.device], debug_mode: bool=False) -> None:
         super().__init__(log_title=self.LogTitle, debug_mode=debug_mode)
         self.device = torch.device(device)
         if not isdir(self.Temp_folder):
@@ -93,7 +94,7 @@ class SensationBase(MemoryManager):
         self.SavedDataLen = 0
 
         self.LoadEncoder()
-        self.LoadDeltaTime()
+        #self.LoadDeltaTime() # 3/12/2021 DeltaTime was abolished.
         self.InheritSharedMemories()
         self.LoadPreviousValues()
 
@@ -101,6 +102,7 @@ class SensationBase(MemoryManager):
         # ------ Sensation Process ------
         self.log('process start')
         IsActive.value = True
+        system_cache_time = time.time()
         while not self.shutdown.value:
             clock_start = time.time()
             self.SwitchCheck()
@@ -114,11 +116,16 @@ class SensationBase(MemoryManager):
             if self.sleep.value:
                 time.sleep(Config.sleep_wait)
                 self.LoadEncoder()
-                self.LoadDeltaTime()
+                #self.LoadDeltaTime() # 3/12/2021 DeltaTime was abolished.
 
             #sleepiness wait
             time.sleep(self.SleepWaitTime*self.sleepiness.value)
             self.UpdateEnd()
+            
+            if Config.release_system_cache_time < (time.time() - system_cache_time):
+                self.release_system_memory()
+                system_cache_time = time.time()
+
             self.clock.value = time.time() - clock_start
         # ------ end while ------
         IsActive.value = False
@@ -134,10 +141,10 @@ class SensationBase(MemoryManager):
         self.encoder.load_state_dict(torch.load(self.Encoder_params,map_location=self.device))
         self.log('loaded Encoder')
     
-    def LoadDeltaTime(self) -> None:
-        self.deltaT = self.DeltaTime().to(self.device).type(self.torchdtype)
-        self.deltaT.load_state_dict(torch.load(self.DeltaTime_params,map_location=self.device))
-        self.log('loaded DeltaT')
+    #def LoadDeltaTime(self) -> None: # 3/12/2021 DeltaTime was abolished.
+    #    self.deltaT = self.DeltaTime().to(self.device).type(self.torchdtype)
+    #    self.deltaT.load_state_dict(torch.load(self.DeltaTime_params,map_location=self.device))
+    #    self.log('loaded DeltaT')
 
     def InheritSharedMemories(self) -> None:
         self.ReadOutId = self.inherit_shared_memory(self.ReadOutId)
@@ -217,9 +224,11 @@ class SensationBase(MemoryManager):
             self.exception(f'TypeError from MemoryProcess. Input data type is {type(self.Data)}')
         encoded = self.encoder(self.Data.to(self.device).type(self.torchdtype)).view(-1)
         data = encoded.unsqueeze(0).repeat(self.current_length,1)
-        distances = self.deltaT(data,self.ReadOutMemory_torch[:self.current_length])
+        #distances = self.deltaT(data,self.ReadOutMemory_torch[:self.current_length]) # 3/12/2021 DeltaTime was abolished.
+        distances = torch.mean((data-self.ReadOutMemory_torch[:self.current_length])**2,dim=-1)
+
         mins = torch.min(distances)
-        if mins > Config.deltaT_threshold:
+        if mins > self.SameThreshold:
             self.ReadOutMemory[self.current_length] = encoded.to('cpu').numpy()
             self.ReadOutMemory_torch[self.current_length] = encoded
             self.NewestId.value += 1

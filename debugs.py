@@ -18,7 +18,7 @@ if __name__ == '__main__':
     sleep = Value('i',True)
     train(shutdown,sleep)
     """
-
+    
     sens = Sensation('cuda',True)
     shutdown = Value('i',False)
     sleep = Value('i',False)

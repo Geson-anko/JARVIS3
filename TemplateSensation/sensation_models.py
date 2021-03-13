@@ -10,6 +10,7 @@ from .config import config
 class Encoder(Module):
     input_size = (1,...) # input size
     output_size = (1,...) # output size
+    insize = (-1,*input_size[1:])
     def __init__(self):
         super().__init__()
         self.reset_seed()
@@ -17,6 +18,7 @@ class Encoder(Module):
         # Model layers
 
     def forward(self,x):
+        x = x.view(self.insize)
     
         return x
 
@@ -29,7 +31,7 @@ class Encoder(Module):
 class Decoder(Module):
     input_size = Encoder.output_size
     output_size = Encoder.input_size
-    insize = (-1,) + input_size[1:]
+    insize = (-1,*input_size[1:])
     def __init__(self):
         super().__init__()
         self.reset_seed()
@@ -66,26 +68,6 @@ class AutoEncoder(Module):
         x = self.encoder(x)
         x = self.decoder(x)
         return x
-import math
-class DeltaTime(Module):
-    elem = math.prod(Encoder.output_size)
-    input_size = (1,elem)
-    output_size = (1,1)
-    def __init__(self):
-        super().__init__()
-        self.reset_seed()
-
-        # Model layers
-
-    def forward(self,x1,x2):
-        x = (x1-x2)**2
-        return x
-
-    def reset_seed(self,seed=0):
-        os.environ['PYTHONHASHSEED'] = '0'
-        random.seed(seed)
-        torch.manual_seed(seed)
-        torch.cuda.manual_seed(seed)
 
 """ Documentation
 
