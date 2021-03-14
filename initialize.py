@@ -1,3 +1,4 @@
+from Sensation2.sensation import Sensation
 import os
 from send2trash import send2trash
 from debug_tools import Debug
@@ -10,6 +11,7 @@ from Sensation0.configure import config as sens0conf
 from MemorySearch.config import config as searchconf
 from SleepManager.config import config as sleepconf
 import Sensation1
+import Sensation2
 
 
 removesdirs = [
@@ -19,6 +21,8 @@ removesdirs = [
     sleepconf.temp_folder,
     Sensation1.Sensation.Temp_folder,
     Sensation1.Sensation.Data_folder,
+    Sensation2.Sensation.Temp_folder,
+    Sensation2.Sensation.Data_folder,
 ]
 removefiles = [
     searchconf.dict_file,

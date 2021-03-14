@@ -46,7 +46,8 @@ class SensationBase(MemoryManager):
 
     dtype:np.dtype
     torchdtype:torch.dtype
-
+    
+    mins:float = 0.0
 
     def __init__(self, device:Union[str,torch.device], debug_mode: bool=False) -> None:
         super().__init__(log_title=self.LogTitle, debug_mode=debug_mode)
@@ -228,6 +229,7 @@ class SensationBase(MemoryManager):
         distances = torch.mean((data-self.ReadOutMemory_torch[:self.current_length])**2,dim=-1)
 
         mins = torch.min(distances)
+        self.mins = mins
         if mins > self.SameThreshold:
             self.ReadOutMemory[self.current_length] = encoded.to('cpu').numpy()
             self.ReadOutMemory_torch[self.current_length] = encoded

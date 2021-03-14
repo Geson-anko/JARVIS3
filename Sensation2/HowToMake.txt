@@ -16,8 +16,6 @@ SensationKitやTemplateSensationのフォルダは必ずコピーしてから使
 senation.py内にある、Data_folder,Param_folderは他のデータを保存してはいけません。何か任意のファイルを保存したい場合は、Temp_folderの中に保存してください。
 SensationクラスやTrainクラスの内部では、print, raise Exception, warningはそれぞれ、self.log, self.exception, self.warnとなり提供されています。ログファイルに書き込み記録することが可能となるのでできるだけこれらをもしいてください。
 
-特にself.Dataなど、SensationBaseクラスで使用されているクラス変数名は使用しないでください。
-
 
 ☆最低限編集するファイル
 	sensation.py

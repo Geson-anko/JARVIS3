@@ -31,9 +31,6 @@ def main():
     mm = MemoryManager(log_title,debug_mode)
     
     ## Process Import Zone
-    # sensations -------------------------
-    from Sensation0 import Sensation as sense0
-
     # outputs ----------------------------
 
 

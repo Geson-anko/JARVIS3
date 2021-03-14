@@ -18,7 +18,7 @@ if __name__ == '__main__':
     sleep = Value('i',True)
     train(shutdown,sleep)
     """
-    
+    """
     sens = Sensation('cuda',True)
     shutdown = Value('i',False)
     sleep = Value('i',False)
@@ -54,8 +54,8 @@ if __name__ == '__main__':
     print(_rom[:10])
     print(_mem)
     print(1/clock.value)
-    
     """
+    
     shutdown = Value('i',False)
     sleep = Value('i',True)
     train = Train('cuda',True)
@@ -67,7 +67,7 @@ if __name__ == '__main__':
     shutdown.value = True
     p.join()
     print('process end')
-    """ 
+    
     """
     shutdown = Value('i',False)
     num = 10

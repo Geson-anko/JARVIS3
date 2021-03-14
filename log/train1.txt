@@ -29,3 +29,4 @@
 [2021-03-13 20:04:08] torch.Size([256, 3, 640, 360])
 [2021-03-13 20:04:20] end of epoch 1: loss0 : 0.01614 lr :0.00010 
 [2021-03-13 20:04:30] end of epoch 2: loss0 : 0.01316 lr :0.00010 
+[2021-03-14 10:38:37] <class 'Warning'> To train AutoEncoder data does not exist

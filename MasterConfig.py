@@ -42,6 +42,7 @@ class Config:
     """
     sensation_modules:tuple = (
         ('Sensation1','cuda'),
+        ('Sensation2','cuda')
     )
 
     ### Trainer
@@ -51,7 +52,8 @@ class Config:
         >>> from .train import Train    
     """
     train_modules:tuple = (
-        "Sensation0",
+        "Sensation1",
+        "Sensation2",
     )
     train_wait:float = 5 #second
     
