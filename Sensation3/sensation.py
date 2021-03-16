@@ -139,7 +139,7 @@ class Sensation(SensationBase):
                 self.textend = True
                 self.textstart = False
                 pieces = [self.bos,*self.separator.EncodeAsPieces(self.text),self.eos]
-                vectors = [self.FTmodel[i] for i in pieces if i in self.FTmodel]
+                vectors = [self.FTmodel.wv[i] for i in pieces if i in self.FTmodel.wv]
                 vectors = np.stack(vectors).astype(self.dtype)
                 vectors = torch.from_numpy(vectors)
                 with open(self.Corpus_file,'a',encoding='utf-8') as f:
@@ -191,6 +191,6 @@ class Sensation(SensationBase):
     FasttextEpochs = 10
     AutoEncoderLearningRate:float = 0.0001
     AutoEncoderBatchSize:int = 4096
-    AutoEncoderEpochs:int = 4
+    AutoEncoderEpochs:int = 10
 
 

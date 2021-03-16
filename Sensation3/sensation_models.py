@@ -33,7 +33,7 @@ class PositionalEncoding(Module):
 
 class Encoder(Module):
     input_size = (1,config.text_seq_len,config.word_dim) # input size
-    output_size = (1,50) # output size
+    output_size = (1,32) # output size
     insize = (-1,*input_size[1:])
 
     nlayers = 3
@@ -47,7 +47,7 @@ class Encoder(Module):
         self.pos_encoder = PositionalEncoding(config.word_dim,max_len=config.text_seq_len)
         elayer = TransformerEncoderLayer(config.word_dim,self.nhead,dim_feedforward=self.nhid)
         self.transformerencoder = TransformerEncoder(elayer,self.nlayers)
-        self.dense = Linear(800,50)
+        self.dense = Linear(64*8,32)
 
 
     def forward(self,x):
@@ -79,7 +79,7 @@ class Decoder(Module):
         self.reset_seed()
 
         # Model layers
-        self.dense = Linear(50,800)
+        self.dense = Linear(32,64*8)
         elayer = TransformerEncoderLayer(config.word_dim,self.nhead,dim_feedforward=self.nhid)
         self.transformerencoder = TransformerEncoder(elayer,self.nlayers)
 

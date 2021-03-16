@@ -20,7 +20,7 @@ class config:
     hop_length:int = round(n_fft/4)
     pyaudio_format = pyaudio.paInt16
     audio_dtype = 'int16'
-    input_amplification:int = 4
+    input_amplification:int = 2
     CHUNK:int = round(sample_length/input_amplification)
 
     # Encoder settings

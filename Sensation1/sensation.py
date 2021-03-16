@@ -17,7 +17,7 @@ import time
 class Sensation(SensationBase):
     MemoryFormat:str = '1'# your process memory format (id[0])
     LogTitle:str = f'sensation{MemoryFormat}'
-    ReadOutLength:int = 10000 # ReadOutLength
+    ReadOutLength:int = 8192 # ReadOutLength
     KeepLength:int = int(ReadOutLength*0.7) # 70% of ReadOutLength
     MemoryListLength:int = int(ReadOutLength*0.01) # 1% of ReadOutLength
     MemorySize:int = int(np.prod(Encoder.output_size))

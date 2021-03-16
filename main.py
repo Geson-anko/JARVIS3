@@ -161,6 +161,11 @@ def main():
     time.sleep(10)
     with open(Config.logo_file,encoding='utf-8') as f:
         print(f.read())
+    while not shutdown.value:
+        text = 'Clocks '
+        text  += '|'.join([' {0} : {1:5.5f}'.format(p,q.value) for p,q in Clocks])
+        mm.log(text)
+        time.sleep(5)
 
     executer.shutdown(True)
     for p in processes:

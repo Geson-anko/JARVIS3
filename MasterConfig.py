@@ -42,7 +42,8 @@ class Config:
     """
     sensation_modules:tuple = (
         ('Sensation1','cuda'),
-        ('Sensation2','cuda')
+        ('Sensation2','cuda'),
+        ('Sensation3','cuda'),
     )
 
     ### Trainer
@@ -54,6 +55,7 @@ class Config:
     train_modules:tuple = (
         "Sensation1",
         "Sensation2",
+        "Sensation3",
     )
     train_wait:float = 5 #second
     

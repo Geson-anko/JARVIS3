@@ -38,7 +38,7 @@ class config:
     vocab_size = 16384
     n_cluster:int = 96
     text_seq_len:int = 8
-    word_dim:int = 100
+    word_dim:int = 64
     word_dtype = 'float16'
     use_corpus_length = 100000
     separator_name = 'SeparatorCent96'

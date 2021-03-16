@@ -114,7 +114,7 @@ class Train(MemoryManager):
         # ------ Training Text AutoEncoder ------
         data = []
         for i in words:
-            vector = torch.from_numpy(np.stack([FTmodel[q] for q in i if q in FTmodel])).type(Sensation.Training_dtype)
+            vector = torch.from_numpy(np.stack([FTmodel.wv[q] for q in i if q in FTmodel.wv])).type(Sensation.Training_dtype)
             length = vector.size(0)
             for idx in range(0,length,config.text_seq_len):
                 d = vector[idx:idx+config.text_seq_len]

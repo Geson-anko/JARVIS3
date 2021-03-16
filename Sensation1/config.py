@@ -7,7 +7,7 @@ class config:
     This class is provided to avoid circle importing. 
     You can describe here any settings you want to use for all programs.
     """
-    frame_rate:int = 15
+    frame_rate:int = 10
     width:int = 640
     height:int  = 360
     channels:int = 3
