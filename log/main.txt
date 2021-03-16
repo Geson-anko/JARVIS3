@@ -130,3 +130,19 @@
 [2021-03-14 10:39:02] Controller is ready
 [2021-03-14 10:39:04] J.A.R.V.I.S. started
 [2021-03-14 10:39:52] J.A.R.V.I.S. shutdowned
+[2021-03-14 10:57:29] sensation1 is ready.
+[2021-03-14 10:57:29] sensation2 is ready.
+[2021-03-14 10:57:29] MemorySearch is ready
+[2021-03-14 10:57:29] Trainer is ready.
+[2021-03-14 10:57:29] SleepManager is ready
+[2021-03-14 10:57:29] Controller is ready
+[2021-03-14 10:57:31] J.A.R.V.I.S. started
+[2021-03-14 10:58:38] J.A.R.V.I.S. shutdowned
+[2021-03-14 10:59:09] sensation1 is ready.
+[2021-03-14 10:59:09] sensation2 is ready.
+[2021-03-14 10:59:09] MemorySearch is ready
+[2021-03-14 10:59:09] Trainer is ready.
+[2021-03-14 10:59:09] SleepManager is ready
+[2021-03-14 10:59:09] Controller is ready
+[2021-03-14 10:59:11] J.A.R.V.I.S. started
+[2021-03-14 11:00:48] J.A.R.V.I.S. shutdowned

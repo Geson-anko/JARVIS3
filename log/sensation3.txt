@@ -1,0 +1,144 @@
+[2021-03-16 09:33:59] loaded Encoder
+[2021-03-16 09:33:59] loaded KikitoriEncoder
+[2021-03-16 09:33:59] loaded Centroids
+[2021-03-16 09:34:02] loaded Fasttext
+[2021-03-16 09:36:13] loaded Encoder
+[2021-03-16 09:36:13] loaded KikitoriEncoder
+[2021-03-16 09:36:13] loaded Centroids
+[2021-03-16 09:36:16] loaded Fasttext
+[2021-03-16 09:38:47] loaded Encoder
+[2021-03-16 09:38:47] loaded KikitoriEncoder
+[2021-03-16 09:38:47] loaded Centroids
+[2021-03-16 09:38:50] loaded Fasttext
+[2021-03-16 09:39:47] loaded Encoder
+[2021-03-16 09:39:47] loaded KikitoriEncoder
+[2021-03-16 09:39:47] loaded Centroids
+[2021-03-16 09:39:50] loaded Fasttext
+[2021-03-16 09:40:10] loaded Encoder
+[2021-03-16 09:40:10] loaded KikitoriEncoder
+[2021-03-16 09:40:10] loaded Centroids
+[2021-03-16 09:49:41] loaded Encoder
+[2021-03-16 09:49:41] loaded KikitoriEncoder
+[2021-03-16 09:49:41] loaded Centroids
+[2021-03-16 09:49:41] loaded SentencePiece separator
+[2021-03-16 09:49:44] loaded Fasttext
+[2021-03-16 09:49:44] Inherit Shared Memories
+[2021-03-16 09:49:44] got firstId
+[2021-03-16 09:49:44] loaded HumanCheck
+[2021-03-16 09:49:44] made Kiktori Data Folder
+[2021-03-16 09:49:44] process start
+[2021-03-16 09:50:35] loaded Encoder
+[2021-03-16 09:50:35] loaded KikitoriEncoder
+[2021-03-16 09:50:35] loaded Centroids
+[2021-03-16 09:50:35] loaded SentencePiece separator
+[2021-03-16 09:50:37] loaded Fasttext
+[2021-03-16 09:50:37] Inherit Shared Memories
+[2021-03-16 09:50:37] got firstId
+[2021-03-16 09:50:38] loaded HumanCheck
+[2021-03-16 09:50:38] process start
+[2021-03-16 09:52:24] loaded Encoder
+[2021-03-16 09:52:24] loaded KikitoriEncoder
+[2021-03-16 09:52:24] loaded Centroids
+[2021-03-16 09:52:24] loaded SentencePiece separator
+[2021-03-16 09:52:27] loaded Fasttext
+[2021-03-16 09:52:27] Inherit Shared Memories
+[2021-03-16 09:52:27] got firstId
+[2021-03-16 09:52:27] loaded HumanCheck
+[2021-03-16 09:52:27] process start
+[2021-03-16 09:53:20] loaded Encoder
+[2021-03-16 09:53:20] loaded KikitoriEncoder
+[2021-03-16 09:53:20] loaded Centroids
+[2021-03-16 09:53:20] loaded SentencePiece separator
+[2021-03-16 09:53:23] loaded Fasttext
+[2021-03-16 09:53:23] Inherit Shared Memories
+[2021-03-16 09:53:23] got firstId
+[2021-03-16 09:53:23] loaded HumanCheck
+[2021-03-16 09:53:23] process start
+[2021-03-16 09:54:19] started shutdown process
+[2021-03-16 09:54:19] Saved memories
+[2021-03-16 09:54:19] Reduced memories
+[2021-03-16 09:54:19] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-16 09:54:19] process shutdowned
+[2021-03-16 09:55:30] loaded Encoder
+[2021-03-16 09:55:30] loaded KikitoriEncoder
+[2021-03-16 09:55:30] loaded Centroids
+[2021-03-16 09:55:30] loaded SentencePiece separator
+[2021-03-16 09:55:33] loaded Fasttext
+[2021-03-16 09:55:33] Inherit Shared Memories
+[2021-03-16 09:55:33] loaded NewestId
+[2021-03-16 09:55:33] loaded MemoryList
+[2021-03-16 09:55:33] loaded ReadOutMemory, Id and Time.
+[2021-03-16 09:55:33] current memory length is 44
+[2021-03-16 09:55:33] loaded HumanCheck
+[2021-03-16 09:55:33] process start
+[2021-03-16 09:55:39] current_length 45
+[2021-03-16 09:55:39] current_length 46
+[2021-03-16 09:55:45] current_length 47
+[2021-03-16 09:55:45] current_length 48
+[2021-03-16 09:55:49] current_length 49
+[2021-03-16 09:55:49] current_length 50
+[2021-03-16 09:55:49] current_length 51
+[2021-03-16 09:55:49] current_length 52
+[2021-03-16 09:55:49] current_length 53
+[2021-03-16 09:55:55] current_length 54
+[2021-03-16 09:55:55] current_length 55
+[2021-03-16 09:55:57] current_length 56
+[2021-03-16 09:55:57] current_length 57
+[2021-03-16 09:55:57] current_length 58
+[2021-03-16 09:56:03] current_length 59
+[2021-03-16 09:56:03] current_length 60
+[2021-03-16 09:56:03] current_length 61
+[2021-03-16 09:56:03] current_length 62
+[2021-03-16 09:56:03] current_length 63
+[2021-03-16 09:56:04] current_length 64
+[2021-03-16 09:56:04] current_length 65
+[2021-03-16 09:56:05] current_length 66
+[2021-03-16 09:56:05] current_length 67
+[2021-03-16 09:56:07] current_length 68
+[2021-03-16 09:56:07] current_length 69
+[2021-03-16 09:56:07] current_length 70
+[2021-03-16 09:56:12] current_length 71
+[2021-03-16 09:56:12] current_length 72
+[2021-03-16 09:56:13] current_length 73
+[2021-03-16 09:56:13] current_length 74
+[2021-03-16 09:56:27] current_length 75
+[2021-03-16 09:56:27] current_length 76
+[2021-03-16 09:56:29] started shutdown process
+[2021-03-16 09:56:29] Saved memories
+[2021-03-16 09:56:29] Reduced memories
+[2021-03-16 09:56:29] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-16 09:56:29] process shutdowned
+[2021-03-16 09:57:05] loaded Encoder
+[2021-03-16 09:57:05] loaded KikitoriEncoder
+[2021-03-16 09:57:05] loaded Centroids
+[2021-03-16 09:57:05] loaded SentencePiece separator
+[2021-03-16 09:57:08] loaded Fasttext
+[2021-03-16 09:57:08] Inherit Shared Memories
+[2021-03-16 09:57:08] loaded NewestId
+[2021-03-16 09:57:08] loaded MemoryList
+[2021-03-16 09:57:08] loaded ReadOutMemory, Id and Time.
+[2021-03-16 09:57:08] current memory length is 76
+[2021-03-16 09:57:08] loaded HumanCheck
+[2021-03-16 09:57:08] process start
+[2021-03-16 09:57:10] text iii_c@MtMMtMtttt
+[2021-03-16 09:57:13] text u+MadttabxjY9a++b9bba+xxaaIxdduY
+[2021-03-16 09:57:21] text dI[muau9[IatMbbb[Cbbx9MbxIMI[mbbQ[agIuuubbbyIMttuMbbbbbbbd[[y,[[I9yabuY>ubb+bxa+Iu9uu9u9uMMIbbb[ibbmbda+@bbss:ubM@+s6:,+bb@@ibbiabbxgggguu>>MbcbbbbbbmjI9Iix,jab>>ycbbtu|y+bbbbb
+[2021-03-16 09:57:28] text y9@bbi+uIWIyyb+M
+[2021-03-16 09:57:29] text rbbmyuQua9bb@9ab
+[2021-03-16 09:57:31] text bbQmuMt@bbxysCIMxI9abIdsd[IMbxab
+[2021-03-16 09:57:33] text IxIadua@bbbbI[,ybb@ctg6hIMab+i@i
+[2021-03-16 09:57:35] text mubbbum[[ubby[Mtubbbbbb9yIu~msIbb++bIbbsjymmabds
+[2021-03-16 09:57:37] text [bgua@bbyCyIjbbb
+[2021-03-16 09:57:46] text bbbxuibuyCrItutMMIuMuMMu+bbbx[C,,,[syibbbbbIMxuuyuMabbbMmmymm9ac+bbbbbbmdjs[mId>m@b[tbd[bbb9ssuI++9b+uuaaaMMau9u9M+bbMumm[Y9mmbbX9udIic@@c@@@iii
+[2021-03-16 09:57:49] text .Gsm+bbdyIMbbbMy
+[2021-03-16 09:57:51] text d2mbbms[mbbmbbbQ
+[2021-03-16 09:57:54] text ubbjj>tyubbb9bbQ>>mbduIubbbxsyab
+[2021-03-16 09:57:55] text catMuumS.saibbbb
+[2021-03-16 09:57:59] text sajSsMI9cbbbibbb
+[2021-03-16 09:58:02] text sIIbbbQC>Ibc+bMMQuamuubbbbbid[,my>9uMmmm@iibbxxuｳCsIbbtMttt@@+bb
+[2021-03-16 09:58:03] text yS.sbbbbuyy@bb@b
+[2021-03-16 09:58:03] started shutdown process
+[2021-03-16 09:58:03] Saved memories
+[2021-03-16 09:58:03] Reduced memories
+[2021-03-16 09:58:04] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-16 09:58:04] process shutdowned

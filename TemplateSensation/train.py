@@ -11,7 +11,6 @@ from .sensation_models import AutoEncoder
 from .config import config
 
 from torch_model_fit import Fit 
-from MasterConfig import Config
 from MemoryManager import MemoryManager
 import multiprocessing as mp
 

@@ -57,3 +57,9 @@
 [2021-03-14 10:39:05] Trainer process has train1 train2
 [2021-03-14 10:39:05] Instanced Train Modules
 [2021-03-14 10:39:50] process shutdowned
+[2021-03-14 10:57:32] Trainer process has train1 train2
+[2021-03-14 10:57:32] Instanced Train Modules
+[2021-03-14 10:58:37] process shutdowned
+[2021-03-14 10:59:12] Trainer process has train1 train2
+[2021-03-14 10:59:12] Instanced Train Modules
+[2021-03-14 11:00:47] process shutdowned

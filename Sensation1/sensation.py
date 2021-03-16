@@ -1,4 +1,4 @@
-from Sensation0.configure import config
+from SleepManager.config import config
 import os
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
@@ -11,6 +11,7 @@ import cv2
 
 from SensationBase import SensationBase
 from .sensation_models import Encoder
+from .config import config
 import time
 
 class Sensation(SensationBase):

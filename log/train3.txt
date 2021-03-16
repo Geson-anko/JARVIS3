@@ -1,0 +1,63 @@
+[2021-03-16 11:29:29] Kikitori AutoEncoder data shape torch.Size([1648, 1, 640])
+[2021-03-16 11:29:32] end of epoch 1: loss0 : 0.00095 lr :0.00010 
+[2021-03-16 11:29:32] end of epoch 2: loss0 : 0.00081 lr :0.00010 
+[2021-03-16 11:29:32] end of epoch 3: loss0 : 0.00083 lr :0.00010 
+[2021-03-16 11:29:32] end of epoch 4: loss0 : 0.00078 lr :0.00010 
+[2021-03-16 11:29:32] finished
+[2021-03-16 11:29:32] trained Kikitori AutoEncoder
+[2021-03-16 11:29:33] trained Centroids
+[2021-03-16 11:29:33] Train process was finished
+[2021-03-16 11:29:34] Kikitori AutoEncoder data shape torch.Size([1648, 1, 640])
+[2021-03-16 11:29:37] end of epoch 1: loss0 : 0.00079 lr :0.00010 
+[2021-03-16 11:29:37] end of epoch 2: loss0 : 0.00078 lr :0.00010 
+[2021-03-16 11:29:37] end of epoch 3: loss0 : 0.00076 lr :0.00010 
+[2021-03-16 11:29:37] end of epoch 4: loss0 : 0.00075 lr :0.00010 
+[2021-03-16 11:29:37] finished
+[2021-03-16 11:29:37] trained Kikitori AutoEncoder
+[2021-03-16 11:29:38] trained Centroids
+[2021-03-16 11:29:38] Train process was finished
+[2021-03-16 11:30:14] Kikitori AutoEncoder data shape torch.Size([1648, 1, 640])
+[2021-03-16 11:30:16] end of epoch 1: loss0 : 0.00081 lr :0.00010 
+[2021-03-16 11:30:16] end of epoch 2: loss0 : 0.00076 lr :0.00010 
+[2021-03-16 11:30:16] end of epoch 3: loss0 : 0.00077 lr :0.00010 
+[2021-03-16 11:30:16] end of epoch 4: loss0 : 0.00073 lr :0.00010 
+[2021-03-16 11:30:16] finished
+[2021-03-16 11:30:16] trained Kikitori AutoEncoder
+[2021-03-16 11:30:17] trained Centroids
+[2021-03-16 11:30:17] Train process was finished
+[2021-03-16 12:00:18] Kikitori AutoEncoder data shape torch.Size([1648, 1, 640])
+[2021-03-16 12:00:21] end of epoch 1: loss0 : 0.00079 lr :0.00010 
+[2021-03-16 12:00:21] end of epoch 2: loss0 : 0.00073 lr :0.00010 
+[2021-03-16 12:00:21] end of epoch 3: loss0 : 0.00076 lr :0.00010 
+[2021-03-16 12:00:21] end of epoch 4: loss0 : 0.00071 lr :0.00010 
+[2021-03-16 12:00:21] finished
+[2021-03-16 12:00:21] trained Kikitori AutoEncoder
+[2021-03-16 12:00:22] trained Centroids
+[2021-03-16 12:03:26] Kikitori AutoEncoder data shape torch.Size([1648, 1, 640])
+[2021-03-16 12:03:28] end of epoch 1: loss0 : 0.00078 lr :0.00010 
+[2021-03-16 12:03:28] end of epoch 2: loss0 : 0.00074 lr :0.00010 
+[2021-03-16 12:03:28] end of epoch 3: loss0 : 0.00076 lr :0.00010 
+[2021-03-16 12:03:28] end of epoch 4: loss0 : 0.00072 lr :0.00010 
+[2021-03-16 12:03:28] finished
+[2021-03-16 12:03:28] trained Kikitori AutoEncoder
+[2021-03-16 12:03:29] trained Centroids
+[2021-03-16 12:04:07] trained Fasttext
+[2021-03-16 12:27:52] trained Fasttext
+[2021-03-16 12:29:10] trained Fasttext
+[2021-03-16 12:29:24] Text AutoEncoder data shape torch.Size([208957, 8, 100])
+[2021-03-16 12:29:33] end of epoch 1: loss0 : 0.01792 lr :0.00010 
+[2021-03-16 12:29:39] end of epoch 2: loss0 : 0.01608 lr :0.00010 
+[2021-03-16 12:29:46] end of epoch 3: loss0 : 0.01560 lr :0.00010 
+[2021-03-16 12:29:52] end of epoch 4: loss0 : 0.01532 lr :0.00010 
+[2021-03-16 12:29:52] finished
+[2021-03-16 12:29:52] trained Text AutoEncoder
+[2021-03-16 12:29:52] Train process was finished
+[2021-03-16 12:31:11] trained Fasttext
+[2021-03-16 12:31:25] Text AutoEncoder data shape torch.Size([208957, 8, 100])
+[2021-03-16 12:31:32] end of epoch 1: loss0 : 0.01679 lr :0.00010 
+[2021-03-16 12:31:38] end of epoch 2: loss0 : 0.01653 lr :0.00010 
+[2021-03-16 12:31:43] end of epoch 3: loss0 : 0.01641 lr :0.00010 
+[2021-03-16 12:31:48] end of epoch 4: loss0 : 0.01632 lr :0.00010 
+[2021-03-16 12:31:48] finished
+[2021-03-16 12:31:48] trained Text AutoEncoder
+[2021-03-16 12:31:49] Train process was finished

@@ -99,3 +99,9 @@
 [2021-03-14 10:39:05] setted audio streaming
 [2021-03-14 10:39:05] process start
 [2021-03-14 10:39:50] shutdown process started
+[2021-03-14 10:57:32] setted audio streaming
+[2021-03-14 10:57:32] process start
+[2021-03-14 10:58:36] shutdown process started
+[2021-03-14 10:59:12] setted audio streaming
+[2021-03-14 10:59:12] process start
+[2021-03-14 11:00:45] shutdown process started

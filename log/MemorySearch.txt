@@ -177,3 +177,13 @@
 [2021-03-14 10:39:50] shutdown process started
 [2021-03-14 10:39:50] saved Memory Dictionary and Temporary Memory
 [2021-03-14 10:39:50] process shutdowned
+[2021-03-14 10:57:31] create new memory dictionary
+[2021-03-14 10:57:31] process start
+[2021-03-14 10:58:36] shutdown process started
+[2021-03-14 10:58:36] saved Memory Dictionary and Temporary Memory
+[2021-03-14 10:58:36] process shutdowned
+[2021-03-14 10:59:12] create new memory dictionary
+[2021-03-14 10:59:12] process start
+[2021-03-14 11:00:45] shutdown process started
+[2021-03-14 11:00:45] saved Memory Dictionary and Temporary Memory
+[2021-03-14 11:00:45] process shutdowned

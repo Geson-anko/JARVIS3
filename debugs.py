@@ -11,6 +11,11 @@ from SleepManager import SleepManager
 from GUI_controller import Controller
 from Trainer import Train
 if __name__ == '__main__':
+    from Sensation3 import Train
+    train = Train('cuda',True)
+    shutdown = Value('i',False)
+    sleep = Value('i',True)
+    train(shutdown,sleep)
     """
     from Sensation1.train import Train  
     train = Train('cuda',True)
@@ -55,7 +60,7 @@ if __name__ == '__main__':
     print(_mem)
     print(1/clock.value)
     """
-    
+    """
     shutdown = Value('i',False)
     sleep = Value('i',True)
     train = Train('cuda',True)
@@ -67,7 +72,7 @@ if __name__ == '__main__':
     shutdown.value = True
     p.join()
     print('process end')
-    
+    """ 
     """
     shutdown = Value('i',False)
     num = 10

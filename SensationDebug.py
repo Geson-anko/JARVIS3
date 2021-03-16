@@ -1,7 +1,7 @@
 # ------ your setttings ------
-sensation = 'Sensation2' # your sensation folder name
-initialize = True # Whether to initialize or not after debugging. If True, this code deletes Data_folder and Temp_folder
-debug_time = 60*10 # debugging time [second]
+sensation = 'Sensation3' # your sensation folder name
+initialize = False # Whether to initialize or not after debugging. If True, this code deletes Data_folder and Temp_folder
+debug_time = 60 # debugging time [second]
 device = 'cuda' # debugging device
 # ------ end of settings -----
 
@@ -22,9 +22,9 @@ if __name__ == '__main__':
         removedirs = [
             sens.Temp_folder,
             sens.Data_folder,
-            Config.memory_folder,
         ]
         removefiles = [os.path.join(i,q) for i in removedirs for q in os.listdir(i)]
+        removefiles.append(Config.memory_file_form.format(sens.MemoryFormat))
         for i in removefiles:
             send2trash(i)
         mm.log('initialized')

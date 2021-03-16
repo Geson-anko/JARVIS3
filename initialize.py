@@ -7,22 +7,22 @@ debug= Debug('Initialization')
 This program initialize J.A.R.V.I.S., so please delete this before Release.
 """
 from MasterConfig import Config as mconf
-from Sensation0.configure import config as sens0conf
 from MemorySearch.config import config as searchconf
 from SleepManager.config import config as sleepconf
 import Sensation1
 import Sensation2
+import Sensation3
 
 
 removesdirs = [
     mconf.memory_folder,
-    sens0conf.temp_folder,
-    sens0conf.data_folder,
     sleepconf.temp_folder,
     Sensation1.Sensation.Temp_folder,
     Sensation1.Sensation.Data_folder,
     Sensation2.Sensation.Temp_folder,
     Sensation2.Sensation.Data_folder,
+    Sensation3.Sensation.Temp_folder,
+    Sensation3.Sensation.KikitoriData_folder,
 ]
 removefiles = [
     searchconf.dict_file,

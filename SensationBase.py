@@ -94,7 +94,7 @@ class SensationBase(MemoryManager):
         self.DataArray = np.zeros((self.DataSavingRate,*self.DataSize),dtype=self.dtype)
         self.SavedDataLen = 0
 
-        self.LoadEncoder()
+        self.LoadModels()
         #self.LoadDeltaTime() # 3/12/2021 DeltaTime was abolished.
         self.InheritSharedMemories()
         self.LoadPreviousValues()
@@ -108,15 +108,15 @@ class SensationBase(MemoryManager):
             clock_start = time.time()
             self.SwitchCheck()
 
-            self.Data = self.Update() # update process
-            self.MemoryProcess()
+            Data = self.Update() # update process
+            self.MemoryProcess(Data)
+            self.DataSavingCheck()
             if self.sleep.value or (not self.current_length < self.ReadOutLength) or (not self.switch.value):
                 self.SaveMemories()
                 self.SavePreviousValues()
             
             if self.sleep.value:
-                time.sleep(Config.sleep_wait)
-                self.LoadEncoder()
+                self.SleepProcess()
                 #self.LoadDeltaTime() # 3/12/2021 DeltaTime was abolished.
 
             #sleepiness wait
@@ -137,7 +137,7 @@ class SensationBase(MemoryManager):
         
         self.log('process shutdowned')
 
-    def LoadEncoder(self) -> None:
+    def LoadModels(self) -> None:
         self.encoder = self.Encoder().to(self.device).type(self.torchdtype)
         self.encoder.load_state_dict(torch.load(self.Encoder_params,map_location=self.device))
         self.log('loaded Encoder')
@@ -217,13 +217,13 @@ class SensationBase(MemoryManager):
             self.log('switch on')
 
     @torch.no_grad()
-    def MemoryProcess(self) -> None:
+    def MemoryProcess(self,Data:torch.Tensor) -> None:
         """
         Encoding data ,Calculating distances with ReadOutMemory and Sync.
         """
-        if type(self.Data) is not torch.Tensor:
-            self.exception(f'TypeError from MemoryProcess. Input data type is {type(self.Data)}')
-        encoded = self.encoder(self.Data.to(self.device).type(self.torchdtype)).view(-1)
+        if type(Data) is not torch.Tensor:
+            self.exception(f'TypeError from MemoryProcess. Input data type is {type(Data)}')
+        encoded = self.encoder(Data.to(self.device).type(self.torchdtype)).view(-1)
         data = encoded.unsqueeze(0).repeat(self.current_length,1)
         #distances = self.deltaT(data,self.ReadOutMemory_torch[:self.current_length]) # 3/12/2021 DeltaTime was abolished.
         distances = torch.mean((data-self.ReadOutMemory_torch[:self.current_length])**2,dim=-1)
@@ -238,14 +238,14 @@ class SensationBase(MemoryManager):
             self.ReadOutTime[self.current_length] = time.time()
             self.current_length += 1
             # data saving -----
-            self.DataArray[self.SavedDataLen] = self.Data.to('cpu').detach().numpy()
+            self.DataArray[self.SavedDataLen] = Data.to('cpu').detach().numpy()
             self.SavedDataLen +=1
             #------------------
         id_args = torch.argsort(distances.view(-1))[:self.MemoryListLength].to('cpu').numpy()
         il = id_args.shape[0]
         self.MemoryList[:il] = self.ReadOutId[id_args]
 
-        #DataSavingCheck
+    def DataSavingCheck(self) -> None:
         if not(self.DataSavingRate > self.SavedDataLen):
             name = os.path.join(self.Data_folder,str(time.time()))
             self.save_python_obj(name,self.DataArray)
@@ -283,6 +283,13 @@ class SensationBase(MemoryManager):
         self.save_python_obj(self.ReadOutTime_file,self.ReadOutTime[:self.current_length])
         self.save_python_obj(self.NewestId_file,self.NewestId.value)
         self.log('saved Read Out Id,Memory,Time,memlist,NewestId')
+
+    def SleepProcess(self) -> None:
+        """
+        this method is callled when sleep.
+        """
+        time.sleep(Config.sleep_wait)
+        self.LoadModels()
         
 
         
