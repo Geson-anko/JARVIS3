@@ -66,7 +66,7 @@ class Sensation(SensationBase):
         cv2.imshow(self.LogTitle,img)
         img = torch.from_numpy(img).unsqueeze(0).to(self.device).permute(0,3,2,1)
         img = self.resizer(img).type(self.torchdtype)/255
-        print('\rcurrent_length',self.current_length,'mins',self.mins,end='')
+        #print('\rcurrent_length',self.current_length,'mins',self.mins,end='')
         return img
 
     def UpdateEnd(self) -> None:

@@ -178,7 +178,7 @@ class SensationBase(MemoryManager):
         # load ReadOutMemory ,Id and Time
         self.ReadOutTime = np.zeros((self.ReadOutLength,),dtype='float64')
         if isfile(self.ReadOutId_file):
-            ml = self.load_python_obj(self.ReadOutId_file)[:self.ReadOutLength]
+            ml = self.load_python_obj(self.ReadOutId_file)[:self.KeepLength]
             if isfile(self.ReadOutMemory_file) and isfile(self.ReadOutTime_file):
                 # load id
                 current_length = ml.shape[0]

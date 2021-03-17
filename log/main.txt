@@ -1,0 +1,63 @@
+[2021-03-18 08:05:53] sensation1 is ready.
+[2021-03-18 08:05:53] sensation2 is ready.
+[2021-03-18 08:05:53] sensation3 is ready.
+[2021-03-18 08:05:53] MemorySearch is ready
+[2021-03-18 08:05:53] Trainer is ready.
+[2021-03-18 08:05:53] SleepManager is ready
+[2021-03-18 08:05:53] Controller is ready
+[2021-03-18 08:05:53] J.A.R.V.I.S. started
+[2021-03-18 08:06:04] Clocks  sensation1 : 0.03099| sensation2 : 0.49842| sensation3 : 0.62767| MemorySearch : 0.01596| SleepManager : 0.09800
+[2021-03-18 08:06:09] Clocks  sensation1 : 0.02912| sensation2 : 0.49729| sensation3 : 0.63748| MemorySearch : 0.01522| SleepManager : 0.09896
+[2021-03-18 08:06:14] Clocks  sensation1 : 0.02878| sensation2 : 0.50096| sensation3 : 0.63866| MemorySearch : 0.01624| SleepManager : 0.10114
+[2021-03-18 08:06:19] Clocks  sensation1 : 0.02697| sensation2 : 0.49852| sensation3 : 0.63085| MemorySearch : 0.01700| SleepManager : 0.10003
+[2021-03-18 08:06:24] Clocks  sensation1 : 0.03496| sensation2 : 0.49800| sensation3 : 0.64104| MemorySearch : 0.01598| SleepManager : 0.09998
+[2021-03-18 08:06:29] J.A.R.V.I.S. shutdowned
+[2021-03-18 08:07:03] sensation1 is ready.
+[2021-03-18 08:07:03] sensation2 is ready.
+[2021-03-18 08:07:04] sensation3 is ready.
+[2021-03-18 08:07:04] MemorySearch is ready
+[2021-03-18 08:07:04] Trainer is ready.
+[2021-03-18 08:07:04] SleepManager is ready
+[2021-03-18 08:07:04] Controller is ready
+[2021-03-18 08:07:04] J.A.R.V.I.S. started
+[2021-03-18 08:07:14] Clocks  sensation1 : 0.03100| sensation2 : 0.49797| sensation3 : 0.64197| MemorySearch : 0.01600| SleepManager : 0.09900
+[2021-03-18 08:07:19] Clocks  sensation1 : 0.03307| sensation2 : 0.49676| sensation3 : 0.64230| MemorySearch : 0.01590| SleepManager : 0.09890
+[2021-03-18 08:07:24] Clocks  sensation1 : 0.04000| sensation2 : 0.49725| sensation3 : 0.62436| MemorySearch : 0.02399| SleepManager : 0.10100
+[2021-03-18 08:07:29] Clocks  sensation1 : 0.03241| sensation2 : 0.49903| sensation3 : 0.70307| MemorySearch : 0.01500| SleepManager : 0.10040
+[2021-03-18 08:07:34] Clocks  sensation1 : 0.03692| sensation2 : 0.50013| sensation3 : 0.63801| MemorySearch : 0.01803| SleepManager : 0.09849
+[2021-03-18 08:07:39] Clocks  sensation1 : 0.03400| sensation2 : 0.48111| sensation3 : 0.63854| MemorySearch : 0.01903| SleepManager : 0.10200
+[2021-03-18 08:07:44] Clocks  sensation1 : 0.03100| sensation2 : 0.49945| sensation3 : 0.64943| MemorySearch : 0.01604| SleepManager : 0.10000
+[2021-03-18 08:07:49] Clocks  sensation1 : 0.03983| sensation2 : 0.49721| sensation3 : 0.64013| MemorySearch : 0.02198| SleepManager : 0.09887
+[2021-03-18 08:07:54] Clocks  sensation1 : 0.03501| sensation2 : 0.49957| sensation3 : 0.65009| MemorySearch : 0.01600| SleepManager : 0.10100
+[2021-03-18 08:07:59] Clocks  sensation1 : 0.02800| sensation2 : 0.49866| sensation3 : 0.63511| MemorySearch : 0.01800| SleepManager : 0.09900
+[2021-03-18 08:08:04] Clocks  sensation1 : 0.03296| sensation2 : 0.49939| sensation3 : 0.63869| MemorySearch : 0.01609| SleepManager : 0.09777
+[2021-03-18 08:08:09] Clocks  sensation1 : 0.03400| sensation2 : 0.50266| sensation3 : 0.60652| MemorySearch : 0.01701| SleepManager : 0.09955
+[2021-03-18 08:08:14] Clocks  sensation1 : 0.03800| sensation2 : 0.50100| sensation3 : 0.68451| MemorySearch : 0.01800| SleepManager : 0.09940
+[2021-03-18 08:08:19] Clocks  sensation1 : 0.03440| sensation2 : 0.49423| sensation3 : 0.64346| MemorySearch : 0.01579| SleepManager : 0.10195
+[2021-03-18 08:08:24] Clocks  sensation1 : 0.03203| sensation2 : 0.50247| sensation3 : 0.63076| MemorySearch : 0.01700| SleepManager : 0.10000
+[2021-03-18 08:08:29] Clocks  sensation1 : 0.03827| sensation2 : 0.49800| sensation3 : 0.57700| MemorySearch : 0.01625| SleepManager : 0.09952
+[2021-03-18 08:08:34] Clocks  sensation1 : 0.03202| sensation2 : 0.50165| sensation3 : 0.63660| MemorySearch : 0.01805| SleepManager : 0.10118
+[2021-03-18 08:08:39] Clocks  sensation1 : 0.03200| sensation2 : 0.49915| sensation3 : 0.63633| MemorySearch : 0.01800| SleepManager : 0.09900
+[2021-03-18 08:08:44] Clocks  sensation1 : 0.02505| sensation2 : 0.50101| sensation3 : 0.63726| MemorySearch : 0.01606| SleepManager : 0.09976
+[2021-03-18 08:08:49] Clocks  sensation1 : 0.02974| sensation2 : 0.49401| sensation3 : 0.63178| MemorySearch : 0.01519| SleepManager : 0.10029
+[2021-03-18 08:08:54] Clocks  sensation1 : 0.03300| sensation2 : 0.50206| sensation3 : 0.62542| MemorySearch : 0.01503| SleepManager : 0.09900
+[2021-03-18 08:08:59] Clocks  sensation1 : 0.02707| sensation2 : 0.49540| sensation3 : 0.64418| MemorySearch : 0.01603| SleepManager : 0.10182
+[2021-03-18 08:09:04] Clocks  sensation1 : 0.03213| sensation2 : 0.49817| sensation3 : 0.64377| MemorySearch : 0.01797| SleepManager : 0.09924
+[2021-03-18 08:09:09] Clocks  sensation1 : 0.02700| sensation2 : 0.00000| sensation3 : 0.63954| MemorySearch : 0.01800| SleepManager : 0.09861
+[2021-03-18 08:09:14] Clocks  sensation1 : 0.03006| sensation2 : 0.49600| sensation3 : 0.65692| MemorySearch : 0.01598| SleepManager : 0.09900
+[2021-03-18 08:09:19] Clocks  sensation1 : 0.03300| sensation2 : 0.49982| sensation3 : 0.00000| MemorySearch : 0.01900| SleepManager : 0.09897
+[2021-03-18 08:09:24] Clocks  sensation1 : 0.04804| sensation2 : 0.49980| sensation3 : 0.65590| MemorySearch : 0.01603| SleepManager : 0.09997
+[2021-03-18 08:09:29] J.A.R.V.I.S. shutdowned
+[2021-03-18 08:10:06] sensation1 is ready.
+[2021-03-18 08:10:06] sensation2 is ready.
+[2021-03-18 08:10:07] sensation3 is ready.
+[2021-03-18 08:10:07] MemorySearch is ready
+[2021-03-18 08:10:07] Trainer is ready.
+[2021-03-18 08:10:07] SleepManager is ready
+[2021-03-18 08:10:07] Controller is ready
+[2021-03-18 08:10:09] J.A.R.V.I.S. started
+[2021-03-18 08:10:20] Clocks  sensation1 : 0.03090| sensation2 : 0.49950| sensation3 : 0.65549| MemorySearch : 0.03083| SleepManager : 0.09301
+[2021-03-18 08:10:25] Clocks  sensation1 : 0.04888| sensation2 : 0.49928| sensation3 : 0.65458| MemorySearch : 0.04534| SleepManager : 0.09228
+[2021-03-18 08:10:30] Clocks  sensation1 : 0.03233| sensation2 : 0.50140| sensation3 : 0.62145| MemorySearch : 0.03035| SleepManager : 0.10802
+[2021-03-18 08:10:35] Clocks  sensation1 : 0.04799| sensation2 : 0.49972| sensation3 : 0.67105| MemorySearch : 0.03000| SleepManager : 0.10812
+[2021-03-18 08:10:42] J.A.R.V.I.S. shutdowned
