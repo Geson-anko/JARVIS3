@@ -1,0 +1,34 @@
+[2021-03-16 15:52:18] loaded Encoder
+[2021-03-16 15:52:18] Inherit Shared Memories
+[2021-03-16 15:52:18] got firstId
+[2021-03-16 15:52:19] process start
+[2021-03-16 15:53:16] started shutdown process
+[2021-03-16 15:53:16] Saved memories
+[2021-03-16 15:53:16] Reduced memories
+[2021-03-16 15:53:16] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-16 15:53:17] process shutdowned
+[2021-03-16 15:53:51] loaded Encoder
+[2021-03-16 15:53:51] Inherit Shared Memories
+[2021-03-16 15:53:51] got firstId
+[2021-03-16 15:53:53] process start
+[2021-03-16 15:54:50] started shutdown process
+[2021-03-16 15:54:50] Saved memories
+[2021-03-16 15:54:50] Reduced memories
+[2021-03-16 15:54:50] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-16 15:54:51] process shutdowned
+[2021-03-16 15:57:47] loaded Encoder
+[2021-03-16 15:57:47] Inherit Shared Memories
+[2021-03-16 15:57:47] loaded NewestId
+[2021-03-16 15:57:47] loaded MemoryList
+[2021-03-16 15:57:47] loaded ReadOutMemory, Id and Time.
+[2021-03-16 15:57:47] current memory length is 323
+[2021-03-16 15:57:49] process start
+[2021-03-16 15:58:46] started shutdown process
+[2021-03-16 15:58:46] Saved memories
+[2021-03-16 15:58:46] Reduced memories
+[2021-03-16 15:58:46] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-16 15:58:47] process shutdowned
+[2021-03-16 16:00:03] loaded Encoder
+[2021-03-16 16:00:03] Inherit Shared Memories
+[2021-03-16 16:00:03] got firstId
+[2021-03-16 16:00:04] process start

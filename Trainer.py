@@ -53,8 +53,15 @@ class Train(MemoryManager):
                     if not trained < trainlen:
                         trained = 0
                     self.log('Training',trains[trained].LogTitle)
-                    trains[trained](shutdown,sleep)
-                    trained += 1
+                    try:
+                        trains[trained](shutdown,sleep)
+                    except RuntimeError:
+                        if self.debug_mode:
+                            self.exception(f'Runtime error ocurred!')
+                        else:
+                            self.warn(f'RuntimeError ocurred! Please check {trains[trained].LogTitle}.')
+                    
+                    self.release_system_memory()
                     if shutdown.value or not sleep.value:
                         break
                     time.sleep(Config.train_wait)

@@ -253,8 +253,8 @@ class Fit:
                     for i,m in enumerate(mvalues):
                         avg_met_result[i] += m
                         _mes += 'metrics{} : {:5.5f} '.format(i,m)
-                print(_mes,end='')
-            print('')
+                #print(_mes,end='')
+            #print('')
 
             # result saving
             avg_loss /= maxcount
@@ -308,8 +308,8 @@ class Fit:
                                 avg_val_met_results[i] += m
                                 _mes += 'avg_metrics{} : {:5.5f} '.format(i,m)
                         
-                        print(_mes,end='')
-                    print('')
+                        #print(_mes,end='')
+                    #print('')
                     
                     # result saving
                     avg_val_loss /= val_maxcount
@@ -318,7 +318,7 @@ class Fit:
                         val_losses[epoch] = l 
                     if _metrics:
                         avg_val_met_results /= val_maxcount
-                        for i,m in enumerate(avg_met_result):
+                        for i,m in enumerate(avg_val_met_results):
                             message += 'avg_val_metrics{} : {:5.5f} '.format(i,m)
                             val_met_results[epoch] = m
             lre = optimizer.param_groups[0]['lr']
