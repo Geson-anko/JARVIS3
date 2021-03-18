@@ -51,3 +51,34 @@
 [2021-03-18 08:10:39] Reduced memories
 [2021-03-18 08:10:39] saved Read Out Id,Memory,Time,memlist,NewestId
 [2021-03-18 08:10:39] process shutdowned
+[2021-03-18 09:26:14] loaded Encoder
+[2021-03-18 09:26:14] loaded KikitoriEncoder
+[2021-03-18 09:26:14] loaded Centroids
+[2021-03-18 09:26:14] loaded SentencePiece separator
+[2021-03-18 09:26:14] loaded Fasttext
+[2021-03-18 09:26:14] Inherit Shared Memories
+[2021-03-18 09:26:14] got firstId
+[2021-03-18 09:26:14] loaded HumanCheck
+[2021-03-18 09:26:14] process start
+[2021-03-18 09:26:36] started shutdown process
+[2021-03-18 09:26:36] Saved memories
+[2021-03-18 09:26:36] Reduced memories
+[2021-03-18 09:26:36] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-18 09:26:36] process shutdowned
+[2021-03-18 09:27:34] loaded Encoder
+[2021-03-18 09:27:34] loaded KikitoriEncoder
+[2021-03-18 09:27:34] loaded Centroids
+[2021-03-18 09:27:34] loaded SentencePiece separator
+[2021-03-18 09:27:34] loaded Fasttext
+[2021-03-18 09:27:34] Inherit Shared Memories
+[2021-03-18 09:27:34] loaded NewestId
+[2021-03-18 09:27:34] loaded MemoryList
+[2021-03-18 09:27:34] loaded ReadOutMemory, Id and Time.
+[2021-03-18 09:27:34] current memory length is 1
+[2021-03-18 09:27:34] loaded HumanCheck
+[2021-03-18 09:27:34] process start
+[2021-03-18 09:28:28] started shutdown process
+[2021-03-18 09:28:28] Saved memories
+[2021-03-18 09:28:28] Reduced memories
+[2021-03-18 09:28:28] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-18 09:28:28] process shutdowned

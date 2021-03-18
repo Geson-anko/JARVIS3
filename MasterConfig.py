@@ -27,12 +27,23 @@ class Config:
     sleep_wait:float = 5
     ### timezone
     TimeZone:timezone = timezone(timedelta(hours=+9),name='JST')
-    ### delta T threshold
+    """### delta T threshold # delta Time model was ...
     deltaT_threshold:float = 0.00001
     deltaT_zero_per:float = 0.1
+    """
 
     release_system_cache_time:float = 16 # second
 
+    ### processer settings
+    max_processes:int = os.cpu_count()
+    main_proceess_group_number:int = 0
+    """
+    max_processes is to save CPU,GPU, and each Memories.
+    please set process groups. default main process group number is 0
+    Ex.
+    >>> processes = [[],] * os.cpu_count
+    >>> processes[YourProcessGroupNumber].append((func,args_tuple))
+    """
     ### sensations
     
     """
@@ -40,10 +51,10 @@ class Config:
     modulename/__init__.py
     >>> from .sensation import Sensation
     """
-    sensation_modules:tuple = (
-        ('Sensation1','cuda'),
-        ('Sensation2','cuda'),
-        ('Sensation3','cuda'),
+    sensation_modules:tuple = ( #(Module_name, device, process group number)
+        ('Sensation1','cuda',1),
+        ('Sensation2','cuda',0),
+        ('Sensation3','cuda',1),
     )
 
     ### Trainer
@@ -52,6 +63,7 @@ class Config:
         modulename/__init__.py
         >>> from .train import Train    
     """
+    device_trainer = 'cuda'
     train_modules:tuple = (
         "Sensation1",
         "Sensation2",
