@@ -82,3 +82,31 @@
 [2021-03-18 09:28:28] Reduced memories
 [2021-03-18 09:28:28] saved Read Out Id,Memory,Time,memlist,NewestId
 [2021-03-18 09:28:28] process shutdowned
+[2021-03-19 10:22:29] loaded Encoder
+[2021-03-19 10:22:29] loaded KikitoriEncoder
+[2021-03-19 10:22:29] loaded Centroids
+[2021-03-19 10:22:29] loaded SentencePiece separator
+[2021-03-19 10:22:30] loaded Fasttext
+[2021-03-19 10:22:30] Inherit Shared Memories
+[2021-03-19 10:22:30] got firstId
+[2021-03-19 10:22:30] loaded HumanCheck
+[2021-03-19 10:22:30] process start
+[2021-03-19 10:22:30] started shutdown process
+[2021-03-19 10:22:30] Saved memories
+[2021-03-19 10:22:30] Reduced memories
+[2021-03-19 10:22:30] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-19 10:22:30] process shutdowned
+[2021-03-19 10:23:03] loaded Encoder
+[2021-03-19 10:23:03] loaded KikitoriEncoder
+[2021-03-19 10:23:03] loaded Centroids
+[2021-03-19 10:23:03] loaded SentencePiece separator
+[2021-03-19 10:23:03] loaded Fasttext
+[2021-03-19 10:23:03] Inherit Shared Memories
+[2021-03-19 10:23:03] got firstId
+[2021-03-19 10:23:03] loaded HumanCheck
+[2021-03-19 10:23:03] process start
+[2021-03-19 10:24:24] started shutdown process
+[2021-03-19 10:24:24] Saved memories
+[2021-03-19 10:24:24] Reduced memories
+[2021-03-19 10:24:24] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-19 10:24:24] process shutdowned

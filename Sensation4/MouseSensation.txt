@@ -1,0 +1,89 @@
+How to make Sensation of J.A.R.V.I.S.
+
+====== 使い方 ======
+☆行う手順
+	0.SensationKitとTemplateSesationのフォルダをコピーする。
+	1.SensationkitをもとにAutoEncoderを作成する。(SensationKitの使い方はその中のUsage.txtを参照)
+	2.sensation_models.pyを編集する。このほかに必要なAIモデルがある場合はこのファイルに書いてもよい。
+	3.paramsフォルダにencoder.paramsとdecoder.paramsというファイル名でパラメータファイルを置く
+	4.sensation.pyを編集する。
+	5.フォルダ名を "Sensation"+MemoryFormat にする。(Sensation0のように)
+	6.SensationDebug.pyを用いてデバッグを行う。
+	7.MasterConfig.pyのsensation_modulesリストにフォルダ名を追記する
+
+※　注意　
+SensationKitやTemplateSensationのフォルダは必ずコピーしてから使ってください。
+senation.py内にある、Data_folder,Param_folderは他のデータを保存してはいけません。何か任意のファイルを保存したい場合は、Temp_folderの中に保存してください。
+SensationクラスやTrainクラスの内部では、print, raise Exception, warningはそれぞれ、self.log, self.exception, self.warnとなり提供されています。ログファイルに書き込み記録することが可能となるのでできるだけこれらをもしいてください。
+
+特にself.Dataなど、SensationBaseクラスで使用されているクラス変数名は使用しないでください。
+
+
+☆最低限編集するファイル
+	sensation.py
+	sensation_models.py
+	config.py (sensation_models.pyやsensation.pyで共有したい設定がある場合はこちらのデータクラスに記入してください。
+	
+	※高度な感覚器官を作成する場合はすべてのファイルを編集する必要があります。
+
+☆sensation_models.py
+	このファイルはAutoEncoderなどのsensation.pyで使うためのAIモデルを書くファイルです。最低限AutoEncoderを書く必要があります。
+	クラス定数となっている、"input_size"と"output_size"はsensation.py内でデフォルト値として使われているので必ず書いてください。
+	クラス名やファイル名を変えると正常に動作しなくなります。
+
+☆sensation.py
+	このファイルはsensationでの実際の処理を記入するファイルです。指定するクラス定数が複数あるので気を付けてください。クラスの引数やクラス名は変更不可です。
+	◎手順
+		下記の指定する定数を入力してください。
+		Start関数（必須）、Update関数（必須）、UpdateEnd関数（任意）、End関数（任意）を書いてください。Update関数のみ返り値がtorch.Tensorである必要があります。
+
+	◎指定する定数
+		MemoryFormat	: 記憶IDです。0~9,a~zまでが入りますが、必ず既存のSensationと被りがないか確かめてください。
+		SameThreshold	: 記憶と記憶の平均二乗誤差を図る際に許容する値です。明らかに同様の情報が記憶されないよう適切に閾値を設定してください。(Default 0.001)
+		SleepWaitTime	: 睡眠処理時に処理を止める時間[second]を記入してください。眠気にも直結するためあまり大きくしすぎないように注意してください。(Default 0.1)
+		DataSavingRate	: 睡眠処理時のAutoEncoder 用のデータをファイルに記入する間隔です。新しい記憶が入ったときのみ保存されます。
+		dtype		: AutoEncoderやReadOutMemoryのdata typeです。これはnumpyのdtypeで指定してください。
+		torchdtype	: dtypeのpytorch tensor用です。基本的にdtypeと一致する型を指定してください。
+		
+		◎ training settings の中の指定する定数
+		Training_dtype		: 学習時のデータタイプです。Pytorch dtypeです。
+		AutoEncoderDataSize	: 学習時のデータ数です。睡眠時間で処理が終わるようにしてください。
+		AutoEncoderLearningRate	: 学習率です。Learning rate Schedulerの指定をしたい場合は train.pyの中で行うことができます。
+		AutoEncoderBatchSize	: 学習時のバッチサイズです。GPUメモリは環境にもよりますが、3GB以内にしてください。
+		AutoEncoderEpochs	: 学習世代数です。学習率0.0001の時に3~5程度がおすすめです。
+	
+	◎編集する関数
+		Start関数	: 起動時に呼ばれる関数です。
+		Update関数	: 毎フレーム最初に呼ばれる関数です。返り値にEncoderの入力データを指定してください。
+		UpdateEnd関数	: 毎フレーム最後に呼ばれる関数です。FPSの調整などに用いてください。
+		End関数		: Shutdown時に呼ばれる関数です。
+	
+	
+
+	◎ Start 関数 (必須)
+		この関数はJ.A.R.V.I.S.起動時に呼ばれます。データの入力の準備などを記入してください。
+		"self."という接頭辞を変数名につけなければUpdate関数など他のメソッドで利用できないことに気をつけてください。
+	
+	◎ Update 関数 (必須)
+		毎フレーム最初に呼ばれ、Encoderにデータを供給する関数です。必須です。そのままEncoderに入力できる形にしてください。
+		Pytorch Tensorが返り値の型です。
+		"print('\rcurrent_length',self.current_length,end='')"をデバッグの時に追記することでSameThresholdの導出の参考になります。
+
+	◎ UpdateEnd 関数（任意）
+		毎フレーム最後に呼ばれ、フレームレートを調整したりなどをすることができます。
+		time.sleepの引数に負の数を指定できないので気をつけてください。
+
+	◎ End 関数（任意）
+		Shutdown時に呼ばれます。Start関数で呼んだ入力データストリーマーなどの終了処理を書いてください。
+
+	その他の関数はSensationBase.pyを参照してください。
+
+☆train.py
+	このファイルは睡眠処理時に実行されるプログラムを書きます。クラスの引数などは変更不可なので気をつけてください。
+	AutoEncoderのみであれば編集する必要はありません。しかしAutoEncoder以外のものを睡眠処理時に学習させたい場合は、activationメソッドの内部に記入してください。
+
+
+
+
+
+	

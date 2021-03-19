@@ -55,6 +55,7 @@ class Config:
         ('Sensation1','cuda',1),
         ('Sensation2','cuda',0),
         ('Sensation3','cuda',1),
+        ('Sensation4','cpu',1)
     )
 
     ### Trainer

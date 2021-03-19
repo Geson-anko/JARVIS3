@@ -12,6 +12,7 @@ from SleepManager.config import config as sleepconf
 import Sensation1
 import Sensation2
 import Sensation3
+import Sensation4
 
 
 removesdirs = [
@@ -23,6 +24,7 @@ removesdirs = [
     Sensation2.Sensation.Data_folder,
     Sensation3.Sensation.Temp_folder,
     Sensation3.Sensation.KikitoriData_folder,
+    Sensation4.Sensation.Temp_folder,
 ]
 removefiles = [
     searchconf.dict_file,
