@@ -58,6 +58,9 @@ class Config:
         ('Sensation4','cpu',1)
     )
 
+    ### outputs
+    
+
     ### Trainer
     """
         Train process calls 'modulename.Train()'. so you must write like this below.

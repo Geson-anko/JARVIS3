@@ -155,7 +155,7 @@ class MemoryManager(Debug):
 
         _t = type(string)
         if _t is not str:
-            self.exception('your input is {_t} !. Please str')
+            self.exception(f'your input is {_t} !. Please {str}')
         
         if len(string) == 1:
             return self.char.index(string)
@@ -346,7 +346,7 @@ class MemoryManager(Debug):
         else:
             return exist_id,data
         
-    def extract_sameId(self,ID:List[str or int] or ndarray,id_format:str or int) -> List[str]:
+    def extract_sameId(self,ID:List[str or int] or ndarray,id_format:str or int,return_integer:bool=True) -> List[str]:
         """
         extracting same id formats.
         id_format [required] : extract this format from ID_list.
@@ -378,6 +378,11 @@ class MemoryManager(Debug):
                 id_format = self.char[id_format]
         
         extracted = [i for i in ID if i[0] == id_format]
+        if return_integer:
+            extracted = [self.Id2Num(i) for i in extracted]
+            if _idt is ndarray:
+                extracted = np.array(extracted,dtype=Config.ID_dtype)
+
         return extracted
 
     def get_firstId(self,id_format:str or int,return_integer=True) -> Union[int,str]:
