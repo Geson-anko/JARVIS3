@@ -64,7 +64,12 @@ class MemoryManager(Debug):
         get index from ReadOutId if Id is in ReadOutId.
         ** Warning !! **
         ReadOutId must be sorted because this method uses Binary Search Algorhythm. Otherwise ...
-        
+    
+    load_memory_withReadOuts:
+        load memory preferentially from ReadOutMemory.
+        ** Warning !! **
+        This method use in_ReadOutId method. So ReadOutId must be sorted because it uses Binary Search Algorhythm. Otherwise ...
+
     save_python_obj:
         saving python objects to pickle file.
     
@@ -283,6 +288,8 @@ class MemoryManager(Debug):
                     return ID,data
         except KeyError:
             return None
+        except OSError:
+            return None
         
     def load_memory(
         self,ID:List[str] or str or int or List[int] or ndarray,
@@ -311,7 +318,10 @@ class MemoryManager(Debug):
             self.exception(f'you entered {_idt}, Please enter list,ndarray,int,str')
         
         if len(ID) == 0:
-            return [],np.array([]),np.array([])
+            if return_time:
+                return [],np.array([]),np.array([])
+            else:
+                return [],np.array([])
 
 
         elem_type = type(ID[0])
@@ -346,7 +356,7 @@ class MemoryManager(Debug):
         else:
             return exist_id,data
         
-    def extract_sameId(self,ID:List[str or int] or ndarray,id_format:str or int,return_integer:bool=True) -> List[str]:
+    def extract_sameId(self,ID:List[str or int] or ndarray,id_format:str or int,return_integer:bool=True) -> Union[List[str],List[int],ndarray]:
         """
         extracting same id formats.
         id_format [required] : extract this format from ID_list.
@@ -448,7 +458,7 @@ class MemoryManager(Debug):
 
     def in_ReadOutId(
         self,Id_num:List[int] or ndarray,
-        ReadOutId:ndarray) -> Tuple[List[int],List[bool]]  :
+        ReadOutId:ndarray) -> Tuple[ndarray,ndarray]  :
         """
         get index from ReadOutId if Id is in ReadOutId.
         Id_num [required] : [int,...].
@@ -462,21 +472,57 @@ class MemoryManager(Debug):
             Id_num = np.array(Id_num)
         
         if type(ReadOutId) is not ndarray:
-            self.exception(f'your input ReadOutId is {type(ReadOutId)},please ndarray')
+            self.exception(f'your input ReadOutId is {type(ReadOutId)},please {np.ndarray}')
         
         outidx = np.searchsorted(ReadOutId,Id_num)
+        outidx[outidx == ReadOutId.shape[0]] = -1
         outbools = ReadOutId[outidx] == Id_num
         return outidx,outbools
 
-    def save_python_obj(self,file_name:str,obj:Any) -> None:
+    def load_memory_withReadOuts(
+        self,ID_num:Union[List[int],ndarray],ReadOutId:ndarray,ReadOutMemory:ndarray
+        ) -> ndarray:
+        """
+        This method is load_memory wrapper.
+        Please be carefull Not to return ID.
+
+        Id_num [required]:  [int,...]
+        ReadOutId [required]:   ndarray[int,...]
+        ReadOutMemory [required]:   ndarray[float,...]
+        This method will be faster than using load_memory because it gets preferentially from ReadOutMemory.
+        ** Warning !! **
+        This method use in_ReadOutId method, So ReadOutId must be sorted because it uses Binary Search Algorhythm. Otherwise ...
+        Ex.)
+            >>> useid = self.extract_sameId(TemporaryMemory,'0')
+            >>> memory = self.load_memory_withReadOuts(
+            ... useid,
+            ... ReadOutId, # sorted 
+            ... ReadOutMemory)
+            >>>
+        """
+        _it = type(ID_num)
+        if _it is list:
+            ID_num = np.array(ID_num)
+
+        outidx,outbools = self.in_ReadOutId(ID_num,ReadOutId)
+        memory = ReadOutMemory[outidx[outbools]]
+        loadId = ID_num[np.logical_not(outbools)] 
+        if loadId.shape[0] != 0:
+            ids,mem = self.load_memory(loadId,return_id_int=False,return_time=False)
+            if mem.shape[0] != 0:
+                memory = np.concatenate([memory,mem])
+        return memory
+
+    @staticmethod
+    def save_python_obj(file_name:str,obj:Any) -> None:
         """
         saving python object to pickle file
         """
         with open(file_name,'wb') as f:
             pickle.dump(obj,f,protocol=4)
 
-    
-    def load_python_obj(self,file_name:str) -> Any:
+    @staticmethod
+    def load_python_obj(file_name:str) -> Any:
         """
         loading python object from pickle file
         """
@@ -484,18 +530,21 @@ class MemoryManager(Debug):
             obj = pickle.load(f)
         return obj
     
-    def remove_file(self,file_name:str) -> None:
+    @staticmethod
+    def remove_file(file_name:str) -> None:
         """
         delete file
         """
         if os.path.exists(file_name):
             os.remove(file_name)
 
+    @staticmethod
     def release_system_memory(self) -> None:
         gc.collect()
         torch.cuda.empty_cache()
         
 
+    def activation(self):pass
     def __call__(self,*args,**kwargs):
         return self.activation(*args,**kwargs)
 
