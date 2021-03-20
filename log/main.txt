@@ -290,3 +290,31 @@
 [2021-03-20 17:49:53] Controler is ready.
 [2021-03-20 17:49:55] J.A.R.V.I.S. started
 [2021-03-20 17:50:06] J.A.R.V.I.S. shutdowned
+[2021-03-20 17:53:43] sensation1 is ready.
+[2021-03-20 17:53:43] sensation2 is ready.
+[2021-03-20 17:53:43] sensation3 is ready.
+[2021-03-20 17:53:44] sensation4 is ready.
+[2021-03-20 17:53:44] MemorySearch is ready.
+[2021-03-20 17:53:44] VisionOutput is ready.
+[2021-03-20 17:53:44] ModelTrainer is ready.
+[2021-03-20 17:53:44] SleepManager is ready.
+[2021-03-20 17:53:44] Controler is ready.
+[2021-03-20 17:53:46] J.A.R.V.I.S. started
+[2021-03-20 17:53:56] Clocks  sensation1 : 0.032| sensation2 : 0.506| sensation3 : 0.624| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.048| SleepManager : 0.096| Sleepiness :0.000| Sleep : False
+[2021-03-20 17:54:26] Clocks  sensation1 : 0.021| sensation2 : 0.497| sensation3 : 0.657| sensation4 : 0.035| MemorySearch : 0.031| VisionOutput : 0.048| SleepManager : 0.109| Sleepiness :0.000| Sleep : False
+[2021-03-20 17:54:56] Clocks  sensation1 : 0.032| sensation2 : 0.000| sensation3 : 0.000| sensation4 : 0.000| MemorySearch : 0.031| VisionOutput : 0.047| SleepManager : 0.110| Sleepiness :0.000| Sleep : False
+[2021-03-20 17:55:26] Clocks  sensation1 : 0.032| sensation2 : 0.000| sensation3 : 0.000| sensation4 : 0.000| MemorySearch : 0.031| VisionOutput : 0.048| SleepManager : 0.095| Sleepiness :0.000| Sleep : False
+[2021-03-20 17:55:56] J.A.R.V.I.S. shutdowned
+[2021-03-20 17:57:03] sensation1 is ready.
+[2021-03-20 17:57:03] sensation2 is ready.
+[2021-03-20 17:57:04] sensation3 is ready.
+[2021-03-20 17:57:04] sensation4 is ready.
+[2021-03-20 17:57:04] MemorySearch is ready.
+[2021-03-20 17:57:04] VisionOutput is ready.
+[2021-03-20 17:57:04] ModelTrainer is ready.
+[2021-03-20 17:57:04] SleepManager is ready.
+[2021-03-20 17:57:04] Controler is ready.
+[2021-03-20 17:57:06] J.A.R.V.I.S. started
+[2021-03-20 17:57:16] Clocks  sensation1 : 0.000| sensation2 : 0.473| sensation3 : 0.000| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.079| SleepManager : 0.094| Sleepiness :0.000| Sleep : False
+[2021-03-20 17:57:46] Clocks  sensation1 : 0.029| sensation2 : 0.539| sensation3 : 0.632| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.077| SleepManager : 0.078| Sleepiness :0.000| Sleep : False
+[2021-03-20 17:58:16] J.A.R.V.I.S. shutdowned

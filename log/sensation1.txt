@@ -169,3 +169,24 @@
 [2021-03-20 17:50:04] Reduced memories
 [2021-03-20 17:50:04] saved Read Out Id,Memory,Time,memlist,NewestId
 [2021-03-20 17:50:04] process shutdowned
+[2021-03-20 17:53:52] loaded Encoder
+[2021-03-20 17:53:52] Inherit Shared Memories
+[2021-03-20 17:53:52] got firstId
+[2021-03-20 17:53:53] process start
+[2021-03-20 17:55:53] started shutdown process
+[2021-03-20 17:55:53] Saved memories
+[2021-03-20 17:55:53] Reduced memories
+[2021-03-20 17:55:53] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-20 17:55:53] process shutdowned
+[2021-03-20 17:57:13] loaded Encoder
+[2021-03-20 17:57:13] Inherit Shared Memories
+[2021-03-20 17:57:13] loaded NewestId
+[2021-03-20 17:57:13] loaded MemoryList
+[2021-03-20 17:57:13] loaded ReadOutMemory, Id and Time.
+[2021-03-20 17:57:13] current memory length is 56
+[2021-03-20 17:57:15] process start
+[2021-03-20 17:57:47] started shutdown process
+[2021-03-20 17:57:47] Saved memories
+[2021-03-20 17:57:47] Reduced memories
+[2021-03-20 17:57:47] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-20 17:57:48] process shutdowned
