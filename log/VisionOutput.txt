@@ -1,0 +1,69 @@
+[2021-03-20 10:27:15] waiting until all sensations are Active.
+[2021-03-20 10:27:34] waiting until all sensations are Active.
+[2021-03-20 10:27:51] waiting until all sensations are Active.
+[2021-03-20 10:28:24] waiting until all sensations are Active.
+[2021-03-20 10:28:24] finished WaitAllTrue
+[2021-03-20 10:28:34] waiting until all sensations are Active.
+[2021-03-20 10:33:12] <Exception> your input is <class 'numpy.int32'>! Please int <class 'numpy.ndarray'> or <class 'int'>
+[2021-03-20 10:36:38] <Exception> You will use MemoryFormat 1, but not existing in ReadOutMemories.
+[2021-03-20 10:37:28] Fount ReadOutMemory and Ids
+[2021-03-20 10:38:33] Fount ReadOutMemory and Ids
+[2021-03-20 10:41:30] Fount ReadOutMemory and Ids
+[2021-03-20 10:41:54] Fount ReadOutMemory and Ids
+[2021-03-20 10:42:48] Fount ReadOutMemory and Ids
+[2021-03-20 11:03:04] Inherit Shared Memories
+[2021-03-20 11:03:04] waiting until all sensations are Active.
+[2021-03-20 11:03:04] finished WaitAllTrue
+[2021-03-20 11:03:04] Fount ReadOutMemory and Ids
+[2021-03-20 11:03:04] process start
+[2021-03-20 11:03:32] Inherit Shared Memories
+[2021-03-20 11:03:32] waiting until all sensations are Active.
+[2021-03-20 11:03:32] finished WaitAllTrue
+[2021-03-20 11:03:32] Fount ReadOutMemory and Ids
+[2021-03-20 11:03:32] process start
+[2021-03-20 11:03:40] started shutdown process
+[2021-03-20 11:03:40] process shutdowned
+[2021-03-20 11:15:04] Inherit Shared Memories
+[2021-03-20 11:15:04] waiting until all sensations are Active.
+[2021-03-20 11:15:48] finished WaitAllTrue
+[2021-03-20 11:15:48] Found ReadOutMemory and Ids
+[2021-03-20 11:15:48] process start
+[2021-03-20 11:15:48] started shutdown process
+[2021-03-20 11:15:48] process shutdowned
+[2021-03-20 11:17:06] Inherit Shared Memories
+[2021-03-20 11:17:06] waiting until all sensations are Active.
+[2021-03-20 11:17:08] finished WaitAllTrue
+[2021-03-20 11:17:08] Found ReadOutMemory and Ids
+[2021-03-20 11:17:08] process start
+[2021-03-20 11:17:50] switch off.
+[2021-03-20 11:17:52] switch on
+[2021-03-20 11:18:03] started shutdown process
+[2021-03-20 11:18:03] process shutdowned
+[2021-03-20 12:09:15] Inherit Shared Memories
+[2021-03-20 12:09:15] waiting until all sensations are Active.
+[2021-03-20 12:09:17] finished WaitAllTrue
+[2021-03-20 12:09:17] Found ReadOutMemory and Ids
+[2021-03-20 12:09:17] process start
+[2021-03-20 12:10:00] started shutdown process
+[2021-03-20 12:10:00] process shutdowned
+[2021-03-20 12:14:46] Inherit Shared Memories
+[2021-03-20 12:14:46] waiting until all sensations are Active.
+[2021-03-20 12:14:47] finished WaitAllTrue
+[2021-03-20 12:14:47] Found ReadOutMemory and Ids
+[2021-03-20 12:14:47] process start
+[2021-03-20 12:14:57] started shutdown process
+[2021-03-20 12:14:57] process shutdowned
+[2021-03-20 12:34:30] Inherit Shared Memories
+[2021-03-20 12:34:30] waiting until all sensations are Active.
+[2021-03-20 12:34:32] finished WaitAllTrue
+[2021-03-20 12:34:32] Found ReadOutMemory and Ids
+[2021-03-20 12:34:32] process start
+[2021-03-20 12:35:11] started shutdown process
+[2021-03-20 12:35:11] process shutdowned
+[2021-03-20 12:37:55] Inherit Shared Memories
+[2021-03-20 12:37:55] waiting until all sensations are Active.
+[2021-03-20 12:37:57] finished WaitAllTrue
+[2021-03-20 12:37:57] Found ReadOutMemory and Ids
+[2021-03-20 12:37:57] process start
+[2021-03-20 12:38:29] started shutdown process
+[2021-03-20 12:38:29] process shutdowned

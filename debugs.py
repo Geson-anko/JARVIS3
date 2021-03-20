@@ -10,12 +10,60 @@ from Sensation1.sensation import Sensation
 from SleepManager import SleepManager
 from GUI_controller import Controller
 from Trainer import Train
+import OutputVision
+import numpy as np
 if __name__ == '__main__':
+    """
+    proc = OutputVision.Output('cuda',True)
+    proc.UsingMemoryFormat = '0'
+    shutdown = Value('i',False)
+    sleep = Value('i',False)
+    switch = Value('i',True)
+    clock = Value('d',0)
+    sleepiness = Value('d',0)
+    rolength = 10
+    rois = [proc.create_shared_memory((rolength,),dtype=mconf.ID_dtype,initialize=mconf.init_id)]
+    rois[0][0][:] = np.arange(rolength)
+    roms = [proc.create_shared_memory((rolength,OutputVision.output.vsense.MemorySize),dtype='float16',initialize=0)]
+    TempMem = proc.create_shared_memory((rolength,),dtype=mconf.ID_dtype)
+    TempMem[0][:] = np.arange(rolength)
+    isActives = [Value('i',True) for i in range(1)]
+    args = (shutdown,sleep,switch,clock,sleepiness,TempMem,rois,roms,isActives)
+    p = Process(target=proc,args=args)
+    print('process submit')
+    p.start()
+    time.sleep(10)
+    shutdown.value = True
+    p.join()
+    print('process ended')
+    """
+    """
+    #process.LoadModels()
+    isActives = [Value('i',True) for i in range(10)]
+    shutdown = Value('i',False)
+    process.IsActives = isActives
+    process.shutdown = shutdown
+    #process.WaitAllTrue()
+    ReadOutIds = [np.arange(10)]
+    ReadOutMemories = [np.random.randn(10,3)]
+    process.ReadOutId = ReadOutIds
+    process.ReadOutMemory = ReadOutMemories
+    process.UsingMemoryFormat = '0'
+    process.MaxMemoryLength = 10
+    process.SetUsingReadOuts()
+    print(process.ReadOutId)
+    TempMem = np.arange(5).astype('int64')
+    process.TemporaryMemory = TempMem
+    print(process.ReadOutMemory)
+    print(process.GetMemory())
+    """
+    """
     from Sensation3 import Train
     train = Train('cuda',True)
     shutdown = Value('i',False)
     sleep = Value('i',True)
     train(shutdown,sleep)
+    """
     """
     from Sensation1.train import Train  
     train = Train('cuda',True)
@@ -122,10 +170,10 @@ if __name__ == '__main__':
     print('sleep',sleepiness.value)
     print('process end')
     """
-    """
+    
     from MemorySearch import MemorySearch
     import copy
-    sp = MemorySearch(False)
+    sp = MemorySearch(True)
     shutdown = Value('i',False)
     sleep = Value('i',False)
     clock = Value('d',0)
@@ -133,10 +181,10 @@ if __name__ == '__main__':
     newids = [Value('i',i) for i in range(4)]
     memlists = [
         sp.create_shared_memory(
-            (100,),dtype='int64',initialize=mconf.init_id) for _ in range(4)
+            (5,),dtype='int64',initialize=mconf.init_id) for _ in range(4)
         ]
     _mem = [sp.inherit_shared_memory(i) for i in memlists]
-    TM = sp.create_shared_memory((500,),'int64',mconf.init_id)
+    TM = sp.create_shared_memory((10,),'int64',mconf.init_id)
     args = (shutdown,sleep,clock,sleepiness,TM,memlists,newids)
     p = Process(target=sp,args=args)
     print('process start')
@@ -150,7 +198,7 @@ if __name__ == '__main__':
     p.join()
     print('clock',clock.value)
     print('process end')
-    """
+    
     """
     from Sensation1.train import Train  
     train = Train('cuda',True)

@@ -13,6 +13,7 @@ class Config:
 
     init_id:int = -1
     memory_folder:str = os.path.join(current_directory,'memory')
+    tempmem_scale_factor:int = 1
     active_time:float = 16.0
     ID_length:int = 10
     ID_dtype:str = 'int64'
@@ -59,7 +60,10 @@ class Config:
     )
 
     ### outputs
-    
+    all_true_wait_time:float = 0.01
+    output_modules:tuple = ( # (Module_name, device, process group number)
+        ('OutputVision','cuda',0),
+    )
 
     ### Trainer
     """

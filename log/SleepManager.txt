@@ -22,3 +22,21 @@
 [2021-03-19 10:22:55] setted audio streaming
 [2021-03-19 10:22:55] process start
 [2021-03-19 10:24:24] shutdown process started
+[2021-03-20 11:14:57] setted audio streaming
+[2021-03-20 11:14:57] process start
+[2021-03-20 11:15:48] shutdown process started
+[2021-03-20 11:17:00] setted audio streaming
+[2021-03-20 11:17:00] process start
+[2021-03-20 11:18:03] shutdown process started
+[2021-03-20 12:09:09] setted audio streaming
+[2021-03-20 12:09:09] process start
+[2021-03-20 12:10:00] shutdown process started
+[2021-03-20 12:14:38] setted audio streaming
+[2021-03-20 12:14:38] process start
+[2021-03-20 12:14:57] shutdown process started
+[2021-03-20 12:34:23] setted audio streaming
+[2021-03-20 12:34:23] process start
+[2021-03-20 12:35:11] shutdown process started
+[2021-03-20 12:37:50] setted audio streaming
+[2021-03-20 12:37:50] process start
+[2021-03-20 12:38:29] shutdown process started

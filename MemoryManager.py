@@ -134,8 +134,8 @@ class MemoryManager(Debug):
         """
         
         _t = type(num)
-        if _t is not ndarray and _t is not int:
-            self.exception(f'your input is {_t}! Please int {ndarray} or {int}')
+        if not _t in Config.int_types:
+            self.exception(f'your input is {_t}! Please integer type!')
 
         if num < 0:
             self.exception(f'your input is {num} < 0 ! Please unsigned integer !')
@@ -501,6 +501,8 @@ class MemoryManager(Debug):
             >>>
         """
         _it = type(ID_num)
+        if _it is not list and _it is not ndarray:
+            self.exception(f'your input type is {_it}, please list or ndarray')
         if _it is list:
             ID_num = np.array(ID_num)
 
@@ -539,7 +541,7 @@ class MemoryManager(Debug):
             os.remove(file_name)
 
     @staticmethod
-    def release_system_memory(self) -> None:
+    def release_system_memory() -> None:
         gc.collect()
         torch.cuda.empty_cache()
         

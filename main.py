@@ -205,6 +205,7 @@ def main():
     Switches = []
     Clocks = []
     logtitles = []
+    IsActives = []
     mm = MemoryManager(log_title,debug_mode)
     processes = [[] for _ in range(Config.max_processes)]
     
@@ -237,6 +238,7 @@ def main():
         NewestIds.append(NewestId)
         
         isActive = Value('i',False)
+        IsActives.append(isActive)
         args = (shutdown,sleep,switch,clock,sleepiness,ReadOutId,ReadOutMemory,MemoryList,NewestId,isActive)
         processes[group_number].append((func,args))
         mm.log(func.LogTitle,'is ready.')
@@ -247,6 +249,7 @@ def main():
     func = MemorySearch(debug_mode_search)
     clock_search = Value('d',0.0)
     Clocks.append((func.LogTitle,clock_search))
+    TempMemoryLength *= Config.tempmem_scale_factor
     TempMemory = mm.create_shared_memory((TempMemoryLength,),dtype=Config.ID_dtype,initialize=Config.init_id)
     args = (shutdown,sleep,clock_search,sleepiness,TempMemory,MemoryLists,NewestIds)
     logtitles.append(func.LogTitle)
@@ -254,6 +257,19 @@ def main():
     mm.log(func.LogTitle,'is ready.')
 
     # Outputs ------------------------
+    for i in Config.output_modules:
+        func = importlib.import_module(i[0])
+        device = torch.device(i[1])
+        group_number= i[2]
+        func = func.Output(device,debug_mode)
+        logtitles.append(func.LogTitle)
+        switch = Value('i',True)
+        Switches.append((func.LogTitle,switch))
+        clock = Value('d',0.0)
+        Clocks.append((func.LogTitle,clock))
+        args = (shutdown,sleep,switch,clock,sleepiness,TempMemory,ReadOutIds,ReadOutMemories,IsActives)
+        processes[group_number].append((func,args))
+        mm.log(func.LogTitle,'is ready.')
 
     # Trainer -------------------------
     debug_mode_trainer = False
@@ -304,11 +320,11 @@ def main():
         print(f.read())
     while not shutdown.value:
         text = 'Clocks '
-        text  += '|'.join([' {0} : {1:5.5f}'.format(p,q.value) for p,q in Clocks])
-        text += '| Sleepiness :{0:5.5f}'.format(sleepiness.value)
+        text  += '|'.join([' {0} : {1:3.3f}'.format(p,q.value) for p,q in Clocks])
+        text += '| Sleepiness :{0:3.3f}'.format(sleepiness.value)
         text += f'| Sleep : {bool(sleep.value)}'
         mm.log(text)
-        time.sleep(5)
+        time.sleep(30)
     for p in working_processes:
         p.join()
     mm.destory_shared_memory()

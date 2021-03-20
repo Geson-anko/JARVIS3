@@ -106,3 +106,57 @@
 [2021-03-19 10:24:24] Reduced memories
 [2021-03-19 10:24:24] saved Read Out Id,Memory,Time,memlist,NewestId
 [2021-03-19 10:24:25] process shutdowned
+[2021-03-20 11:15:05] loaded Encoder
+[2021-03-20 11:15:05] Inherit Shared Memories
+[2021-03-20 11:15:05] got firstId
+[2021-03-20 11:15:07] process start
+[2021-03-20 11:15:48] started shutdown process
+[2021-03-20 11:15:48] Saved memories
+[2021-03-20 11:15:48] Reduced memories
+[2021-03-20 11:15:48] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-20 11:15:49] process shutdowned
+[2021-03-20 11:17:07] loaded Encoder
+[2021-03-20 11:17:07] Inherit Shared Memories
+[2021-03-20 11:17:07] got firstId
+[2021-03-20 11:17:08] process start
+[2021-03-20 11:18:03] started shutdown process
+[2021-03-20 11:18:03] Saved memories
+[2021-03-20 11:18:03] Reduced memories
+[2021-03-20 11:18:03] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-20 11:18:03] process shutdowned
+[2021-03-20 12:09:15] loaded Encoder
+[2021-03-20 12:09:15] Inherit Shared Memories
+[2021-03-20 12:09:15] got firstId
+[2021-03-20 12:09:17] process start
+[2021-03-20 12:10:00] started shutdown process
+[2021-03-20 12:10:00] Saved memories
+[2021-03-20 12:10:00] Reduced memories
+[2021-03-20 12:10:00] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-20 12:10:00] process shutdowned
+[2021-03-20 12:14:46] loaded Encoder
+[2021-03-20 12:14:46] Inherit Shared Memories
+[2021-03-20 12:14:46] got firstId
+[2021-03-20 12:14:47] process start
+[2021-03-20 12:14:57] started shutdown process
+[2021-03-20 12:14:57] Saved memories
+[2021-03-20 12:14:57] Reduced memories
+[2021-03-20 12:14:57] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-20 12:14:57] process shutdowned
+[2021-03-20 12:34:31] loaded Encoder
+[2021-03-20 12:34:31] Inherit Shared Memories
+[2021-03-20 12:34:31] got firstId
+[2021-03-20 12:34:32] process start
+[2021-03-20 12:35:11] started shutdown process
+[2021-03-20 12:35:12] Saved memories
+[2021-03-20 12:35:12] Reduced memories
+[2021-03-20 12:35:12] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-20 12:35:12] process shutdowned
+[2021-03-20 12:37:56] loaded Encoder
+[2021-03-20 12:37:56] Inherit Shared Memories
+[2021-03-20 12:37:56] got firstId
+[2021-03-20 12:37:57] process start
+[2021-03-20 12:38:29] started shutdown process
+[2021-03-20 12:38:29] Saved memories
+[2021-03-20 12:38:29] Reduced memories
+[2021-03-20 12:38:29] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-20 12:38:30] process shutdowned
