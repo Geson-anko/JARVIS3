@@ -203,3 +203,24 @@
 [2021-03-20 12:38:29] shutdown process started
 [2021-03-20 12:38:29] saved Memory Dictionary and Temporary Memory
 [2021-03-20 12:38:29] process shutdowned
+[2021-03-20 17:48:46] create new memory dictionary
+[2021-03-20 17:48:46] Temporary Memory Length: 10
+[2021-03-20 17:48:46] Memory Dictionary Length: 0
+[2021-03-20 17:48:46] process start
+[2021-03-20 17:48:55] create new memory dictionary
+[2021-03-20 17:48:55] Temporary Memory Length: 10
+[2021-03-20 17:48:55] Memory Dictionary Length: 0
+[2021-03-20 17:48:55] process start
+[2021-03-20 17:49:00] shutdown process started
+[2021-03-20 17:49:00] saved Memory Dictionary and Temporary Memory
+[2021-03-20 17:49:00] memorydict {1: array([1.]), 0.0: array([0., 1.])}
+[2021-03-20 17:49:00] TempMem [ 0  1 -1 -1 -1 -1 -1 -1 -1 -1]
+[2021-03-20 17:49:00] process shutdowned
+[2021-03-20 17:49:54] loaded memory dictionary
+[2021-03-20 17:49:54] loaded Temporary Memory
+[2021-03-20 17:49:54] Temporary Memory Length: 341
+[2021-03-20 17:49:54] Memory Dictionary Length: 2
+[2021-03-20 17:49:54] process start
+[2021-03-20 17:50:03] shutdown process started
+[2021-03-20 17:50:03] saved Memory Dictionary and Temporary Memory
+[2021-03-20 17:50:03] process shutdowned

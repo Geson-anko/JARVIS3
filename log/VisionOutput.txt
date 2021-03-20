@@ -67,3 +67,10 @@
 [2021-03-20 12:37:57] process start
 [2021-03-20 12:38:29] started shutdown process
 [2021-03-20 12:38:29] process shutdowned
+[2021-03-20 17:50:01] Inherit Shared Memories
+[2021-03-20 17:50:01] waiting until all sensations are Active.
+[2021-03-20 17:50:03] finished WaitAllTrue
+[2021-03-20 17:50:03] Found ReadOutMemory and Ids
+[2021-03-20 17:50:03] process start
+[2021-03-20 17:50:03] started shutdown process
+[2021-03-20 17:50:03] process shutdowned

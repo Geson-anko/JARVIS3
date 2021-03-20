@@ -279,3 +279,14 @@
 [2021-03-20 12:37:50] J.A.R.V.I.S. started
 [2021-03-20 12:38:00] Clocks  sensation1 : 0.024| sensation2 : 0.517| sensation3 : 0.608| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.046| SleepManager : 0.111| Sleepiness :0.000| Sleep : False
 [2021-03-20 12:38:30] J.A.R.V.I.S. shutdowned
+[2021-03-20 17:49:52] sensation1 is ready.
+[2021-03-20 17:49:52] sensation2 is ready.
+[2021-03-20 17:49:53] sensation3 is ready.
+[2021-03-20 17:49:53] sensation4 is ready.
+[2021-03-20 17:49:53] MemorySearch is ready.
+[2021-03-20 17:49:53] VisionOutput is ready.
+[2021-03-20 17:49:53] ModelTrainer is ready.
+[2021-03-20 17:49:53] SleepManager is ready.
+[2021-03-20 17:49:53] Controler is ready.
+[2021-03-20 17:49:55] J.A.R.V.I.S. started
+[2021-03-20 17:50:06] J.A.R.V.I.S. shutdowned
