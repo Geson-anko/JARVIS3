@@ -10,7 +10,7 @@ class config:
     tempmem_file:str = pathjoin(current_directory,'tempmem.pkl')
     
     max_connection:int =3
-    wait_time:float = 1
+    wait_time:float = 2
     system_wait:float = 0.001 # To avert too much load.
     max_frame_rate:int = 100
 

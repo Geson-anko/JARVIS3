@@ -36,9 +36,9 @@ class Output(OutputBase):
         out = self.decoder(MemoryData).permute(0,3,2,1).to('cpu').squeeze(0).numpy() * 255
         out = np.round(out).astype('uint8')
         cv2.imshow(self.LogTitle,out)
+        cv2.waitKey(0)
         
     def UpdateEnd(self) -> None:
-        cv2.waitKey(1)
-
+        pass
     def End(self) -> None:
         cv2.destroyAllWindows()

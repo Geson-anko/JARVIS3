@@ -50,3 +50,24 @@
 [2021-03-20 17:57:07] setted audio streaming
 [2021-03-20 17:57:07] process start
 [2021-03-20 17:57:47] shutdown process started
+[2021-03-20 18:05:57] setted audio streaming
+[2021-03-20 18:05:57] process start
+[2021-03-20 18:06:51] shutdown process started
+[2021-03-20 18:07:39] setted audio streaming
+[2021-03-20 18:07:39] process start
+[2021-03-20 18:09:10] shutdown process started
+[2021-03-20 18:09:26] loaded c:\Users\22shi\OneDrive - 独立行政法人 国立高等専門学校機構\JARVIS\JARVIS_ver3\SleepManager\temp\delta_bio_clock.pkl
+[2021-03-20 18:09:29] setted audio streaming
+[2021-03-20 18:09:29] process start
+[2021-03-20 18:13:05] shutdown process started
+[2021-03-20 19:23:00] setted audio streaming
+[2021-03-20 19:23:00] process start
+[2021-03-20 19:23:47] shutdown process started
+[2021-03-20 19:24:13] loaded c:\Users\22shi\OneDrive - 独立行政法人 国立高等専門学校機構\JARVIS\JARVIS_ver3\SleepManager\temp\delta_bio_clock.pkl
+[2021-03-20 19:24:14] setted audio streaming
+[2021-03-20 19:24:14] process start
+[2021-03-20 19:26:00] shutdown process started
+[2021-03-20 19:26:27] loaded c:\Users\22shi\OneDrive - 独立行政法人 国立高等専門学校機構\JARVIS\JARVIS_ver3\SleepManager\temp\delta_bio_clock.pkl
+[2021-03-20 19:26:29] setted audio streaming
+[2021-03-20 19:26:29] process start
+[2021-03-20 19:29:08] shutdown process started

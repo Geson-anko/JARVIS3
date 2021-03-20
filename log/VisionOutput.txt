@@ -519,3 +519,47 @@
 [2021-03-20 17:57:47] useid check [13537086546263578]
 [2021-03-20 17:57:47] started shutdown process
 [2021-03-20 17:57:47] process shutdowned
+[2021-03-20 18:06:04] Inherit Shared Memories
+[2021-03-20 18:06:04] waiting until all sensations are Active.
+[2021-03-20 18:06:05] finished WaitAllTrue
+[2021-03-20 18:06:05] Found ReadOutMemory and Ids
+[2021-03-20 18:06:05] process start
+[2021-03-20 18:06:51] started shutdown process
+[2021-03-20 18:06:51] process shutdowned
+[2021-03-20 18:07:46] Inherit Shared Memories
+[2021-03-20 18:07:46] waiting until all sensations are Active.
+[2021-03-20 18:07:48] finished WaitAllTrue
+[2021-03-20 18:07:48] Found ReadOutMemory and Ids
+[2021-03-20 18:07:48] process start
+[2021-03-20 18:09:10] started shutdown process
+[2021-03-20 18:09:10] process shutdowned
+[2021-03-20 18:09:32] Inherit Shared Memories
+[2021-03-20 18:09:32] waiting until all sensations are Active.
+[2021-03-20 18:09:33] finished WaitAllTrue
+[2021-03-20 18:09:33] Found ReadOutMemory and Ids
+[2021-03-20 18:09:33] process start
+[2021-03-20 18:13:09] started shutdown process
+[2021-03-20 18:13:09] process shutdowned
+[2021-03-20 19:23:06] Inherit Shared Memories
+[2021-03-20 19:23:06] waiting until all sensations are Active.
+[2021-03-20 19:23:08] finished WaitAllTrue
+[2021-03-20 19:23:08] Found ReadOutMemory and Ids
+[2021-03-20 19:23:08] process start
+[2021-03-20 19:23:43] switch off.
+[2021-03-20 19:23:47] switch on
+[2021-03-20 19:23:47] started shutdown process
+[2021-03-20 19:23:47] process shutdowned
+[2021-03-20 19:24:20] Inherit Shared Memories
+[2021-03-20 19:24:20] waiting until all sensations are Active.
+[2021-03-20 19:24:22] finished WaitAllTrue
+[2021-03-20 19:24:22] Found ReadOutMemory and Ids
+[2021-03-20 19:24:22] process start
+[2021-03-20 19:26:00] started shutdown process
+[2021-03-20 19:26:00] process shutdowned
+[2021-03-20 19:26:35] Inherit Shared Memories
+[2021-03-20 19:26:35] waiting until all sensations are Active.
+[2021-03-20 19:26:37] finished WaitAllTrue
+[2021-03-20 19:26:37] Found ReadOutMemory and Ids
+[2021-03-20 19:26:37] process start
+[2021-03-20 19:29:08] started shutdown process
+[2021-03-20 19:29:08] process shutdowned
