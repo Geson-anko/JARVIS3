@@ -79,19 +79,21 @@ class MemorySearch(MemoryManager):
                 self.save_python_obj(config.dict_file,MemoryDict)
 
             # modified check
-            new_memlist = [i.copy() for i in mem_lists]
-            modified_memlist = [i if self.mem_list_modified(i,q) else [] for i,q in zip(new_memlist,old_memlist)]
-            old_memlist = new_memlist
+            modified_memlist = np.concatenate(
+                [i.copy() if self.mem_list_modified(i,q) else [] for i,q in zip(mem_lists,old_memlist)]
+            )
+            old_memlist = [i.copy() for i in mem_lists]
             # Update Temporary Memory
             c_tmp = TempMemory.copy()
-            c_tmp = np.concatenate([c_tmp,*modified_memlist])
-            c_tmp = c_tmp[c_tmp != mconf.init_id]
-            c_tmp = np.unique(c_tmp)
+            c_tmp = np.concatenate([modified_memlist,c_tmp])
+            c_tmp = c_tmp[c_tmp != mconf.init_id] 
+            #print(c_tmp)
             np.random.shuffle(c_tmp)
             c_tmp = c_tmp[:templen]
             searched = self.Search(c_tmp,MemoryDict)
-            c_tmp = np.unique(np.concatenate([c_tmp,searched]))
+            c_tmp = np.concatenate([searched,c_tmp])
             np.random.shuffle(c_tmp)
+            c_tmp = c_tmp[:templen]
             c_len = c_tmp.shape[0]
             TempMemory[:c_len] = c_tmp
 
@@ -100,25 +102,14 @@ class MemorySearch(MemoryManager):
             _newids = [i.value for i in newest_ids]
             modified_ids = [i for i,q in zip(_newids,old_ids) if i != q]
             old_ids = _newids
-            idxes = np.arange(-config.max_connection,c_len)
-            idxes[:config.max_connection][idxes[:config.max_connection] < -c_len] = -c_len
-            np.random.shuffle(idxes)
-            for i,nid in enumerate(modified_ids):
-                MemoryDict[nid] = c_tmp[i:i+config.max_connection]
-            
-            np.random.shuffle(idxes)    
+            for nid in modified_ids:
+                idx = np.random.permutation(c_len)[:config.max_connection]
+                MemoryDict[nid] = c_tmp[idx]
             # reconnection
-            for i,nid in enumerate(c_tmp):
-                MemoryDict[nid] = c_tmp[i:i+config.max_connection]
-            
-            time.sleep(sleepiness.value * config.wait_time)
-            if sleep.value:
-                self.save_python_obj(config.tempmem_file,TempMemory.copy())
-                self.save_python_obj(config.dict_file,MemoryDict)
-
-            wait = (1/config.max_frame_rate) - (time.time() - clock_start)
-            if wait > 0:
-                time.sleep(wait)
+            for nid in c_tmp:
+                idx = np.random.permutation(c_len)[:config.max_connection]
+                MemoryDict[nid] = c_tmp[idx]
+            time.sleep(config.system_wait)
             clock.value = time.time() - clock_start
             #print(c_tmp)
             #raise Exception('stop')

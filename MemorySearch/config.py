@@ -9,8 +9,8 @@ class config:
     dict_file:str = pathjoin(current_directory,'MemoryDictionary.pkl')
     tempmem_file:str = pathjoin(current_directory,'tempmem.pkl')
     
-    max_connection:int =7
-    wait_time:float = 0.1
+    max_connection:int =3
+    wait_time:float = 1
     system_wait:float = 0.001 # To avert too much load.
-
+    max_frame_rate:int = 100
 
