@@ -38,7 +38,6 @@ class Output(OutputBase):
         self.pressed_buttons = np.zeros((len(self.buttons,)),dtype=bool)
 
     def Update(self, MemoryData: torch.Tensor) -> None:
-        print('MemoryData',MemoryData)
         if not self.moving:
             return
         data = MemoryData.view(-1).to('cpu').detach().numpy()
