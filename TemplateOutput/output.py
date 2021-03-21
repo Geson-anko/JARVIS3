@@ -7,13 +7,10 @@ import numpy as np
 from OutputBase import OutputBase
 from .config import config
 
-
-from Sensation1 import Sensation as vsense
-
 class Output(OutputBase):
-    LogTitle:str = 'VisionOutput'
+    LogTitle:str = 'Output_'
     UsingMemoryFormat:str = '1'
-    UseMemoryLength:int = 1
+    MaxMemoryLength:int = 1
 
     SleepWaitTime:float = 0.1
     MaxFrameRate:int = 30

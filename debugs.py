@@ -13,6 +13,31 @@ from Trainer import Train
 import OutputVision
 import numpy as np
 if __name__ == '__main__':
+
+    import OutputMouse
+    from Sensation4 import Sensation
+    proc = OutputMouse.Output('cpu',True)
+    proc.UsingMemoryFormat = '0'
+    shutdown = Value('i',False)
+    sleep = Value('i',False)
+    switch = Value('i',True)
+    clock = Value('d',0)
+    sleepiness = Value('d',0)
+    rolength = 10
+    rois = [proc.create_shared_memory((rolength,),dtype=mconf.ID_dtype,initialize=mconf.init_id)]
+    rois[0][0][:] = np.arange(rolength)
+    roms = [proc.create_shared_memory((rolength,Sensation.MemorySize),dtype='float16',initialize=1)]
+    TempMem = proc.create_shared_memory((rolength,),dtype=mconf.ID_dtype)
+    TempMem[0][:] = np.arange(rolength)
+    isActives = [Value('i',True) for i in range(1)]
+    args = (shutdown,sleep,switch,clock,sleepiness,TempMem,rois,roms,isActives)
+    p = Process(target=proc,args=args)
+    print('process submit')
+    p.start()
+    time.sleep(10)
+    shutdown.value = True
+    p.join()
+    print('process ended')
     """
     proc = OutputVision.Output('cuda',True)
     proc.UsingMemoryFormat = '0'
@@ -170,7 +195,7 @@ if __name__ == '__main__':
     print('sleep',sleepiness.value)
     print('process end')
     """
-    
+    """
     from MemorySearch import MemorySearch
     import copy
     sp = MemorySearch(True)
@@ -198,7 +223,7 @@ if __name__ == '__main__':
     p.join()
     print('clock',clock.value)
     print('process end')
-    
+    """
     """
     from Sensation1.train import Train  
     train = Train('cuda',True)

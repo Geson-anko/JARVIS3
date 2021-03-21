@@ -58,6 +58,9 @@ class Sensation(SensationBase):
     elapsed = frame_second
     move_x,move_y,scroll_dx,scroll_dy = 0,0,0,0
 
+    x_idx,y_idx,dx_idx,dy_idx,scroll_dx_idx,scroll_dy_idx = 0,1,2,3,4,5
+    button_idx = 6
+
     def Start(self) -> None:
         # This method is called when process start.
         self.buttons = [*mouse.Button]
@@ -79,13 +82,13 @@ class Sensation(SensationBase):
         dx = (now_x - self.old_x) / self.elapsed
         dy = (now_y - self.old_y) / self.elapsed
         self.old_x,self.old_y = now_x,now_y
-        self.canvas[0] = now_x
-        self.canvas[1] = now_y
-        self.canvas[2] = dx
-        self.canvas[3] = dy
-        self.canvas[4] = self.scroll_dx
-        self.canvas[5] = self.scroll_dy
-        self.canvas[6:] = self.buttons_array
+        self.canvas[self.x_idx] = now_x
+        self.canvas[self.y_idx] = now_y
+        self.canvas[self.dx_idx] = dx
+        self.canvas[self.dy_idx] = dy
+        self.canvas[self.scroll_dx_idx] = self.scroll_dx
+        self.canvas[self.scroll_dy_idx] = self.scroll_dy
+        self.canvas[self.button_idx:] = self.buttons_array
         #print('\rcurrent_length',self.current_length,'mins:',self.mins,f'fps:{1/self.elapsed:3.2f}',end='')
         #basetext = '{0:2.2f}'
         #text = ' |'.join([basetext.format(i) for i in self.canvas])

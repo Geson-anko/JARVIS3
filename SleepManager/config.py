@@ -16,7 +16,7 @@ class config:
     threshold:float = 0.999
     Meany:float= 0.5
 
-    clock_warp:timedelta = timedelta(seconds=7*60)
+    clock_warp:timedelta = timedelta(seconds=7)
 
     wait_time:float = 0.1
     system_sleep:float = 0.01

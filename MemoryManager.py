@@ -474,7 +474,7 @@ class MemoryManager(Debug):
         if type(ReadOutId) is not ndarray:
             self.exception(f'your input ReadOutId is {type(ReadOutId)},please {np.ndarray}')
         
-        outidx = np.searchsorted(ReadOutId,Id_num)
+        outidx = np.searchsorted(ReadOutId[ReadOutId!=Config.init_id],Id_num)
         outidx[outidx == ReadOutId.shape[0]] = -1
         outbools = ReadOutId[outidx] == Id_num
         return outidx,outbools
