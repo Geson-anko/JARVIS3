@@ -27,6 +27,7 @@ class MemorySearch(MemoryManager):
         self,
         shutdown:mp.Value,
         sleep:mp.Value,
+        switch:mp.Value,
         clock:mp.Value,
         sleepiness:mp.Value,
         TempMemory:Tuple[np.ndarray,SharedMemory],
@@ -43,6 +44,11 @@ class MemorySearch(MemoryManager):
         newest_ids: Tuple of mutiprocessing shared memory long values
         """
         # inherit shared memory
+        self.switch = switch
+        self.shutdown = shutdown
+        self.clock = clock
+        self.sleepiness = sleepiness
+        
         mem_lists = [self.inherit_shared_memory(i) for i in mem_lists]
         TempMemory = self.inherit_shared_memory(TempMemory)
 
@@ -72,6 +78,7 @@ class MemorySearch(MemoryManager):
         self.log('process start')
         while not shutdown.value:
             clock_start = time.time()
+            self.SwitchCheck()
             time.sleep(sleepiness.value * config.wait_time)
             if sleep.value:
                 time.sleep(mconf.sleep_wait)
@@ -150,7 +157,15 @@ class MemorySearch(MemoryManager):
                 pass
         return np.concatenate(self.searched_id)
         
-
+    def SwitchCheck(self) -> None:
+        if not self.switch.value:
+            self.log('switch off.')
+            while not self.switch.value:
+                if self.shutdown.value:
+                    break
+                self.clock.value = 0.0
+                time.sleep(mconf.wait_time)
+            self.log('switch on')
         
             
             
