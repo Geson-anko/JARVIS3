@@ -124,7 +124,9 @@ class OutputBase(MemoryManager):
 
     def GetMemory(self) -> torch.Tensor:
         cid = self.TemporaryMemory.copy()
-        useid = self.extract_sameId(cid[cid!=Config.init_id],self.UsingMemoryFormat,return_integer=True)[:self.MaxMemoryLength]
+        useid = self.extract_sameId(cid[cid!=Config.init_id],self.UsingMemoryFormat,return_integer=True)
+        np.random.shuffle(useid)
+        useid = useid[:self.MaxMemoryLength]
         memory = self.load_memory_withReadOuts(useid,self.ReadOutId,self.ReadOutMemory)
         return torch.from_numpy(memory.copy()).type(self.torchdtype).to(self.device)
 

@@ -16,7 +16,7 @@ import pyaudio
 class Sensation(SensationBase):
     MemoryFormat:str = '2'# your process memory format (id[0])
     LogTitle:str = f'sensation{MemoryFormat}'
-    ReadOutLength:int = 8192 # ReadOutLength
+    ReadOutLength:int = 16384 # ReadOutLength
     KeepLength:int = math.floor(ReadOutLength*0.7)  # ReadOutLength * 0.7
     MemoryListLength:int = math.floor(ReadOutLength*0.01)# 1% of ReadOutLength
     MemorySize:int = int(np.prod(Encoder.output_size))

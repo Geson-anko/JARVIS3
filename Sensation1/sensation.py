@@ -16,7 +16,7 @@ import time
 class Sensation(SensationBase):
     MemoryFormat:str = '1'# your process memory format (id[0])
     LogTitle:str = f'sensation{MemoryFormat}'
-    ReadOutLength:int = 8192 # ReadOutLength
+    ReadOutLength:int = 16384 # ReadOutLength
     KeepLength:int = int(ReadOutLength*0.7) # 70% of ReadOutLength
     MemoryListLength:int = int(ReadOutLength*0.01) # 1% of ReadOutLength
     MemorySize:int = int(np.prod(Encoder.output_size))
@@ -59,6 +59,7 @@ class Sensation(SensationBase):
 
     def Update(self) -> torch.Tensor:
         # your data process
+        self.starttime = time.time()
         ret,img = self.capture.read()
         if not ret:
             self.exception('can not read image from capture!')
@@ -70,6 +71,9 @@ class Sensation(SensationBase):
 
     def UpdateEnd(self) -> None:
         cv2.waitKey(1)
+        wait = (1/config.frame_rate) - (time.time() - self.starttime)
+        if wait > 0:
+            time.sleep(wait)
 
     def End(self) -> None:
         self.capture.release()

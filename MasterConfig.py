@@ -36,7 +36,7 @@ class Config:
     release_system_cache_time:float = 16 # second
 
     ### processer settings
-    max_processes:int = os.cpu_count()
+    max_processes:int = 4
     main_proceess_group_number:int = 0
     """
     max_processes is to save CPU,GPU, and each Memories.

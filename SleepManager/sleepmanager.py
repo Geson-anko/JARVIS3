@@ -87,11 +87,12 @@ class SleepManager(MemoryManager):
         while not shutdown.value:
             # clock log
             clock_start = time.time()
-            while not switch.value:
-                if shutdown.value:
-                    break
-                clock.value = 0.0
-                time.sleep(mconf.wait_time)
+            if not switch.value:
+                self.log('switch off.')
+                while not switch.value and not shutdown.value:
+                    clock.value = 0.0
+                    time.sleep(mconf.wait_time)
+                self.log('switch on.')
                 
             # warning check
             sound = stream.read(config.CHUNK)

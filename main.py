@@ -247,11 +247,13 @@ def main():
     # MemorySearch --------------------
     debug_mode_search = False
     func = MemorySearch(debug_mode_search)
+    switch_search = Value('i',True)
+    Switches.append((func.LogTitle,switch_search))
     clock_search = Value('d',0.0)
     Clocks.append((func.LogTitle,clock_search))
     TempMemoryLength *= Config.tempmem_scale_factor
     TempMemory = mm.create_shared_memory((TempMemoryLength,),dtype=Config.ID_dtype,initialize=Config.init_id)
-    args = (shutdown,sleep,clock_search,sleepiness,TempMemory,MemoryLists,NewestIds)
+    args = (shutdown,sleep,switch_search,clock_search,sleepiness,TempMemory,MemoryLists,NewestIds)
     logtitles.append(func.LogTitle)
     processes[Config.main_proceess_group_number].append((func,args))
     mm.log(func.LogTitle,'is ready.')

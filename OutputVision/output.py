@@ -17,7 +17,7 @@ class Output(OutputBase):
     MaxMemoryLength:int = 1 
 
     SleepWaitTime:float = 0.1
-    MaxFrameRate:int = 30 
+    MaxFrameRate:int = 10
 
     dtype = np.float16
     torchdtype = torch.float16
@@ -36,7 +36,7 @@ class Output(OutputBase):
         out = self.decoder(MemoryData).permute(0,3,2,1).to('cpu').squeeze(0).numpy() * 255
         out = np.round(out).astype('uint8')
         cv2.imshow(self.LogTitle,out)
-        cv2.waitKey(0)
+        cv2.waitKey(1)
         
     def UpdateEnd(self) -> None:
         pass
