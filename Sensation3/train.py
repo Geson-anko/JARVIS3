@@ -28,7 +28,7 @@ class Train(MemoryManager):
         self.fit = Fit(self.LogTitle,debug_mode)
 
     def activation(self,shutdown:mp.Value,sleep:mp.Value) -> None:
-        """
+        
         # ------ kikitoriAutoEncoder Trainings ------
         names = os.listdir(Sensation.KikitoriData_folder)
         if len(names) == 0:
@@ -36,7 +36,7 @@ class Train(MemoryManager):
             return
         times = np.sort([float(i) for i in names])[::-1]
         names = [str(i) for i in times]
-        uselen = round(Sensation.KikitoriAEDataSize/config.seq_len)
+        uselen = round(Sensation.KikitoriAEDataSize/(config.seq_len*Sensation.KikitoriSavingRate))
         uses = names[:uselen]
         deletes = names[uselen:]
         for i in deletes:
@@ -81,7 +81,7 @@ class Train(MemoryManager):
         self.log('trained Centroids')
         del centroids,model,data
         self.release_system_memory()
-        """
+
         # --- end of Centroids Training ---
         if shutdown.value or not sleep.value:
             self.log('Train process was stopped')
