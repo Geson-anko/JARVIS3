@@ -30,6 +30,7 @@ class Sensation(SensationBase):
     SameThreshold:float = 0.0 # The Threshold of memory error.
     DataSize:tuple = Encoder.input_size[1:]
     DataSavingRate:int = 2
+    KikitoriSavingRate:int = 64
 
     Encoder:Module = Encoder
     SleepWaitTime:float = 0.1
@@ -112,6 +113,9 @@ class Sensation(SensationBase):
             os.makedirs(self.KikitoriData_folder)
             self.log('made Kiktori Data Folder')
 
+        self.KikitoriDataArray = np.zeros((self.KikitoriSavingRate*config.seq_len,*KikitoriEncoder.input_size[1:]),dtype=self.dtype)
+        self.savedKikitoriLen = 0
+
     textstart:bool = False
     textend:bool = False
     @torch.no_grad()
@@ -128,8 +132,12 @@ class Sensation(SensationBase):
         if isHuman:
             self.textstart = True
             data = data.view(KikitoriEncoder.insize)
-            name = pathjoin(self.KikitoriData_folder,str(time.time())) # Data Saving kikitori
-            self.executer.submit(self.save_python_obj,name,data.to('cpu').numpy()) # Data Saving kikitori
+            self.KikitoriDataArray[self.savedKikitoriLen*config.seq_len:(self.savedKikitoriLen+1)*config.seq_len] = data.to('cpu').numpy()
+            self.savedKikitoriLen += 1
+            if not self.KikitoriSavingRate > self.savedKikitoriLen:
+                name = pathjoin(self.KikitoriData_folder,str(time.time())) # Data Saving kikitori
+                self.executer.submit(self.save_python_obj,name,self.KikitoriDataArray.copy()) # Data Saving kikitori
+                self.savedKikitoriLen = 0
             
             encoded = self.kikitoriencoder(data).view(data.size(0),-1)
             classes = self.kmeans.clustering(self.centroids,encoded).to('cpu').detach().numpy()
