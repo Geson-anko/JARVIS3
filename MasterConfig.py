@@ -77,6 +77,7 @@ class Config:
         "Sensation1",
         "Sensation2",
         "Sensation3",
+        "MemorySearch",
     )
     train_wait:float = 5 #second
     

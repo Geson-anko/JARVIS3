@@ -13,6 +13,7 @@ import Sensation1
 import Sensation2
 import Sensation3
 import Sensation4
+import Sensation5
 
 
 removesdirs = [
@@ -25,10 +26,13 @@ removesdirs = [
     Sensation3.Sensation.Temp_folder,
     Sensation3.Sensation.KikitoriData_folder,
     Sensation4.Sensation.Temp_folder,
+    Sensation5.Sensation.Temp_folder,
+    Sensation5.Sensation.Data_folder,
 ]
 removefiles = [
     searchconf.dict_file,
     searchconf.tempmem_file,
+    searchconf.backup_dict_file,
 ]
 
 

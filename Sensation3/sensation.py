@@ -33,7 +33,7 @@ class Sensation(SensationBase):
     KikitoriSavingRate:int = 64
 
     Encoder:Module = Encoder
-    SleepWaitTime:float = 0.1
+    SleepWaitTime:float = 1
 
     Current_directory:str = os.path.dirname(os.path.abspath(__file__)) # /Current_directory/...  from root
     Param_folder:str = pathjoin(Current_directory,'params') # /Current_directory/params/

@@ -22,6 +22,7 @@ class SensationBase(MemoryManager):
     SameThreshold:float
     DataSize:tuple
     DataSavingRate:int
+    MaxFrameRate:int = 100
     
     Encoder:Module
     #DeltaTime:Module # 3/12/2021 DeltaTime was abolished.
@@ -126,6 +127,10 @@ class SensationBase(MemoryManager):
             if Config.release_system_cache_time < (time.time() - system_cache_time):
                 self.release_system_memory()
                 system_cache_time = time.time()
+            
+            wait= (1/self.MaxFrameRate) - (time.time()-clock_start)
+            if wait > 0:
+                time.sleep(wait)
 
             self.clock.value = time.time() - clock_start
         # ------ end while ------
