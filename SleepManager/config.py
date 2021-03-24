@@ -16,10 +16,10 @@ class config:
     threshold:float = 0.999
     Meany:float= 0.5
 
-    clock_warp:timedelta = timedelta(seconds=7)
+    clock_warp:timedelta = timedelta(seconds=1)
 
-    wait_time:float = 0.1
-    system_sleep:float = 0.01
+    wait_time:float = 0
+    system_sleep:float = 1
     # files
     current_directory:str = os.path.dirname(os.path.abspath(__file__))
     temp_folder:str = os.path.join(current_directory,'temp')

@@ -13,7 +13,7 @@ from Trainer import Train
 import OutputVision
 import numpy as np
 if __name__ == '__main__':
-
+    """
     import OutputMouse
     from Sensation4 import Sensation
     proc = OutputMouse.Output('cpu',True)
@@ -38,6 +38,7 @@ if __name__ == '__main__':
     shutdown.value = True
     p.join()
     print('process ended')
+    """
     """
     proc = OutputVision.Output('cuda',True)
     proc.UsingMemoryFormat = '0'
@@ -195,12 +196,13 @@ if __name__ == '__main__':
     print('sleep',sleepiness.value)
     print('process end')
     """
-    """
+    
     from MemorySearch import MemorySearch
     import copy
     sp = MemorySearch(True)
     shutdown = Value('i',False)
     sleep = Value('i',False)
+    switch = Value('i'.True)
     clock = Value('d',0)
     sleepiness = Value('d',0)
     newids = [Value('i',i) for i in range(4)]
@@ -223,7 +225,7 @@ if __name__ == '__main__':
     p.join()
     print('clock',clock.value)
     print('process end')
-    """
+    
     """
     from Sensation1.train import Train  
     train = Train('cuda',True)

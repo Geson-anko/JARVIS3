@@ -55,6 +55,7 @@ class Train(MemoryManager):
                     self.log('Training',trains[trained].LogTitle)
                     try:
                         trains[trained](shutdown,sleep)
+                        trained +=1
                     except RuntimeError:
                         if self.debug_mode:
                             self.exception(f'Runtime error ocurred!')

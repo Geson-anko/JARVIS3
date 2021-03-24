@@ -76,14 +76,11 @@ class MemorySearch(MemoryManager):
 
         # process --------------------------------------
         self.log('process start')
+        saving_time = time.time()
         while not shutdown.value:
             clock_start = time.time()
             self.SwitchCheck()
             time.sleep(sleepiness.value * config.wait_time)
-            if sleep.value:
-                time.sleep(mconf.sleep_wait)
-                self.save_python_obj(config.tempmem_file,TempMemory.copy())
-                self.save_python_obj(config.dict_file,MemoryDict)
 
             # modified check
             new_memlist = [i.copy() for i in mem_lists]
@@ -99,6 +96,7 @@ class MemorySearch(MemoryManager):
             searched = self.Search(c_tmp,MemoryDict)
             c_tmp = np.unique(np.concatenate([c_tmp,searched]))
             np.random.shuffle(c_tmp)
+            c_tmp = c_tmp[:templen]
             c_len = c_tmp.shape[0]
             TempMemory[:c_len] = c_tmp
 
@@ -119,9 +117,12 @@ class MemorySearch(MemoryManager):
                 MemoryDict[nid] = c_tmp[i:i+config.max_connection]
             
             time.sleep(sleepiness.value * config.wait_time)
-            if sleep.value:
+            if time.time() - saving_time > config.saving_rate:
                 self.save_python_obj(config.tempmem_file,TempMemory.copy())
                 self.save_python_obj(config.dict_file,MemoryDict)
+                saving_time = time.time()
+                self.log('saved Memory Dictionary and Temporary Memory')
+            
 
             wait = (1/config.max_frame_rate) - (time.time() - clock_start)
             if wait > 0:

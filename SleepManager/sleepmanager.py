@@ -117,6 +117,10 @@ class SleepManager(MemoryManager):
                         delta_bio_clock -= config.clock_warp
                 elif sleepiness.value > config.Meany and sleepiness.value <= config.threshold and not modified:
                     delta_bio_clock += config.clock_warp
+                elif sleepiness.value > config.Meany and sleepiness.value <= config.threshold and modified:
+                    delta_bio_clock -= config.clock_warp
+                else:
+                    sleep.value = False
             else:
                 sleepiness.value = 0
                 sleep.value = False

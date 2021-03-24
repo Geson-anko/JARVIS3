@@ -14,3 +14,4 @@ class config:
     system_wait:float = 0.001 # To avert too much load.
     max_frame_rate:int = 100
 
+    saving_rate:float = 10*60 # seconds
