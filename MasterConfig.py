@@ -57,12 +57,13 @@ class Config:
         ('Sensation2','cuda',0),
         ('Sensation3','cuda',1),
         ('Sensation4','cuda',1),
+        ('Sensation5','cuda',0)
     )
 
     ### outputs
     all_true_wait_time:float = 0.01
     output_modules:tuple = ( # (Module_name, device, process group number)
-        ('OutputVision','cuda',0),
+        #('OutputVision','cuda',0),
         ('OutputMouse','cpu',2),
     )
 

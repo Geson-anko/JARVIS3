@@ -166,7 +166,7 @@ if __name__ == '__main__':
     for i in switches:
         print(i.value)
     """
-    """
+    
     import matplotlib.pyplot as plt
     import numpy as np
     newids = [Value('i',i) for i in range(4)]
@@ -195,14 +195,14 @@ if __name__ == '__main__':
     print('clock',clock.value)
     print('sleep',sleepiness.value)
     print('process end')
-    """
+    
     
     from MemorySearch import MemorySearch
     import copy
     sp = MemorySearch(True)
     shutdown = Value('i',False)
     sleep = Value('i',False)
-    switch = Value('i'.True)
+    switch = Value('i',True)
     clock = Value('d',0)
     sleepiness = Value('d',0)
     newids = [Value('i',i) for i in range(4)]

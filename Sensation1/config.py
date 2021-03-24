@@ -12,4 +12,4 @@ class config:
     height:int  = 360
     channels:int = 3
     frame_size:tuple = (width,height)
-    default_video_capture:int = 0
+    default_video_capture:int = 1

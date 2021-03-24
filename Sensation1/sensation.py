@@ -63,7 +63,7 @@ class Sensation(SensationBase):
         ret,img = self.capture.read()
         if not ret:
             self.exception('can not read image from capture!')
-        cv2.imshow(self.LogTitle,img)
+        #cv2.imshow(self.LogTitle,img)
         img = torch.from_numpy(img).unsqueeze(0).to(self.device).permute(0,3,2,1)
         img = self.resizer(img).type(self.torchdtype)/255
         #print('\rcurrent_length',self.current_length,'mins',self.mins,end='')

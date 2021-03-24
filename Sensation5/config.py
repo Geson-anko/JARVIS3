@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+import math
 
 @dataclass
 class config:
@@ -16,4 +17,7 @@ class config:
     window_size:tuple = (window_width,window_height)
     channels:int = 3
     
-    kyorokyoro:int = 1
+    kyorokyoro:int = 2
+    win_point_width:int = math.floor(window_width/2)
+    win_point_height:int = math.floor(window_height/2)
+    line_width:int = 1
