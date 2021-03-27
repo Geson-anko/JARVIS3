@@ -113,14 +113,12 @@ def main():
     # SleepManager -------------------
     debug_mode_sleep = False
     func = SleepManager(debug_mode_sleep)
-    sleep_func =func
     switch_sleep = Value('i',True)
     Switches.append((func.LogTitle,switch_sleep))
     clock_sleep = Value('d',0.0)
     Clocks.append((func.LogTitle,clock_sleep))
     args = (shutdown,sleep,switch_sleep,clock_sleep,sleepiness,NewestIds)
-    sleep_args = args
-    #processes[Config.main_proceess_group_number].append((func,args))
+    processes[Config.main_proceess_group_number].append((func,args))
 
     logtitles.append(func.LogTitle)
     mm.log(func.LogTitle,'is ready.')
@@ -148,7 +146,6 @@ def main():
         p.start()
         working_processes.append(p)
     mm.log('J.A.R.V.I.S. started')
-    sleep_func(*sleep_args)
 
     time.sleep(10)
     with open(Config.logo_file,encoding='utf-8') as f:

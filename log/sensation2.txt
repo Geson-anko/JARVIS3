@@ -257,3 +257,388 @@
 [2021-03-20 19:29:08] Reduced memories
 [2021-03-20 19:29:08] saved Read Out Id,Memory,Time,memlist,NewestId
 [2021-03-20 19:29:08] process shutdowned
+[2021-03-20 20:40:47] loaded Encoder
+[2021-03-20 20:40:47] Inherit Shared Memories
+[2021-03-20 20:40:47] got firstId
+[2021-03-20 20:40:47] Audio streamer is ready.
+[2021-03-20 20:40:47] process start
+[2021-03-20 20:41:08] started shutdown process
+[2021-03-20 20:41:08] Saved memories
+[2021-03-20 20:41:08] Reduced memories
+[2021-03-20 20:41:08] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-20 20:41:08] process shutdowned
+[2021-03-20 20:43:37] loaded Encoder
+[2021-03-20 20:43:37] Inherit Shared Memories
+[2021-03-20 20:43:37] got firstId
+[2021-03-20 20:43:37] Audio streamer is ready.
+[2021-03-20 20:43:37] process start
+[2021-03-20 20:43:48] started shutdown process
+[2021-03-20 20:43:48] Saved memories
+[2021-03-20 20:43:48] Reduced memories
+[2021-03-20 20:43:48] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-20 20:43:48] process shutdowned
+[2021-03-21 09:46:59] loaded Encoder
+[2021-03-21 09:46:59] Inherit Shared Memories
+[2021-03-21 09:46:59] got firstId
+[2021-03-21 09:46:59] Audio streamer is ready.
+[2021-03-21 09:46:59] process start
+[2021-03-21 09:47:27] started shutdown process
+[2021-03-21 09:47:27] Saved memories
+[2021-03-21 09:47:27] Reduced memories
+[2021-03-21 09:47:27] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 09:47:27] process shutdowned
+[2021-03-21 09:49:19] loaded Encoder
+[2021-03-21 09:49:19] Inherit Shared Memories
+[2021-03-21 09:49:19] got firstId
+[2021-03-21 09:49:19] Audio streamer is ready.
+[2021-03-21 09:49:19] process start
+[2021-03-21 09:52:15] started shutdown process
+[2021-03-21 09:52:15] Saved memories
+[2021-03-21 09:52:15] Reduced memories
+[2021-03-21 09:52:15] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 09:52:15] process shutdowned
+[2021-03-21 09:52:52] loaded Encoder
+[2021-03-21 09:52:52] Inherit Shared Memories
+[2021-03-21 09:52:52] loaded NewestId
+[2021-03-21 09:52:52] loaded MemoryList
+[2021-03-21 09:52:52] loaded ReadOutMemory, Id and Time.
+[2021-03-21 09:52:52] current memory length is 248
+[2021-03-21 09:52:52] Audio streamer is ready.
+[2021-03-21 09:52:52] process start
+[2021-03-21 09:54:25] started shutdown process
+[2021-03-21 09:54:25] Saved memories
+[2021-03-21 09:54:25] Reduced memories
+[2021-03-21 09:54:25] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 09:54:25] process shutdowned
+[2021-03-21 18:03:04] loaded Encoder
+[2021-03-21 18:03:04] Inherit Shared Memories
+[2021-03-21 18:03:04] got firstId
+[2021-03-21 18:03:04] Audio streamer is ready.
+[2021-03-21 18:03:04] process start
+[2021-03-21 18:04:07] started shutdown process
+[2021-03-21 18:04:07] Saved memories
+[2021-03-21 18:04:07] Reduced memories
+[2021-03-21 18:04:07] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 18:04:07] process shutdowned
+[2021-03-21 18:06:15] loaded Encoder
+[2021-03-21 18:06:15] Inherit Shared Memories
+[2021-03-21 18:06:15] loaded NewestId
+[2021-03-21 18:06:15] loaded MemoryList
+[2021-03-21 18:06:15] loaded ReadOutMemory, Id and Time.
+[2021-03-21 18:06:15] current memory length is 91
+[2021-03-21 18:06:15] Audio streamer is ready.
+[2021-03-21 18:06:16] process start
+[2021-03-21 18:06:44] started shutdown process
+[2021-03-21 18:06:44] Saved memories
+[2021-03-21 18:06:44] Reduced memories
+[2021-03-21 18:06:44] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 18:06:44] process shutdowned
+[2021-03-21 18:11:27] loaded Encoder
+[2021-03-21 18:11:27] Inherit Shared Memories
+[2021-03-21 18:11:27] loaded NewestId
+[2021-03-21 18:11:27] loaded MemoryList
+[2021-03-21 18:11:27] loaded ReadOutMemory, Id and Time.
+[2021-03-21 18:11:27] current memory length is 128
+[2021-03-21 18:11:27] Audio streamer is ready.
+[2021-03-21 18:11:27] process start
+[2021-03-21 18:11:58] started shutdown process
+[2021-03-21 18:11:58] Saved memories
+[2021-03-21 18:11:58] Reduced memories
+[2021-03-21 18:11:58] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 18:11:58] process shutdowned
+[2021-03-21 18:28:56] loaded Encoder
+[2021-03-21 18:28:56] Inherit Shared Memories
+[2021-03-21 18:28:56] got firstId
+[2021-03-21 18:28:56] Audio streamer is ready.
+[2021-03-21 18:28:56] process start
+[2021-03-21 18:40:59] loaded Encoder
+[2021-03-21 18:41:00] Inherit Shared Memories
+[2021-03-21 18:41:00] got firstId
+[2021-03-21 18:41:00] Audio streamer is ready.
+[2021-03-21 18:41:00] process start
+[2021-03-21 18:45:11] started shutdown process
+[2021-03-21 18:45:11] Saved memories
+[2021-03-21 18:45:11] Reduced memories
+[2021-03-21 18:45:11] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 18:45:11] process shutdowned
+[2021-03-21 18:46:41] loaded Encoder
+[2021-03-21 18:46:41] Inherit Shared Memories
+[2021-03-21 18:46:41] loaded NewestId
+[2021-03-21 18:46:41] loaded MemoryList
+[2021-03-21 18:46:41] loaded ReadOutMemory, Id and Time.
+[2021-03-21 18:46:41] current memory length is 345
+[2021-03-21 18:46:41] Audio streamer is ready.
+[2021-03-21 18:46:41] process start
+[2021-03-21 18:46:53] started shutdown process
+[2021-03-21 18:46:53] Saved memories
+[2021-03-21 18:46:53] Reduced memories
+[2021-03-21 18:46:53] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 18:46:53] process shutdowned
+[2021-03-21 18:47:33] loaded Encoder
+[2021-03-21 18:47:33] Inherit Shared Memories
+[2021-03-21 18:47:33] got firstId
+[2021-03-21 18:47:33] Audio streamer is ready.
+[2021-03-21 18:47:33] process start
+[2021-03-21 18:48:10] started shutdown process
+[2021-03-21 18:48:10] Saved memories
+[2021-03-21 18:48:10] Reduced memories
+[2021-03-21 18:48:10] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 18:48:10] process shutdowned
+[2021-03-21 18:51:36] loaded Encoder
+[2021-03-21 18:51:36] Inherit Shared Memories
+[2021-03-21 18:51:36] got firstId
+[2021-03-21 18:51:36] Audio streamer is ready.
+[2021-03-21 18:51:36] process start
+[2021-03-21 18:52:02] started shutdown process
+[2021-03-21 18:52:02] Saved memories
+[2021-03-21 18:52:02] Reduced memories
+[2021-03-21 18:52:02] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 18:52:02] process shutdowned
+[2021-03-21 18:53:34] loaded Encoder
+[2021-03-21 18:53:34] Inherit Shared Memories
+[2021-03-21 18:53:34] got firstId
+[2021-03-21 18:53:34] Audio streamer is ready.
+[2021-03-21 18:53:34] process start
+[2021-03-21 18:54:51] started shutdown process
+[2021-03-21 18:54:51] Saved memories
+[2021-03-21 18:54:51] Reduced memories
+[2021-03-21 18:54:51] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 18:54:51] process shutdowned
+[2021-03-21 19:50:25] loaded Encoder
+[2021-03-21 19:50:25] Inherit Shared Memories
+[2021-03-21 19:50:25] got firstId
+[2021-03-21 19:50:25] Audio streamer is ready.
+[2021-03-21 19:50:25] process start
+[2021-03-21 19:50:43] started shutdown process
+[2021-03-21 19:50:43] Saved memories
+[2021-03-21 19:50:43] Reduced memories
+[2021-03-21 19:50:43] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 19:50:43] process shutdowned
+[2021-03-21 19:51:32] loaded Encoder
+[2021-03-21 19:51:32] Inherit Shared Memories
+[2021-03-21 19:51:32] got firstId
+[2021-03-21 19:51:32] Audio streamer is ready.
+[2021-03-21 19:51:32] process start
+[2021-03-21 19:51:53] started shutdown process
+[2021-03-21 19:51:53] Saved memories
+[2021-03-21 19:51:53] Reduced memories
+[2021-03-21 19:51:53] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 19:51:53] process shutdowned
+[2021-03-21 19:54:01] loaded Encoder
+[2021-03-21 19:54:01] Inherit Shared Memories
+[2021-03-21 19:54:01] got firstId
+[2021-03-21 19:54:01] Audio streamer is ready.
+[2021-03-21 19:54:01] process start
+[2021-03-21 19:54:23] started shutdown process
+[2021-03-21 19:54:23] Saved memories
+[2021-03-21 19:54:23] Reduced memories
+[2021-03-21 19:54:23] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 19:54:23] process shutdowned
+[2021-03-21 19:55:24] loaded Encoder
+[2021-03-21 19:55:24] Inherit Shared Memories
+[2021-03-21 19:55:24] got firstId
+[2021-03-21 19:55:24] Audio streamer is ready.
+[2021-03-21 19:55:24] process start
+[2021-03-21 19:55:36] started shutdown process
+[2021-03-21 19:55:36] Saved memories
+[2021-03-21 19:55:36] Reduced memories
+[2021-03-21 19:55:36] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 19:55:36] process shutdowned
+[2021-03-21 19:59:41] loaded Encoder
+[2021-03-21 19:59:41] Inherit Shared Memories
+[2021-03-21 19:59:41] loaded NewestId
+[2021-03-21 19:59:41] loaded MemoryList
+[2021-03-21 19:59:41] loaded ReadOutMemory, Id and Time.
+[2021-03-21 19:59:41] current memory length is 20
+[2021-03-21 19:59:41] Audio streamer is ready.
+[2021-03-21 19:59:41] process start
+[2021-03-21 19:59:47] started shutdown process
+[2021-03-21 19:59:47] Saved memories
+[2021-03-21 19:59:47] Reduced memories
+[2021-03-21 19:59:47] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 19:59:47] process shutdowned
+[2021-03-21 20:00:50] loaded Encoder
+[2021-03-21 20:00:50] Inherit Shared Memories
+[2021-03-21 20:00:50] loaded NewestId
+[2021-03-21 20:00:50] loaded MemoryList
+[2021-03-21 20:00:50] loaded ReadOutMemory, Id and Time.
+[2021-03-21 20:00:50] current memory length is 28
+[2021-03-21 20:00:50] Audio streamer is ready.
+[2021-03-21 20:00:50] process start
+[2021-03-21 20:01:03] started shutdown process
+[2021-03-21 20:01:03] Saved memories
+[2021-03-21 20:01:03] Reduced memories
+[2021-03-21 20:01:03] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 20:01:03] process shutdowned
+[2021-03-21 20:01:41] loaded Encoder
+[2021-03-21 20:01:41] Inherit Shared Memories
+[2021-03-21 20:01:41] got firstId
+[2021-03-21 20:01:41] Audio streamer is ready.
+[2021-03-21 20:01:41] process start
+[2021-03-21 20:01:47] started shutdown process
+[2021-03-21 20:01:47] Saved memories
+[2021-03-21 20:01:47] Reduced memories
+[2021-03-21 20:01:47] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 20:01:47] process shutdowned
+[2021-03-21 20:17:55] loaded Encoder
+[2021-03-21 20:17:55] Inherit Shared Memories
+[2021-03-21 20:17:55] got firstId
+[2021-03-21 20:17:55] Audio streamer is ready.
+[2021-03-21 20:17:55] process start
+[2021-03-21 20:18:04] started shutdown process
+[2021-03-21 20:18:04] Saved memories
+[2021-03-21 20:18:04] Reduced memories
+[2021-03-21 20:18:04] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 20:18:04] process shutdowned
+[2021-03-21 20:24:48] loaded Encoder
+[2021-03-21 20:24:48] Inherit Shared Memories
+[2021-03-21 20:24:48] got firstId
+[2021-03-21 20:24:48] Audio streamer is ready.
+[2021-03-21 20:24:48] process start
+[2021-03-21 20:24:59] started shutdown process
+[2021-03-21 20:24:59] Saved memories
+[2021-03-21 20:24:59] Reduced memories
+[2021-03-21 20:24:59] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 20:24:59] process shutdowned
+[2021-03-21 20:26:10] loaded Encoder
+[2021-03-21 20:26:10] Inherit Shared Memories
+[2021-03-21 20:26:10] got firstId
+[2021-03-21 20:26:10] Audio streamer is ready.
+[2021-03-21 20:26:10] process start
+[2021-03-21 20:27:05] started shutdown process
+[2021-03-21 20:27:05] Saved memories
+[2021-03-21 20:27:05] Reduced memories
+[2021-03-21 20:27:05] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 20:27:05] process shutdowned
+[2021-03-21 20:41:41] loaded Encoder
+[2021-03-21 20:41:41] Inherit Shared Memories
+[2021-03-21 20:41:41] got firstId
+[2021-03-21 20:41:41] Audio streamer is ready.
+[2021-03-21 20:41:41] process start
+[2021-03-21 20:41:52] started shutdown process
+[2021-03-21 20:41:52] Saved memories
+[2021-03-21 20:41:52] Reduced memories
+[2021-03-21 20:41:52] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 20:41:52] process shutdowned
+[2021-03-21 20:43:13] loaded Encoder
+[2021-03-21 20:43:13] Inherit Shared Memories
+[2021-03-21 20:43:13] got firstId
+[2021-03-21 20:43:13] Audio streamer is ready.
+[2021-03-21 20:43:13] process start
+[2021-03-21 20:44:17] started shutdown process
+[2021-03-21 20:44:17] Saved memories
+[2021-03-21 20:44:17] Reduced memories
+[2021-03-21 20:44:17] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-21 20:44:17] process shutdowned
+[2021-03-22 18:24:26] loaded Encoder
+[2021-03-22 18:24:26] Inherit Shared Memories
+[2021-03-22 18:24:26] got firstId
+[2021-03-22 18:24:27] Audio streamer is ready.
+[2021-03-22 18:24:27] process start
+[2021-03-22 18:25:19] started shutdown process
+[2021-03-22 18:25:19] Saved memories
+[2021-03-22 18:25:19] Reduced memories
+[2021-03-22 18:25:19] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-22 18:25:19] process shutdowned
+[2021-03-22 18:26:04] loaded Encoder
+[2021-03-22 18:26:04] Inherit Shared Memories
+[2021-03-22 18:26:04] loaded NewestId
+[2021-03-22 18:26:04] loaded MemoryList
+[2021-03-22 18:26:04] loaded ReadOutMemory, Id and Time.
+[2021-03-22 18:26:04] current memory length is 86
+[2021-03-22 18:26:05] Audio streamer is ready.
+[2021-03-22 18:26:05] process start
+[2021-03-22 18:26:42] started shutdown process
+[2021-03-22 18:26:42] Saved memories
+[2021-03-22 18:26:42] Reduced memories
+[2021-03-22 18:26:42] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-22 18:26:42] process shutdowned
+[2021-03-22 18:26:56] loaded Encoder
+[2021-03-22 18:26:56] Inherit Shared Memories
+[2021-03-22 18:26:56] loaded NewestId
+[2021-03-22 18:26:56] loaded MemoryList
+[2021-03-22 18:26:56] loaded ReadOutMemory, Id and Time.
+[2021-03-22 18:26:56] current memory length is 138
+[2021-03-22 18:26:56] Audio streamer is ready.
+[2021-03-22 18:26:56] process start
+[2021-03-22 18:27:17] started shutdown process
+[2021-03-22 18:27:17] Saved memories
+[2021-03-22 18:27:17] Reduced memories
+[2021-03-22 18:27:17] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-22 18:27:17] process shutdowned
+[2021-03-23 09:52:54] loaded Encoder
+[2021-03-23 09:52:54] Inherit Shared Memories
+[2021-03-23 09:52:54] loaded NewestId
+[2021-03-23 09:52:54] loaded MemoryList
+[2021-03-23 09:52:54] loaded ReadOutMemory, Id and Time.
+[2021-03-23 09:52:54] current memory length is 166
+[2021-03-23 09:52:54] Audio streamer is ready.
+[2021-03-23 09:52:54] process start
+[2021-03-23 09:53:45] started shutdown process
+[2021-03-23 09:53:45] Saved memories
+[2021-03-23 09:53:45] Reduced memories
+[2021-03-23 09:53:45] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-23 09:53:45] process shutdowned
+[2021-03-24 08:51:24] loaded Encoder
+[2021-03-24 08:51:24] Inherit Shared Memories
+[2021-03-24 08:51:24] got firstId
+[2021-03-24 08:51:24] Audio streamer is ready.
+[2021-03-24 08:51:24] process start
+[2021-03-24 08:51:47] started shutdown process
+[2021-03-24 08:51:47] Saved memories
+[2021-03-24 08:51:47] Reduced memories
+[2021-03-24 08:51:47] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-24 08:51:47] process shutdowned
+[2021-03-24 10:17:25] loaded Encoder
+[2021-03-24 10:17:25] Inherit Shared Memories
+[2021-03-24 10:17:25] got firstId
+[2021-03-24 10:17:25] Audio streamer is ready.
+[2021-03-24 10:17:25] process start
+[2021-03-24 10:17:48] started shutdown process
+[2021-03-24 10:17:48] Saved memories
+[2021-03-24 10:17:48] Reduced memories
+[2021-03-24 10:17:48] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-24 10:17:48] process shutdowned
+[2021-03-24 17:53:21] loaded Encoder
+[2021-03-24 17:53:21] Inherit Shared Memories
+[2021-03-24 17:53:21] got firstId
+[2021-03-24 17:53:21] Audio streamer is ready.
+[2021-03-24 17:53:21] process start
+[2021-03-24 17:54:09] Saved memories
+[2021-03-24 17:54:09] Reduced memories
+[2021-03-24 17:54:09] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-24 17:54:09] switch off.
+[2021-03-24 17:54:10] switch on
+[2021-03-24 17:54:50] started shutdown process
+[2021-03-24 17:54:50] Saved memories
+[2021-03-24 17:54:50] Reduced memories
+[2021-03-24 17:54:50] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-24 17:54:50] process shutdowned
+[2021-03-24 17:56:32] loaded Encoder
+[2021-03-24 17:56:32] Inherit Shared Memories
+[2021-03-24 17:56:32] loaded NewestId
+[2021-03-24 17:56:32] loaded MemoryList
+[2021-03-24 17:56:32] loaded ReadOutMemory, Id and Time.
+[2021-03-24 17:56:32] current memory length is 135
+[2021-03-24 17:56:32] Audio streamer is ready.
+[2021-03-24 17:56:32] process start
+[2021-03-24 17:56:40] started shutdown process
+[2021-03-24 17:56:40] Saved memories
+[2021-03-24 17:56:40] Reduced memories
+[2021-03-24 17:56:40] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-24 17:56:40] process shutdowned
+[2021-03-24 18:09:54] loaded Encoder
+[2021-03-24 18:09:54] Inherit Shared Memories
+[2021-03-24 18:09:54] got firstId
+[2021-03-24 18:09:55] Audio streamer is ready.
+[2021-03-24 18:09:55] process start
+[2021-03-24 18:10:20] Saved memories
+[2021-03-24 18:10:20] Reduced memories
+[2021-03-24 18:10:20] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-24 18:10:20] switch off.
+[2021-03-24 18:10:20] switch on
+[2021-03-24 18:10:30] started shutdown process
+[2021-03-24 18:10:30] Saved memories
+[2021-03-24 18:10:30] Reduced memories
+[2021-03-24 18:10:30] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-24 18:10:30] process shutdowned

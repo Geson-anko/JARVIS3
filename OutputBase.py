@@ -11,6 +11,7 @@ class OutputBase(MemoryManager):
     LogTitle:str
     UsingMemoryFormat:str
     MaxMemoryLength:int
+    UseMemoryLowerLimit:int = 1
     
     SleepWaitTime:float
     MaxFrameRate:int = 100
@@ -64,7 +65,7 @@ class OutputBase(MemoryManager):
             self.SwitchCheck()
 
             memory = self.GetMemory()
-            if memory.size(0) != 0:
+            if memory.size(0) >= self.UseMemoryLowerLimit:
                 self.Update(memory)
 
             

@@ -133,3 +133,12 @@
 [2021-03-24 17:56:40] Reduced memories
 [2021-03-24 17:56:40] saved Read Out Id,Memory,Time,memlist,NewestId
 [2021-03-24 17:56:40] process shutdowned
+[2021-03-24 18:09:55] loaded Encoder
+[2021-03-24 18:09:55] Inherit Shared Memories
+[2021-03-24 18:09:55] got firstId
+[2021-03-24 18:09:55] process start
+[2021-03-24 18:10:29] started shutdown process
+[2021-03-24 18:10:29] Saved memories
+[2021-03-24 18:10:29] Reduced memories
+[2021-03-24 18:10:29] saved Read Out Id,Memory,Time,memlist,NewestId
+[2021-03-24 18:10:30] process shutdowned

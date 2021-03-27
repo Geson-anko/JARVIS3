@@ -55,7 +55,7 @@ class Config:
     sensation_modules:tuple = ( #(Module_name, device, process group number)
         ('Sensation1','cuda',1),
         ('Sensation2','cuda',0),
-        ('Sensation3','cuda',1),
+        #('Sensation3','cuda',1),
         ('Sensation4','cuda',1),
         ('Sensation5','cuda',0)
     )

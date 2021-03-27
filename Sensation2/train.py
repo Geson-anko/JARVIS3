@@ -47,7 +47,7 @@ class Train(MemoryManager):
         uses = names[:uselen]
         deletes = names[uselen:]
         for i in deletes:
-            self.remove_file(i)
+            self.remove_file(os.path.join(Sensation.Data_folder,i))
         
         data = np.concatenate([self.load_python_obj(os.path.join(Sensation.Data_folder,i)) for i in uses])
         data = torch.from_numpy(data)

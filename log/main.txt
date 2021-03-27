@@ -402,3 +402,469 @@
 [2021-03-20 19:28:08] Clocks  sensation1 : 0.033| sensation2 : 0.502| sensation3 : 0.686| sensation4 : 0.035| MemorySearch : 0.030| VisionOutput : 0.047| SleepManager : 0.095| Sleepiness :0.000| Sleep : False
 [2021-03-20 19:28:38] Clocks  sensation1 : 0.031| sensation2 : 0.505| sensation3 : 0.644| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.080| SleepManager : 0.096| Sleepiness :0.000| Sleep : False
 [2021-03-20 19:29:12] J.A.R.V.I.S. shutdowned
+[2021-03-20 20:40:38] sensation1 is ready.
+[2021-03-20 20:40:38] sensation2 is ready.
+[2021-03-20 20:40:39] sensation3 is ready.
+[2021-03-20 20:40:39] sensation4 is ready.
+[2021-03-20 20:40:39] MemorySearch is ready.
+[2021-03-20 20:40:39] VisionOutput is ready.
+[2021-03-20 20:40:39] ModelTrainer is ready.
+[2021-03-20 20:40:39] SleepManager is ready.
+[2021-03-20 20:40:39] Controler is ready.
+[2021-03-20 20:40:41] J.A.R.V.I.S. started
+[2021-03-20 20:40:51] Clocks  sensation1 : 0.032| sensation2 : 0.499| sensation3 : 0.015| sensation4 : 0.035| MemorySearch : 0.031| VisionOutput : 0.035| SleepManager : 0.109| Sleepiness :0.000| Sleep : False
+[2021-03-20 20:41:21] J.A.R.V.I.S. shutdowned
+[2021-03-20 20:43:27] sensation1 is ready.
+[2021-03-20 20:43:27] sensation2 is ready.
+[2021-03-20 20:43:28] sensation3 is ready.
+[2021-03-20 20:43:28] sensation4 is ready.
+[2021-03-20 20:43:28] MemorySearch is ready.
+[2021-03-20 20:43:28] VisionOutput is ready.
+[2021-03-20 20:43:28] ModelTrainer is ready.
+[2021-03-20 20:43:28] SleepManager is ready.
+[2021-03-20 20:43:28] Controler is ready.
+[2021-03-20 20:43:30] J.A.R.V.I.S. started
+[2021-03-20 20:43:40] Clocks  sensation1 : 0.034| sensation2 : 0.487| sensation3 : 0.053| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.034| SleepManager : 0.096| Sleepiness :0.000| Sleep : False
+[2021-03-20 20:44:10] J.A.R.V.I.S. shutdowned
+[2021-03-21 09:46:49] sensation1 is ready.
+[2021-03-21 09:46:49] sensation2 is ready.
+[2021-03-21 09:46:50] sensation3 is ready.
+[2021-03-21 09:46:50] sensation4 is ready.
+[2021-03-21 09:46:50] MemorySearch is ready.
+[2021-03-21 09:46:50] VisionOutput is ready.
+[2021-03-21 09:46:50] ModelTrainer is ready.
+[2021-03-21 09:46:50] SleepManager is ready.
+[2021-03-21 09:46:50] Controler is ready.
+[2021-03-21 09:46:52] J.A.R.V.I.S. started
+[2021-03-21 09:47:02] Clocks  sensation1 : 0.000| sensation2 : 0.483| sensation3 : 0.000| sensation4 : 0.035| MemorySearch : 0.030| VisionOutput : 0.035| SleepManager : 0.109| Sleepiness :0.000| Sleep : False
+[2021-03-21 09:47:32] J.A.R.V.I.S. shutdowned
+[2021-03-21 09:49:14] sensation1 is ready.
+[2021-03-21 09:49:14] sensation2 is ready.
+[2021-03-21 09:49:15] sensation3 is ready.
+[2021-03-21 09:49:15] sensation4 is ready.
+[2021-03-21 09:49:15] MemorySearch is ready.
+[2021-03-21 09:49:15] VisionOutput is ready.
+[2021-03-21 09:49:15] ModelTrainer is ready.
+[2021-03-21 09:49:15] SleepManager is ready.
+[2021-03-21 09:49:15] Controler is ready.
+[2021-03-21 09:49:17] J.A.R.V.I.S. started
+[2021-03-21 09:49:27] Clocks  sensation1 : 0.033| sensation2 : 0.506| sensation3 : 0.646| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.111| SleepManager : 0.095| Sleepiness :0.000| Sleep : False
+[2021-03-21 09:49:57] Clocks  sensation1 : 0.032| sensation2 : 0.490| sensation3 : 0.636| sensation4 : 0.035| MemorySearch : 0.031| VisionOutput : 0.108| SleepManager : 0.107| Sleepiness :0.000| Sleep : False
+[2021-03-21 09:50:27] Clocks  sensation1 : 0.033| sensation2 : 0.500| sensation3 : 0.640| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.108| SleepManager : 0.110| Sleepiness :0.000| Sleep : False
+[2021-03-21 09:50:57] Clocks  sensation1 : 0.032| sensation2 : 0.512| sensation3 : 0.675| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.110| SleepManager : 0.096| Sleepiness :0.000| Sleep : False
+[2021-03-21 09:51:27] Clocks  sensation1 : 0.032| sensation2 : 0.509| sensation3 : 0.639| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.111| SleepManager : 0.095| Sleepiness :0.000| Sleep : False
+[2021-03-21 09:51:57] Clocks  sensation1 : 0.031| sensation2 : 0.498| sensation3 : 0.623| sensation4 : 0.035| MemorySearch : 0.030| VisionOutput : 0.108| SleepManager : 0.109| Sleepiness :0.000| Sleep : False
+[2021-03-21 09:52:27] J.A.R.V.I.S. shutdowned
+[2021-03-21 09:52:48] sensation1 is ready.
+[2021-03-21 09:52:48] sensation2 is ready.
+[2021-03-21 09:52:48] sensation3 is ready.
+[2021-03-21 09:52:48] sensation4 is ready.
+[2021-03-21 09:52:48] MemorySearch is ready.
+[2021-03-21 09:52:48] VisionOutput is ready.
+[2021-03-21 09:52:48] ModelTrainer is ready.
+[2021-03-21 09:52:48] SleepManager is ready.
+[2021-03-21 09:52:48] Controler is ready.
+[2021-03-21 09:52:50] J.A.R.V.I.S. started
+[2021-03-21 09:53:00] Clocks  sensation1 : 0.101| sensation2 : 0.493| sensation3 : 0.618| sensation4 : 0.035| MemorySearch : 0.031| VisionOutput : 0.110| SleepManager : 0.093| Sleepiness :0.000| Sleep : False
+[2021-03-21 09:53:30] Clocks  sensation1 : 0.101| sensation2 : 0.505| sensation3 : 0.664| sensation4 : 0.035| MemorySearch : 0.030| VisionOutput : 0.110| SleepManager : 0.094| Sleepiness :0.000| Sleep : False
+[2021-03-21 09:54:00] Clocks  sensation1 : 0.101| sensation2 : 0.509| sensation3 : 0.621| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.111| SleepManager : 0.094| Sleepiness :0.000| Sleep : False
+[2021-03-21 09:54:30] J.A.R.V.I.S. shutdowned
+[2021-03-21 18:02:59] sensation1 is ready.
+[2021-03-21 18:02:59] sensation2 is ready.
+[2021-03-21 18:03:00] sensation3 is ready.
+[2021-03-21 18:03:00] sensation4 is ready.
+[2021-03-21 18:03:00] MemorySearch is ready.
+[2021-03-21 18:03:00] VisionOutput is ready.
+[2021-03-21 18:03:00] MouseOutput is ready.
+[2021-03-21 18:03:00] ModelTrainer is ready.
+[2021-03-21 18:03:00] SleepManager is ready.
+[2021-03-21 18:03:00] Controler is ready.
+[2021-03-21 18:03:04] J.A.R.V.I.S. started
+[2021-03-21 18:03:14] Clocks  sensation1 : 0.101| sensation2 : 0.503| sensation3 : 0.633| sensation4 : 0.035| MemorySearch : 0.031| VisionOutput : 0.108| MouseOutput : 0.000| SleepManager : 0.092| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:03:44] Clocks  sensation1 : 0.100| sensation2 : 0.501| sensation3 : 0.640| sensation4 : 0.034| MemorySearch : 0.030| VisionOutput : 0.108| MouseOutput : 0.000| SleepManager : 0.108| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:04:14] J.A.R.V.I.S. shutdowned
+[2021-03-21 18:06:11] sensation1 is ready.
+[2021-03-21 18:06:11] sensation2 is ready.
+[2021-03-21 18:06:12] sensation3 is ready.
+[2021-03-21 18:06:12] sensation4 is ready.
+[2021-03-21 18:06:12] MemorySearch is ready.
+[2021-03-21 18:06:12] VisionOutput is ready.
+[2021-03-21 18:06:12] MouseOutput is ready.
+[2021-03-21 18:06:12] ModelTrainer is ready.
+[2021-03-21 18:06:12] SleepManager is ready.
+[2021-03-21 18:06:12] Controler is ready.
+[2021-03-21 18:06:15] J.A.R.V.I.S. started
+[2021-03-21 18:06:25] Clocks  sensation1 : 0.102| sensation2 : 0.498| sensation3 : 0.633| sensation4 : 0.035| MemorySearch : 0.031| VisionOutput : 0.109| MouseOutput : 0.000| SleepManager : 0.093| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:06:55] J.A.R.V.I.S. shutdowned
+[2021-03-21 18:11:22] sensation1 is ready.
+[2021-03-21 18:11:22] sensation2 is ready.
+[2021-03-21 18:11:23] sensation3 is ready.
+[2021-03-21 18:11:23] sensation4 is ready.
+[2021-03-21 18:11:23] MemorySearch is ready.
+[2021-03-21 18:11:23] VisionOutput is ready.
+[2021-03-21 18:11:23] MouseOutput is ready.
+[2021-03-21 18:11:23] ModelTrainer is ready.
+[2021-03-21 18:11:23] SleepManager is ready.
+[2021-03-21 18:11:23] Controler is ready.
+[2021-03-21 18:11:26] J.A.R.V.I.S. started
+[2021-03-21 18:11:36] Clocks  sensation1 : 0.102| sensation2 : 0.499| sensation3 : 0.646| sensation4 : 0.035| MemorySearch : 0.031| VisionOutput : 0.110| MouseOutput : 0.000| SleepManager : 0.109| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:12:06] J.A.R.V.I.S. shutdowned
+[2021-03-21 18:28:52] sensation1 is ready.
+[2021-03-21 18:28:52] sensation2 is ready.
+[2021-03-21 18:28:52] sensation3 is ready.
+[2021-03-21 18:28:52] sensation4 is ready.
+[2021-03-21 18:28:52] MemorySearch is ready.
+[2021-03-21 18:28:52] VisionOutput is ready.
+[2021-03-21 18:28:52] MouseOutput is ready.
+[2021-03-21 18:28:52] ModelTrainer is ready.
+[2021-03-21 18:28:52] SleepManager is ready.
+[2021-03-21 18:28:52] Controler is ready.
+[2021-03-21 18:28:56] J.A.R.V.I.S. started
+[2021-03-21 18:29:06] Clocks  sensation1 : 0.101| sensation2 : 0.495| sensation3 : 0.623| sensation4 : 0.034| MemorySearch : 0.031| VisionOutput : 0.109| MouseOutput : 0.047| SleepManager : 0.094| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:29:36] Clocks  sensation1 : 0.101| sensation2 : 0.485| sensation3 : 0.647| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.111| MouseOutput : 0.047| SleepManager : 0.110| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:30:06] Clocks  sensation1 : 0.101| sensation2 : 0.502| sensation3 : 0.634| sensation4 : 0.035| MemorySearch : 0.031| VisionOutput : 0.108| MouseOutput : 0.046| SleepManager : 0.093| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:40:54] sensation1 is ready.
+[2021-03-21 18:40:54] sensation2 is ready.
+[2021-03-21 18:40:55] sensation3 is ready.
+[2021-03-21 18:40:55] sensation4 is ready.
+[2021-03-21 18:40:55] MemorySearch is ready.
+[2021-03-21 18:40:55] VisionOutput is ready.
+[2021-03-21 18:40:55] MouseOutput is ready.
+[2021-03-21 18:40:55] ModelTrainer is ready.
+[2021-03-21 18:40:55] SleepManager is ready.
+[2021-03-21 18:40:55] Controler is ready.
+[2021-03-21 18:40:58] J.A.R.V.I.S. started
+[2021-03-21 18:41:08] Clocks  sensation1 : 0.101| sensation2 : 0.519| sensation3 : 0.673| sensation4 : 0.034| MemorySearch : 0.031| VisionOutput : 0.111| MouseOutput : 0.047| SleepManager : 0.112| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:41:38] Clocks  sensation1 : 0.101| sensation2 : 0.501| sensation3 : 0.640| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.111| MouseOutput : 0.048| SleepManager : 0.095| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:42:08] Clocks  sensation1 : 0.101| sensation2 : 0.504| sensation3 : 0.612| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.111| MouseOutput : 0.048| SleepManager : 0.095| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:42:38] Clocks  sensation1 : 0.101| sensation2 : 0.498| sensation3 : 0.647| sensation4 : 0.035| MemorySearch : 0.031| VisionOutput : 0.110| MouseOutput : 0.046| SleepManager : 0.094| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:43:08] Clocks  sensation1 : 0.101| sensation2 : 0.513| sensation3 : 0.636| sensation4 : 0.034| MemorySearch : 0.031| VisionOutput : 0.108| MouseOutput : 0.047| SleepManager : 0.093| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:43:38] Clocks  sensation1 : 0.101| sensation2 : 0.513| sensation3 : 0.631| sensation4 : 0.035| MemorySearch : 0.031| VisionOutput : 0.110| MouseOutput : 0.000| SleepManager : 0.094| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:44:08] Clocks  sensation1 : 0.102| sensation2 : 0.497| sensation3 : 0.644| sensation4 : 0.034| MemorySearch : 0.030| VisionOutput : 0.109| MouseOutput : 0.046| SleepManager : 0.110| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:44:38] Clocks  sensation1 : 0.101| sensation2 : 0.499| sensation3 : 0.631| sensation4 : 0.034| MemorySearch : 0.031| VisionOutput : 0.111| MouseOutput : 0.047| SleepManager : 0.110| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:45:08] Clocks  sensation1 : 0.100| sensation2 : 0.494| sensation3 : 0.634| sensation4 : 0.034| MemorySearch : 0.031| VisionOutput : 0.107| MouseOutput : 0.000| SleepManager : 0.108| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:45:38] J.A.R.V.I.S. shutdowned
+[2021-03-21 18:46:37] sensation1 is ready.
+[2021-03-21 18:46:37] sensation2 is ready.
+[2021-03-21 18:46:37] sensation3 is ready.
+[2021-03-21 18:46:37] sensation4 is ready.
+[2021-03-21 18:46:37] MemorySearch is ready.
+[2021-03-21 18:46:37] VisionOutput is ready.
+[2021-03-21 18:46:37] MouseOutput is ready.
+[2021-03-21 18:46:37] ModelTrainer is ready.
+[2021-03-21 18:46:37] SleepManager is ready.
+[2021-03-21 18:46:37] Controler is ready.
+[2021-03-21 18:46:41] J.A.R.V.I.S. started
+[2021-03-21 18:46:51] Clocks  sensation1 : 0.101| sensation2 : 0.489| sensation3 : 0.644| sensation4 : 0.035| MemorySearch : 0.030| VisionOutput : 0.108| MouseOutput : 0.045| SleepManager : 0.092| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:47:21] J.A.R.V.I.S. shutdowned
+[2021-03-21 18:47:29] sensation1 is ready.
+[2021-03-21 18:47:29] sensation2 is ready.
+[2021-03-21 18:47:29] sensation3 is ready.
+[2021-03-21 18:47:29] sensation4 is ready.
+[2021-03-21 18:47:29] MemorySearch is ready.
+[2021-03-21 18:47:29] VisionOutput is ready.
+[2021-03-21 18:47:29] MouseOutput is ready.
+[2021-03-21 18:47:29] ModelTrainer is ready.
+[2021-03-21 18:47:29] SleepManager is ready.
+[2021-03-21 18:47:29] Controler is ready.
+[2021-03-21 18:47:33] J.A.R.V.I.S. started
+[2021-03-21 18:47:43] Clocks  sensation1 : 0.101| sensation2 : 0.501| sensation3 : 0.635| sensation4 : 0.035| MemorySearch : 0.031| VisionOutput : 0.108| MouseOutput : 0.047| SleepManager : 0.109| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:48:13] J.A.R.V.I.S. shutdowned
+[2021-03-21 18:51:32] sensation1 is ready.
+[2021-03-21 18:51:32] sensation2 is ready.
+[2021-03-21 18:51:33] sensation3 is ready.
+[2021-03-21 18:51:33] sensation4 is ready.
+[2021-03-21 18:51:33] MemorySearch is ready.
+[2021-03-21 18:51:33] VisionOutput is ready.
+[2021-03-21 18:51:33] MouseOutput is ready.
+[2021-03-21 18:51:33] ModelTrainer is ready.
+[2021-03-21 18:51:33] SleepManager is ready.
+[2021-03-21 18:51:33] Controler is ready.
+[2021-03-21 18:51:36] J.A.R.V.I.S. started
+[2021-03-21 18:51:46] Clocks  sensation1 : 0.101| sensation2 : 0.500| sensation3 : 0.609| sensation4 : 0.034| MemorySearch : 0.031| VisionOutput : 0.000| MouseOutput : 0.046| SleepManager : 0.108| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:52:16] J.A.R.V.I.S. shutdowned
+[2021-03-21 18:53:30] sensation1 is ready.
+[2021-03-21 18:53:30] sensation2 is ready.
+[2021-03-21 18:53:30] sensation3 is ready.
+[2021-03-21 18:53:30] sensation4 is ready.
+[2021-03-21 18:53:30] MemorySearch is ready.
+[2021-03-21 18:53:30] VisionOutput is ready.
+[2021-03-21 18:53:30] MouseOutput is ready.
+[2021-03-21 18:53:30] ModelTrainer is ready.
+[2021-03-21 18:53:30] SleepManager is ready.
+[2021-03-21 18:53:30] Controler is ready.
+[2021-03-21 18:53:34] J.A.R.V.I.S. started
+[2021-03-21 18:53:44] Clocks  sensation1 : 0.101| sensation2 : 0.496| sensation3 : 0.637| sensation4 : 0.035| MemorySearch : 0.031| VisionOutput : 0.108| MouseOutput : 0.047| SleepManager : 0.108| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:54:14] Clocks  sensation1 : 0.101| sensation2 : 0.494| sensation3 : 0.645| sensation4 : 0.034| MemorySearch : 0.031| VisionOutput : 0.108| MouseOutput : 0.046| SleepManager : 0.093| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:54:44] Clocks  sensation1 : 0.101| sensation2 : 0.498| sensation3 : 0.673| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.111| MouseOutput : 0.048| SleepManager : 0.109| Sleepiness :0.000| Sleep : False
+[2021-03-21 18:55:14] J.A.R.V.I.S. shutdowned
+[2021-03-21 19:49:30] sensation1 is ready.
+[2021-03-21 19:49:30] sensation2 is ready.
+[2021-03-21 19:49:31] sensation3 is ready.
+[2021-03-21 19:49:31] sensation4 is ready.
+[2021-03-21 19:49:31] MemorySearch is ready.
+[2021-03-21 19:50:21] sensation1 is ready.
+[2021-03-21 19:50:21] sensation2 is ready.
+[2021-03-21 19:50:21] sensation3 is ready.
+[2021-03-21 19:50:21] sensation4 is ready.
+[2021-03-21 19:50:21] MemorySearch is ready.
+[2021-03-21 19:50:21] MouseOutput is ready.
+[2021-03-21 19:50:21] ModelTrainer is ready.
+[2021-03-21 19:50:21] SleepManager is ready.
+[2021-03-21 19:50:21] Controler is ready.
+[2021-03-21 19:50:25] J.A.R.V.I.S. started
+[2021-03-21 19:50:35] Clocks  sensation1 : 0.101| sensation2 : 0.499| sensation3 : 0.641| sensation4 : 0.034| MemorySearch : 0.031| MouseOutput : 0.046| SleepManager : 0.093| Sleepiness :0.000| Sleep : False
+[2021-03-21 19:51:05] J.A.R.V.I.S. shutdowned
+[2021-03-21 19:51:28] sensation1 is ready.
+[2021-03-21 19:51:28] sensation2 is ready.
+[2021-03-21 19:51:28] sensation3 is ready.
+[2021-03-21 19:51:28] sensation4 is ready.
+[2021-03-21 19:51:28] MemorySearch is ready.
+[2021-03-21 19:51:28] MouseOutput is ready.
+[2021-03-21 19:51:28] ModelTrainer is ready.
+[2021-03-21 19:51:28] SleepManager is ready.
+[2021-03-21 19:51:28] Controler is ready.
+[2021-03-21 19:51:32] J.A.R.V.I.S. started
+[2021-03-21 19:51:42] Clocks  sensation1 : 0.101| sensation2 : 0.489| sensation3 : 0.642| sensation4 : 0.035| MemorySearch : 0.032| MouseOutput : 0.048| SleepManager : 0.110| Sleepiness :0.000| Sleep : False
+[2021-03-21 19:52:12] J.A.R.V.I.S. shutdowned
+[2021-03-21 19:53:57] sensation1 is ready.
+[2021-03-21 19:53:57] sensation2 is ready.
+[2021-03-21 19:53:57] sensation3 is ready.
+[2021-03-21 19:53:57] sensation4 is ready.
+[2021-03-21 19:53:57] MemorySearch is ready.
+[2021-03-21 19:53:57] MouseOutput is ready.
+[2021-03-21 19:53:57] ModelTrainer is ready.
+[2021-03-21 19:53:57] SleepManager is ready.
+[2021-03-21 19:53:57] Controler is ready.
+[2021-03-21 19:54:01] J.A.R.V.I.S. started
+[2021-03-21 19:54:11] Clocks  sensation1 : 0.100| sensation2 : 0.502| sensation3 : 0.644| sensation4 : 0.034| MemorySearch : 0.031| MouseOutput : 0.046| SleepManager : 0.108| Sleepiness :0.000| Sleep : False
+[2021-03-21 19:54:41] J.A.R.V.I.S. shutdowned
+[2021-03-21 19:55:21] sensation1 is ready.
+[2021-03-21 19:55:21] sensation2 is ready.
+[2021-03-21 19:55:21] sensation3 is ready.
+[2021-03-21 19:55:21] sensation4 is ready.
+[2021-03-21 19:55:21] MemorySearch is ready.
+[2021-03-21 19:55:21] MouseOutput is ready.
+[2021-03-21 19:55:21] ModelTrainer is ready.
+[2021-03-21 19:55:21] SleepManager is ready.
+[2021-03-21 19:55:21] Controler is ready.
+[2021-03-21 19:55:24] J.A.R.V.I.S. started
+[2021-03-21 19:55:34] Clocks  sensation1 : 0.101| sensation2 : 0.513| sensation3 : 0.646| sensation4 : 0.035| MemorySearch : 0.031| MouseOutput : 0.047| SleepManager : 0.094| Sleepiness :0.000| Sleep : False
+[2021-03-21 19:56:04] J.A.R.V.I.S. shutdowned
+[2021-03-21 19:59:37] sensation1 is ready.
+[2021-03-21 19:59:37] sensation2 is ready.
+[2021-03-21 19:59:37] sensation3 is ready.
+[2021-03-21 19:59:37] sensation4 is ready.
+[2021-03-21 19:59:37] MemorySearch is ready.
+[2021-03-21 19:59:37] MouseOutput is ready.
+[2021-03-21 19:59:37] ModelTrainer is ready.
+[2021-03-21 19:59:37] SleepManager is ready.
+[2021-03-21 19:59:37] Controler is ready.
+[2021-03-21 19:59:40] J.A.R.V.I.S. started
+[2021-03-21 19:59:50] J.A.R.V.I.S. shutdowned
+[2021-03-21 20:00:46] sensation1 is ready.
+[2021-03-21 20:00:46] sensation2 is ready.
+[2021-03-21 20:00:46] sensation3 is ready.
+[2021-03-21 20:00:46] sensation4 is ready.
+[2021-03-21 20:00:46] MemorySearch is ready.
+[2021-03-21 20:00:46] MouseOutput is ready.
+[2021-03-21 20:00:46] ModelTrainer is ready.
+[2021-03-21 20:00:46] SleepManager is ready.
+[2021-03-21 20:00:46] Controler is ready.
+[2021-03-21 20:00:50] J.A.R.V.I.S. started
+[2021-03-21 20:01:00] Clocks  sensation1 : 0.101| sensation2 : 0.502| sensation3 : 0.642| sensation4 : 0.035| MemorySearch : 0.031| MouseOutput : 0.046| SleepManager : 0.093| Sleepiness :0.000| Sleep : False
+[2021-03-21 20:01:30] J.A.R.V.I.S. shutdowned
+[2021-03-21 20:01:37] sensation1 is ready.
+[2021-03-21 20:01:37] sensation2 is ready.
+[2021-03-21 20:01:37] sensation3 is ready.
+[2021-03-21 20:01:37] sensation4 is ready.
+[2021-03-21 20:01:37] MemorySearch is ready.
+[2021-03-21 20:01:37] MouseOutput is ready.
+[2021-03-21 20:01:37] ModelTrainer is ready.
+[2021-03-21 20:01:37] SleepManager is ready.
+[2021-03-21 20:01:37] Controler is ready.
+[2021-03-21 20:01:40] J.A.R.V.I.S. started
+[2021-03-21 20:01:51] J.A.R.V.I.S. shutdowned
+[2021-03-21 20:17:51] sensation1 is ready.
+[2021-03-21 20:17:51] sensation2 is ready.
+[2021-03-21 20:17:51] sensation3 is ready.
+[2021-03-21 20:17:51] sensation4 is ready.
+[2021-03-21 20:17:51] MemorySearch is ready.
+[2021-03-21 20:17:51] MouseOutput is ready.
+[2021-03-21 20:17:51] ModelTrainer is ready.
+[2021-03-21 20:17:51] SleepManager is ready.
+[2021-03-21 20:17:51] Controler is ready.
+[2021-03-21 20:17:54] J.A.R.V.I.S. started
+[2021-03-21 20:18:04] Clocks  sensation1 : 0.100| sensation2 : 0.506| sensation3 : 0.644| sensation4 : 0.035| MemorySearch : 0.032| MouseOutput : 0.046| SleepManager : 0.094| Sleepiness :0.000| Sleep : False
+[2021-03-21 20:18:34] J.A.R.V.I.S. shutdowned
+[2021-03-21 20:24:44] sensation1 is ready.
+[2021-03-21 20:24:44] sensation2 is ready.
+[2021-03-21 20:24:44] sensation3 is ready.
+[2021-03-21 20:24:44] sensation4 is ready.
+[2021-03-21 20:24:44] MemorySearch is ready.
+[2021-03-21 20:24:44] MouseOutput is ready.
+[2021-03-21 20:24:44] ModelTrainer is ready.
+[2021-03-21 20:24:44] SleepManager is ready.
+[2021-03-21 20:24:44] Controler is ready.
+[2021-03-21 20:24:47] J.A.R.V.I.S. started
+[2021-03-21 20:24:57] Clocks  sensation1 : 0.101| sensation2 : 0.503| sensation3 : 0.639| sensation4 : 0.035| MemorySearch : 0.032| MouseOutput : 0.048| SleepManager : 0.110| Sleepiness :0.000| Sleep : False
+[2021-03-21 20:25:27] J.A.R.V.I.S. shutdowned
+[2021-03-21 20:26:06] sensation1 is ready.
+[2021-03-21 20:26:06] sensation2 is ready.
+[2021-03-21 20:26:07] sensation3 is ready.
+[2021-03-21 20:26:07] sensation4 is ready.
+[2021-03-21 20:26:07] MemorySearch is ready.
+[2021-03-21 20:26:07] VisionOutput is ready.
+[2021-03-21 20:26:07] ModelTrainer is ready.
+[2021-03-21 20:26:07] SleepManager is ready.
+[2021-03-21 20:26:07] Controler is ready.
+[2021-03-21 20:26:09] J.A.R.V.I.S. started
+[2021-03-21 20:26:19] Clocks  sensation1 : 0.100| sensation2 : 0.505| sensation3 : 0.640| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.110| SleepManager : 0.095| Sleepiness :0.000| Sleep : False
+[2021-03-21 20:26:49] Clocks  sensation1 : 0.102| sensation2 : 0.495| sensation3 : 0.672| sensation4 : 0.034| MemorySearch : 0.030| VisionOutput : 0.107| SleepManager : 0.093| Sleepiness :0.000| Sleep : False
+[2021-03-21 20:27:19] J.A.R.V.I.S. shutdowned
+[2021-03-21 20:41:36] sensation1 is ready.
+[2021-03-21 20:41:36] sensation2 is ready.
+[2021-03-21 20:41:37] sensation3 is ready.
+[2021-03-21 20:41:37] sensation4 is ready.
+[2021-03-21 20:41:37] MemorySearch is ready.
+[2021-03-21 20:41:37] VisionOutput is ready.
+[2021-03-21 20:41:37] MouseOutput is ready.
+[2021-03-21 20:41:37] ModelTrainer is ready.
+[2021-03-21 20:41:37] SleepManager is ready.
+[2021-03-21 20:41:37] Controler is ready.
+[2021-03-21 20:41:41] J.A.R.V.I.S. started
+[2021-03-21 20:41:51] Clocks  sensation1 : 0.100| sensation2 : 0.510| sensation3 : 0.644| sensation4 : 0.035| MemorySearch : 0.030| VisionOutput : 0.105| MouseOutput : 0.045| SleepManager : 0.090| Sleepiness :0.000| Sleep : False
+[2021-03-21 20:42:21] J.A.R.V.I.S. shutdowned
+[2021-03-21 20:43:09] sensation1 is ready.
+[2021-03-21 20:43:09] sensation2 is ready.
+[2021-03-21 20:43:09] sensation3 is ready.
+[2021-03-21 20:43:09] sensation4 is ready.
+[2021-03-21 20:43:09] MemorySearch is ready.
+[2021-03-21 20:43:09] VisionOutput is ready.
+[2021-03-21 20:43:09] MouseOutput is ready.
+[2021-03-21 20:43:09] ModelTrainer is ready.
+[2021-03-21 20:43:09] SleepManager is ready.
+[2021-03-21 20:43:09] Controler is ready.
+[2021-03-21 20:43:13] J.A.R.V.I.S. started
+[2021-03-21 20:43:23] Clocks  sensation1 : 0.100| sensation2 : 0.496| sensation3 : 0.640| sensation4 : 0.034| MemorySearch : 0.032| VisionOutput : 0.110| MouseOutput : 0.048| SleepManager : 0.094| Sleepiness :0.000| Sleep : False
+[2021-03-21 20:43:53] Clocks  sensation1 : 0.101| sensation2 : 0.502| sensation3 : 0.627| sensation4 : 0.035| MemorySearch : 0.031| VisionOutput : 0.108| MouseOutput : 0.046| SleepManager : 0.093| Sleepiness :0.000| Sleep : False
+[2021-03-21 20:44:23] J.A.R.V.I.S. shutdowned
+[2021-03-22 18:24:22] sensation1 is ready.
+[2021-03-22 18:24:22] sensation2 is ready.
+[2021-03-22 18:24:23] sensation3 is ready.
+[2021-03-22 18:24:23] sensation4 is ready.
+[2021-03-22 18:24:23] MemorySearch is ready.
+[2021-03-22 18:24:23] VisionOutput is ready.
+[2021-03-22 18:24:23] MouseOutput is ready.
+[2021-03-22 18:24:23] ModelTrainer is ready.
+[2021-03-22 18:24:23] SleepManager is ready.
+[2021-03-22 18:24:23] Controler is ready.
+[2021-03-22 18:24:27] J.A.R.V.I.S. started
+[2021-03-22 18:24:37] Clocks  sensation1 : 0.102| sensation2 : 0.504| sensation3 : 0.634| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.109| MouseOutput : 0.048| SleepManager : 0.095| Sleepiness :0.000| Sleep : False
+[2021-03-22 18:25:07] Clocks  sensation1 : 0.101| sensation2 : 0.500| sensation3 : 0.636| sensation4 : 0.035| MemorySearch : 0.031| VisionOutput : 0.107| MouseOutput : 0.045| SleepManager : 0.092| Sleepiness :0.000| Sleep : False
+[2021-03-22 18:25:37] J.A.R.V.I.S. shutdowned
+[2021-03-22 18:26:00] sensation1 is ready.
+[2021-03-22 18:26:00] sensation2 is ready.
+[2021-03-22 18:26:00] sensation3 is ready.
+[2021-03-22 18:26:00] sensation4 is ready.
+[2021-03-22 18:26:00] MemorySearch is ready.
+[2021-03-22 18:26:00] VisionOutput is ready.
+[2021-03-22 18:26:00] MouseOutput is ready.
+[2021-03-22 18:26:00] ModelTrainer is ready.
+[2021-03-22 18:26:00] SleepManager is ready.
+[2021-03-22 18:26:00] Controler is ready.
+[2021-03-22 18:26:04] J.A.R.V.I.S. started
+[2021-03-22 18:26:14] Clocks  sensation1 : 0.102| sensation2 : 0.489| sensation3 : 0.643| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.109| MouseOutput : 0.046| SleepManager : 0.109| Sleepiness :0.000| Sleep : False
+[2021-03-22 18:26:44] J.A.R.V.I.S. shutdowned
+[2021-03-22 18:26:51] sensation1 is ready.
+[2021-03-22 18:26:51] sensation2 is ready.
+[2021-03-22 18:26:51] sensation3 is ready.
+[2021-03-22 18:26:52] sensation4 is ready.
+[2021-03-22 18:26:52] MemorySearch is ready.
+[2021-03-22 18:26:52] VisionOutput is ready.
+[2021-03-22 18:26:52] MouseOutput is ready.
+[2021-03-22 18:26:52] ModelTrainer is ready.
+[2021-03-22 18:26:52] SleepManager is ready.
+[2021-03-22 18:26:52] Controler is ready.
+[2021-03-22 18:26:56] J.A.R.V.I.S. started
+[2021-03-22 18:27:06] Clocks  sensation1 : 0.100| sensation2 : 0.497| sensation3 : 0.693| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.109| MouseOutput : 0.047| SleepManager : 0.093| Sleepiness :0.000| Sleep : False
+[2021-03-22 18:27:36] J.A.R.V.I.S. shutdowned
+[2021-03-23 09:52:47] sensation1 is ready.
+[2021-03-23 09:52:47] sensation2 is ready.
+[2021-03-23 09:52:48] sensation3 is ready.
+[2021-03-23 09:52:48] sensation4 is ready.
+[2021-03-23 09:52:49] MemorySearch is ready.
+[2021-03-23 09:52:49] VisionOutput is ready.
+[2021-03-23 09:52:49] MouseOutput is ready.
+[2021-03-23 09:52:49] ModelTrainer is ready.
+[2021-03-23 09:52:49] SleepManager is ready.
+[2021-03-23 09:52:49] Controler is ready.
+[2021-03-23 09:52:55] J.A.R.V.I.S. started
+[2021-03-23 09:53:05] Clocks  sensation1 : 0.102| sensation2 : 0.513| sensation3 : 0.591| sensation4 : 0.034| MemorySearch : 0.031| VisionOutput : 0.108| MouseOutput : 0.046| SleepManager : 3.012| Sleepiness :0.000| Sleep : False
+[2021-03-23 09:53:35] Clocks  sensation1 : 0.101| sensation2 : 0.501| sensation3 : 0.601| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.109| MouseOutput : 0.048| SleepManager : 3.010| Sleepiness :0.000| Sleep : False
+[2021-03-23 09:54:05] J.A.R.V.I.S. shutdowned
+[2021-03-24 08:51:20] sensation1 is ready.
+[2021-03-24 08:51:20] sensation2 is ready.
+[2021-03-24 08:51:21] sensation3 is ready.
+[2021-03-24 08:51:21] sensation4 is ready.
+[2021-03-24 08:51:21] MemorySearch is ready.
+[2021-03-24 08:51:21] VisionOutput is ready.
+[2021-03-24 08:51:21] MouseOutput is ready.
+[2021-03-24 08:51:21] ModelTrainer is ready.
+[2021-03-24 08:51:21] SleepManager is ready.
+[2021-03-24 08:51:21] Controler is ready.
+[2021-03-24 08:51:25] J.A.R.V.I.S. started
+[2021-03-24 08:51:35] Clocks  sensation1 : 0.101| sensation2 : 0.523| sensation3 : 0.641| sensation4 : 0.035| MemorySearch : 0.032| VisionOutput : 0.112| MouseOutput : 0.048| SleepManager : 3.006| Sleepiness :0.000| Sleep : False
+[2021-03-24 08:52:05] J.A.R.V.I.S. shutdowned
+[2021-03-24 10:17:21] sensation1 is ready.
+[2021-03-24 10:17:21] sensation2 is ready.
+[2021-03-24 10:17:22] sensation3 is ready.
+[2021-03-24 10:17:22] sensation4 is ready.
+[2021-03-24 10:17:22] MemorySearch is ready.
+[2021-03-24 10:17:22] VisionOutput is ready.
+[2021-03-24 10:17:22] MouseOutput is ready.
+[2021-03-24 10:17:22] ModelTrainer is ready.
+[2021-03-24 10:17:22] SleepManager is ready.
+[2021-03-24 10:17:22] Controler is ready.
+[2021-03-24 10:17:26] J.A.R.V.I.S. started
+[2021-03-24 10:17:36] Clocks  sensation1 : 0.101| sensation2 : 0.506| sensation3 : 0.644| sensation4 : 0.035| MemorySearch : 0.016| VisionOutput : 0.110| MouseOutput : 0.047| SleepManager : 0.000| Sleepiness :0.000| Sleep : False
+[2021-03-24 10:18:06] J.A.R.V.I.S. shutdowned
+[2021-03-24 17:53:18] sensation1 is ready.
+[2021-03-24 17:53:18] sensation2 is ready.
+[2021-03-24 17:53:18] sensation3 is ready.
+[2021-03-24 17:53:18] sensation4 is ready.
+[2021-03-24 17:53:18] sensation5 is ready.
+[2021-03-24 17:53:18] MemorySearch is ready.
+[2021-03-24 17:53:18] MouseOutput is ready.
+[2021-03-24 17:53:18] ModelTrainer is ready.
+[2021-03-24 17:53:18] SleepManager is ready.
+[2021-03-24 17:53:18] Controler is ready.
+[2021-03-24 17:53:23] J.A.R.V.I.S. started
+[2021-03-24 17:53:33] Clocks  sensation1 : 0.101| sensation2 : 0.502| sensation3 : 0.641| sensation4 : 0.035| sensation5 : 0.035| MemorySearch : 0.011| MouseOutput : 0.047| SleepManager : 0.000| Sleepiness :0.000| Sleep : False
+[2021-03-24 17:54:03] Clocks  sensation1 : 0.101| sensation2 : 0.511| sensation3 : 0.637| sensation4 : 0.035| sensation5 : 0.034| MemorySearch : 0.011| MouseOutput : 0.046| SleepManager : 0.000| Sleepiness :0.000| Sleep : False
+[2021-03-24 17:54:33] Clocks  sensation1 : 0.102| sensation2 : 0.499| sensation3 : 0.686| sensation4 : 0.035| sensation5 : 0.035| MemorySearch : 0.011| MouseOutput : 0.047| SleepManager : 0.000| Sleepiness :0.000| Sleep : False
+[2021-03-24 17:55:03] J.A.R.V.I.S. shutdowned
+[2021-03-24 17:56:29] sensation1 is ready.
+[2021-03-24 17:56:29] sensation2 is ready.
+[2021-03-24 17:56:29] sensation3 is ready.
+[2021-03-24 17:56:29] sensation4 is ready.
+[2021-03-24 17:56:29] sensation5 is ready.
+[2021-03-24 17:56:29] MemorySearch is ready.
+[2021-03-24 17:56:29] MouseOutput is ready.
+[2021-03-24 17:56:29] ModelTrainer is ready.
+[2021-03-24 17:56:29] SleepManager is ready.
+[2021-03-24 17:56:29] Controler is ready.
+[2021-03-24 17:56:33] J.A.R.V.I.S. started
+[2021-03-24 18:09:51] sensation1 is ready.
+[2021-03-24 18:09:51] sensation2 is ready.
+[2021-03-24 18:09:52] sensation3 is ready.
+[2021-03-24 18:09:52] sensation4 is ready.
+[2021-03-24 18:09:52] sensation5 is ready.
+[2021-03-24 18:09:52] MemorySearch is ready.
+[2021-03-24 18:09:52] MouseOutput is ready.
+[2021-03-24 18:09:52] ModelTrainer is ready.
+[2021-03-24 18:09:52] SleepManager is ready.
+[2021-03-24 18:09:52] Controler is ready.
+[2021-03-24 18:09:56] J.A.R.V.I.S. started
+[2021-03-24 18:10:06] Clocks  sensation1 : 0.102| sensation2 : 0.498| sensation3 : 0.641| sensation4 : 0.034| sensation5 : 0.034| MemorySearch : 0.011| MouseOutput : 0.046| SleepManager : 1.001| Sleepiness :0.000| Sleep : False
+[2021-03-24 18:10:36] J.A.R.V.I.S. shutdowned

@@ -19,9 +19,9 @@ from screeninfo import get_monitors
 class Sensation(SensationBase):
     MemoryFormat:str = '4'# your process memory format (id[0])
     LogTitle:str = f'sensation{MemoryFormat}'
-    ReadOutLength:int = 16384 # ReadOutLength
+    ReadOutLength:int = 32768 # ReadOutLength
     KeepLength:int = math.floor(ReadOutLength*0.7)  # ReadOutLength * 0.7
-    MemoryListLength:int = 16# 1% of ReadOutLength
+    MemoryListLength:int = int(ReadOutLength*0.005)# 1% of ReadOutLength
     MemorySize:int = int(np.prod(Encoder.output_size))
     SameThreshold:float = 0.001 # The Threshold of memory error.
     DataSize:tuple = Encoder.input_size[1:]

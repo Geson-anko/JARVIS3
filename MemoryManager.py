@@ -532,14 +532,14 @@ class MemoryManager(Debug):
             obj = pickle.load(f)
         return obj
     
-    @staticmethod
-    def remove_file(file_name:str) -> None:
+    def remove_file(self,file_name:str) -> None:
         """
         delete file
         """
         if os.path.exists(file_name):
             os.remove(file_name)
-
+        else:
+            self.warn(f'Not exists {file_name}')
     @staticmethod
     def release_system_memory() -> None:
         gc.collect()

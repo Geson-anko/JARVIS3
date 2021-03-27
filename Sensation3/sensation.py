@@ -23,7 +23,7 @@ from concurrent.futures import ThreadPoolExecutor
 class Sensation(SensationBase):
     MemoryFormat:str = '3'# your process memory format (id[0])
     LogTitle:str = f'sensation{MemoryFormat}'
-    ReadOutLength:int = 16384 # ReadOutLength
+    ReadOutLength:int = 32768 # ReadOutLength
     KeepLength:int = math.floor(ReadOutLength*0.7)  # ReadOutLength * 0.7
     MemoryListLength:int = math.floor(ReadOutLength*0.01)# 1% of ReadOutLength
     MemorySize:int = int(np.prod(Encoder.output_size))
@@ -176,6 +176,9 @@ class Sensation(SensationBase):
                 
     def End(self):
         self.executer.shutdown(True)
+        self.stream.stop_stream()
+        self.stream.close()
+        self.audio.terminate()
     def DataSavingCheck(self) -> None:pass
 
     def SleepProcess(self) -> None:

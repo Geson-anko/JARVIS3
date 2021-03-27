@@ -563,3 +563,166 @@
 [2021-03-20 19:26:37] process start
 [2021-03-20 19:29:08] started shutdown process
 [2021-03-20 19:29:08] process shutdowned
+[2021-03-20 20:40:48] Inherit Shared Memories
+[2021-03-20 20:40:48] waiting until all sensations are Active.
+[2021-03-20 20:40:49] finished WaitAllTrue
+[2021-03-20 20:40:49] Found ReadOutMemory and Ids
+[2021-03-20 20:40:49] process start
+[2021-03-20 20:41:08] started shutdown process
+[2021-03-20 20:41:08] process shutdowned
+[2021-03-20 20:43:37] Inherit Shared Memories
+[2021-03-20 20:43:37] waiting until all sensations are Active.
+[2021-03-20 20:43:38] finished WaitAllTrue
+[2021-03-20 20:43:38] Found ReadOutMemory and Ids
+[2021-03-20 20:43:38] process start
+[2021-03-20 20:43:48] started shutdown process
+[2021-03-20 20:43:48] process shutdowned
+[2021-03-21 09:46:59] Inherit Shared Memories
+[2021-03-21 09:46:59] waiting until all sensations are Active.
+[2021-03-21 09:47:01] finished WaitAllTrue
+[2021-03-21 09:47:01] Found ReadOutMemory and Ids
+[2021-03-21 09:47:01] process start
+[2021-03-21 09:47:26] started shutdown process
+[2021-03-21 09:47:26] process shutdowned
+[2021-03-21 09:49:19] Inherit Shared Memories
+[2021-03-21 09:49:19] waiting until all sensations are Active.
+[2021-03-21 09:49:21] finished WaitAllTrue
+[2021-03-21 09:49:21] Found ReadOutMemory and Ids
+[2021-03-21 09:49:21] process start
+[2021-03-21 09:52:15] started shutdown process
+[2021-03-21 09:52:15] process shutdowned
+[2021-03-21 09:52:52] Inherit Shared Memories
+[2021-03-21 09:52:52] waiting until all sensations are Active.
+[2021-03-21 09:52:54] finished WaitAllTrue
+[2021-03-21 09:52:54] Found ReadOutMemory and Ids
+[2021-03-21 09:52:54] process start
+[2021-03-21 09:54:25] started shutdown process
+[2021-03-21 09:54:25] process shutdowned
+[2021-03-21 18:03:04] Inherit Shared Memories
+[2021-03-21 18:03:04] waiting until all sensations are Active.
+[2021-03-21 18:03:06] finished WaitAllTrue
+[2021-03-21 18:03:06] Found ReadOutMemory and Ids
+[2021-03-21 18:03:06] process start
+[2021-03-21 18:04:07] started shutdown process
+[2021-03-21 18:04:07] process shutdowned
+[2021-03-21 18:06:15] Inherit Shared Memories
+[2021-03-21 18:06:15] waiting until all sensations are Active.
+[2021-03-21 18:06:17] finished WaitAllTrue
+[2021-03-21 18:06:17] Found ReadOutMemory and Ids
+[2021-03-21 18:06:17] process start
+[2021-03-21 18:06:44] started shutdown process
+[2021-03-21 18:06:44] process shutdowned
+[2021-03-21 18:11:27] Inherit Shared Memories
+[2021-03-21 18:11:27] waiting until all sensations are Active.
+[2021-03-21 18:11:28] finished WaitAllTrue
+[2021-03-21 18:11:28] Found ReadOutMemory and Ids
+[2021-03-21 18:11:28] process start
+[2021-03-21 18:11:58] started shutdown process
+[2021-03-21 18:11:58] process shutdowned
+[2021-03-21 18:28:56] Inherit Shared Memories
+[2021-03-21 18:28:56] waiting until all sensations are Active.
+[2021-03-21 18:28:58] finished WaitAllTrue
+[2021-03-21 18:28:58] Found ReadOutMemory and Ids
+[2021-03-21 18:28:58] process start
+[2021-03-21 18:41:00] Inherit Shared Memories
+[2021-03-21 18:41:00] waiting until all sensations are Active.
+[2021-03-21 18:41:02] finished WaitAllTrue
+[2021-03-21 18:41:02] Found ReadOutMemory and Ids
+[2021-03-21 18:41:02] process start
+[2021-03-21 18:45:05] switch off.
+[2021-03-21 18:45:06] switch on
+[2021-03-21 18:45:11] started shutdown process
+[2021-03-21 18:45:11] process shutdowned
+[2021-03-21 18:46:41] Inherit Shared Memories
+[2021-03-21 18:46:41] waiting until all sensations are Active.
+[2021-03-21 18:46:43] finished WaitAllTrue
+[2021-03-21 18:46:43] Found ReadOutMemory and Ids
+[2021-03-21 18:46:43] process start
+[2021-03-21 18:46:53] started shutdown process
+[2021-03-21 18:46:53] process shutdowned
+[2021-03-21 18:47:33] Inherit Shared Memories
+[2021-03-21 18:47:33] waiting until all sensations are Active.
+[2021-03-21 18:47:35] finished WaitAllTrue
+[2021-03-21 18:47:35] Found ReadOutMemory and Ids
+[2021-03-21 18:47:35] process start
+[2021-03-21 18:48:09] started shutdown process
+[2021-03-21 18:48:09] process shutdowned
+[2021-03-21 18:51:36] Inherit Shared Memories
+[2021-03-21 18:51:36] waiting until all sensations are Active.
+[2021-03-21 18:51:38] finished WaitAllTrue
+[2021-03-21 18:51:38] Found ReadOutMemory and Ids
+[2021-03-21 18:51:38] process start
+[2021-03-21 18:51:45] switch off.
+[2021-03-21 18:51:46] switch on
+[2021-03-21 18:52:02] started shutdown process
+[2021-03-21 18:52:02] process shutdowned
+[2021-03-21 18:53:34] Inherit Shared Memories
+[2021-03-21 18:53:34] waiting until all sensations are Active.
+[2021-03-21 18:53:36] finished WaitAllTrue
+[2021-03-21 18:53:36] Found ReadOutMemory and Ids
+[2021-03-21 18:53:36] process start
+[2021-03-21 18:54:51] started shutdown process
+[2021-03-21 18:54:51] process shutdowned
+[2021-03-21 20:26:10] Inherit Shared Memories
+[2021-03-21 20:26:10] waiting until all sensations are Active.
+[2021-03-21 20:26:12] finished WaitAllTrue
+[2021-03-21 20:26:12] Found ReadOutMemory and Ids
+[2021-03-21 20:26:12] process start
+[2021-03-21 20:27:05] started shutdown process
+[2021-03-21 20:27:05] process shutdowned
+[2021-03-21 20:41:41] Inherit Shared Memories
+[2021-03-21 20:41:41] waiting until all sensations are Active.
+[2021-03-21 20:41:43] finished WaitAllTrue
+[2021-03-21 20:41:43] Found ReadOutMemory and Ids
+[2021-03-21 20:41:43] process start
+[2021-03-21 20:41:52] started shutdown process
+[2021-03-21 20:41:52] process shutdowned
+[2021-03-21 20:43:13] Inherit Shared Memories
+[2021-03-21 20:43:13] waiting until all sensations are Active.
+[2021-03-21 20:43:15] finished WaitAllTrue
+[2021-03-21 20:43:15] Found ReadOutMemory and Ids
+[2021-03-21 20:43:15] process start
+[2021-03-21 20:44:16] started shutdown process
+[2021-03-21 20:44:16] process shutdowned
+[2021-03-22 18:24:26] Inherit Shared Memories
+[2021-03-22 18:24:26] waiting until all sensations are Active.
+[2021-03-22 18:24:30] finished WaitAllTrue
+[2021-03-22 18:24:30] Found ReadOutMemory and Ids
+[2021-03-22 18:24:30] process start
+[2021-03-22 18:25:18] started shutdown process
+[2021-03-22 18:25:18] process shutdowned
+[2021-03-22 18:26:04] Inherit Shared Memories
+[2021-03-22 18:26:04] waiting until all sensations are Active.
+[2021-03-22 18:26:07] finished WaitAllTrue
+[2021-03-22 18:26:07] Found ReadOutMemory and Ids
+[2021-03-22 18:26:07] process start
+[2021-03-22 18:26:42] started shutdown process
+[2021-03-22 18:26:42] process shutdowned
+[2021-03-22 18:26:56] Inherit Shared Memories
+[2021-03-22 18:26:56] waiting until all sensations are Active.
+[2021-03-22 18:26:58] finished WaitAllTrue
+[2021-03-22 18:26:58] Found ReadOutMemory and Ids
+[2021-03-22 18:26:58] process start
+[2021-03-22 18:27:17] started shutdown process
+[2021-03-22 18:27:17] process shutdowned
+[2021-03-23 09:52:54] Inherit Shared Memories
+[2021-03-23 09:52:54] waiting until all sensations are Active.
+[2021-03-23 09:52:59] finished WaitAllTrue
+[2021-03-23 09:52:59] Found ReadOutMemory and Ids
+[2021-03-23 09:52:59] process start
+[2021-03-23 09:53:45] started shutdown process
+[2021-03-23 09:53:45] process shutdowned
+[2021-03-24 08:51:24] Inherit Shared Memories
+[2021-03-24 08:51:24] waiting until all sensations are Active.
+[2021-03-24 08:51:28] finished WaitAllTrue
+[2021-03-24 08:51:28] Found ReadOutMemory and Ids
+[2021-03-24 08:51:28] process start
+[2021-03-24 08:51:47] started shutdown process
+[2021-03-24 08:51:47] process shutdowned
+[2021-03-24 10:17:25] Inherit Shared Memories
+[2021-03-24 10:17:25] waiting until all sensations are Active.
+[2021-03-24 10:17:29] finished WaitAllTrue
+[2021-03-24 10:17:29] Found ReadOutMemory and Ids
+[2021-03-24 10:17:29] process start
+[2021-03-24 10:17:48] started shutdown process
+[2021-03-24 10:17:48] process shutdowned

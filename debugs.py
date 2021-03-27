@@ -196,7 +196,7 @@ if __name__ == '__main__':
     print('sleep',sleepiness.value)
     print('process end')
     
-    
+    """
     from MemorySearch import MemorySearch
     import copy
     sp = MemorySearch(True)
@@ -225,7 +225,7 @@ if __name__ == '__main__':
     p.join()
     print('clock',clock.value)
     print('process end')
-    
+    """
     """
     from Sensation1.train import Train  
     train = Train('cuda',True)
