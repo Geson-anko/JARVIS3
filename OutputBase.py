@@ -60,12 +60,16 @@ class OutputBase(MemoryManager):
         # ------ Output Process ------
         self.log('process start')
         system_cache_time = time.time()
+        first_call = True
         while not self.shutdown.value:
             clock_start = time.time()
             self.SwitchCheck()
 
             memory = self.GetMemory()
             if memory.size(0) >= self.UseMemoryLowerLimit:
+                if first_call:
+                    self.log('called')
+                    first_call = False
                 self.Update(memory)
 
             

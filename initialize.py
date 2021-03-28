@@ -14,6 +14,7 @@ import Sensation2
 import Sensation3
 import Sensation4
 import Sensation5
+import Sensation6
 
 
 removesdirs = [
@@ -28,6 +29,9 @@ removesdirs = [
     Sensation4.Sensation.Temp_folder,
     Sensation5.Sensation.Temp_folder,
     Sensation5.Sensation.Data_folder,
+    Sensation6.Sensation.Temp_folder,
+    Sensation6.Sensation.KikitoriData_folder,
+    
 ]
 removefiles = [
     searchconf.dict_file,

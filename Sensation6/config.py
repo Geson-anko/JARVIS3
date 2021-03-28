@@ -42,3 +42,7 @@ class config:
     word_dtype = 'float16'
     use_corpus_length = 100000
     separator_name = 'SeparatorCent64'
+
+
+    use_mem_len:int = 8
+    generate_max_words:int = 64

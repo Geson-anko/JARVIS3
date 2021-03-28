@@ -16,7 +16,6 @@ from .torch_KMeans import torch_KMeans
 
 import pyaudio
 import sentencepiece as spm
-from gensim.models import FastText
 import time
 from concurrent.futures import ThreadPoolExecutor
 
@@ -33,7 +32,7 @@ class Sensation(SensationBase):
     KikitoriSavingRate:int = 64
 
     Encoder:Module = Encoder
-    SleepWaitTime:float = 1
+    SleepWaitTime:float = config.sample_second*2
 
     Current_directory:str = os.path.dirname(os.path.abspath(__file__)) # /Current_directory/...  from root
     Param_folder:str = pathjoin(Current_directory,'params') # /Current_directory/params/
@@ -41,16 +40,16 @@ class Sensation(SensationBase):
     Temp_folder:str = pathjoin(Current_directory,'temp') # /Current_directory/temp/
 
     KikitoriData_folder:str = pathjoin(Current_directory,'kikitori')
-    Corpus_file:str = pathjoin('Sensation3','corpus.txt')
+    Corpus_file:str = pathjoin(f'Sensation{MemoryFormat}','corpus.txt')
 
     ## defining parameter file
-    Encoder_params:str= pathjoin(Param_folder,'EncoderText.params') # your encoder parameter file name
-    Decoder_params:str = pathjoin(Param_folder,'DecoderText.params') # yout decoder parameter file name
-    KikitoriEncoder_params:str = pathjoin(Param_folder,'EncoderKikitori.params')
-    KikitoriDecoder_params:str = pathjoin(Param_folder,'DecoderKikitori.params')
-    Centroids_file:str = pathjoin(Param_folder,'centroids_96_datasize320.tensor')
+    Encoder_params:str= pathjoin(Param_folder,'TextEncoder.params') # your encoder parameter file name
+    Decoder_params:str = pathjoin(Param_folder,'TextDecoder.params') # yout decoder parameter file name
+    KikitoriEncoder_params:str = pathjoin(Param_folder,'KikitoriEncoder.params')
+    KikitoriDecoder_params:str = pathjoin(Param_folder,'KikitoriDecoder.params')
+    Centroids_file:str = pathjoin(Param_folder,'centroids_64_datasize320.tensor')
     FastText_file:str = pathjoin(Param_folder,'FastText.pkl')
-    Separator_file:str = pathjoin('Sensation3/params',f'{config.separator_name}.model')
+    Separator_file:str = pathjoin(f'Sensation{MemoryFormat}/params',f'{config.separator_name}.model')
     HumanCheck_file:str = pathjoin(Param_folder,'humancheck.params')
     Chars_file:str = pathjoin(Param_folder,'chars.txt')
 
@@ -69,7 +68,7 @@ class Sensation(SensationBase):
     def LoadModels(self) -> None:
         self.encoder = Encoder().to(self.device).type(self.torchdtype)
         self.encoder.load_state_dict(torch.load(self.Encoder_params,map_location=self.device))
-        self.log('loaded Encoder')
+        self.log('loaded TextEncoder')
         
         self.kikitoriencoder = KikitoriEncoder().to(self.device).type(self.torchdtype)
         self.kikitoriencoder.load_state_dict(torch.load(self.KikitoriEncoder_params,map_location=self.device))

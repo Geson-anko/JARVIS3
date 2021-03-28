@@ -90,14 +90,14 @@ class Train(MemoryManager):
             return
 
         # ------ Separator training ------
-        spm.SentencePieceTrainer.Train(f"--input={Sensation.Corpus_file} --model_prefix=Sensation3/params/{config.separator_name} --vocab_size={config.vocab_size}")
+        spm.SentencePieceTrainer.Train(f"--input={Sensation.Corpus_file} --model_prefix=Sensation{Sensation.MemoryFormat}/params/{config.separator_name} --vocab_size={config.vocab_size}")
         # --- end of SentencePiece Trainings ---
         if shutdown.value or not sleep.value:
             self.log('Train process was stopped')
             return
         # ------ Fasttext training ------
         separator = spm.SentencePieceProcessor()
-        separator.Load(f'Sensation3/params/{config.separator_name}.model')
+        separator.Load(f'Sensation{Sensation.MemoryFormat}/params/{config.separator_name}.model')
         bos = separator.IdToPiece(separator.bos_id())
         eos = separator.IdToPiece(separator.eos_id())
 

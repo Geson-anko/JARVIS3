@@ -53,7 +53,7 @@ class Sensation(SensationBase):
     monitor = get_monitors()[0]
     monitor_width = monitor.width
     monitor_height = monitor.height
-    frame_rate = 30
+    frame_rate = 60
     frame_second = 1/frame_rate
     elapsed = frame_second
     move_x,move_y,scroll_dx,scroll_dy = 0,0,0,0

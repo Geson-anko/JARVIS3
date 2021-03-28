@@ -13,7 +13,7 @@ class Config:
 
     init_id:int = -1
     memory_folder:str = os.path.join(current_directory,'memory')
-    tempmem_scale_factor:int = 2
+    tempmem_scale_factor:float = 2
     active_time:float = 16.0
     ID_length:int = 10
     ID_dtype:str = 'int64'
@@ -57,7 +57,8 @@ class Config:
         ('Sensation2','cuda',0),
         #('Sensation3','cuda',1),
         ('Sensation4','cuda',1),
-        ('Sensation5','cuda',0)
+        ('Sensation5','cuda',0),
+        ('Sensation6','cuda',1)
     )
 
     ### outputs
@@ -65,6 +66,7 @@ class Config:
     output_modules:tuple = ( # (Module_name, device, process group number)
         #('OutputVision','cuda',0),
         ('OutputMouse','cpu',2),
+        ('OutputOshaberi','cuda',0)
     )
 
     ### Trainer
@@ -77,7 +79,7 @@ class Config:
     train_modules:tuple = (
         "Sensation1",
         "Sensation2",
-        "Sensation3",
+        "Sensation6",
         "MemorySearch",
     )
     train_wait:float = 5 #second

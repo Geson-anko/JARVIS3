@@ -13,10 +13,10 @@ from Trainer import Train
 import OutputVision
 import numpy as np
 if __name__ == '__main__':
-    """
-    import OutputMouse
-    from Sensation4 import Sensation
-    proc = OutputMouse.Output('cpu',True)
+    
+    import OutputOshaberi
+    from Sensation6 import Sensation
+    proc = OutputOshaberi.Output('cuda',True)
     proc.UsingMemoryFormat = '0'
     shutdown = Value('i',False)
     sleep = Value('i',False)
@@ -26,7 +26,7 @@ if __name__ == '__main__':
     rolength = 10
     rois = [proc.create_shared_memory((rolength,),dtype=mconf.ID_dtype,initialize=mconf.init_id)]
     rois[0][0][:] = np.arange(rolength)
-    roms = [proc.create_shared_memory((rolength,Sensation.MemorySize),dtype='float16',initialize=1)]
+    roms = [proc.create_shared_memory((rolength,Sensation.MemorySize),dtype='float16',initialize=0)]
     TempMem = proc.create_shared_memory((rolength,),dtype=mconf.ID_dtype)
     TempMem[0][:] = np.arange(rolength)
     isActives = [Value('i',True) for i in range(1)]
@@ -38,7 +38,7 @@ if __name__ == '__main__':
     shutdown.value = True
     p.join()
     print('process ended')
-    """
+    
     """
     proc = OutputVision.Output('cuda',True)
     proc.UsingMemoryFormat = '0'
@@ -166,7 +166,7 @@ if __name__ == '__main__':
     for i in switches:
         print(i.value)
     """
-    
+    """
     import matplotlib.pyplot as plt
     import numpy as np
     newids = [Value('i',i) for i in range(4)]
@@ -195,7 +195,7 @@ if __name__ == '__main__':
     print('clock',clock.value)
     print('sleep',sleepiness.value)
     print('process end')
-    
+    """
     """
     from MemorySearch import MemorySearch
     import copy

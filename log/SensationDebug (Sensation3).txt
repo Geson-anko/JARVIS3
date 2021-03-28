@@ -1,7 +1,0 @@
-[2021-03-21 10:21:20] initialized
-[2021-03-21 10:21:21] process submit
-[2021-03-21 10:21:38] initialized
-[2021-03-21 10:21:39] process submit
-[2021-03-21 10:25:24] initialized
-[2021-03-21 10:25:25] process submit
-[2021-03-21 10:26:26] process result

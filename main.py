@@ -80,7 +80,7 @@ def main():
     Switches.append((func.LogTitle,switch_search))
     clock_search = Value('d',0.0)
     Clocks.append((func.LogTitle,clock_search))
-    TempMemoryLength *= Config.tempmem_scale_factor
+    TempMemoryLength = int(Config.tempmem_scale_factor*TempMemoryLength)
     TempMemory = mm.create_shared_memory((TempMemoryLength,),dtype=Config.ID_dtype,initialize=Config.init_id)
     args = (shutdown,sleep,switch_search,clock_search,sleepiness,TempMemory,MemoryLists,NewestIds)
     logtitles.append(func.LogTitle)
