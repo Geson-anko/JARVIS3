@@ -218,7 +218,7 @@ class torch_KMeans:
             _d = data[i:i+batch_size].to(device)
             _cls = self.clustering(centroids,_d)
             classes.append(_cls)
-        return torch.cat(classes)
+        return torch.cat(classes).type(torch.long)
 
 
 if __name__ == '__main__':

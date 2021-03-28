@@ -251,7 +251,7 @@ class Fit:
                 if _metrics:
                     mvalues = [m(o,a) for (m,o,a) in zip(metrics,output,data_y)]
                     for i,m in enumerate(mvalues):
-                        avg_met_result[i] += m
+                        avg_met_result[i] += m.to('cpu')
                         _mes += 'metrics{} : {:5.5f} '.format(i,m)
                 #print(_mes,end='')
             #print('')
@@ -305,7 +305,7 @@ class Fit:
                         if _metrics:
                             mvalues = [m(o,a) for (m,o,a) in zip(metrics,output,data_y)]
                             for i,m in enumerate(mvalues):
-                                avg_val_met_results[i] += m
+                                avg_val_met_results[i] += m.to('cpu')
                                 _mes += 'avg_metrics{} : {:5.5f} '.format(i,m)
                         
                         #print(_mes,end='')
@@ -394,7 +394,7 @@ class Fit:
         output: (batch,elem)
         answer: (batch,)
         """
-        length = torch.prod(answer.shape)
+        length = torch.prod(torch.tensor(answer.shape))
         out = torch.argmax(output,dim=-1)
         error = torch.div(torch.sum(out==answer),length)
         return error

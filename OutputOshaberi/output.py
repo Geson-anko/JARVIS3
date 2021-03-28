@@ -129,3 +129,19 @@ class Output(OutputBase):
         self.stream.stop_stream()
         self.stream.close()
         self.audio.terminate()
+
+    # Training settings
+    Training_dtype:torch.dtype = torch.float16
+    OshaberiDataSize:int = 8192
+    OshaberiLearningRate:float = 0.0001
+    OshaberiBatchSize:int = 8
+    OshaberiEpochs:int = 16
+
+    CorpusUseLength = 10000
+    TextGeneratorDataSize:int = 2**17
+    TextGeneratorLearningRate:float = 0.001
+    TextGeneratorBatchSize:int = 128
+    TextGeneratorEpochs:int =16
+    MaxSamples = int(TextGeneratorDataSize/CorpusUseLength)
+
+

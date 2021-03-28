@@ -13,7 +13,12 @@ from Trainer import Train
 import OutputVision
 import numpy as np
 if __name__ == '__main__':
-    
+    from OutputOshaberi import Train
+    train = Train('cuda',True)
+    shutdown = Value('i',False)
+    sleep = Value('i',True)
+    train(shutdown,sleep)
+    """
     import OutputOshaberi
     from Sensation6 import Sensation
     proc = OutputOshaberi.Output('cuda',True)
@@ -38,7 +43,7 @@ if __name__ == '__main__':
     shutdown.value = True
     p.join()
     print('process ended')
-    
+    """
     """
     proc = OutputVision.Output('cuda',True)
     proc.UsingMemoryFormat = '0'

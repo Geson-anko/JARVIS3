@@ -81,6 +81,7 @@ class Config:
         "Sensation2",
         "Sensation6",
         "MemorySearch",
+        "outputOshaberi",
     )
     train_wait:float = 5 #second
     
