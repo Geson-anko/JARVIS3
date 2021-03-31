@@ -203,4 +203,4 @@ class Sensation(SensationBase):
     AutoEncoderBatchSize:int = 4096
     AutoEncoderEpochs:int = 10
 
-
+    SavingCorpusLength:int = 100000

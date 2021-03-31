@@ -105,6 +105,7 @@ class SensationBase(MemoryManager):
         self.log('process start')
         IsActive.value = True
         system_cache_time = time.time()
+        self.release_system_memory()
         while not self.shutdown.value:
             clock_start = time.time()
             self.SwitchCheck()

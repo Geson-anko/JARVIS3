@@ -155,7 +155,13 @@ class Train(MemoryManager):
         self.log('trained Text AutoEncoder')
         self.release_system_memory()
         # --- end of Text AutoEncoder training ----
-        
+        # ----- corpus reducing ------
+        with open(Sensation.Corpus_file,'r',encoding='utf-8') as f:
+            corpus = f.readlines()[-Sensation.SavingCorpusLength:]
+        with open(Sensation.Corpus_file,'w',encoding='utf-8') as f:
+            f.writelines(corpus)
+        self.log('reduced corpus')
+
 
 
         self.log('Train process was finished')

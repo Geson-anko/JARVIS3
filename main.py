@@ -156,6 +156,7 @@ def main():
         text += '| Sleepiness :{0:3.3f}'.format(sleepiness.value)
         text += f'| Sleep : {bool(sleep.value)}'
         mm.log(text)
+        mm.release_system_memory()
         time.sleep(30)
     for p in working_processes:
         p.join()

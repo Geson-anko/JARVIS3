@@ -481,7 +481,7 @@ class MemoryManager(Debug):
             start_id = self.Id2Num(start_id)
         return start_id
             
-    def create_shared_memory(
+    def _create_shared_memory(
         self,shape:Tuple[int,...],
         dtype:str or np.dtype,
         initialize:Any=None) -> Tuple[ndarray,SharedMemory]:
@@ -499,7 +499,33 @@ class MemoryManager(Debug):
         self.public_shared_memory.append(pubmem)
 
         return array,pubmem
+
+    def create_shared_memory(
+        self,shape:Tuple[int,...],
+        dtype:str or np.dtype,
+        initialize:Any=None) -> Tuple[tuple,np.dtype,SharedMemory]:
+        """
+        shape [required]: tuple of int. Ex.) (10,5)
+        dtype [required]: str or numpy.dtype
+        initialize:[optional]: initialize specific value when it isn't None.
+        """
+        size = int(np.dtype(dtype).itemsize * np.prod(shape))
+        pubmem = SharedMemory(create=True,size=size)
+        array = ndarray(shape=shape,dtype=dtype,buffer=pubmem.buf)
+
+        if initialize is not None:
+            array[:] = initialize
+        self.public_shared_memory.append(pubmem)
+        return array.shape,array.dtype,pubmem
+
     
+    def inherit_shared_memory(self,created_shared_memory:Tuple[tuple,np.dtype,SharedMemory]) -> ndarray:
+        """
+        created_shared_memory [requierd]: Please use create_shared_memory before this method.
+        """
+        shape,dtype,pubmem = created_shared_memory
+        return ndarray(shape=shape,dtype=dtype,buffer=pubmem.buf)
+
     def destory_shared_memory(self) -> Any:
         """
         destoring shared memory objects.
@@ -512,7 +538,7 @@ class MemoryManager(Debug):
         gc.collect()
 
     
-    def inherit_shared_memory(self,created_shared_memory:Tuple[ndarray,SharedMemory]) -> ndarray:
+    def _inherit_shared_memory(self,created_shared_memory:Tuple[ndarray,SharedMemory]) -> ndarray:
         """
         created_shared_memory [requierd]: Please use create_shared_memory before this method.
         """
