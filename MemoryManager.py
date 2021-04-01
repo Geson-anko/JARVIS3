@@ -3,6 +3,7 @@ import numpy as np
 import torch
 from numpy import ndarray
 from torch import Tensor
+import torch
 import h5py
 import pickle
 from os.path import isdir, join as pathjoin
@@ -112,6 +113,7 @@ class MemoryManager(Debug):
 
     return_time:bool = False
 
+    device:torch.device = torch.device('cpu')
     
 
     def __init__(self,log_title:str='',debug_mode:bool=False) -> None:
@@ -128,6 +130,9 @@ class MemoryManager(Debug):
 
         a= len(Config.IDchars) **(Config.ID_length-1)
         self.memory_format_integers = np.arange(len(Config.IDchars)+1,dtype=Config.ID_dtype)*a
+
+    def ToDevice(self,x:Tensor) ->Tensor:
+        return x.to(self.device)
 
 
     def Num2Id(self,num:int) -> str:
