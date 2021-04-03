@@ -33,7 +33,9 @@ class Config:
     deltaT_zero_per:float = 0.1
     """
 
-    release_system_cache_time:float = 16 # second
+    release_system_cache_time:float = 30 # second
+
+    sleep_process_rate:float = 1*60*60 # second
 
     ### processer settings
     max_processes:int = 4

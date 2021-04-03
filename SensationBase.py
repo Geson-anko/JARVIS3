@@ -105,6 +105,7 @@ class SensationBase(MemoryManager):
         self.log('process start')
         IsActive.value = True
         system_cache_time = time.time()
+        sleepstart = time.time()
         self.release_system_memory()
         while not self.shutdown.value:
             clock_start = time.time()
@@ -117,8 +118,9 @@ class SensationBase(MemoryManager):
                 self.SaveMemories()
                 self.SavePreviousValues()
             
-            if self.sleep.value:
+            if self.sleep.value and (time.time()-sleepstart) > Config.sleep_process_rate:
                 self.SleepProcess()
+                sleepstart = time.time()
                 #self.LoadDeltaTime() # 3/12/2021 DeltaTime was abolished.
 
             #sleepiness wait

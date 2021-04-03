@@ -61,6 +61,7 @@ class OutputBase(MemoryManager):
         self.log('process start')
         system_cache_time = time.time()
         first_call = True
+        sleepstart = time.time()
         self.release_system_memory()
         while not self.shutdown.value:
             clock_start = time.time()
@@ -79,8 +80,9 @@ class OutputBase(MemoryManager):
                 system_cache_time = time.time()
 
             time.sleep(self.SleepWaitTime*self.sleepiness.value)
-            if self.sleep.value:
+            if self.sleep.value and (time.time()-sleepstart) > Config.sleep_process_rate:
                 self.SleepProcess()
+                sleepstart = time.time()
 
             self.UpdateEnd()
             # set frame rate
