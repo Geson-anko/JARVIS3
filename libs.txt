@@ -17,3 +17,4 @@ conda install -c main ffmpeg
 pynput
 pandas
 screeninfo
+pytorch-lightning
