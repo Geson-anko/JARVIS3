@@ -16,4 +16,8 @@ gensim
 conda install -c main ffmpeg
 pynput
 pandas
+<<<<<<< Updated upstream
 screeninfo
+=======
+pytorch-lightning
+>>>>>>> Stashed changes

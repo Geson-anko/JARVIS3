@@ -1,7 +1,7 @@
 # ------ your setttings ------
-sensation = 'Sensation6' # your sensation folder name
+sensation = 'Sensation4' # your sensation folder name
 initialize = True # Whether to initialize or not after debugging. If True, this code deletes Data_folder and Temp_folder
-debug_time = 60*10 # debugging time [second]
+debug_time = 60 # debugging time [second]
 device = 'cuda' # debugging device
 # ------ end of settings -----
 
