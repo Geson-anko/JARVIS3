@@ -114,11 +114,11 @@ class SensationBase(MemoryManager):
             Data = self.Update() # update process
             self.MemoryProcess(Data)
             self.DataSavingCheck()
-            if self.sleep.value or (not self.current_length < self.ReadOutLength) or (not self.switch.value):
+            if (not self.current_length < self.ReadOutLength) or (not self.switch.value):
                 self.SaveMemories()
                 self.SavePreviousValues()
             
-            if self.sleep.value and (time.time()-sleepstart) > Config.sleep_process_rate:
+            if self.sleep.value and (time.time() - sleepstart) > Config.sleep_process_rate:
                 self.SleepProcess()
                 sleepstart = time.time()
                 #self.LoadDeltaTime() # 3/12/2021 DeltaTime was abolished.
@@ -298,6 +298,8 @@ class SensationBase(MemoryManager):
         """
         time.sleep(Config.sleep_wait)
         self.LoadModels()
+        self.SaveMemories()
+        self.SavePreviousValues()
         
 
         

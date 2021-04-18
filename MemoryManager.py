@@ -9,13 +9,11 @@ import pickle
 from os.path import isdir, join as pathjoin
 from MasterConfig import Config
 from debug_tools import Debug
-from dataclasses import dataclass
 from concurrent.futures import ThreadPoolExecutor
 from multiprocessing.shared_memory import SharedMemory
 from typing import Optional,List,Tuple,Any, Union
 import gc
 
-@dataclass
 class MemoryManager(Debug): 
     r"""
     This is a parent class for all processes.
