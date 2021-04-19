@@ -21,6 +21,7 @@ class SensationBase(MemoryManager):
     MemorySize:int
     SameThreshold:float
     DataSize:tuple
+    DataSaving:bool= True
     DataSavingRate:int
     MaxFrameRate:int = 100
     
@@ -92,7 +93,8 @@ class SensationBase(MemoryManager):
         self.MemoryList = MemoryList
         self.NewestId = NewestId
 
-        self.DataArray = np.zeros((self.DataSavingRate,*self.DataSize),dtype=self.dtype)
+        if self.DataSaving:
+            self.DataArray = np.zeros((self.DataSavingRate,*self.DataSize),dtype=self.dtype)
         self.SavedDataLen = 0
 
         self.LoadModels()
@@ -113,7 +115,8 @@ class SensationBase(MemoryManager):
 
             Data = self.Update() # update process
             self.MemoryProcess(Data)
-            self.DataSavingCheck()
+            if self.DataSaving:
+                self.DataSavingCheck()
             if (not self.current_length < self.ReadOutLength) or (not self.switch.value):
                 self.SaveMemories()
                 self.SavePreviousValues()
@@ -246,8 +249,9 @@ class SensationBase(MemoryManager):
             self.ReadOutTime[self.current_length] = time.time()
             self.current_length += 1
             # data saving -----
-            self.DataArray[self.SavedDataLen] = Data.to('cpu').detach().numpy()
-            self.SavedDataLen +=1
+            if self.DataSaving:
+                self.DataArray[self.SavedDataLen] = Data.to('cpu').detach().numpy()
+                self.SavedDataLen +=1
             #------------------
         id_args = torch.argsort(distances.view(-1))[:self.MemoryListLength].to('cpu').numpy()
         il = id_args.shape[0]
