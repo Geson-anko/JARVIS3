@@ -47,7 +47,7 @@ class Sensation(SensationBase):
     # ------ your settings ------
     def LoadModels(self) -> None:
         super().LoadModels()
-        pass # This method is called when sleep Time regularly.
+        pass # This method is called when sleep Time and regularly.
 
     def Start(self) -> None:
         # This method is called when process start.
