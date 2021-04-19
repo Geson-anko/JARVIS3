@@ -1,0 +1,50 @@
+TemplateSensationのフォルダをフルコピーする
+TemplateSensationをSensation7にする
+sensation.pyの中のMemoryFormatを7にする
+必要なファイル(paramsファイルや自作ライブラリなどのフォルダをすべて入れておく。
+	paramsの中にパラメータファイルをおく
+	同一階層以下にファイルやフォルダを配置すること。
+	後にfrom .MyLib import Class　のように相対インポートにすることを忘れずに。
+
+configファイルのclass configの内部に必要な設定を書き込む。相対インポート！
+sensation_models.pyの内部にAIモデルを書く。input_size,output_size,insizeを設定することを忘れずに。
+sensation.pyの中を編集する。
+	パラメータファイルの名前を例に従って定義する
+	パラメータファイルはすべて複製しておく。
+	もしEncoder以外に睡眠処理を行うモデルを使うのであれば、LoadModelsの中に書き込む。
+	Start関数に起動時のみに行われる処理を書く。
+	Update関数に行われる処理を書く。
+	UpdateEnd関数に書くことがあれば書く。
+	End関数に書くことがあれば書く。
+
+
+※MemoryManagerクラスを継承しているため、便利関数をチェックしておくとよい。
+※Sensation.pyのクラス定数の説明
+	MemoryFormat	: 記憶データの番号。62進数。　0~9 → a~z　→ A~Zの順番につく
+	LogTitle	: Logのheader
+	ReadOutLength	: メモリに呼び出しておく記憶の最大量。おおよそ16384 ~ 65536の間が目安
+	KeepLength	: 必ず確保されるReadOutMemoryの量。ReadOutLengthの7割 ~ 9割
+	MemoryListLength: 思考プロセスに送る記憶IDの最大数。ReadOutLengthの1%程度
+	MemorySize	: Encoderのoutput_sizeから計算されます。
+	SameThreshold	: 許容する記憶誤差。同一記憶だと判定する閾値。
+	DataSaving	: AutoEncoderのトレーニングのためのデータを自動保存するか。
+	DataSize	: Encoderのinput_size[1:]
+	DataSavingRate	: AutoEncoderのトレーニング用データをディスクに保存する間隔。（デフォルトでは64個ごと)
+	
+	Encoder		: AutoEncoderのEncoderのクラス
+	SleepWaitTime	: Sleep時に最大何秒処理を遅くしたいか。GPUとCPUの負荷を十分に減らし、かつすぐに復帰できる程度の秒数。
+	
+	Current_directory	: sensation.pyの親フォルダまでの絶対パス
+	Param_folder		: パラメータファイルを保存しておくフォルダ。デフォルトでCurrent_directoryと結合され、絶対パスとなっている
+	Data_folder		: AutoEncoderのトレーニング用のデータを保存しておく場所。デフォルトでCurrent_directoryと結合され、絶対パスとなっている
+	Temp_folder		: Shutdown時などにReadOutMemoryなどを保存しておくフォルダ。デフォルトでCurrent_directoryと結合され、絶対パスとなっている
+
+	Encoder_params	: Encoderのパラメータファイルの名前を書く。Temp_folderと結合し、絶対パスにする
+	Decoder_params	: Encoder_paramsと同様
+	
+	
+	NewestId_file, MemoryList_file, ReadOutMemory_file,ReadOutId_file,ReadOutTime_fileは基本的に編集することはない。 しかし、これらを事前に用意することによってクイックスタートをすることができる
+
+	dtype	: numpy dtype. 記憶データの数値形式。CPUのみで実行する場合はfloat32にしなければいけない場合がある。
+	torchdtype torch ctype. dtypeと同様。
+
