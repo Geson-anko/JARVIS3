@@ -45,7 +45,8 @@ class Sensation(SensationBase):
     torchdtype:torch.dtype = torch.float16 # torch tensor data type
 
     # ------ your settings ------
-    
+    #def LoadModels(self) -> None:
+    #    pass # This method is called when sleep Time regularly.
 
     def Start(self) -> None:
         # This method is called when process start.
