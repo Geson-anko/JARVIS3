@@ -10,22 +10,13 @@ from .sensation import Sensation
 from .sensation_models import AutoEncoder
 from .config import config
 
-from torch_model_fit import Fit 
-from MemoryManager import MemoryManager
-import multiprocessing as mp
+from TrainBase import TrainBase
 
-class Train(MemoryManager):
+class Train(TrainBase):
     MemoryFormat = Sensation.MemoryFormat
     LogTitle:str = f'train{MemoryFormat}'
 
-    def __init__(self,device:torch.device,debug_mode:bool=False) -> None:
-        super().__init__(log_title=self.LogTitle, debug_mode=debug_mode)
-        self.device = torch.device(device)
-        self.dtype = Sensation.Training_dtype
-        self.fit = Fit(self.LogTitle,debug_mode)
-
-    def activation(self,shutdown:mp.Value,sleep:mp.Value) -> None:
-
+    def TrainProcess(self) -> None:
         # ------ Additional Trainings ------
         #
         self.release_system_memory()
@@ -61,8 +52,7 @@ class Train(MemoryManager):
         epochs = Sensation.AutoEncoderEpochs
         batch_size = Sensation.AutoEncoderBatchSize
             # Train
-        self.fit.Train(
-            shutdown,sleep,
+        self.Train(
             model=model,
             epochs=epochs,
             batch_size=batch_size,
