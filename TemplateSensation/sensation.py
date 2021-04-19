@@ -20,6 +20,7 @@ class Sensation(SensationBase):
     MemorySize:int = int(np.prod(Encoder.output_size))
     SameThreshold:float = 0.001 # The Threshold of memory error.
     DataSize:tuple = Encoder.input_size[1:]
+    DataSaving:bool = True
     DataSavingRate:int = 64
 
     Encoder:Module = Encoder
