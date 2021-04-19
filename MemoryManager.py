@@ -458,6 +458,58 @@ class MemoryManager(Debug):
                 ID = ID.tolist()
             if not return_integer:
                 ID = [self.Num2Id(i) for i in ID]
+        return ID
+
+    def extract_differentId(self,ID:List[str or int] or ndarray,id_format:str or int,return_integer:bool=True) -> Union[List[str],List[int],ndarray]:
+        """
+        extracting different id formats.
+        id_format [required] : extract this format from ID_list.
+        """
+        if len(ID) == 0:
+            return []
+        _idt = type(ID)
+        _t = type(ID[0])
+        str_mode = False
+
+        if _idt is not list and _idt is not ndarray:
+            self.exception(f'your input type is {_idt}, please list or ndarray.')
+        if _t in Config.str_types:
+            str_mode = True
+        elif _t not in Config.int_types:
+            self.exception(f'your input element type is {_t}. please int or str type.')
+
+        _ift  = type(id_format)
+        if str_mode:
+            # type check
+            if _ift in Config.int_types:
+                id_format = self.char[id_format]
+            elif _ift not in Config.str_types:
+                self.exception(f'please int or str for id_format. your input is {_ift}.')
+            
+            # extracting
+            ID = [i for i in ID if i[0] != id_format]
+
+            # type convertings
+            if return_integer:
+                ID = [self.Id2Num(i) for i in ID]
+            
+        else:
+            # type check
+            if _ift in Config.str_types:
+                id_format = self.char.index(id_format)
+            elif _ift not in Config.int_types:
+                self.exception(f'please int or str for id_format. your input is {_ift}.')
+            if _idt is list:
+                ID = np.array(ID,dtype=Config.ID_dtype)
+            
+            # extracting
+            ID = ID[((self.memory_format_integers[id_format] > ID) | (ID >= self.memory_format_integers[id_format+1]))]
+            
+            # type convertings
+            if _idt is list:
+                ID = ID.tolist()
+            if not return_integer:
+                ID = [self.Num2Id(i) for i in ID]
 
         
         return ID
