@@ -27,6 +27,7 @@ sensation.pyの中を編集する。
 	MemoryListLength: 思考プロセスに送る記憶IDの最大数。ReadOutLengthの1%程度
 	MemorySize	: Encoderのoutput_sizeから計算されます。
 	SameThreshold	: 許容する記憶誤差。同一記憶だと判定する閾値。
+	MaxFrameRate	: 処理の最大FPS。
 	DataSaving	: AutoEncoderのトレーニングのためのデータを自動保存するか。
 	DataSize	: Encoderのinput_size[1:]
 	DataSavingRate	: AutoEncoderのトレーニング用データをディスクに保存する間隔。（デフォルトでは64個ごと)
@@ -47,4 +48,5 @@ sensation.pyの中を編集する。
 
 	dtype	: numpy dtype. 記憶データの数値形式。CPUのみで実行する場合はfloat32にしなければいけない場合がある。
 	torchdtype torch ctype. dtypeと同様。
+	
 
