@@ -23,7 +23,7 @@ class Sensation(SensationBase):
     KeepLength:int = math.floor(ReadOutLength*0.7)  # ReadOutLength * 0.7
     MemoryListLength:int = int(ReadOutLength*0.005)# 1% of ReadOutLength
     MemorySize:int = int(np.prod(Encoder.output_size))
-    SameThreshold:float = 0.001 # The Threshold of memory error.
+    SameThreshold:float = 0.0001 # The Threshold of memory error.
     DataSize:tuple = Encoder.input_size[1:]
     DataSaving:bool = False
     DataSavingRate:int = 2

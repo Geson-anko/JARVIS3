@@ -50,6 +50,7 @@ class SensationBase(MemoryManager):
     torchdtype:torch.dtype
     
     mins:float = 0.0
+    ViewCurrentLength:bool = False
 
     def __init__(self, device:Union[str,torch.device], debug_mode: bool=False) -> None:
         super().__init__(log_title=self.LogTitle, debug_mode=debug_mode)
@@ -137,7 +138,8 @@ class SensationBase(MemoryManager):
             wait= (1/self.MaxFrameRate) - (time.time()-clock_start)
             if wait > 0:
                 time.sleep(wait)
-
+            if self.ViewCurrentLength:
+                print(f'\rcurrent memory length is {self.current_length}, minimum error is {self.mins:3.6f}.',end='')
             self.clock.value = time.time() - clock_start
         # ------ end while ------
         IsActive.value = False

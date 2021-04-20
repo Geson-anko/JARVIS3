@@ -17,6 +17,7 @@ import os
 
 if __name__ == '__main__':
     sens = import_module(sensation).Sensation(device,True)
+    sens.ViewCurrentLength = True
     mm = MemoryManager(f'SensationDebug ({sensation})')
     if initialize:
         removedirs = [
