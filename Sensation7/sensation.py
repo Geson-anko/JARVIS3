@@ -45,7 +45,7 @@ class Sensation(SensationBase):
     Centroids_params:str = pathjoin(Param_folder,'centroids_mfcc2_96_datasize32_2021-04-09 13_44_06_k_means++.tensor')
     FastText_params:str = pathjoin(Param_folder,'cent96fasttext64dim_mfcc2.pkl')
     HumanCheck_params:str = pathjoin(Param_folder,'humancheck.params')
-    Chars_params:str = pathjoin(Param_folder,'chars.txt')
+    Chars_file:str = pathjoin(Param_folder,'chars.txt')
     Separator_params:str = pathjoin(f'Sensation{MemoryFormat}/params',f'{config.separator_name}.model')
     
 
@@ -99,7 +99,7 @@ class Sensation(SensationBase):
 
         # mel filter bank
         self.mel_filter_bank = self.get_melFilterBank(config.frame_rate,config.recognize_length,config.MFCC_channels).T
-        self.mel_filter_bank = self.ToDevice(torch.from_numpy(self.mel_filter_bank))
+        self.mel_filter_bank = self.ToDevice(torch.from_numpy(self.mel_filter_bank)).float()
 
     textstart:bool = False
     textend:bool = False
@@ -113,12 +113,13 @@ class Sensation(SensationBase):
         data = torch.from_numpy(data).type(self.torchdtype).view(1,config.seq_len,config.recognize_length)
         data = self.ToDevice(data)
         isHuman = (self.humanchecker(data).view(-1) > config.HumanThreshold).item()
+        vectors = None
         if isHuman:
             self.textstart = True
-            data = data.squeeze()
+            data = data.squeeze().float()
             data[:,1:] =  data[:,1:] - config.MFCC_p*data[:,:-1]
             data = torch.abs(torch.fft.rfft(data))
-            data = torch.dot(data,self.mel_filter_bank)
+            data = torch.mm(data,self.mel_filter_bank)
             data = torch.log10(data+1)
             classes = self.kmeans.clustering(self.centroids,data).to('cpu').detach().numpy()
             self.text += ''.join([self.charactors[i] for i in classes])
