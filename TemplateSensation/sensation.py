@@ -19,9 +19,9 @@ class Sensation(SensationBase):
     MemoryListLength:int = math.floor(ReadOutLength*0.01)# 1% of ReadOutLength
     MemorySize:int = abs(int(np.prod(Encoder.output_size)))
     SameThreshold:float = 0.001 # The Threshold of memory error.
-    DataSize:tuple = Encoder.input_size[1:]
-    DataSaving:bool = True
-    DataSavingRate:int = 64
+    DataSize:tuple = Encoder.input_size[1:] # DataSize for Data Saving process. Data Saving process is used for AutuEncoder Training.
+    DataSaving:bool = True # if True, Data Saving Process is enable.
+    DataSavingRate:int = 64 # The pace if Data Saving Process.
 
     Encoder:Module = Encoder
     SleepWaitTime:float = 0.1
