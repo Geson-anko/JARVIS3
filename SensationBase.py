@@ -64,6 +64,7 @@ class SensationBase(MemoryManager):
         if not isdir(self.Param_folder):
             self.exception('Not exist Param_folder')
 
+    @torch.no_grad()
     def activation(
         self,shutdown:mp.Value,sleep:mp.Value,switch:mp.Value,clock:mp.Value,sleepiness:mp.Value,
         ReadOutId:Tuple[np.ndarray,SharedMemory],
@@ -153,6 +154,7 @@ class SensationBase(MemoryManager):
     def LoadModels(self) -> None:
         self.encoder = self.Encoder().to(self.device).type(self.torchdtype)
         self.encoder.load_state_dict(torch.load(self.Encoder_params,map_location=self.device))
+        self.encoder.eval()
         self.log('loaded Encoder')
     
     #def LoadDeltaTime(self) -> None: # 3/12/2021 DeltaTime was abolished.
