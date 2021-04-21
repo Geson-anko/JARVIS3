@@ -304,7 +304,7 @@ class SensationBase(MemoryManager):
         """
         this method is callled when sleep.
         """
-        time.sleep(Config.sleep_wait)
+        #time.sleep(Config.sleep_wait)
         self.LoadModels()
         self.SaveMemories()
         self.SavePreviousValues()
