@@ -39,7 +39,7 @@ class Sensation(SensationBase):
     Data_folder:str = pathjoin(Current_directory,'data') # /current_dicrectory/data/
     Temp_folder:str = pathjoin(Current_directory,'temp') # /Current_directory/temp/
 
-    Corpus_file:str = pathjoin(f'Sensation{MemoryFormat}','corpus.txt')
+    Corpus_file:str = pathjoin(f'Sensation{MemoryFormat}','corpus_kaburi1_mfcc2_96.txt')
     ## defining parameter file
     Encoder_params:str= pathjoin(Param_folder,'TextEncoder17-04-21_21-14-50_mfcc2_cent96.params') # your encoder parameter file name
     Decoder_params:str = pathjoin(Param_folder,'TextDecoder17-04-21_21-14-50_mfcc2_cent96.params') # yout decoder parameter file name
@@ -150,7 +150,7 @@ class Sensation(SensationBase):
                 with open(self.Corpus_file,'a',encoding='utf-8') as f:
                     f.write(f'{self.text}\n')
                 #self.log('text',self.text)
-                print(self.text)
+                #print(self.text)
             self.text = ''
 
         return vectors
