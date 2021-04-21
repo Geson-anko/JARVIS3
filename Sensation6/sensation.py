@@ -197,7 +197,7 @@ class Sensation(SensationBase):
 
     CentroidsMaxIter:int = 100
 
-    CorpusUseLength = 10000
+    CorpusUseLength = 20000
     FasttextEpochs = 10
     AutoEncoderLearningRate:float = 0.0001
     AutoEncoderBatchSize:int = 4096

@@ -10,47 +10,53 @@ from .sensation import Sensation
 from .sensation_models import AutoEncoder
 from .config import config
 
-from torch_model_fit import Fit 
-from MemoryManager import MemoryManager
-import multiprocessing as mp
+from TrainBase import TrainBase
+import sentencepiece as spm
 
-class Train(MemoryManager):
+class Train(TrainBase):
     MemoryFormat = Sensation.MemoryFormat
     LogTitle:str = f'train{MemoryFormat}'
 
-    def __init__(self,device:torch.device,debug_mode:bool=False) -> None:
-        super().__init__(log_title=self.LogTitle, debug_mode=debug_mode)
-        self.device = torch.device(device)
-        self.dtype = Sensation.Training_dtype
-        self.fit = Fit(self.LogTitle,debug_mode)
-
-    def activation(self,shutdown:mp.Value,sleep:mp.Value) -> None:
-
-        # ------ Additional Trainings ------
-        #
+    def TrainProcess(self) -> None:
+        # ------ Separator training ------
+        spm.SentencePieceTrainer.Train(f"--input={Sensation.Corpus_file} --model_prefix=Sensation{Sensation.MemoryFormat}/params/{config.separator_name} --vocab_size={config.vocab_size}")
+        # --- end of SentencePiece Trainings ---
         self.release_system_memory()
-        # --- end of Additional Training ---
 
+        # ------ Fasttext training ------
+        separator = spm.SentencePieceProcessor()
+        separator.Load(f'Sensation{Sensation.MemoryFormat}/params/{config.separator_name}.model')
+        bos = separator.IdToPiece(separator.bos_id())
+        eos = separator.IdToPiece(separator.eos_id())
 
+        with open(Sensation.Corpus_file,'r',encoding='utf-8') as f:
+            corpus = f.read().split('\n')[-Sensation.CorpusUseLength:]
+        words = [[bos,*separator.EncodeAsPieces(i),eos] for i in corpus]
+        FTmodel = self.load_python_obj(Sensation.FastText_params)
+        FTmodel.build_vocab(words,update=True)
+        FTmodel.train(sentences=words,total_examples=len(words),epochs=Sensation.FasttextEpochs)
+        self.save_python_obj(Sensation.FastText_params,FTmodel)
+        self.log('trained Fasttext')
+        # --- end of Fasttext training ---
 
         # ------ AutoEncoder training ------
-        # load data for Training AutoEncoder
-        names = os.listdir(Sensation.Data_folder)
-        if len(names) ==0:
-            self.warn('To train AutoEncoder data does not exist')
-            return
-        
-        times = np.sort([float(i) for i in names])[::-1]
-        names = [str(i) for i in times]
-        uselen = round(Sensation.AutoEncoderDataSize/Sensation.DataSavingRate)
-        uses = names[:uselen]
-        deletes = names[uselen:]
-        for i in deletes:
-            self.remove_file(i)
-        
-        data = np.concatenate([self.load_python_obj(os.path.join(Sensation.Data_folder,i)) for i in uses])
-        data = torch.from_numpy(data)
-        self.log(data.shape,debug_only=True)
+        data = []
+        for i in words:
+            vector = torch.from_numpy(np.stack([FTmodel.wv[q] for q in i if q in FTmodel.wv])).type(Sensation.Training_dtype)
+            length = vector.size(0)
+            for idx in range(0,length,config.text_seq_len):
+                d = vector[idx:idx+config.text_seq_len]
+                if d.size(0) < config.text_seq_len:
+                    pad = torch.zeros((config.text_seq_len - d.size(0)),d.size(1),dtype=d.dtype,device=d.device)
+                    d = torch.cat([d,pad])
+                data.append(d)
+        data = torch.stack(data)
+        idx = np.random.permutation(len(data))[:Sensation.AutoEncoderDataSize]
+        data = data[idx]
+
+        self.log('Text AutoEncoder data shape',data.shape)
+        del FTmodel,separator
+        self.release_system_memory()
         model = AutoEncoder()
         model.encoder.load_state_dict(torch.load(Sensation.Encoder_params,map_location=self.device))
         model.decoder.load_state_dict(torch.load(Sensation.Decoder_params,map_location=self.device))
@@ -61,8 +67,7 @@ class Train(MemoryManager):
         epochs = Sensation.AutoEncoderEpochs
         batch_size = Sensation.AutoEncoderBatchSize
             # Train
-        self.fit.Train(
-            shutdown,sleep,
+        self.Train(
             model=model,
             epochs=epochs,
             batch_size=batch_size,
@@ -78,5 +83,10 @@ class Train(MemoryManager):
         del data,model
         self.release_system_memory()
         # --- end of AutoEncoder training ---
-
+        # ----- corpus reducing ------
+        with open(Sensation.Corpus_file,'r',encoding='utf-8') as f:
+            corpus = f.readlines()[-Sensation.SavingCorpusLength:]
+        with open(Sensation.Corpus_file,'w',encoding='utf-8') as f:
+            f.writelines(corpus)
+        self.log('reduced corpus')
         self.log('Train process was finished')

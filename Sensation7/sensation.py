@@ -189,10 +189,14 @@ class Sensation(SensationBase):
         return super().SleepProcess()
     # ------ train settings ------
     Training_dtype:torch.dtype = torch.float16
-    AutoEncoderDataSize:int = 8192
+    AutoEncoderDataSize:int = 200000
     AutoEncoderLearningRate:float = 0.0001
-    AutoEncoderBatchSize:int = 2**0
-    AutoEncoderEpochs:int = 4
+    AutoEncoderBatchSize:int = 2**10
+    AutoEncoderEpochs:int = 16
+
+    CorpusUseLength = 10000
+    FasttextEpochs = 16
+    SavingCorpusLength:int = 100000
 
     # Mel Filter bank
     def hz2mel(self,f):
