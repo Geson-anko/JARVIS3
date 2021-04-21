@@ -113,7 +113,7 @@ class AutoEncoder(Module):
         x = self.decoder(x)
         return x
 
-class HumanCheck(Module):
+class _HumanCheck(Module):
     ninp = config.recognize_length
     seq_len = config.seq_len
     input_size = (1,seq_len,ninp)
@@ -150,6 +150,103 @@ class HumanCheck(Module):
         x = x.view(x.size(0),-1)
         x = self.dense(x)
         return x
+
+    def reset_seed(self,seed=0):
+        os.environ['PYTHONHASHSEED'] = '0'
+        random.seed(seed)
+        torch.manual_seed(seed)
+        torch.cuda.manual_seed(seed)
+
+import pytorch_lightning as pl
+class HumanChecker(pl.LightningModule):
+    ninp = config.check_channels_rfft
+    seq_len = config.check_seq_len
+    input_size = (1,ninp,seq_len)
+    insize = (-1,*input_size[1:])
+    conf_layers=4
+    confhid=1024
+    conf_dropout=0.1
+    nhead=4
+    kernel_size=5
+
+    threshold=0
+    lr = 0.001
+    def __init__(self):
+        super().__init__()
+        self.reset_seed()
+        self.criterion = nn.BCEWithLogitsLoss()
+        
+        # Model layers
+        self.init_dense = nn.Linear(self.ninp,self.ninp-1)
+
+        conformer = Conformer(
+            d_model=self.ninp-1,
+            n_head=self.nhead,
+            ff1_hsize=self.confhid,
+            ff2_hsize=self.confhid,
+            ff1_dropout=self.conf_dropout,
+            conv_dropout=self.conf_dropout,
+            ff2_dropout=self.conf_dropout,
+            mha_dropout=self.conf_dropout,
+            kernel_size=self.kernel_size,
+        )
+        self.conformers = ModuleList([copy.deepcopy(conformer) for _ in range(self.conf_layers)])
+        self.dense = Linear(self.seq_len*(self.ninp-1),1)
+
+    def forward(self,x):
+
+        x = x.view(self.insize).permute(0,2,1)
+        x = torch.relu(self.init_dense(x))
+        for l in self.conformers:
+            x = l(x)
+        x = x.view(x.size(0),-1)
+        x = self.dense(x)
+        return x
+    
+    def configure_optimizers(self):
+        optim = torch.optim.Adam(self.parameters(),lr=self.lr)
+        return optim
+    def training_step(self,batch,idx):
+        data,ans = batch
+        
+        out = self(data)
+        loss = self.criterion(out,ans)
+        acc = self.Accuracy(out,ans)
+        self.log('training_loss',loss)
+        self.log('training_accuracy',acc)
+        return loss
+
+    def validation_step(self,batch,idx):
+        data,ans = batch
+        
+        out = self(data)
+        loss = self.criterion(out,ans)
+        acc = self.Accuracy(out,ans)
+        self.log('validation_loss',loss)
+        self.log('validation_accuracy',acc)
+
+    def Accuracy(cls,output:torch.Tensor,answer:torch.Tensor) -> torch.Tensor:
+        """
+        output: (batch,*) output range is 0~1
+        answer: (batch,*)
+        return -> (1,)
+        """
+        assert output.shape == answer.shape
+
+        output[output >= cls.threshold] = 1
+        output[output < cls.threshold] = 0
+
+    #length = torch.prod(torch.tensor(output.shape))
+        output = output.type(torch.bool)
+        answer = answer.type(torch.bool)
+
+    #error = torch.div(torch.sum(output==answer),length)
+        TP = torch.sum((output==True)==(answer==True))
+        FP = torch.sum((output==True)==(answer==False))
+        TN = torch.sum((output==False)==(answer==False))
+        FN = torch.sum((output==False)==(answer==True))
+        error = (TP+TN) / (TP+FP+FN+TN)
+        return error
 
     def reset_seed(self,seed=0):
         os.environ['PYTHONHASHSEED'] = '0'

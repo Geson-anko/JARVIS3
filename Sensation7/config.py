@@ -40,9 +40,15 @@ class config:
     # ---- end of Audios
 
     # HumanChecks ----
-    HumanThreshold:float = 8
+    HumanThreshold:float = 0
     check_dtype='float16'
     check_torch_dtype = torch.float16
+    check_nfft:int = recognize_length
+    check_hop_length:int = int(check_nfft//2)
+    check_channels_rfft:int = recognize_length_rfft
+    check_seq_len:int = int(sample_length/check_hop_length)+1
+    check_CHUNK:int=recognize_length*3
+
     # --- end of HumanChecks
 
     # Texts -----

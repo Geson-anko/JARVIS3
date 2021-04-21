@@ -9,13 +9,14 @@ from os.path import join as pathjoin
 
 from .config import config
 from SensationBase import SensationBase
-from .sensation_models import Encoder,HumanCheck
+from .sensation_models import Encoder,HumanChecker
 import pyaudio 
 import sentencepiece as spm
 import time
 from .torch_KMeans import torch_KMeans
 
 from typing import Union
+from torchaudio.transforms import Spectrogram
 
 
 class Sensation(SensationBase):
@@ -44,7 +45,7 @@ class Sensation(SensationBase):
     Decoder_params:str = pathjoin(Param_folder,'TextDecoder17-04-21_21-14-50_mfcc2_cent96.params') # yout decoder parameter file name
     Centroids_params:str = pathjoin(Param_folder,'centroids_mfcc2_96_datasize32_2021-04-09 13_44_06_k_means++.tensor')
     FastText_params:str = pathjoin(Param_folder,'cent96fasttext64dim_mfcc2.pkl')
-    HumanCheck_params:str = pathjoin(Param_folder,'humancheck.params')
+    HumanChecker_params:str = pathjoin(Param_folder,'humanchecker_spec2021-04-21_11-25-12-495888.params')
     Chars_file:str = pathjoin(Param_folder,'chars.txt')
     Separator_params:str = pathjoin(f'Sensation{MemoryFormat}/params',f'{config.separator_name}.model')
     
@@ -76,9 +77,11 @@ class Sensation(SensationBase):
 
     def Start(self) -> None:
         # This method is called when process start.
-        self.humanchecker = self.ToDevice(HumanCheck().type(self.torchdtype))
-        self.humanchecker.load_state_dict(torch.load(self.HumanCheck_params))
-        self.log('loaded HumanCheck')
+        self.humanchecker = self.ToDevice(HumanChecker().type(self.torchdtype))
+        self.humanchecker.load_state_dict(torch.load(self.HumanChecker_params))
+        self.humanchecker.eval()
+        self.log('loaded HumanChecker')
+
 
         self.centroids = torch.load(self.Centroids_params,map_location='cpu')
         self.centroids = self.ToDevice(self.centroids)
@@ -89,7 +92,7 @@ class Sensation(SensationBase):
             format=config.pyaudio_format,
             channels=config.channels,
             rate=config.frame_rate,
-            frames_per_buffer=config.sample_length,
+            frames_per_buffer=config.check_CHUNK,
             input=True,
         )
         self.kmeans = torch_KMeans(0)
@@ -101,28 +104,41 @@ class Sensation(SensationBase):
         self.mel_filter_bank = self.get_melFilterBank(config.frame_rate,config.recognize_length,config.MFCC_channels).T
         self.mel_filter_bank = self.ToDevice(torch.from_numpy(self.mel_filter_bank)).float()
 
+        self.soundarray = torch.zeros(config.sample_length,dtype=torch.float32)
+        self.soundarray = self.ToDevice(self.soundarray)
+        self.specter = self.ToDevice(Spectrogram(config.check_nfft,hop_length=config.check_hop_length))
+
+
     textstart:bool = False
     textend:bool = False
-    @torch.no_grad()
     def Update(self) -> Union[None,np.ndarray]:
         # This method is called every frame start.
         # your data process
-        data = self.stream.read(config.sample_length)
+        data = self.stream.read(config.check_CHUNK)
         data = np.frombuffer(data,config.audio_dtype).reshape(-1)
         data = data /config.sample_range
-        data = torch.from_numpy(data).type(self.torchdtype).view(1,config.seq_len,config.recognize_length)
+        data = torch.from_numpy(data)
         data = self.ToDevice(data)
+        self.soundarray[:-config.check_CHUNK] = self.soundarray[config.check_CHUNK:].clone()
+        self.soundarray[-config.check_CHUNK:] = data
+        data = self.soundarray.clone()
+        data = torch.log10(self.specter(data)+1).type(self.torchdtype)
         isHuman = (self.humanchecker(data).view(-1) > config.HumanThreshold).item()
         vectors = None
         if isHuman:
-            self.textstart = True
             data = data.squeeze().float()
-            data[:,1:] =  data[:,1:] - config.MFCC_p*data[:,:-1]
+            if not self.textstart:
+                data = self.soundarray.clone()
+            else:
+                data = self.soundarray[-config.check_CHUNK:]
+            data[1:] =  data[1:] - config.MFCC_p*data[:-1]
+            data = data.view(-1,config.recognize_length)
             data = torch.abs(torch.fft.rfft(data))
             data = torch.mm(data,self.mel_filter_bank)
             data = torch.log10(data+1)
             classes = self.kmeans.clustering(self.centroids,data).to('cpu').detach().numpy()
             self.text += ''.join([self.charactors[i] for i in classes])
+            self.textstart = True
         else:
             if self.textstart:
                 self.textend = True
@@ -134,6 +150,7 @@ class Sensation(SensationBase):
                 with open(self.Corpus_file,'a',encoding='utf-8') as f:
                     f.write(f'{self.text}\n')
                 #self.log('text',self.text)
+                print(self.text)
             self.text = ''
 
         return vectors
