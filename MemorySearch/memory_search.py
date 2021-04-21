@@ -101,20 +101,29 @@ class MemorySearch(MemoryManager):
             TempMemory[:c_len] = c_tmp
 
             ## Update Memory Dictionary
-            # new id connection
             _newids = [i.value for i in newest_ids]
             modified_ids = [i for i,q in zip(_newids,old_ids) if i != q]
             old_ids = _newids
-            idxes = np.arange(-config.max_connection,c_len)
-            idxes[:config.max_connection][idxes[:config.max_connection] < -c_len] = -c_len
-            np.random.shuffle(idxes)
-            for i,nid in enumerate(modified_ids):
-                MemoryDict[nid] = c_tmp[i:i+config.max_connection]
+            #idxes = np.arange(-config.max_connection,c_len)
+            #idxes[:config.max_connection][idxes[:config.max_connection] < -c_len] = -c_len
+            #np.random.shuffle(idxes)
+            c_tmp = np.concatenate([c_tmp,modified_ids])
+            c_len = c_tmp.shape[0]
+            if c_len > 0:
+                idxes = np.random.randint(0,c_tmp.shape[0],(config.max_connection+c_len,))
+            else:
+                idxes = []
             
-            np.random.shuffle(idxes)    
+            # new id connection
+            #for i,nid in enumerate(modified_ids):
+            #    MemoryDict[nid] = c_tmp[i:i+config.max_connection]
+            
+
+            #np.random.shuffle(idxes)    
             # reconnection
             for i,nid in enumerate(c_tmp):
-                MemoryDict[nid] = c_tmp[i:i+config.max_connection]
+                #MemoryDict[nid] = c_tmp[i:i+config.max_connection]
+                MemoryDict[nid] = c_tmp[idxes[i:i+config.max_connection]]
             
             time.sleep(sleepiness.value * config.wait_time)
             if time.time() - saving_time > config.saving_rate:

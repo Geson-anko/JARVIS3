@@ -13,11 +13,13 @@ from Trainer import Train
 import OutputVision
 import numpy as np
 if __name__ == '__main__':
+    """
     from OutputOshaberi import Train
     train = Train('cuda',True)
     shutdown = Value('i',False)
     sleep = Value('i',True)
     train(shutdown,sleep)
+    """
     """
     import OutputOshaberi
     from Sensation6 import Sensation
@@ -217,7 +219,7 @@ if __name__ == '__main__':
         ]
     _mem = [sp.inherit_shared_memory(i) for i in memlists]
     TM = sp.create_shared_memory((10,),'int64',mconf.init_id)
-    args = (shutdown,sleep,clock,sleepiness,TM,memlists,newids)
+    args = (shutdown,sleep,switch,clock,sleepiness,TM,memlists,newids)
     p = Process(target=sp,args=args)
     print('process start')
     p.start()
