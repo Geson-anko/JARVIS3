@@ -16,6 +16,8 @@ class Output(OutputBase):
     SleepWaitTime:float = 0.1
     MaxFrameRate:int = 30
 
+    Current_directory:str = os.path.dirname(os.path.abspath(__file__)) # /Current_directory/...  from root
+
     dtype = np.float16
     torchdtype = torch.float16
 
