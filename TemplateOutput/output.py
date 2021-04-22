@@ -11,6 +11,7 @@ class Output(OutputBase):
     LogTitle:str = 'Output_'
     UsingMemoryFormat:str = '1'
     MaxMemoryLength:int = 1
+    UseMemoryLowerLimit:int = 1
 
     SleepWaitTime:float = 0.1
     MaxFrameRate:int = 30
