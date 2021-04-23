@@ -1,5 +1,5 @@
 # ------ your setttings ------
-TrainModule = 'Sensation7' # your sensation folder name
+TrainModule = 'OutputOshaberi' # your sensation folder name
 device = 'cuda' # debugging device
 # ------ end of settings -----
 

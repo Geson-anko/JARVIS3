@@ -15,7 +15,8 @@ from TrainBase import TrainBase
 class Train(TrainBase):
     MemoryFormat = Sensation.MemoryFormat
     LogTitle:str = f'train{MemoryFormat}'
-
+    dtype:np.dtype = np.float16
+    torchdtype:torch.dtype = torch.float16
     def TrainProcess(self) -> None:
         # ------ Additional Trainings ------
         #
@@ -40,7 +41,7 @@ class Train(TrainBase):
             self.remove_file(i)
         
         data = np.concatenate([self.load_python_obj(os.path.join(Sensation.Data_folder,i)) for i in uses])
-        data = torch.from_numpy(data)
+        data = torch.from_numpy(data).to(self.torchdtype)
         self.log(data.shape,debug_only=True)
         model = AutoEncoder()
         model.encoder.load_state_dict(torch.load(Sensation.Encoder_params,map_location=self.device))

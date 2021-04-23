@@ -153,3 +153,13 @@ class Output(OutputBase):
             else:
                 time.sleep(0.01)
         self.log('closed speaker.')
+
+
+        # Trainig settings
+    Training_dtype:torch.dtype = torch.float16
+    CorpusUseLength = 2000
+    OshaberiTextDataSize:int = 512*100
+    OshaberiTextLearningRate:float = 0.001
+    OshaberiTextBatchSize:int = 64
+    OshaberiTextEpochs:int =32
+    MaxSamples = 32

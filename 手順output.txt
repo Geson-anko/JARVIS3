@@ -11,4 +11,8 @@ output.pyの内部を編集する
 	UpdateEnd関数に必要な処理があれば書く。
 	End関数に必要な処理があれば書く。
 
-OutputDebug.pyで処理が通るか
+OutputDebug.pyで処理が通るか確認する
+
+Trainが必要な場合は書く。
+	設定項目などはOutput.pyやconfig.pyの内部に書くと調整がしやすい。
+	dtypeで型を決めることを忘れずに。

@@ -11,7 +11,8 @@ from TrainBase import TrainBase
 
 class Train(TrainBase):
     LogTitle:str = ''
-
+    dtype:np.dtype = np.float16
+    torchdtype:torch.dtype = torch.float16
     def TrainProcess(self) -> None:
         # ------ Additional Trainings ------
         #
