@@ -10,9 +10,12 @@ from typing import Tuple,Any,Callable
 
 def ProcessAfterThreading(funcs_and_args:Tuple[Tuple[Callable,Tuple[Any]],...]) -> None:
     executor = ThreadPoolExecutor()
+    processes = []
     for (func, args) in funcs_and_args:
-        executor.submit(func,*args)
+        processes.append(executor.submit(func,*args))
     executor.shutdown(True)
+    for p in processes:
+        p.result()
 
 
 def main():

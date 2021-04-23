@@ -82,7 +82,7 @@ class Output(OutputBase):
         # Speak values
         self.executor = ThreadPoolExecutor(1)
         self.SpeakVoice = None
-        self.executor.submit(self.Speak)
+        self.speaker_result = self.executor.submit(self.Speak)
 
 
     def Update(self, MemoryData: torch.Tensor) -> None:
@@ -135,7 +135,8 @@ class Output(OutputBase):
 
     def End(self) -> None:
         self.actting = False
-        self.executor.shutdown(False)
+        self.executor.shutdown(True)
+        self.speaker_result.result()
         self.stream.stop_stream()
         self.stream.close()
         self.audio.terminate()
