@@ -15,6 +15,7 @@ import Sensation3
 import Sensation4
 import Sensation5
 import Sensation6
+import Sensation7
 
 
 removesdirs = [
@@ -31,6 +32,8 @@ removesdirs = [
     Sensation5.Sensation.Data_folder,
     Sensation6.Sensation.Temp_folder,
     Sensation6.Sensation.KikitoriData_folder,
+    Sensation7.Sensation.Temp_folder,
+    Sensation7.Sensation.Data_folder,
     
 ]
 removefiles = [

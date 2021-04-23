@@ -16,3 +16,4 @@ OutputDebug.pyで処理が通るか確認する
 Trainが必要な場合は書く。
 	設定項目などはOutput.pyやconfig.pyの内部に書くと調整がしやすい。
 	dtypeで型を決めることを忘れずに。
+

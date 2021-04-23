@@ -22,7 +22,7 @@ from torchaudio.transforms import Spectrogram
 class Sensation(SensationBase):
     MemoryFormat:str = '7'# your process memory format (id[0])
     LogTitle:str = f'sensation{MemoryFormat}'
-    ReadOutLength:int = 16384 # ReadOutLength
+    ReadOutLength:int = 2**15 # ReadOutLength
     KeepLength:int = math.floor(ReadOutLength*0.7)  # ReadOutLength * 0.7
     MemoryListLength:int = math.floor(ReadOutLength*0.01)# 1% of ReadOutLength
     MemorySize:int = abs(int(np.prod(Encoder.output_size)))
@@ -150,7 +150,7 @@ class Sensation(SensationBase):
                 with open(self.Corpus_file,'a',encoding='utf-8') as f:
                     f.write(f'{self.text}\n')
                 #self.log('text',self.text)
-                #print(self.text)
+                print(self.LogTitle,self.text)
             self.text = ''
 
         return vectors

@@ -55,20 +55,21 @@ class Config:
     >>> from .sensation import Sensation
     """
     sensation_modules:tuple = ( #(Module_name, device, process group number)
-        ('Sensation1','cuda',1),
-        ('Sensation2','cuda',0),
-        #('Sensation3','cuda',1),
-        ('Sensation4','cuda',1),
-        ('Sensation5','cuda',0),
-        ('Sensation6','cuda',1)
+        ('Sensation1','cuda',1), # Vision
+        ('Sensation2','cuda',0), # audition
+        #('Sensation3','cuda',1), # kikitori 1
+        #('Sensation4','cuda',1),  # Mouse
+        ('Sensation5','cuda',0), # kyorokyro
+        #('Sensation6','cuda',1) # kikitori 1.5
+        ('Sensation7','cuda',1) # kikitori 2 mfcc2 kaburi1
     )
 
     ### outputs
     all_true_wait_time:float = 0.01
     output_modules:tuple = ( # (Module_name, device, process group number)
         #('OutputVision','cuda',0),
-        ('OutputMouse','cpu',2),
-        ('OutputOshaberi','cuda',0)
+        #('OutputMouse','cpu',2),
+        ('OutputOshaberi','cuda',0),
     )
 
     ### Trainer
@@ -83,7 +84,7 @@ class Config:
         "Sensation2",
         "Sensation6",
         "MemorySearch",
-        "outputOshaberi",
+        "OutputOshaberi",
     )
     train_wait:float = 5 #second
     
