@@ -14,7 +14,10 @@ import sentencepiece as spm
 import time
 from Sensation7.torch_KMeans import torch_KMeans
 from concurrent.futures import ThreadPoolExecutor
+"""
+This file is Output Oshaberi 2! Using MFCC2 kaburi1
 
+"""
 
 class Output(OutputBase):
     LogTitle:str = 'OutputOshaberi'
