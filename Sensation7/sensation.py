@@ -23,7 +23,7 @@ class Sensation(SensationBase):
     MemoryFormat:str = '7'# your process memory format (id[0])
     LogTitle:str = f'sensation{MemoryFormat}'
     ReadOutLength:int = 2**15 # ReadOutLength
-    KeepLength:int = math.floor(ReadOutLength*0.7)  # ReadOutLength * 0.7
+    KeepLength:int = math.floor(ReadOutLength*0.8)  # ReadOutLength * 0.7
     MemoryListLength:int = math.floor(ReadOutLength*0.01)# 1% of ReadOutLength
     MemorySize:int = abs(int(np.prod(Encoder.output_size)))
     SameThreshold:float = 0.001 # The Threshold of memory error.
