@@ -27,6 +27,7 @@ class Output(OutputBase):
 
     SleepWaitTime:float = 2
     MaxFrameRate:int = 30
+    a_SpeakMaxLength:float = int(5//config.recognize_second)*config.recognize_length
 
     Current_directory:str = os.path.dirname(os.path.abspath(__file__)) # /Current_directory/...  from root
     Param_folder:str = pathjoin(Current_directory,'params') # /Current_directory/params/
@@ -129,7 +130,7 @@ class Output(OutputBase):
         wavevoice = wavevoice.detach().numpy().reshape(-1)[:-kiritorilen]
         wavevoice = np.round(wavevoice*config.sample_range).astype(config.audio_dtype)
         if self.SpeakVoice is None:
-            self.SpeakVoice = wavevoice
+            self.SpeakVoice = wavevoice[:self.a_SpeakMaxLength]
         else:
             #print('skipped')
             pass
