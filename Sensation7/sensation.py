@@ -127,10 +127,10 @@ class Sensation(SensationBase):
         vectors = None
         if isHuman:
             data = data.squeeze().float()
-            if not self.textstart:
-                data = self.soundarray.clone()
-            else:
-                data = self.soundarray[-config.check_CHUNK:]
+            #if not self.textstart:
+            #    data = self.soundarray.clone()
+            #else:
+            data = self.soundarray[-config.check_CHUNK:]
             data[1:] =  data[1:] - config.MFCC_p*data[:-1]
             data = data.view(-1,config.recognize_length)
             data = torch.abs(torch.fft.rfft(data))
