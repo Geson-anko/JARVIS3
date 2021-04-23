@@ -112,7 +112,8 @@ class Output(OutputBase):
                     break
             time.sleep(config.recognize_second)
         voicevec = []
-        #print(text)
+        text = self.Zenkaku2Hankaku(text)
+        print(self.LogTitle,text)
         for i in text:
             if i in self.charactors:
                 voicevec.append(self.centroids[self.charactors.index(i)])
@@ -144,6 +145,15 @@ class Output(OutputBase):
         self.stream.close()
         self.audio.terminate()
 
+    hankakukatakana = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜｦﾝ'
+    zenkakukatakana = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン'
+    def Zenkaku2Hankaku(self,text:str) -> str:
+        chars = []
+        for i in text:
+            if i in self.zenkakukatakana:
+                i = self.hankakukatakana[self.zenkakukatakana.index(i)]
+            chars.append(i)
+        return ''.join(chars)
 
     actting:bool = True
     def Speak(self):
