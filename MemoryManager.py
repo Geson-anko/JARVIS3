@@ -112,7 +112,8 @@ class MemoryManager(Debug):
     return_time:bool = False
 
     device:torch.device = torch.device('cpu')
-    
+    dtype:np.dtype = np.float32
+    torchdtype:torch.dtype = torch.float32
 
     def __init__(self,log_title:str='',debug_mode:bool=False) -> None:
         """
@@ -130,7 +131,40 @@ class MemoryManager(Debug):
         self.memory_format_integers = np.arange(len(Config.IDchars)+1,dtype=Config.ID_dtype)*a
 
     def ToDevice(self,x:Tensor) ->Tensor:
+        """
+        Send input Tensor to arbitrary device.
+        """
         return x.to(self.device)
+
+    def LoadPytorchModel(
+            self,
+            model:torch.nn.Module,
+            parameter_file:str,
+            dtype:torch.dtype=None,
+            eval_mode:bool = True,
+            device:torch.device=None,
+        ) -> torch.nn.Module:
+        """
+        Load Model and send to device.
+        model   : your AI model. Please instance.
+        parameter_file  : path
+        device  : If None, Using default device.(Please check MasterConfig)
+        dtype   : If None, Using default dtype. Please modify self.torchdtype if you want to arbitrary dtype.
+        eval_mode  : evaluating mode
+        """
+        if device is None:
+            device = self.device
+        if dtype is None:
+            dtype = self.dtype
+
+        model.load_state_dict(torch.load(parameter_file,map_location='cpu'))
+        model = model.to(dtype).to(device)
+        if eval_mode:
+            model.eval()
+            self.log('loaded eval mode',parameter_file,debug_only=True)
+        self.log('loaded',parameter_file)
+        return model
+
 
 
     def Num2Id(self,num:int) -> str:
