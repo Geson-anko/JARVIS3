@@ -1,6 +1,7 @@
 import os
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__),'..'))
+from os.path import join as pathjoin
 import torch
 import numpy as np
 

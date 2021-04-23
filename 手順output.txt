@@ -1,1 +1,14 @@
 まずは必要なファイルをすべてフォルダに入れる。相対インポートなどを整えることを忘れずに。
+output.pyの内部を編集する
+	必要なクラス定数をフィールドに書く。
+	LogTitleを設定し、使う記憶フォーマットを文字列型で指定する。
+	MaxMemoryLength, UseMemoryLowerLimit, SleepWaitTime, MaxFrameRateを設定する
+	dtypeやtorchdtypeを指定するとUpdate関数の返り値の型がそれになる。
+
+	LoadModelsに睡眠処理時に変更される可能性のあるAIモデルの読み込みを書く。
+	Start関数に必要な処理を書く。
+	Update関数に必要な処理を書く。
+	UpdateEnd関数に必要な処理があれば書く。
+	End関数に必要な処理があれば書く。
+
+OutputDebug.pyで処理が通るか
