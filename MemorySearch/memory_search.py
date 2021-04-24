@@ -68,8 +68,9 @@ class MemorySearch(MemoryManager):
             self.log('loaded Temporary Memory')
 
         # set default value
-        old_memlist = [copy.deepcopy(i) for i in mem_lists]
+        old_memlist = [i.copy() for i in mem_lists]
         old_ids = [i.value for i in newest_ids]
+        self.empty_memlist = np.ndarray(shape=(0,),dtype=mconf.ID_dtype)
 
         self.log('Temporary Memory Length:',templen)
         self.log('Memory Dictionary Length:',len(MemoryDict))
@@ -84,7 +85,7 @@ class MemorySearch(MemoryManager):
 
             # modified check
             new_memlist = [i.copy() for i in mem_lists]
-            modified_memlist = [i if self.mem_list_modified(i,q) else [] for i,q in zip(new_memlist,old_memlist)]
+            modified_memlist = [i if self.mem_list_modified(i,q) else self.empty_memlist for i,q in zip(new_memlist,old_memlist)]
             old_memlist = new_memlist
             # Update Temporary Memory
             c_tmp = TempMemory.copy()
@@ -102,7 +103,7 @@ class MemorySearch(MemoryManager):
 
             ## Update Memory Dictionary
             _newids = [i.value for i in newest_ids]
-            modified_ids = [i for i,q in zip(_newids,old_ids) if i != q]
+            modified_ids = np.array([i for i,q in zip(_newids,old_ids) if i != q],dtype=mconf.ID_dtype)
             old_ids = _newids
             #idxes = np.arange(-config.max_connection,c_len)
             #idxes[:config.max_connection][idxes[:config.max_connection] < -c_len] = -c_len
@@ -159,7 +160,7 @@ class MemorySearch(MemoryManager):
         return modified
 
     def Search(self,ID_list:ID_list_type,mem_dict:MemDict_type) -> ID_list_type:
-        self.searched_id = [[]]
+        self.searched_id = [self.empty_memlist]
         for i in ID_list:
             try:
                 self.searched_id.append(mem_dict[i])
