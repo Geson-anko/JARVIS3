@@ -11,3 +11,7 @@ Anaconda3 https://www.anaconda.com/
 Our theory of J.A.R.V.I.S. is created by me and Kazuya Ohyanagi in summer 2020.  
 We definded the "Thinking" as to connect and track a memory to other memory.
 So J.A.R.V.I.S. theory produce the modeling of "Thinking" or the brain.
+
+# structure
+## the simple flow chart.
+![flow chart](JARVIS_flowchart.png)
