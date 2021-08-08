@@ -11,7 +11,7 @@ So J.A.R.V.I.S. theory produce the modeling of "Thinking" or the brain.
 
 # structure
 ## the simple flow chart.
-![flow chart](JARVIS_flowchart.png)
+![flow chart](images/JARVIS_flowchart.png)
   
 ## step 1, Symbolizing  W
 
