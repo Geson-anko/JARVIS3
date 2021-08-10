@@ -10,13 +10,13 @@ So J.A.R.V.I.S. theory produce the modeling of "Thinking" or the brain.
 “J.A.R.V.I.S. “ I made is very large AutoEncoder. So it isn’t completely and its object is NOT to solve problems.  
 
 # structure
-## the simple flow chart.
+## A simple flow chart.
 ![flow chart](images/JARVIS_flowchart.png)
   
-## step 1, Symbolizing  
+## step 1, Symbolizing.
 __"Q, How does J.A.R.V.I.S process all the information as well as other information?"  
-A, Quantizing.__    
-J.A.R.V.I.S quantize the memory (input data through the encoder) from previous memories.[1]  
+A, Symbolizing.__    
+J.A.R.V.I.S symbolize (quantize) the memory (input data through the encoder) from previous memories.[1]  
 So we can change the memory to ID.( and can use the Word2Vector's approch too.)
 
 [1] previous memories is collected through the life of J.A.R.V.I.S. And the exact approch is to meause the distance from the previous memory and get the memory tensor and its ID, which is the minimum distance.  
